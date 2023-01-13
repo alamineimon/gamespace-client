@@ -16,7 +16,8 @@ const NavbarTop = () => {
           title="Games space"
           className="inline-flex items-center"
         >
-          <img src={headerLogo} alt="headerLogo" />
+          <p className="text-2xl text-white font-bold">Game Space</p>
+          {/* <img src={headerLogo} alt="headerLogo" /> */}
         </Link>
         <ul className=" items-center hidden space-x-8 lg:flex">
           <li>
