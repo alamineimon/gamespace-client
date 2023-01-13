@@ -4,7 +4,8 @@ import { BiSearch } from "react-icons/bi";
 import "./NavbarBottom.css";
 
 const NavbarBottom = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <div>
             <div className='navbarBottomBG p-3'>
@@ -20,10 +21,9 @@ const NavbarBottom = () => {
                                     Home
                                 </Link>
                             </li>
-
                             <li>
                                 <Link
-                                    to='/shop'                                  
+                                    to='/shop'
                                     className='font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400'
                                 >
                                     Shop
@@ -40,10 +40,10 @@ const NavbarBottom = () => {
 
                             <li>
                                 <Link
-                                    to='/aboute'                                  
+                                    to='/aboute'
                                     className='font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400'
                                 >
-                                   Aboute
+                                    Aboute
                                 </Link>
                             </li>
 
@@ -71,20 +71,21 @@ const NavbarBottom = () => {
                                     HTML Games
                                 </Link>
                             </li>
-
-
                         </ul>
-                        <Link
-                            to='/'
-                            className='inline-flex items-center'
-                        >
-                            {/* <img className='w-10' src={logo} alt="" /> */}
-                            <BiSearch className='text-2xl'></BiSearch>
-                        </Link>
+
+                        <fieldset className=" inline-flex items-center space-y-">
+                            <label for="Search" className="hidden">Search</label>
+                            <div className="relative">
+                                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                                <BiSearch className='text-1xl absolute justify-center items-center cursor-pointer'></BiSearch>
+                                </span>
+                                <input type="search" name="Search" placeholder="Search..." className='bg-gray-600 focus:bg-gray-200 text-gray-800 focus:outline-none focus:shadow-outline rounded-3xl pl-7 pr-3 py-1'  />
+                            </div>
+                        </fieldset>
                         <div className='lg:hidden'>
                             <button
                                 aria-label='Open Menu'
-                              
+
                                 className='p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50'
                                 onClick={() => setIsMenuOpen(true)}
                             >
@@ -105,15 +106,14 @@ const NavbarBottom = () => {
                             </button>
                             {isMenuOpen && (
                                 <div className='absolute top-0 left-0 w-full z-10 '>
-                                    <div className='p-5 bg-violet-600 border rounded shadow-sm'>
+                                    <div className='p-5 bg-gray-800 border rounded shadow-sm'>
                                         <div className='flex items-center justify-between mb-4'>
                                             <div>
                                             </div>
                                             <div>
                                                 <button
                                                     aria-label='Close Menu'
-                                                  
-                                                    className='p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
+                                                    className='p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-500  focus:bg-gray-200 focus:outline-none focus:shadow-outline'
                                                     onClick={() => setIsMenuOpen(false)}
                                                 >
                                                     <svg className='w-5 text-gray-100' viewBox='0 0 24 24'>
@@ -126,7 +126,6 @@ const NavbarBottom = () => {
                                             </div>
                                         </div>
                                         <nav>
-
                                             <ul className='space-y-4'>
                                                 <li>
                                                     <Link
@@ -173,7 +172,7 @@ const NavbarBottom = () => {
                                                 </li>
                                                 <li>
                                                     <Link
-                                                        to='/support'                                                      
+                                                        to='/support'
                                                         className='font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400'
                                                     >
                                                         Support
@@ -181,7 +180,7 @@ const NavbarBottom = () => {
                                                 </li>
                                                 <li>
                                                     <Link
-                                                        to='/htmlgame'                                                      
+                                                        to='/htmlgame'
                                                         className='font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400'
                                                     >
                                                         HTML Game
