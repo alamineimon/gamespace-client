@@ -8,7 +8,7 @@ import { FaFacebook, FaTwitter, FaPinterest, FaGoogle } from "react-icons/fa";
 const NavbarTop = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="px-4 py-3 hidden lg:block mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bg-[#00103A]">
+    <div className="px-4 py-3 hidden lg:block mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bg-transparent">
       <div className="relative flex items-center justify-between">
         <Link
           to="/"
@@ -69,14 +69,18 @@ const NavbarTop = () => {
             </div>
           </li>
           <li>
-            <Link
+            <Link className="bg-blue-700 rounded ml-16 text-white sm:mb-16 text-lg uppercase font-semibold px-12 py-3">
+              {" "}
+              Join Now
+            </Link>
+            {/* <Link
               to="/login"
               aria-label="login"
               title="login"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               <Button name={"Join Us"}></Button>
-            </Link>
+            </Link> */}
           </li>
         </ul>
         <div className="lg:hidden">
@@ -112,8 +116,7 @@ const NavbarTop = () => {
                       title="Company"
                       className="inline-flex items-center"
                     >
-                     <img src={headerLogo} alt="header-logo" />
-                     
+                      <img src={headerLogo} alt="header-logo" />
                     </Link>
                   </div>
                   <div>

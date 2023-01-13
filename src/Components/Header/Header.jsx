@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="justify-between sm:h-[900px] lg:h-[500px] w-full lg:flex overflow-hidden p-10">
+    <div className="justify-between sm:h-[900px] lg:h-[700px] w-full lg:flex overflow-hidden p-10">
       <div className="lg:w-1/2 sm:w-full mt-8 sm:mb-16 text-white ">
         <p className="text-5xl mt-12 mb-6 font-bold ml-16">
           All Your Game Is Here...
