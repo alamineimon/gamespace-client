@@ -73,7 +73,7 @@ const NavbarBottom = () => {
             </ul>
 
             <fieldset className=" inline-flex items-center space-y-">
-              <label for="Search" className="hidden">
+              <label htmlFor="Search" className="hidden">
                 Search
               </label>
               <div className="relative">

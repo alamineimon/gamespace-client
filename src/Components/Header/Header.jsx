@@ -14,11 +14,9 @@ const Header = () => {
         </p>
         <div>
           <Link className="bg-blue-700 rounded ml-16 text-white sm:mb-16 text-lg uppercase font-semibold px-12 py-3">
-            {" "}
             Join Now
           </Link>
           <Link className="bg-blue-700 rounded ml-2 text-white sm:mb-16 text-lg uppercase font-semibold px-12 py-3">
-            {" "}
             Browse game
           </Link>
         </div>

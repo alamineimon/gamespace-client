@@ -1,0 +1,37 @@
+[
+  {
+    "gameTitle": "Geoffrey Turner",
+    "gameVideoUrl": "https://i.ibb.co/f17pDRw/optimized.webp",
+    "shortDescription": "ut quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula.",
+    "price": 22,
+    "gameBanner": "https://i.ibb.co/f17pDRw/optimized.webp"
+  },
+  {
+    "gameTitle": "Kevyn Patterson",
+    "gameVideoUrl": "https://i.ibb.co/f17pDRw/optimized.webp",
+    "shortDescription": "nec, euismod in, dolor. Fusce feugiat. Lorem ipsum dolor sit",
+    "price": 22,
+    "gameBanner": "https://i.ibb.co/f17pDRw/optimized.webp"
+  },
+  {
+    "gameTitle": "Thor Carver",
+    "gameVideoUrl": "https://i.ibb.co/f17pDRw/optimized.webp",
+    "shortDescription": "mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam",
+    "price": 22,
+    "gameBanner": "https://i.ibb.co/f17pDRw/optimized.webp"
+  },
+  {
+    "gameTitle": "Craig Waters",
+    "gameVideoUrl": "https://i.ibb.co/f17pDRw/optimized.webp",
+    "shortDescription": "augue malesuada malesuada. Integer id magna et ipsum cursus vestibulum.",
+    "price": 22,
+    "gameBanner": "https://i.ibb.co/f17pDRw/optimized.webp"
+  },
+  {
+    "gameTitle": "Griffith Mcdowell",
+    "gameVideoUrl": "https://i.ibb.co/f17pDRw/optimized.webp",
+    "shortDescription": "ultricies ligula. Nullam enim. Sed nulla ante, iaculis nec, eleifend",
+    "price": 22,
+    "gameBanner": "https://i.ibb.co/f17pDRw/optimized.webp"
+  }
+]
