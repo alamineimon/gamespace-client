@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const HeroSection = () => {
   return (
-    <div className="justify-between sm:h-[900px] lg:h-[700px] w-full lg:flex overflow-hidden p-10">
+    <div className=" min-h-[600px] justify-between items-center  lg:flex overflow-hidden p-10">
       <div className="lg:w-1/2 sm:w-full mt-8 sm:mb-16 text-white ">
-        <p className="text-5xl mt-12 mb-6 font-bold ml-16">
-          All Your Game Is Here...
+        <p className="text-7xl mt-12 mb-6 font-bold ml-16">
+          Unleash the gamer in you
         </p>
         <p className="text-lg ml-16 mb-8">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-          fugit laborum facilis.
+          Discover the latest in gaming news, reviews, and gameplay on our
+          website.
         </p>
         <div>
           <Link className="bg-blue-700 rounded ml-16 text-white sm:mb-16 text-lg uppercase font-semibold px-12 py-3">
@@ -32,4 +32,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeroSection;

@@ -1,9 +1,9 @@
-.navbarBottomBG{
-    width: 80%;
-    margin: auto;
-    background-color: rgb(38, 37, 39);
-    color: white;
+.navbarBottomBG {
+  width: 90%;
+  margin: auto;
+  background-color: #1d4ed8;
+  color: white;
 }
-ul li a:hover{
-color: rgb(1, 202, 51);
-} 
+ul li a:hover {
+  color: rgb(1, 202, 51);
+}
