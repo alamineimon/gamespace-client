@@ -1,0 +1,6 @@
+.navv{
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url(../../../assets/images/bgColor.jpg);
+}
