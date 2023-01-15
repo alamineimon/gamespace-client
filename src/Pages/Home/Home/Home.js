@@ -10,7 +10,6 @@ const Home = () => {
       {/* <Header /> */}
       <HeroSection />
       <FeatureSection />
-   
       <GameSlider />
     </div>
   );
