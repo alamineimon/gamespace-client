@@ -8,7 +8,7 @@ const GamesCards = ({ game }) => {
         <img src={gameBanner} alt={gameTitle} className="w-full object-cover" />
       </figure>
       <div className="card-body ">
-        <h2 className="card-title text-blue-900 font-bold">{gameTitle}</h2>
+        <h2 className="card-title text-blue-800 font-bold">{gameTitle}</h2>
         <p className="text-slate-600">{shortDescription}</p>
         <div className="card-actions justify-between items-end">
           <h6 className="text-xl lg:text-3xl font-bold text-slate-900">
