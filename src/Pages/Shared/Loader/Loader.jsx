@@ -13,4 +13,8 @@ const Loader = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Loader;
+=======
+export default Loader;
+>>>>>>> fdf7ca70c73e6951cee6b4200c8018fd460633cd

@@ -1,8 +1,14 @@
 .navbarBottomBG {
   width: 90%;
+  height: 50px;
   margin: auto;
-  background-color: #1d4ed8;
   color: white;
+  z-index: 5;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../../../../assets/images/bgColor2.jpg);
 }
 ul li a:hover {
   color: rgb(1, 202, 51);
