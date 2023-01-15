@@ -1,0 +1,58 @@
+[
+    {
+      "id": "01",
+      "title": "Hulu hires Google marketing veteran Kelly Campbell as CMO",
+      "img": "https://i.ibb.co/j3V3ZDY/15.jpg",
+      "description": "Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totamrem aperiam, eaque ipsa quae ab illo inventore",
+      " price": "450",
+      "ratings": "4.5",
+      "videolink": "https://www.youtube.com/watch?v=r72GP1PIZa0&t=44s"
+    },
+    {
+      "id": "02",
+      "name": "Microbus Cars",
+      "img": "https://images.pexels.com/photos/11139395/pexels-photo-11139395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "",
+      " price": "550",
+      "ratings": "5.0",
+      "videolink": ""
+    },
+    {
+      "id": "03",
+      "name": "Luxury Cars",
+      "img": "https://images.pexels.com/photos/2127037/pexels-photo-2127037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "",
+      " price": "230",
+      "ratings": "4.5",
+      "videolink": ""
+    },
+     {
+      "id": "04",
+      "name": "Luxury Cars",
+      "img": "https://images.pexels.com/photos/2127037/pexels-photo-2127037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "description": "",
+      " price": "430",
+      "ratings": "4.5",
+      "videolink": ""
+    }
+    ,
+     {
+       "id": "05",
+       "name": "Luxury Cars",
+       "img": "https://images.pexels.com/photos/2127037/pexels-photo-2127037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+       "description": "",
+       " price": "690",
+       "ratings": "5.0",
+       "videolink": ""
+     },
+      {
+        "id": "06",
+        "name": "Luxury Cars",
+        "img": "https://images.pexels.com/photos/2127037/pexels-photo-2127037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "description": "",
+        " price": "990",
+        "ratings": "4.9",
+        "videolink": ""
+      }
+    
+  ]
