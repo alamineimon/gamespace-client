@@ -28,10 +28,10 @@ const Register = () => {
                     displayName: data.name
                 }
                 updateUser(userInfo)
-                .then(() => {
-                    saveUser(data.name, data.email);
-                    navogate(from, { replace: true })
-                    toast.success("User Create Succesfully");
+                    .then(() => {
+                        saveUser(data.name, data.email);
+                        navogate(from, { replace: true })
+                        toast.success("User Create Succesfully");
                     })
                     .catch(err => console.log(err));
 
@@ -47,17 +47,17 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 const userInfo = {
-                    displayName:user.displayName,
-                    uid:user.uid,
-                    email:user.email
+                    displayName: user.displayName,
+                    uid: user.uid,
+                    email: user.email
                 }
-                
+
                 updateUser(userInfo)
-                .then(() => {
-                    saveUser(userInfo.displayName, userInfo.email, user.uid);
-                    toast.success("Login Successfully")
-                    navogate(from, { replace: true })
-                       
+                    .then(() => {
+                        saveUser(userInfo.displayName, userInfo.email, user.uid);
+                        toast.success("Login Successfully")
+                        navogate(from, { replace: true })
+
                     })
                     .catch(err => console.log(err));
 
@@ -68,7 +68,7 @@ const Register = () => {
     }
     const saveUser = (name, email) => {
         setCreateUserEmail(name, email);
-       
+
     }
 
 
@@ -109,7 +109,7 @@ const Register = () => {
                         </div>
                         <br />
 
-                        <input className='btn bg-sky-600 w-full text-white' value="Sign Up" type="submit" />
+                        <input className='btn border-none bg-sky-600 w-full text-white' value="Sign Up" type="submit" />
                         <div>
                             {
                                 signUpError && <p className='text-orange-400'>{signUpError}</p>
@@ -118,8 +118,8 @@ const Register = () => {
                     </form>
                     <p className="divider text-sm">OR LOGIN WITH</p>
                     <div className='flex justify-between gap-5 w-full'>
-                        <button onClick={handlerGoogleSignin} className='btn btn-outline text-white normal-case w-lg'><FcGoogle className='text-2xl m-2'></FcGoogle> Google</button>
-                        <button onClick={handlerGoogleSignin} className='btn btn-outline border-none bg-blue-700 w-lg text-white normal-case'><BsFacebook className='text-2xl m-2 text-whait' ></BsFacebook> Facebook</button>
+                        <button onClick={handlerGoogleSignin} className='btn btn-outline text-white normal-case w-2/5'><FcGoogle className='text-2xl mr-2'></FcGoogle> Google</button>
+                        <button onClick={handlerGoogleSignin} className='btn btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
                     </div>
                     <p className='mt-4 mb-8 text-center'> Alrady Habe an Account <Link className='text-blue-500 font-bold underline' to='/login'>Please Login !</Link></p>
                 </div>

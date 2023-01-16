@@ -61,7 +61,7 @@ const Login = () => {
 
     return (
         <div className="hero min-h-16" style={{ backgroundImage: `url(${img})` }}>
-        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-overlay bg-opacity-80"></div>
             <div className='card drop-shadow-2xl border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white p-4 rounded-lg my-12'>
                 <div >
                     <h2 className="text-4xl font-bold text-center mb-7">Login !</h2>
@@ -95,7 +95,7 @@ const Login = () => {
                             </b>
                         </div>
 
-                        <input className='btn bg-sky-600 w-full text-white' value="Login" type="submit" />
+                        <input className='btn border-none bg-sky-600 w-full text-white' value="Login" type="submit" />
                         <div>
                             {
                                 loginError && <p className='text-orange-400'>{loginError}</p>
@@ -104,8 +104,8 @@ const Login = () => {
                     </form>
                     <p className="divider text-sm">OR LOGIN WITH</p>
                     <div className='flex justify-between gap-5 w-full'>
-                        <button onClick={handlerGoogleSignin} className='btn btn-outline text-white normal-case w-lg'><FcGoogle className='text-2xl m-2'></FcGoogle> Google</button>
-                        <button onClick={handlerGoogleSignin} className='btn btn-outline border-none bg-blue-700 w-lg text-white normal-case'><BsFacebook className='text-2xl m-2 text-whait' ></BsFacebook> Facebook</button>
+                        <button onClick={handlerGoogleSignin} className='btn btn-outline text-white normal-case w-2/5'><FcGoogle className='text-2xl mr-2'></FcGoogle> Google</button>
+                        <button onClick={handlerGoogleSignin} className='btn btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
                     </div>
                     <p className='mt-4 mb-8 text-center'> New to Game Space <Link className='text-blue-500 font-bold underline' to='/register'>Create new Account</Link></p>
                 </div>
