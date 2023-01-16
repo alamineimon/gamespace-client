@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(../../assets/images/bgColor5.jpg);
+    url(../../../../assets/images/bgColor2.jpg);
 }
 .parallelogram1 {
   width: 200px;
@@ -17,7 +17,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(../../assets/images/bgColor3.jpg);
+    url(../../../../assets/images/bgColor3.jpg);
 }
 .parallelogram2 {
   width: 200px;
@@ -30,7 +30,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(../../assets/images/bgColor4.jpg);
+    url(../../../../assets/images/bgColor4.jpg);
 }
 .squareBg {
   top: 0;
