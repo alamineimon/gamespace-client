@@ -1,0 +1,38 @@
+.featureBg {
+  height: 600px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../../../../assets/images/bgColor2.jpg);
+}
+.parallelogram1 {
+  width: 200px;
+  height: 360px;
+  top: 10%;
+  left: 10%;
+  border: 1px solid yellow;
+  transform: skew(-20deg);
+  /* background: red; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../../../../assets/images/bgColor3.jpg);
+}
+.parallelogram2 {
+  width: 200px;
+  top: 0;
+  right: 20%;
+  height: 360px;
+  border: 1px solid yellow;
+  transform: skew(-20deg);
+  /* background: blue; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../../../../assets/images/bgColor4.jpg);
+}
+.squareBg {
+  top: 0;
+  right: 0;
+}

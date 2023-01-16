@@ -1,10 +1,11 @@
 import React from 'react';
 import NavbarBottom from './NavbarBottom/NavbarBottom';
 import NavbarTop from './NavbarTop/NavbarTop';
+import './Nav.css'
 
 const Navbar = () => {
     return (
-        <div>
+        <div className='navv'>
             <NavbarTop/>
             <NavbarBottom/>
         </div>

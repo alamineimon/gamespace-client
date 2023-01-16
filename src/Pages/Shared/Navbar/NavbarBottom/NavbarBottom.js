@@ -7,15 +7,15 @@ const NavbarBottom = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div>
+    <div className="mt-4">
       <div className="navbarBottomBG p-3">
-        <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-          <div className="relative flex items-center justify-between">
-            <ul className="items-center hidden space-x-8 lg:flex">
+        <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+          <div className="relative flex items-center justify-center">
+            <ul className="items-center justify-center hidden space-x-8 lg:flex">
               <li>
                 <Link
                   to="/home"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Home
                 </Link>
@@ -23,7 +23,7 @@ const NavbarBottom = () => {
               <li>
                 <Link
                   to="/shop"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Shop
                 </Link>
@@ -31,7 +31,7 @@ const NavbarBottom = () => {
               <li>
                 <Link
                   to="/game"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Game
                 </Link>
@@ -40,7 +40,7 @@ const NavbarBottom = () => {
               <li>
                 <Link
                   to="/aboute"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Aboute
                 </Link>
@@ -49,7 +49,7 @@ const NavbarBottom = () => {
               <li>
                 <Link
                   to="/blog"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Blog
                 </Link>
@@ -57,7 +57,7 @@ const NavbarBottom = () => {
               <li>
                 <Link
                   to="/support"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Support
                 </Link>
@@ -65,14 +65,14 @@ const NavbarBottom = () => {
               <li>
                 <Link
                   to="/htmlgames"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-bold uppercasetracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   HTML Games
                 </Link>
               </li>
             </ul>
 
-            <fieldset className=" inline-flex items-center space-y-">
+            {/* <fieldset className=" inline-flex items-center space-y-">
               <label htmlFor="Search" className="hidden">
                 Search
               </label>
@@ -87,7 +87,7 @@ const NavbarBottom = () => {
                   className="bg-white/10 focus:bg-white/25 text-gray-800 focus:outline-none focus:shadow-outline rounded-3xl pl-7 pr-3 py-1 focus:text-white"
                 />
               </div>
-            </fieldset>
+            </fieldset> */}
             <div className="lg:hidden">
               <button
                 aria-label="Open Menu"
