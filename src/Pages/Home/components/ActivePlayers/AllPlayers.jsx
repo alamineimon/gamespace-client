@@ -16,12 +16,12 @@ const AllPlayers = () => {
       }
   return (
     <div className="py-6 pt-10 bg-gray-400 activePlayer ">
-    <p className="text-3xl text-blue-400 font-bold text-center uppercase">
-      Active Player
+    <p className="text-3xl text-yellow-500 font-bold text-center uppercase">
+      All Players
     </p>
     <div className="grid grid-cols-8 mt-12 px-16 gap-6">
       {players.map((player, i) => (
-        <img src={player.img} className="h-16 w-16 rounded-full border-2 border-red-500" alt="" />
+        <img src={player.img} className="h-16 w-16 hover:bg-yellow-300 hover:border-yellow-500 cursor-pointer rounded-full border-2 border-red-500" alt="" />
       ))}
     </div>
   </div>
