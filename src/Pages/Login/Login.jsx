@@ -62,7 +62,7 @@ const Login = () => {
 
     return (
         <div className="hero loginBG">
-            <div className='card drop-shadow-2xl border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white p-4 rounded-lg my-12'>
+            <div className='card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)]  shadow-black border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white py-4 px-6 rounded-none my-12'>
                 <div >
                     <h2 className="text-4xl font-bold text-center mb-7">Login !</h2>
                     <form onSubmit={handleSubmit(handelLogin)}>
@@ -70,14 +70,14 @@ const Login = () => {
                             <label className="label absolute ml-1">
                               <FiMail className='text-gray-700'></FiMail>
                             </label>
-                            <input type="email" className="input  bg-transparent input-bordered w-full text-black px-8"  name='email'  {...register("email",
+                            <input type="email" className="input rounded-none input-primary w-full text-black px-8"  name='email'  {...register("email",
                                 {
                                     onBlur: (event) => setresetEmail(event.target.value)
                                 },
                                 { required: "Email Address is required" })} placeholder='Email or Phone' />
                             {errors.email && <p className='text-orange-400'>{errors.email?.message}</p>}
                         </div>
-                        <div className="form-control w-full relative justify-center">
+                        <div className="form-control w-fullrelative justify-center">
                             <label className="label absolute ml-1">
                               <FaLock className='text-gray-700'></FaLock>
                             </label>
@@ -86,7 +86,7 @@ const Login = () => {
                                     required: "Password Address is required",
                                     minLength: { value: 6, message: "Password must be 6 characters or length" }
                                 })} placeholder='Password'
-                                className="input input-bordered w-full text-black px-8" />
+                                className="input input-bordered input-primary w-full rounded-none text-black px-8" />
                             {errors.password && <p className='text-orange-400'>{errors.password?.message}</p>}
                         </div>
                         <div className='my-3'>
@@ -104,10 +104,10 @@ const Login = () => {
                     </form>
                     <p className="divider text-sm">OR LOGIN WITH</p>
                     <div className='flex justify-between gap-5 w-full'>
-                        <button onClick={handlerGoogleSignin} className='btn btn-outline text-white normal-case w-2/5'><FcGoogle className='text-2xl mr-2'></FcGoogle> Google</button>
-                        <button onClick={handlerGoogleSignin} className='btn btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
+                        <button onClick={handlerGoogleSignin} className='btn rounded-none btn-outline text-white normal-case w-2/5'><FcGoogle className='text-2xl mr-2'></FcGoogle> Google</button>
+                        <button onClick={handlerGoogleSignin} className='btn rounded-none  btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
                     </div>
-                    <p className='mt-4 mb-8 text-center'> New to Game Space <Link className='text-blue-500 font-bold underline' to='/register'>Create new Account</Link></p>
+                    <p className='mt-4 mb-8 text-center'> New to Game Space ? <Link className='text-blue-500 font-bold underline' to='/register'>Create new Account</Link></p>
                 </div>
             </div>
         </div>
