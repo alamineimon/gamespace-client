@@ -86,7 +86,7 @@ const Login = () => {
                                     required: "Password Address is required",
                                     minLength: { value: 6, message: "Password must be 6 characters or length" }
                                 })} placeholder='Password'
-                                className="input input-bordered input-primary w-full rounded-none text-black px-8" />
+                                className="input input-bordered bg-none input-primary w-full rounded-none text-black px-8" />
                             {errors.password && <p className='text-orange-400'>{errors.password?.message}</p>}
                         </div>
                         <div className='my-3'>

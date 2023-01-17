@@ -84,14 +84,14 @@ const Register = () => {
                             <label className="label absolute ml-1">
                                 <BsPersonFill className='text-gray-700 text-xl'></BsPersonFill>
                             </label>
-                            <input type="name" name='name'  {...register("name", { required: "name Address is required" })} placeholder='User Name' className="input input-bordered rounded-none w-full text-black px-8" />
+                            <input type="name" name='name'  {...register("name", { required: "name Address is required" })} placeholder='User Name' className="input input-primary input-bordered rounded-none w-full text-black px-8" />
                             {errors.name && <p className='text-orange-400'>{errors.name?.message}</p>}
                         </div>
                         <div className="form-control w-full relative justify-center mb-5">
                             <label className="label absolute ml-1">
                                 <FiMail className='text-gray-700'></FiMail>
                             </label>
-                            <input type="email" name='email'  {...register("email", { required: "Email Address is required" })} placeholder='Email or Phone' className="input focus:bg-transparent rounded-none input-bordered w-full text-black px-8" />
+                            <input type="email" name='email'  {...register("email", { required: "Email Address is required" })} placeholder='Email or Phone' className="input input-primary focus:bg-transparent rounded-none input-bordered w-full text-black px-8" />
                             {errors.email && <p className='text-orange-400'>{errors.email?.message}</p>}
                         </div>
                         <div className="form-control w-full relative justify-center">
@@ -104,7 +104,7 @@ const Register = () => {
                                     minLength: { value: 6, message: "Password must be 6 characters or length" },
                                     // pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "Password must be Strong" }
                                 })} placeholder='Password'
-                                className="input input-bordered w-full rounded-none text-black px-8" />
+                                className="input input-bordered w-full rounded-none input-primary text-black px-8" />
                             {errors.password && <p className='text-orange-400'>{errors.password?.message}</p>}
                         </div>
                         <br />
