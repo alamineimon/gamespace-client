@@ -7,6 +7,7 @@ import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaLock } from 'react-icons/fa';
 import { FiMail } from "react-icons/fi";
+import './Login.css'
 import img from '../../assets/loginOrRegister/FmRTd-7XgAQCFsJ.jpg'
 
 const Login = () => {
@@ -60,8 +61,7 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-16" style={{ backgroundImage: `url(${img})` }}>
-        <div className="hero-overlay bg-opacity-80"></div>
+        <div className="hero loginBG">
             <div className='card drop-shadow-2xl border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white p-4 rounded-lg my-12'>
                 <div >
                     <h2 className="text-4xl font-bold text-center mb-7">Login !</h2>
@@ -70,11 +70,11 @@ const Login = () => {
                             <label className="label absolute ml-1">
                               <FiMail className='text-gray-700'></FiMail>
                             </label>
-                            <input type="email" name='email'  {...register("email",
+                            <input type="email" className="input  bg-transparent input-bordered w-full text-black px-8"  name='email'  {...register("email",
                                 {
                                     onBlur: (event) => setresetEmail(event.target.value)
                                 },
-                                { required: "Email Address is required" })} placeholder='Email or Phone' className="input input-bordered w-full text-black px-8" />
+                                { required: "Email Address is required" })} placeholder='Email or Phone' />
                             {errors.email && <p className='text-orange-400'>{errors.email?.message}</p>}
                         </div>
                         <div className="form-control w-full relative justify-center">
@@ -95,7 +95,7 @@ const Login = () => {
                             </b>
                         </div>
 
-                        <input className='btn border-none bg-sky-600 w-full text-white' value="Login" type="submit" />
+                        <input className='hover:bg-yellow-500 rounded border-2 mt-8 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2' value="Login" type="submit" />
                         <div>
                             {
                                 loginError && <p className='text-orange-400'>{loginError}</p>
