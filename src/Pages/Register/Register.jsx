@@ -8,6 +8,7 @@ import { BsFacebook, BsPersonFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { FaLock } from 'react-icons/fa';
 import { FiMail } from "react-icons/fi";
+import './Register.css'
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -74,8 +75,7 @@ const Register = () => {
 
 
     return (
-        <div className="hero min-h-16" style={{ backgroundImage: `url(${img})` }}>
-            <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero registerBG">
             <div className='card drop-shadow-2xl border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white p-4 rounded-lg my-12'>
                 <div >
                     <h2 className="text-4xl font-bold text-center mb-7">Sign Up !</h2>
@@ -91,7 +91,7 @@ const Register = () => {
                             <label className="label absolute ml-1">
                                 <FiMail className='text-gray-700'></FiMail>
                             </label>
-                            <input type="email" name='email'  {...register("email", { required: "Email Address is required" })} placeholder='Email or Phone' className="input input-bordered w-full text-black px-8" />
+                            <input type="email" name='email'  {...register("email", { required: "Email Address is required" })} placeholder='Email or Phone' className="input focus:bg-transparent input-bordered w-full text-black px-8" />
                             {errors.email && <p className='text-orange-400'>{errors.email?.message}</p>}
                         </div>
                         <div className="form-control w-full relative justify-center">
@@ -109,7 +109,7 @@ const Register = () => {
                         </div>
                         <br />
 
-                        <input className='btn border-none bg-sky-600 w-full text-white' value="Sign Up" type="submit" />
+                        <input className='hover:bg-yellow-500 rounded border-2 mt-8 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2' value="Sign Up" type="submit" />
                         <div>
                             {
                                 signUpError && <p className='text-orange-400'>{signUpError}</p>

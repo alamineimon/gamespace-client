@@ -1,0 +1,8 @@
+.registerBG{
+    height: 700px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url(https://i.ibb.co/KLBbmgc/4k-gaming-phone-league-of-legends-kalista-5sv5iqet0nbegj38.jpg);
+}
