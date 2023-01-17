@@ -76,7 +76,7 @@ const Register = () => {
 
     return (
         <div className="hero registerBG">
-            <div className='card drop-shadow-2xl border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white p-4 rounded-lg my-12'>
+            <div className='card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)] shadow-black border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto  text-white py-4 px-6 rounded-none my-12'>
                 <div >
                     <h2 className="text-4xl font-bold text-center mb-7">Sign Up !</h2>
                     <form onSubmit={handleSubmit(handelSignUp)}>
@@ -84,14 +84,14 @@ const Register = () => {
                             <label className="label absolute ml-1">
                                 <BsPersonFill className='text-gray-700 text-xl'></BsPersonFill>
                             </label>
-                            <input type="name" name='name'  {...register("name", { required: "name Address is required" })} placeholder='User Name' className="input input-bordered w-full text-black px-8" />
+                            <input type="name" name='name'  {...register("name", { required: "name Address is required" })} placeholder='User Name' className="input input-bordered rounded-none w-full text-black px-8" />
                             {errors.name && <p className='text-orange-400'>{errors.name?.message}</p>}
                         </div>
                         <div className="form-control w-full relative justify-center mb-5">
                             <label className="label absolute ml-1">
                                 <FiMail className='text-gray-700'></FiMail>
                             </label>
-                            <input type="email" name='email'  {...register("email", { required: "Email Address is required" })} placeholder='Email or Phone' className="input focus:bg-transparent input-bordered w-full text-black px-8" />
+                            <input type="email" name='email'  {...register("email", { required: "Email Address is required" })} placeholder='Email or Phone' className="input focus:bg-transparent rounded-none input-bordered w-full text-black px-8" />
                             {errors.email && <p className='text-orange-400'>{errors.email?.message}</p>}
                         </div>
                         <div className="form-control w-full relative justify-center">
@@ -104,7 +104,7 @@ const Register = () => {
                                     minLength: { value: 6, message: "Password must be 6 characters or length" },
                                     // pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "Password must be Strong" }
                                 })} placeholder='Password'
-                                className="input input-bordered w-full text-black px-8" />
+                                className="input input-bordered w-full rounded-none text-black px-8" />
                             {errors.password && <p className='text-orange-400'>{errors.password?.message}</p>}
                         </div>
                         <br />
@@ -118,10 +118,10 @@ const Register = () => {
                     </form>
                     <p className="divider text-sm">OR LOGIN WITH</p>
                     <div className='flex justify-between gap-5 w-full'>
-                        <button onClick={handlerGoogleSignin} className='btn btn-outline text-white normal-case w-2/5'><FcGoogle className='text-2xl mr-2'></FcGoogle> Google</button>
-                        <button onClick={handlerGoogleSignin} className='btn btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
+                        <button onClick={handlerGoogleSignin} className='btn rounded-none btn-outline text-white normal-case w-2/5'><FcGoogle className='text-2xl mr-2'></FcGoogle> Google</button>
+                        <button onClick={handlerGoogleSignin} className='btn rounded-none btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
                     </div>
-                    <p className='mt-4 mb-8 text-center'> Alrady Habe an Account <Link className='text-blue-500 font-bold underline' to='/login'>Please Login !</Link></p>
+                    <p className='mt-4 mb-8 text-center'> Alrady Habe an Account ? <Link className='text-blue-500 font-bold underline' to='/login'>Please Login !</Link></p>
                 </div>
             </div>
         </div>
