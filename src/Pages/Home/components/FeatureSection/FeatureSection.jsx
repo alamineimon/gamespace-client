@@ -20,18 +20,19 @@ const FeatureSection = () => {
         </p>
         <div className="ml-16 flex ">
           <p className="">
-            <Link className=" uppercase underline hover:text-yellow-500">Find team player</Link>
+            <Link className=" uppercase underline hover:text-yellow-500">
+              Find team player
+            </Link>
           </p>
           <p className="ml-6 uppercase underline hover:text-yellow-500">
-
-          <Link>Find community player</Link>
+            <Link>Find community player</Link>
           </p>
         </div>
       </div>
-      <div className="w-1/2  -mt-12  p-8 relative flex">
+      {/* <div className="w-1/2  -mt-12  p-8 relative flex">
         <div class="parallelogram1 absolute"></div>
         <div class="parallelogram2 absolute"></div>
-      </div>
+      </div> */}
     </div>
   );
 };
