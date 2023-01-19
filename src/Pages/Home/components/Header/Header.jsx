@@ -42,7 +42,7 @@ const Header = () => {
         Arcane gives you the power to create the perfect website for your  <br />
           team  and   community.A trully perfect theme for games !
         </p>
-        <div className="">
+        <div>
         <Link className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2">
               
               Join Now
