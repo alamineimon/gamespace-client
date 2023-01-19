@@ -6,7 +6,7 @@ import GameSlider from "./components/GameSlider/GameSlider";
 import Header from "./components/Header/Header";
 import Subcribtion from "./components/Subcribtion/Subcribtion";
 import ExtraFeatures from "./components/ExtraFeatures/ExtraFeatures";
-import ExperianceSection from "./components/FeatureSection/ExperianceSection";
+import ExperianceSection from "./components/ExperianceSection/ExperianceSection";
 
 const Home = () => {
   return (
