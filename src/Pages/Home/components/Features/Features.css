@@ -1,0 +1,28 @@
+/* .features{
+    background-image: url('https://img.freepik.com/free-photo/world-collapse-doomsday-scene-digital-painting_456031-63.jpg?size=626&ext=jpg&ga=GA1.1.207808977.1658386615&semt=sph');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+} */
+.features-image:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: inline-block;
+    background: linear-gradient(to right, #ff0bca 0%, rgba(251, 3, 148, 0) 100%);
+}
+.features-image-two:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: inline-block;
+    background: linear-gradient(to right, #ffd20b 0%, rgba(251, 3, 148, 0) 200%);
+}

@@ -13,7 +13,7 @@ const NavbarBottom = () => {
             <ul className="items-center justify-center hidden space-x-8 lg:flex">
               <li>
                 <Link
-                  to="/home"
+                  to="/"
                   className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   Home
@@ -41,7 +41,7 @@ const NavbarBottom = () => {
                   to="/aboute"
                   className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
-                  Aboute
+                  About
                 </Link>
               </li>
 

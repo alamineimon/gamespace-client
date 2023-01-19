@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { CgGames } from "react-icons/cg";
+import Loader from "../../../Shared/Loader/Loader";
 import GamesCards from "./GamesCards";
 
 const GameSlider = () => {
@@ -13,7 +14,7 @@ const GameSlider = () => {
     },
   });
   if (isLoading) {
-    return <div>Loading</div>;
+    return <Loader/>
   }
   return (
     <div className="bg-base-100 z-0">
