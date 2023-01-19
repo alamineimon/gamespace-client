@@ -4,7 +4,7 @@ import VideoModal from "../../../Shared/VideoModal/VideoModal";
 const GamesCards = ({ game }) => {
   const { title, description, price, img, videolink } = game;
   return (
-    <div className="card card-compact bg-secondary rounded group">
+    <div className="card card-compact cursor-pointer bg-secondary rounded-none group">
       <figure className="relative">
         <img
           src={img}
@@ -19,10 +19,10 @@ const GamesCards = ({ game }) => {
             <FaVideo className="text-white text-lg " />
           </label>
         )}
-        <span className="absolute bottom-3 left-[3%] text-sm p-2 rounded-full bg-black/75 text-white hover:text-primary backdrop-blur">
+        <span className="absolute cursor-pointer bottom-3 left-[3%] text-sm p-2 rounded-none bg-black/75 text-white hover:text-primary backdrop-blur">
           Category 1
         </span>
-        <span className="absolute bottom-3 left-[30%] text-sm p-2 rounded-full bg-black/75 text-white hover:text-primary backdrop-blur">
+        <span className="absolute cursor-pointer ml-4 bottom-3 left-[30%] text-sm p-2 rounded-none bg-black/75 text-white hover:text-primary backdrop-blur">
           Category 2
         </span>
       </figure>
@@ -33,7 +33,7 @@ const GamesCards = ({ game }) => {
           <h6 className="text-xl lg:text-3xl font-bold text-mainHeading">
             ${price}
           </h6>
-          <button className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded font-bold bg-primary uppercase  ">
+          <button className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase  ">
             See Details
           </button>
         </div>

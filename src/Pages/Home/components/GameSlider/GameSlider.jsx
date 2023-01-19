@@ -18,7 +18,7 @@ const GameSlider = () => {
   }
   return (
     <div className="bg-base-100 z-0">
-      <div className=" w-[90%] mx-auto py-20">
+      <div className=" w-[90%] mx-auto py-16">
         <div className="flex justify-center">
           <CgGames className="text-6xl text-primary" />
         </div>
