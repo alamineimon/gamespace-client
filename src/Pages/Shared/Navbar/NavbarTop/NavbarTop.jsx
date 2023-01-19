@@ -65,7 +65,7 @@ const NavbarTop = () => {
                   className="bg-[#1c1d55] cursor-pointer border-none text-xl"
                   value="English"
                 >
-                  EN
+                  ENG
                 </option>
               </select>
             </div>
