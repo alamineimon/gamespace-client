@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import headerLogo from "../../../../assets/images/logo.png";
 import Button from "../../Button/Button";
 import "./NavbarTop.css";
-import { FaFacebook, FaTwitter, FaPinterest, FaGoogle , FaGlobeAmericas } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaPinterest,
+  FaGoogle,
+  FaGlobeAmericas,
+} from "react-icons/fa";
+import { AuthContext } from "../../../../context/AuthProvider";
+import ProfileDropDown from "../ProfileDropDown/ProfileDropDown";
 
 const NavbarTop = () => {
+  const [open, setOpen] = useState(false);
+  const { user } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="px-4 py-3 hidden lg:block mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bgTransparent">
+    <div className="px-4  lg:block mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bgTransparent">
       <div className="relative flex items-center justify-between">
         <Link
           to="/"
@@ -16,23 +26,37 @@ const NavbarTop = () => {
           title="Games space"
           className="inline-flex items-center"
         >
-          <p className="text-2xl text-white font-bold">Game Space</p>
-          {/* <img src={headerLogo} alt="headerLogo" /> */}
+        <p className="text-2xl text-white font-bold">Game Space</p>
         </Link>
         <ul className=" items-center hidden space-x-8 lg:flex">
           <li>
             <Link className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
               <div className="flex items-center gap-6 text-[#dedee2]">
-                <FaFacebook className="hover:text-yellow-600" title="Facebook" />
-                <FaTwitter className="hover:text-yellow-600" title="Twitter"></FaTwitter>
-                <FaPinterest className="hover:text-yellow-600" title="Pinterest"></FaPinterest>
-                <FaGoogle className="hover:text-yellow-600" title="Google"></FaGoogle>
+                <FaFacebook
+                  className="hover:text-yellow-600"
+                  title="Facebook"
+                />
+                <FaTwitter
+                  className="hover:text-yellow-600"
+                  title="Twitter"
+                ></FaTwitter>
+                <FaPinterest
+                  className="hover:text-yellow-600"
+                  title="Pinterest"
+                ></FaPinterest>
+                <FaGoogle
+                  className="hover:text-yellow-600"
+                  title="Google"
+                ></FaGoogle>
               </div>
             </Link>
           </li>
           <li>
             <div className="flex ml-6 items-center justify-center">
-              <FaGlobeAmericas className="hover:text-yellow-600 text-xl text-white" title="Google"></FaGlobeAmericas>
+              <FaGlobeAmericas
+                className="hover:text-yellow-600 text-xl text-white"
+                title="Google"
+              ></FaGlobeAmericas>
               {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -70,15 +94,131 @@ const NavbarTop = () => {
               </select>
             </div>
           </li>
-          <li>
-            <Link to='/login' className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2">
-              
-              Join Now
+          {user?.uid ? (
+            <>
+              <div>
+                <div onClick={() => setOpen(!open)} className="user-pic">
+                  {user?.photoURL ? (
+                    <img className="h-12 rounded-full cursor-pointer" src={user?.photoURL} alt="" />
+                  ) : (
+                    <img className="h-12 rounded-full cursor-pointer"
+                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                      alt=""
+                    />
+                  )}
+                </div>
+                {open && <ProfileDropDown></ProfileDropDown>}
+                {/* <div id="sub-menu-wrap">
+                <div className="sub-menu">
+                  <div className="user-info">
+                    <img
+                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                      alt=""
+                    />
+                    <p>{user?.displayName}</p>
+                  </div>
+                  <hr />
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/cX6Z03G/profile.png" alt="" />
+                    <p>Edite Profile</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/8B3pj1W/setting.png" alt="" />
+                    <p>Settings & Privacy</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/myzpv5S/help.png" alt="" />
+                    <p>Helps & Support</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p onClick={handleLogout} className="sub-menu-link">
+                    <img src="https://i.ibb.co/s335h1Y/logout.png" alt="" />
+                    <p>Logout</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                </div>
+              </div> */}
+              </div>
+              {/* <li>
+              <button onClick={handleLogout}>LOGOUT</button>
+            </li> */}
+            </>
+          ) : (
+            <li>
+            <Link
+              to="/login"
+              className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2"
+            >
+              Join
             </Link>
           </li>
+          )}
         </ul>
         <div className="lg:hidden">
-          <button
+        {user?.uid ? (
+            <>
+              <div>
+                <div onClick={() => setOpen(!open)} className="user-pic">
+                  {user?.photoURL ? (
+                    <img className="h-10 rounded-full cursor-pointer" src={user?.photoURL} alt="" />
+                  ) : (
+                    <img className="h-10 rounded-full cursor-pointer"
+                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                      alt=""
+                    />
+                  )}
+                </div>
+                {open && <ProfileDropDown></ProfileDropDown>}
+                {/* <div id="sub-menu-wrap">
+                <div className="sub-menu">
+                  <div className="user-info">
+                    <img
+                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                      alt=""
+                    />
+                    <p>{user?.displayName}</p>
+                  </div>
+                  <hr />
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/cX6Z03G/profile.png" alt="" />
+                    <p>Edite Profile</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/8B3pj1W/setting.png" alt="" />
+                    <p>Settings & Privacy</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/myzpv5S/help.png" alt="" />
+                    <p>Helps & Support</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p onClick={handleLogout} className="sub-menu-link">
+                    <img src="https://i.ibb.co/s335h1Y/logout.png" alt="" />
+                    <p>Logout</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                </div>
+              </div> */}
+              </div>
+              {/* <li>
+              <button onClick={handleLogout}>LOGOUT</button>
+            </li> */}
+            </>
+          ) : (
+            <li>
+            <Link
+              to="/login"
+              className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2"
+            >
+              Join
+            </Link>
+          </li>
+          )}
+          {/* <button
             aria-label="Open Menu"
             title="Open Menu"
             className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
@@ -98,7 +238,7 @@ const NavbarTop = () => {
                 d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
               />
             </svg>
-          </button>
+          </button> */}
           {isMenuOpen && (
             <div className="absolute top-0 left-0 w-full">
               <div className="p-5 bg-white border rounded shadow-sm">

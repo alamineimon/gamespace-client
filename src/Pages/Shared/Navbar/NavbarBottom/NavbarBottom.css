@@ -2,8 +2,9 @@
   width: 90%;
   height: 50px;
   margin: auto;
+  margin-bottom: 20px;
   color: white;
-  z-index: 5;
+  z-index: 40;;
   height: 60px;
   background-repeat: no-repeat;
   background-size: cover;
