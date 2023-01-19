@@ -38,7 +38,7 @@
 }
 .ring:nth-child(3){
     border-top-width: 8px ;
-    border-color: rgb(0,255, 13);
+    border-color: rgb(14, 204, 24);
     animation: rotate3 2s linear infinite;
 }
 @keyframes rotate{
