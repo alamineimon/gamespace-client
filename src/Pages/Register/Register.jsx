@@ -12,7 +12,7 @@ import './Register.css'
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { createUser, googleSignin, updateUser } = useContext(AuthContext);
+    const { createUser, googleSignin, facebookSignin, updateUser } = useContext(AuthContext);
     const [signUpError, setSingUpError] = useState("")
     const [createUserEmail, setCreateUserEmail] = useState();
 
@@ -41,6 +41,15 @@ const Register = () => {
                 setSingUpError(error.message)
 
             })
+    }
+
+    const handlerFacebookSignin =() =>{
+        facebookSignin()
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+            navogate(from, { replace: true })
+        })
     }
 
     const handlerGoogleSignin = () => {
@@ -119,7 +128,7 @@ const Register = () => {
                     <p className="divider text-sm">OR LOGIN WITH</p>
                     <div className='flex justify-between gap-5 w-full'>
                         <button onClick={handlerGoogleSignin} className='btn rounded-none btn-outline text-white normal-case w-2/5'><FcGoogle className='text-2xl mr-2'></FcGoogle> Google</button>
-                        <button onClick={handlerGoogleSignin} className='btn rounded-none btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
+                        <button onClick={handlerFacebookSignin} className='btn rounded-none btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
                     </div>
                     <p className='mt-4 mb-8 text-center'> Alrady Habe an Account ? <Link className='text-blue-500 font-bold underline' to='/login'>Please Login !</Link></p>
                 </div>
