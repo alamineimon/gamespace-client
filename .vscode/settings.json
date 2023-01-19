@@ -1,3 +1,6 @@
 {
-  "editor.minimap.autohide": false
+  "editor.minimap.autohide": false,
+  "cSpell.words": [
+    "Subcribtion"
+  ]
 }

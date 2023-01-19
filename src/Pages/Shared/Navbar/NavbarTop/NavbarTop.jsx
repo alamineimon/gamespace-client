@@ -51,7 +51,7 @@ const NavbarTop = () => {
               <select className="bg-transparent text-xl cursor-pointer border-none text-[#dedee2] outline-none">
                 <option
                   className="bg-[#1c1d55] hover:bg-yellow-600 cursor-pointer border-none text-xl"
-                  value="Languages"
+                  value=""
                 >
                   Languages
                 </option>
@@ -59,19 +59,19 @@ const NavbarTop = () => {
                   className="bg-[#1c1d55] cursor-pointer border-none text-xl"
                   value="Bangla"
                 >
-                  Bangla
+                  BN
                 </option>
                 <option
                   className="bg-[#1c1d55] cursor-pointer border-none text-xl"
                   value="English"
                 >
-                  English
+                  ENG
                 </option>
               </select>
             </div>
           </li>
           <li>
-            <Link className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2">
+            <Link to='/login' className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2">
               
               Join Now
             </Link>

@@ -1,109 +1,134 @@
 import React from "react";
+import {
+  FaDiscord,
+  FaFacebook,
+  FaGoogle,
+  FaPinterest,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <>
-      <footer className="footer p-10 bg-base-200 text-base-content">
-        <div>
-          <span className="footer-title">Services</span>
-          <a href="/" className="link link-hover">
-            Branding
-          </a>
-          <a href="/" className="link link-hover">
-            Design
-          </a>
-          <a href="/" className="link link-hover">
-            Marketing
-          </a>
-          <a href="/" className="link link-hover">
-            Advertisement
-          </a>
-        </div>
-        <div>
-          <span className="footer-title">Company</span>
-          <a href="/" className="link link-hover">
-            About us
-          </a>
-          <a href="/" className="link link-hover">
-            Contact
-          </a>
-          <a href="/" className="link link-hover">
-            Jobs
-          </a>
-          <a href="/" className="link link-hover">
-            Press kit
-          </a>
-        </div>
-        <div>
-          <span className="footer-title">Legal</span>
-          <a href="/" className="link link-hover">
-            Terms of use
-          </a>
-          <a href="/" className="link link-hover">
-            Privacy policy
-          </a>
-          <a href="/" className="link link-hover">
-            Cookie policy
-          </a>
-        </div>
-      </footer>
-      <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
-        <div className="items-center grid-flow-col">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            fillRule="evenodd"
-            clipRule="evenodd"
-            className="fill-current"
-          >
-            <path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-          </svg>
-          <p>
-            ACME Industries Ltd. <br />
-            Providing reliable tech since 1992
-          </p>
-        </div>
-        <div className="md:place-self-center md:justify-self-end">
-          <div className="grid grid-flow-col gap-4">
-            <a href="/">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-              </svg>
-            </a>
-            <a href="/">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-              </svg>
-            </a>
-            <a href="/">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg>
-            </a>
+    <div>
+      
+      <div className="mx-auto bg-black text-gray-400">
+        <footer className="py-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
+          <div className="text-center relative ">
+            <h1 className=" font-bold mb-2 ">Players community</h1>
+            <p className="h-1 w-16 left-44 absolute rounded-t-2xl bg-white"></p>
+
+            <div className="my-8 absolute left-44 text-left">
+              <ul className="text-gray-400">
+                <li>Regular Players</li>
+                <li>HTML Game player</li>
+                <li>Game Space player</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </footer>
-    </>
+          <div className="text-center relative ">
+            <h1 className="text-gray-400 font-bold mb-2">Players community</h1>
+            <p className="h-1 w-16 left-44 absolute rounded-t-2xl bg-white"></p>
+
+            <div className="my-8 absolute text-left left-44">
+              <ul className="text-gray-400">
+                <li>News</li>
+                <li>Team</li>
+                <li>Partners</li>
+              </ul>
+            </div>
+          </div>
+          <div className=" left-44  relative">
+            <h1 className="text-gray-400 font-bold mb-2">Players community</h1>
+            <p className="h-1 w-16 absolute l  rounded-t-2xl bg-white"></p>
+
+            <div className="my-8 absolute  ">
+              <ul className="text-gray-400">
+                <div className="flex  items-center">
+                  <FaFacebook /> <li className="ml-2">gamespace_community</li>
+                </div>
+                <div className="flex  items-center">
+                  <FaYoutube /> <li className="ml-2">gamespace_tv</li>
+                </div>
+                <div className="flex  items-center">
+                  <FaDiscord /> <li className="ml-2">gamespace_live</li>
+                </div>
+              </ul>
+            </div>
+            <div className="flex flex-col absolute text-gray-400 items-center justify-center flex-shrink-0 mt-6 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4  lg:mt-28 pr-4 lg:justify-end">
+              <button className="inline-flex items-center py-3 rounded-lg dark:bg-blue-400 ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="fill-current w-7 h-7 "
+                >
+                  <path d="M 5.4160156 2.328125 L 12.935547 10.158203 C 13.132547 10.363203 13.45925 10.363203 13.65625 10.158203 L 15.179688 8.5742188 C 15.405688 8.3392188 15.354312 7.956875 15.070312 7.796875 C 11.137313 5.571875 6.2620156 2.811125 5.4160156 2.328125 z M 3.140625 2.8476562 C 3.055625 3.0456562 3 3.2629063 3 3.5039062 L 3 20.591797 C 3 20.788797 3.044375 20.970625 3.109375 21.140625 L 11.576172 12.324219 C 11.762172 12.131219 11.762172 11.826813 11.576172 11.632812 L 3.140625 2.8476562 z M 17.443359 9.2578125 C 17.335484 9.2729375 17.233297 9.32375 17.154297 9.40625 L 15.015625 11.632812 C 14.829625 11.825812 14.829625 12.130219 15.015625 12.324219 L 17.134766 14.529297 C 17.292766 14.694297 17.546141 14.729188 17.744141 14.617188 C 19.227141 13.777188 20.226563 13.212891 20.226562 13.212891 C 20.725562 12.909891 21.007 12.443547 21 11.935547 C 20.992 11.439547 20.702609 10.981938 20.224609 10.710938 C 20.163609 10.676937 19.187672 10.124359 17.763672 9.3183594 C 17.664172 9.2623594 17.551234 9.2426875 17.443359 9.2578125 z M 13.296875 13.644531 C 13.165875 13.644531 13.034047 13.696328 12.935547 13.798828 L 5.4746094 21.566406 C 6.7566094 20.837406 11.328781 18.249578 15.050781 16.142578 C 15.334781 15.981578 15.386156 15.599281 15.160156 15.363281 L 13.65625 13.798828 C 13.55775 13.696328 13.427875 13.644531 13.296875 13.644531 z"></path>
+                </svg>
+                <span className="flex flex-col items-start ml-4 leading-none">
+                  <span className="mb-1 text-xs">GET IT ON</span>
+                  <span className="font-semibold title-font">Google Play</span>
+                </span>
+              </button>
+              <button className="inline-flex items-center text-gray-400 px-2 py-3 rounded-lg dark:bg-violet-400 ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 50 50"
+                  className="fill-current w-7 h-7 "
+                >
+                  <path d="M 44.527344 34.75 C 43.449219 37.144531 42.929688 38.214844 41.542969 40.328125 C 39.601563 43.28125 36.863281 46.96875 33.480469 46.992188 C 30.46875 47.019531 29.691406 45.027344 25.601563 45.0625 C 21.515625 45.082031 20.664063 47.03125 17.648438 47 C 14.261719 46.96875 11.671875 43.648438 9.730469 40.699219 C 4.300781 32.429688 3.726563 22.734375 7.082031 17.578125 C 9.457031 13.921875 13.210938 11.773438 16.738281 11.773438 C 20.332031 11.773438 22.589844 13.746094 25.558594 13.746094 C 28.441406 13.746094 30.195313 11.769531 34.351563 11.769531 C 37.492188 11.769531 40.8125 13.480469 43.1875 16.433594 C 35.421875 20.691406 36.683594 31.78125 44.527344 34.75 Z M 31.195313 8.46875 C 32.707031 6.527344 33.855469 3.789063 33.4375 1 C 30.972656 1.167969 28.089844 2.742188 26.40625 4.78125 C 24.878906 6.640625 23.613281 9.398438 24.105469 12.066406 C 26.796875 12.152344 29.582031 10.546875 31.195313 8.46875 Z"></path>
+                </svg>
+                <span className="flex text-gray-400 flex-col items-start ml-4 leading-none">
+                  <span className="mb-1  text-xs">Download </span>
+                  <span className="font-semibold title-font">App Store</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </footer>
+        <footer>
+          <div className="flex justify-center items-center my-10">
+            <img
+              className=" lg:mt-32 h-16 w-32 "
+              src="https://i.ibb.co/2s1VHmq/game-Space-Dark.png"
+              alt=""
+            />
+          </div>
+          <div className="flex justify-center items-center pb-10">
+            <p className="text-gray-400">
+              Handcrafted by and for Gamers @ 2023 . Game Space by Themosaurus.
+              All related conntent, characters, <br /> names and materials that
+              could be part of an existing work, are the exclusive property of
+              their authors.{" "}
+            </p>
+          </div>
+        </footer>
+        <footer className="text-gray-400 flex justify-center items-center pb-5 ">
+          <p className="mr-3"> Privacy Policy </p>
+          <p className="mr-3"> Terms of Service</p>
+          <Link to="/register">
+            <p> Register</p>
+          </Link>
+        </footer>
+        <footer className="text-gray-400 flex justify-center items-center pb-10 ">
+          <div className="flex items-center gap-6 text-[#dedee2]">
+            <FaFacebook className="hover:text-yellow-600" title="Facebook" />
+            <FaTwitter
+              className="hover:text-yellow-600"
+              title="Twitter"
+            ></FaTwitter>
+            <FaPinterest
+              className="hover:text-yellow-600"
+              title="Pinterest"
+            ></FaPinterest>
+            <FaGoogle
+              className="hover:text-yellow-600"
+              title="Google"
+            ></FaGoogle>
+          </div>
+        </footer>
+      </div>
+    </div>
   );
 };
 

@@ -1,0 +1,30 @@
+.features{
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+      url(https://i.ibb.co/N7nsk07/937844.png);
+}
+.features-image:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: inline-block;
+    background: linear-gradient(to right, #ff0bca 0%, rgba(251, 3, 148, 0) 100%);
+}
+.features-image-two:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: inline-block;
+    background: linear-gradient(to right, #ffd20b 0%, rgba(251, 3, 148, 0) 200%);
+}
