@@ -8,6 +8,7 @@ import FeatureSection from "./components/FeatureSection/FeatureSection";
 import GameSlider from "./components/GameSlider/GameSlider";
 import Header from "./components/Header/Header";
 import Subcribtion from "./components/Subcribtion/Subcribtion";
+import ExtraFeatures from "./components/ExtraFeatures/ExtraFeatures";
 
 const Home = () => {
   return (
@@ -15,7 +16,8 @@ const Home = () => {
       <Header/>
       <FeatureSection />
       <ActivePlayers/>
-      <Features></Features>
+      <Features/>
+      <ExtraFeatures/>
       <GameSlider />
       <FeaturedGames />
       <Subcribtion/>
