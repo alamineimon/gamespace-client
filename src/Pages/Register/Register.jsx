@@ -32,6 +32,7 @@ const Register = () => {
                     .then(() => {
                         saveUser(data.name, data.email);
                         navogate(from, { replace: true })
+                        console.log(user)
                         toast.success("User Create Succesfully");
                     })
                     .catch(err => console.log(err));
