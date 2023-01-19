@@ -1,7 +1,8 @@
 import React from "react";
 import { FaVideo } from "react-icons/fa";
+import VideoModal from "../../../Shared/VideoModal/VideoModal";
 const GamesCards = ({ game }) => {
-  const { title, description, price, img } = game;
+  const { title, description, price, img, videolink } = game;
   return (
     <div className="card card-compact bg-secondary rounded group">
       <figure className="relative">
@@ -10,9 +11,14 @@ const GamesCards = ({ game }) => {
           alt={title}
           className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <span className="absolute top-[7%] -right-10 group-hover:right-3 transition-all duration-100 p-2  bg-black/75 hover:bg-primary cursor-pointer  group-hover:block rounded-full">
-          <FaVideo className="text-white text-lg " />
-        </span>
+        {videolink && (
+          <label
+            htmlFor="see-video"
+            className="absolute top-[7%] -right-10 group-hover:right-3 transition-all duration-100 p-2  bg-black/75 hover:bg-primary cursor-pointer  group-hover:block rounded-full"
+          >
+            <FaVideo className="text-white text-lg " />
+          </label>
+        )}
         <span className="absolute bottom-3 left-[3%] text-sm p-2 rounded-full bg-black/75 text-white hover:text-primary backdrop-blur">
           Category 1
         </span>
@@ -32,6 +38,7 @@ const GamesCards = ({ game }) => {
           </button>
         </div>
       </div>
+      {videolink && <VideoModal videolink={videolink} />}
     </div>
   );
 };
