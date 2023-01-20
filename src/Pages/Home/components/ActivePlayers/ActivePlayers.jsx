@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+// import React from "react";
 import { Link } from "react-router-dom";
 import Loader from "../../../Shared/Loader/Loader";
 import "./ActivePlayer.css";
