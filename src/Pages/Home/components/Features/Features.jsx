@@ -8,17 +8,19 @@ import { TbDeviceGamepad2 } from "react-icons/tb";
 
 const Features = () => {
   return (
-    <div className="features">
-      <h1 className="text-center text-3xl text-yellow-300 font-bold uppercase">
-        Fantastic Features
-      </h1>
-      <hr className="bg-yellow-300 h-1 mx-auto mt-2 w-48 mb-12 " />
-      <div className="grid grid-cols-2 gap-5 px-32">
-        <div className="flex p-2  mr-2">
-          <AiOutlineDownload className="mr-2 text-5xl text-yellow-400"></AiOutlineDownload>
-          <div>
-            <h4 className="text-white text-xl font-semibold">Download Games</h4>
-            <p className="text-gray-400 font-bold">
+    <div className="features lg:h-[600px] h-[1050px]">
+        <h1 className="text-center text-3xl text-yellow-300 font-bold uppercase">
+          Fantastic Features
+        </h1>
+        <hr  className="bg-yellow-300 h-1 mx-auto mt-2 w-48 mb-12 "/>
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 lg:px-32">
+          <div className="flex p-2  mr-2">
+            <AiOutlineDownload className="mr-2 text-5xl text-yellow-400"></AiOutlineDownload>
+            <div>
+              <h4 className="text-white text-xl font-semibold">
+                Download Games
+              </h4>
+              <p className="text-gray-400 font-bold">
               You can browse and download your games.
             </p>
           </div>

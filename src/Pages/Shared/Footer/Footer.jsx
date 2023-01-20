@@ -13,8 +13,8 @@ const Footer = () => {
   return (
     <div>
       <div className="mx-auto bg-black overflow-hidden text-gray-400">
-        <footer className="py-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
-          <div className="text-center relative ">
+        <footer className="py-8 grid lg:grid-cols-3 grid-cols-1 gap-3">
+          <div className="text-center lg:relative ">
             <h1 className=" font-bold mb-2 ">Players community</h1>
             <p className="h-1 w-16 left-44 absolute rounded-t-2xl bg-white"></p>
 
@@ -26,7 +26,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="text-center relative ">
+          <div className="text-center lg:relative ">
             <h1 className="text-gray-400 font-bold mb-2">Players community</h1>
             <p className="h-1 w-16 left-44 absolute rounded-t-2xl bg-white"></p>
 
@@ -38,7 +38,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className=" left-4  relative">
+          <div className=" left-4  lg:relative">
             <h1 className="text-gray-400 font-bold mb-2">Players community</h1>
             <p className="h-1 w-16 absolute  rounded-t-2xl bg-white"></p>
 
