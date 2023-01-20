@@ -70,7 +70,7 @@ const Login = () => {
 
     return (
         <div className="hero loginBG">
-            <div className='card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)]  shadow-black border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white py-4 px-6 rounded-none my-12'>
+            <div className='card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)]  shadow-black border border-yellow-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white py-4 px-6 rounded-none my-12'>
                 <div >
                     <h2 className="text-4xl font-bold text-center mb-7">Login !</h2>
                     <form onSubmit={handleSubmit(handelLogin)}>
@@ -94,7 +94,7 @@ const Login = () => {
                                     required: "Password Address is required",
                                     minLength: { value: 6, message: "Password must be 6 characters or length" }
                                 })} placeholder='Password'
-                                className="input input-bordered input-primary w-full rounded-none text-gray-300 px-8" />
+                                className="input input-bordered bg-none input-primary w-full rounded-none text-black px-8" />
                             {errors.password && <p className='text-orange-400'>{errors.password?.message}</p>}
                         </div>
                         <div className='my-3'>

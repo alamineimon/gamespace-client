@@ -2,8 +2,9 @@
   width: 90%;
   height: 50px;
   margin: auto;
+  margin-bottom: 20px;
   color: white;
-  z-index: 5;
+  z-index: 40;;
   height: 60px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,5 +12,5 @@
     url(../../../../assets/images/bgColor2.jpg);
 }
 ul li a:hover {
-  color: rgb(1, 202, 51);
+  color: yellow;
 }

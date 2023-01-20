@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./FeatureSection.css";
+import "./ExperianceSection.css";
 // import { AiFillGift, AiOutlineShoppingCart } from "react-icons/ai";
 // import { CgGames } from "react-icons/cg";
-const FeatureSection = () => {
+const ExperianceSection = () => {
   return (
-    <div className="py-20 featureBg flex justify-between">
+    <div className="py-20 featureBg lg:flex sm:block justify-between">
       <div className="w-1/2 relative pl-6 pt-2">
         <hr className="bg-red-500 h-2" />
         <p className="h-4 w-16 right-0 absolute bg-red-500"></p>
@@ -29,12 +29,12 @@ const FeatureSection = () => {
           </p>
         </div>
       </div>
-      {/* <div className="w-1/2  -mt-12  p-8 relative flex">
+      <div className="w-1/2 hidden p-8 relative lg:flex">
         <div class="parallelogram1 absolute"></div>
         <div class="parallelogram2 absolute"></div>
-      </div> */}
+      </div>
     </div>
   );
 };
 
-export default FeatureSection;
+export default ExperianceSection;
