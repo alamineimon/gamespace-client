@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import bgVideo from "../../../../assets/videos/bg.mp4";
+import bgVideos from "../../../../assets/videos/bg.mp4";
 import "./header.css";
 
 const Header = () => {
   return (
     <div className="landingPage">
-      <video src={bgVideo} autoPlay muted loop className="videoBg"></video>
+      <video src={bgVideos} autoPlay muted loop className="videoBgs"></video>
       <div className="bgOverlay"></div>
       <div className="textArea">
         <p className="lg:text-8xl sm:text-4xl lg:mt-12 lg:mb-6 font-bold ml-16">

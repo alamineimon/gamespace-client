@@ -1,15 +1,11 @@
 import React from "react";
 import './Subcribtion.css'
-import bgVideo2 from "../../../../assets/videos/bg2.mp4";
 import { SiMinutemailer } from 'react-icons/si';
 
 const Subcribtion = () => {
   return (
-    <div className="">
-      <div className="landingPage my-7">
-        <video src={bgVideo2} autoPlay muted loop className="videoBg"></video>
-      </div>
-      <div className="flex justify-center ">
+    <div className=" ">
+      <div className="flex bg-transparent justify-center ">
         <div className="flex justify-center rounded-t-full items-center pt-8 bg-black w-2/3 ">
           <div className="mr-20  text-2xl">
             <span className="text-white font-bold">Our </span>
