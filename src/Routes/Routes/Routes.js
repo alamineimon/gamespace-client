@@ -5,6 +5,7 @@ import GameSlider from "../../Pages/Home/components/GameSlider/GameSlider";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import Support from "../../Pages/Support/Support";
 
 
  const router = createBrowserRouter([
@@ -31,6 +32,10 @@ import Register from "../../Pages/Register/Register";
             {
                 path:'/shop',
                 element: <GameSlider></GameSlider>
+            },
+            {
+                path:'/support',
+                element: <Support/>
             }
         ]
     }
