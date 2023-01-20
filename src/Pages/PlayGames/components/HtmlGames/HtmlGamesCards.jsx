@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HtmlGamesCards = ({ game }) => {
   const { gameName, authorName, gameLink, thumbnail, category, description } =
@@ -13,9 +14,12 @@ const HtmlGamesCards = ({ game }) => {
         <h3 className="text-textP">By:{authorName}</h3>
         <p>{description.slice(0, 100)}</p>
         <div className="card-actions justify-center">
-          <button className="btn btn-secondary hover:btn-primary font-bold">
+          <Link
+            to="/demoSingle"
+            className="btn btn-secondary hover:btn-primary font-bold"
+          >
             Play Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

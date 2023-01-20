@@ -4,6 +4,7 @@ import AllPlayers from "../../Pages/Home/components/ActivePlayers/AllPlayers";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import PlayGames from "../../Pages/PlayGames/PlayGames";
+import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/play-games",
         element: <PlayGames />,
+      },
+      {
+        path: "/demoSingle",
+        element: <PlayGamesSingle />,
       },
     ],
   },
