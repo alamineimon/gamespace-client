@@ -5,7 +5,7 @@ import { BiSupport } from "react-icons/bi";
 import {  AiFillTrophy, AiOutlineDownload, AiOutlineTeam} from "react-icons/ai";
 import { BsHandIndexThumb , BsFillChatQuoteFill } from "react-icons/bs";
 import { TbDeviceGamepad2 } from "react-icons/tb";
-import { MdFindInPage } from "react-icons/md";
+
 
 
 const Features = () => {
