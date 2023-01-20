@@ -5,9 +5,9 @@ const HtmlGamesCards = ({ game }) => {
   const { gameName, authorName, gameLink, thumbnail, category, description } =
     game;
   return (
-    <div className="card w-full bg-base-100 shadow-xl image-full  ">
+    <div className="card w-full bg-base-100 shadow-xl image-full h-80  ">
       <figure className="before:hidden">
-        <img src={thumbnail} alt={gameName} />
+        <img src={thumbnail} alt={gameName} className="w-full" />
       </figure>
       <div className="card-body text-center">
         <h2 className="card-title text-mainHeading mx-auto">{gameName}</h2>
