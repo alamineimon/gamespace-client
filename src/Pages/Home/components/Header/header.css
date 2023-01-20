@@ -9,7 +9,7 @@
     transition: 0.5s;
 }
 
-.videoBg{
+.videoBgs{
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -19,7 +19,7 @@
 }
 .bgOverlay{
     height: 100%;
-    width: 100%;
+    width: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
 }

@@ -1,3 +1,24 @@
 .doangel{
     transform: skew(-20deg);
 }
+.videoo{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    transition: 0.5s;
+}
+.bgOverlay{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.videoBg{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    object-fit: cover;
+}
