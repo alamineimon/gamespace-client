@@ -4,37 +4,47 @@ import AllPlayers from "../../Pages/Home/components/ActivePlayers/AllPlayers";
 import GameSlider from "../../Pages/Home/components/GameSlider/GameSlider";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
+import PlayGames from "../../Pages/PlayGames/PlayGames";
+import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 
-
- const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main/>, 
-        children: [
-            {
-                path:'/',
-                element: <Home/>
-            },
-            {
-                path:'/allplayers',
-                element: <AllPlayers/>
-             },
-             {
-                path:'/login',
-                element: <Login></Login>
-            },
-            {
-                path:'/register',
-                element: <Register></Register>
-            },
-            {
-                path:'/shop',
-                element: <GameSlider></GameSlider>
-            }
-        ]
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/allplayers",
+        element: <AllPlayers />,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/play-games",
+        element: <PlayGames />,
+      },
+      {
+        path: "/demoSingle",
+        element: <PlayGamesSingle />,
+      },
+      {
+        path:'/shop',
+        element: <GameSlider></GameSlider>
+      } ,
+       {
+    path: "*",
+    element: <h1>Error 404 page not found</h1>,
     }
-])
-
-
-export default router
+  },
+]);
+export default router;

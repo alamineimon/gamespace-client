@@ -28,7 +28,10 @@ const ActivePlayers = () => {
         ))}
       </div>
       <div className="flex justify-center items-center mt-16 ">
-        <Link to='/allplayers' className="hover:bg-yellow-500 rounded border-2 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold px-8 py-2">
+        <Link
+          to="/allplayers"
+          className="hover:bg-yellow-500 rounded border-2 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold px-8 py-2"
+        >
           more players
         </Link>
       </div>
