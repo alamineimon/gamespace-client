@@ -1,10 +1,11 @@
 import React from "react";
 import "./Features.css";
 import { FaHeadphones } from "react-icons/fa";
-import { BiWebcam } from "react-icons/bi";
-import {  AiOutlineDownload} from "react-icons/ai";
+import { BiSupport } from "react-icons/bi";
+import {  AiFillTrophy, AiOutlineDownload, AiOutlineTeam} from "react-icons/ai";
 import { BsHandIndexThumb , BsFillChatQuoteFill } from "react-icons/bs";
 import { TbDeviceGamepad2 } from "react-icons/tb";
+
 
 
 const Features = () => {
@@ -22,7 +23,7 @@ const Features = () => {
                 Download Games
               </h4>
               <p className="text-gray-400 font-bold">
-                Lorem ipsum dolor sit amet. Lorem, ipsum dolor.
+              You can browse and download your games.
               </p>
             </div>
           </div>
@@ -33,8 +34,7 @@ const Features = () => {
                 Play HTML5 Games
               </h4>
               <p className="text-gray-400 font-bold">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Veritatis, officia.
+              You can play your favorite games.
               </p>
             </div>
           </div>
@@ -45,8 +45,7 @@ const Features = () => {
                 Real-Time Chat
               </h4>
               <p className="text-gray-400 font-bold">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Veritatis, officia.
+              You can communicate your teammates here.
               </p>
             </div>
           </div>
@@ -57,47 +56,54 @@ const Features = () => {
                 One click install demo
               </h4>
               <p className="text-gray-400 font-bold">
-                Lorem ipsum dolor sit amet. Lorem, ipsum dolor.
+              You can download your favorite games by one click.
               </p>
             </div>
           </div>
           <div className="flex p-2  mr-2 ">
             <FaHeadphones className="mr-2 text-5xl text-yellow-400"></FaHeadphones>
-            <div></div>
             <div>
               <h4 className="text-white text-xl font-semibold">
                 Custom team pages
               </h4>
               <p className="text-gray-400 font-bold">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Veritatis, officia.
+              You can create a custome team for your teammates.
               </p>
             </div>
           </div>
           <div className="flex p-2  mr-2 ">
-            <BiWebcam className="mr-2 text-5xl text-yellow-400"></BiWebcam>
+            <AiOutlineTeam className="mr-2 text-5xl text-yellow-400"></AiOutlineTeam>
             <div>
               <h4 className="text-white text-xl font-semibold">
                 Custom User pages
               </h4>
               <p className="text-gray-400 font-bold">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Veritatis, officia.
+              You can create a custome team for your teammates.
               </p>
             </div>
           </div>
-          {/* <div className="flex p-2  mr-2 ">
+          <div className="flex p-2  mr-2 ">
             <AiFillTrophy className="mr-2 text-6xl text-yellow-400"></AiFillTrophy>
             <div>
               <h4 className="text-white text-xl font-semibold">
                 Create Tournaments
               </h4>
               <p className="text-gray-400 font-bold">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Veritatis, officia. Lorem ipsum dolor sit amet.
+              You can create turnaments.
               </p>
             </div>
-          </div> */}
+          </div> 
+          <div className="flex p-2  mr-2 ">
+            <BiSupport className="mr-2 text-5xl text-yellow-400"></BiSupport>
+            <div>
+              <h4 className="text-white text-xl font-semibold">
+                Real-Time Chat Support
+              </h4>
+              <p className="text-gray-400 font-bold">
+              We provide a real-time chat support system.
+              </p>
+            </div>
+          </div> 
         </div>
     </div>
   );

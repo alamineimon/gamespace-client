@@ -12,8 +12,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      
-      <div className="mx-auto bg-black text-gray-400">
+      <div className="mx-auto bg-black overflow-hidden text-gray-400">
         <footer className="py-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
           <div className="text-center relative ">
             <h1 className=" font-bold mb-2 ">Players community</h1>
@@ -39,9 +38,9 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className=" left-44  relative">
+          <div className=" left-4  relative">
             <h1 className="text-gray-400 font-bold mb-2">Players community</h1>
-            <p className="h-1 w-16 absolute l  rounded-t-2xl bg-white"></p>
+            <p className="h-1 w-16 absolute  rounded-t-2xl bg-white"></p>
 
             <div className="my-8 absolute  ">
               <ul className="text-gray-400">
@@ -56,7 +55,7 @@ const Footer = () => {
                 </div>
               </ul>
             </div>
-            <div className="flex flex-col absolute text-gray-400 items-center justify-center flex-shrink-0 mt-6 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4  lg:mt-28 pr-4 lg:justify-end">
+            <div className="flex flex-col absolute left-0 text-gray-400 items-center justify-center flex-shrink-0 mt-6 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4  lg:mt-28 pr-4 lg:justify-end">
               <button className="inline-flex items-center py-3 rounded-lg dark:bg-blue-400 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

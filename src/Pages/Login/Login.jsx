@@ -76,9 +76,9 @@ const Login = () => {
                     <form onSubmit={handleSubmit(handelLogin)}>
                         <div className="form-control w-full relative justify-center mb-5">
                             <label className="label absolute ml-1">
-                              <FiMail className='text-gray-700'></FiMail>
+                              <FiMail className='text-gray-400'></FiMail>
                             </label>
-                            <input type="email" className="input rounded-none input-primary w-full text-black px-8"  name='email'  {...register("email",
+                            <input type="email" className="input rounded-none input-primary w-full text-gray-300 px-8"  name='email'  {...register("email",
                                 {
                                     onBlur: (event) => setresetEmail(event.target.value)
                                 },
@@ -87,7 +87,7 @@ const Login = () => {
                         </div>
                         <div className="form-control w-fullrelative justify-center">
                             <label className="label absolute ml-1">
-                              <FaLock className='text-gray-700'></FaLock>
+                              <FaLock className='text-gray-400'></FaLock>
                             </label>
                             <input type="password"
                                 {...register("password", {
