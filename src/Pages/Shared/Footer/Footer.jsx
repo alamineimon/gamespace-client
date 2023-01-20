@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      
       <div className="mx-auto bg-black text-gray-400">
         <footer className="py-8 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
           <div className="text-center relative ">
