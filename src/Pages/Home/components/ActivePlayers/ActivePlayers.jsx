@@ -22,7 +22,7 @@ const ActivePlayers = () => {
       <p className="text-3xl text-yellow-400 font-bold text-center uppercase">
         Active Player
       </p>
-      <div className="grid lg:grid-cols-8  sm:grid-cols-6 mt-12 lg:px-16 sm:px-32 gap-6">
+      <div className="grid lg:grid-cols-8  grid-cols-4 mt-12 lg:px-16 sm:px-32 gap-6">
         {players.slice(0, 16).map((player, i) => (
           <PlayersCard key={i} player={player} />
         ))}
