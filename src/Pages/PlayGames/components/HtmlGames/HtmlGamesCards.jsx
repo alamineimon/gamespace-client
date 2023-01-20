@@ -5,7 +5,7 @@ const HtmlGamesCards = ({ game }) => {
   const { gameName, authorName, gameLink, thumbnail, category, description } =
     game;
   return (
-    <div className="card w-full bg-base-100 shadow-xl image-full group-even: ">
+    <div className="card w-full bg-base-100 shadow-xl image-full  ">
       <figure className="before:hidden">
         <img src={thumbnail} alt={gameName} />
       </figure>
@@ -16,7 +16,7 @@ const HtmlGamesCards = ({ game }) => {
         <div className="card-actions justify-center">
           <Link
             to="/demoSingle"
-            className="btn btn-secondary hover:btn-primary font-bold"
+            className="btn btn-outline rounded-none hover:btn-primary font-bold"
           >
             Play Now
           </Link>

@@ -3,7 +3,6 @@ import { FaVideo } from "react-icons/fa";
 import VideoModal from "../../../Shared/VideoModal/VideoModal";
 const GamesCards = ({ game }) => {
   const { title, description, price, img, videolink, gameDownload } = game;
-  console.log(game)
 
   return (
     <div className="card card-compact cursor-pointer bg-secondary rounded-none group">

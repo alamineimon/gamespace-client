@@ -9,32 +9,32 @@ import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 
- const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main/>, 
-        children: [
-            {
-                path:'/',
-                element: <Home/>
-            },
-            {
-                path:'/allplayers',
-                element: <AllPlayers/>
-             },
-             {
-                path:'/login',
-                element: <Login></Login>
-            },
-            {
-                path:'/register',
-                element: <Register></Register>
-            },
-            {
-                path:'/gameDetails/:id',
-                element: <GameDetails></GameDetails>
-            },
-                  {
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/allplayers",
+        element: <AllPlayers />,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/gameDetails/:id",
+        element: <GameDetails></GameDetails>,
+      },
+      {
         path: "/play-games",
         element: <PlayGames />,
       },
@@ -43,14 +43,14 @@ import Register from "../../Pages/Register/Register";
         element: <PlayGamesSingle />,
       },
       {
-        path:'/shop',
-        element: <GameSlider></GameSlider>
-      } ,
-       {
-    path: "*",
-    element: <h1>Error 404 page not found</h1>,
-    }      
-  ]
+        path: "/shop",
+        element: <GameSlider></GameSlider>,
+      },
+      {
+        path: "*",
+        element: <h1>Error 404 page not found</h1>,
+      },
+    ],
   },
 ]);
 export default router;
