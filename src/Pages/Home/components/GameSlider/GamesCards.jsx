@@ -2,7 +2,9 @@ import React from "react";
 import { FaVideo } from "react-icons/fa";
 import VideoModal from "../../../Shared/VideoModal/VideoModal";
 const GamesCards = ({ game }) => {
-  const { title, description, price, img, videolink } = game;
+  const { title, description, price, img, videolink, gameDownload } = game;
+  console.log(game)
+
   return (
     <div className="card card-compact cursor-pointer bg-secondary rounded-none group">
       <figure className="relative">
@@ -33,9 +35,7 @@ const GamesCards = ({ game }) => {
           <h6 className="text-xl lg:text-3xl font-bold text-mainHeading">
             ${price}
           </h6>
-          <button className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase  ">
-            See Details
-          </button>
+          <a href={gameDownload} className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase" > Download </a>
         </div>
       </div>
       {videolink && <VideoModal videolink={videolink} />}
