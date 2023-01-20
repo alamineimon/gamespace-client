@@ -1,9 +1,8 @@
 .features{
-    height: 600px;
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 100px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url(https://i.ibb.co/N7nsk07/937844.png);
 }
 .features-image:after{

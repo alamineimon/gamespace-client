@@ -63,7 +63,7 @@ const NavbarBottom = () => {
               </li>
               <li>
                 <Link
-                  to="/htmlgames"
+                  to="/play-games"
                   className="font-bold uppercasetracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
                   HTML Games
@@ -186,7 +186,7 @@ const NavbarBottom = () => {
                         </li>
                         <li>
                           <Link
-                            to="/htmlgame"
+                            to="/play-games"
                             className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
                             HTML Game

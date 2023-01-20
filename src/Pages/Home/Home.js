@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import Subcribtion from "./components/Subcribtion/Subcribtion";
 import ExtraFeatures from "./components/ExtraFeatures/ExtraFeatures";
 import ExperianceSection from "./components/ExperianceSection/ExperianceSection";
+import VideoBg from "./components/Subcribtion/VideoBg";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <ExtraFeatures/>
       <GameSlider />
       <FeaturedGames />
+      <VideoBg/>
       <Subcribtion/>
     </div>
   );

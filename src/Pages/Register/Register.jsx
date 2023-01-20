@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
-import img from '../../assets/loginOrRegister/FmRTd-7XgAQCFsJ.jpg'
 import { BsFacebook, BsPersonFill } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { FaLock } from 'react-icons/fa';
@@ -32,6 +31,7 @@ const Register = () => {
                     .then(() => {
                         saveUser(data.name, data.email);
                         navogate(from, { replace: true })
+                        console.log(user)
                         toast.success("User Create Succesfully");
                     })
                     .catch(err => console.log(err));
@@ -89,23 +89,23 @@ const Register = () => {
                 <div >
                     <h2 className="text-4xl font-bold text-center mb-7">Sign Up !</h2>
                     <form onSubmit={handleSubmit(handelSignUp)}>
-                        <div className="form-control w-full relative justify-center mb-5">
+                        <div className="form-control w-full relative justify-center mb-5 ">
                             <label className="label absolute ml-1">
-                                <BsPersonFill className='text-gray-700 text-xl'></BsPersonFill>
+                                <BsPersonFill className='text-gray-400 text-xl'></BsPersonFill>
                             </label>
-                            <input type="name" name='name'  {...register("name", { required: "name Address is required" })} placeholder='User Name' className="input input-primary input-bordered rounded-none w-full text-black px-8" />
+                            <input type="name" name='name'  {...register("name", { required: "name Address is required" })} placeholder='User Name' className="input input-primary input-bordered rounded-none w-full text-gray-400 px-8" />
                             {errors.name && <p className='text-orange-400'>{errors.name?.message}</p>}
                         </div>
                         <div className="form-control w-full relative justify-center mb-5">
                             <label className="label absolute ml-1">
-                                <FiMail className='text-gray-700'></FiMail>
+                                <FiMail className='text-gray-400'></FiMail>
                             </label>
-                            <input type="email" name='email'  {...register("email", { required: "Email Address is required" })} placeholder='Email or Phone' className="input input-primary focus:bg-transparent rounded-none input-bordered w-full text-black px-8" />
+                            <input type="email" name='email'  {...register("email", { required: "Email Address is required" })} placeholder='Email or Phone' className="input input-primary  rounded-none input-bordered w-full text-gray-400 px-8" />
                             {errors.email && <p className='text-orange-400'>{errors.email?.message}</p>}
                         </div>
                         <div className="form-control w-full relative justify-center">
                             <label className="label absolute ml-1">
-                                <FaLock className='text-gray-700'></FaLock>
+                                <FaLock className='text-gray-400'></FaLock>
                             </label>
                             <input type="password"
                                 {...register("password", {
@@ -113,7 +113,7 @@ const Register = () => {
                                     minLength: { value: 6, message: "Password must be 6 characters or length" },
                                     // pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "Password must be Strong" }
                                 })} placeholder='Password'
-                                className="input input-bordered w-full rounded-none input-primary text-black px-8" />
+                                className="input input-bordered w-full rounded-none input-primary text-gray-400 px-8" />
                             {errors.password && <p className='text-orange-400'>{errors.password?.message}</p>}
                         </div>
                         <br />

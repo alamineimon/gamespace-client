@@ -16,6 +16,7 @@ const GameSlider = () => {
   if (isLoading) {
     return <Loader/>
   }
+
   return (
     <div className="bg-base-100 z-0">
       <div className=" w-[90%] mx-auto py-16">
@@ -25,7 +26,7 @@ const GameSlider = () => {
         <h1 className="text-2xl lg:text-4xl text-mainHeading font-bold uppercase mb-5 text-center">
           Games <span className="text-primary">collection</span>
         </h1>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {games.map((game, i) => (
             <GamesCards key={i} game={game} />
           ))}
