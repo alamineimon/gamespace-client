@@ -10,7 +10,7 @@ import { TbDeviceGamepad2 } from "react-icons/tb";
 
 const Features = () => {
   return (
-    <div className="features lg:h[600px] h-[1100px]">
+    <div className="features lg:h-[600px] h-[1050px]">
         <h1 className="text-center text-3xl text-yellow-300 font-bold uppercase">
           Fantastic Features
         </h1>
