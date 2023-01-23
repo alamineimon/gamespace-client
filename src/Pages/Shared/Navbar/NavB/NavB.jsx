@@ -74,7 +74,7 @@ const NavB = () => {
           <ul className=" flex px-1 font-bold uppercase">{navlinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn btn-secondary">
+          <Link to="/login" className="btn btn-primary font-bold rounded-none">
             Get started
           </Link>
         </div>
