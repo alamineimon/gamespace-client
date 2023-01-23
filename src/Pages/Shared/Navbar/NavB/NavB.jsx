@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { GiBoltShield, IconName } from "react-icons/gi";
+import { GiBoltShield } from "react-icons/gi";
 const NavB = () => {
   let activeClassName =
-    "border-2 border-primary text-primary  px-5 py-2 hover:text-primary";
-  let notActiveClassName = "hover:text-accent mx-5 my-2";
+    "border-4 border-primary   text-primary  px-5 py-2 hover:text-primary";
+  let notActiveClassName =
+    "border-4 border-transparent hover:text-accent mx-5 my-2";
   const navlinks = (
     <>
       {[
