@@ -9,6 +9,7 @@ import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 import Support from "../../Pages/Support/Support";
+import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -44,13 +45,17 @@ const router = createBrowserRouter([
         element: <PlayGamesSingle />,
       },
       {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
         path: "/shop",
         element: <GameSlider></GameSlider>,
       },
-                  {
-                path:'/support',
-                element: <Support/>
-            },
+      {
+        path: "/support",
+        element: <Support />,
+      },
       {
         path: "*",
         element: <h1>Error 404 page not found</h1>,

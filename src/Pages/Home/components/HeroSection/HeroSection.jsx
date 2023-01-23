@@ -8,7 +8,7 @@ const HeroSection = () => {
         <p className="text-7xl mt-12 mb-6 font-bold ml-16">
           Unleash the gamer in you
         </p>
-        <p className="text-lg ml-16 mb-8">
+        <p className="text-lg ml-16 mb-8 font-gaming">
           Discover the latest in gaming news, reviews, and gameplay on our
           website.
         </p>
