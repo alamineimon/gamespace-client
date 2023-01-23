@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { GiBoltShield, IconName } from "react-icons/gi";
 const NavB = () => {
   let activeClassName =
     "border-2 border-primary text-primary  px-5 py-2 hover:text-primary";
@@ -58,9 +59,10 @@ const NavB = () => {
               {navlinks}
             </ul>
           </div>
-          <Link className="text-xl lg:text-2xl">
+          <Link className="text-xl lg:text-2xl flex space-x-3">
+            <GiBoltShield className="text-5xl text-white" />
             <div className="text-white">
-              Game Space
+              <span className="font-gaming">Game Space</span>
               <span className="text-xs text-primary block font-bold capitalize">
                 Any Game, Any time, Any place
               </span>
@@ -71,7 +73,9 @@ const NavB = () => {
           <ul className=" flex px-1 font-bold uppercase">{navlinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn btn-secondary">Get started</Link>
+          <Link to="/login" className="btn btn-secondary">
+            Get started
+          </Link>
         </div>
       </div>
     </div>
