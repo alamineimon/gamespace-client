@@ -23,7 +23,7 @@ const ActivePlayers = () => {
         Active Player
       </p>
       <div className="grid lg:grid-cols-8  grid-cols-4 mt-12 lg:px-16 sm:px-32 gap-6">
-        {players.slice(0, 16).map((player, i) => (
+        {players.map((player, i) => (
           <PlayersCard key={i} player={player} />
         ))}
       </div>
@@ -32,7 +32,7 @@ const ActivePlayers = () => {
           to="/allplayers"
           className="hover:bg-yellow-500 rounded border-2 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold px-8 py-2"
         >
-          more players
+          more players 
         </Link>
       </div>
     </div>

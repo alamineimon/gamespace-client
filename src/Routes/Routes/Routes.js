@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../../Layout/Dashboard/Dashboard";
 import Main from "../../Layout/Main/Main";
 import AllPlayers from "../../Pages/Home/components/ActivePlayers/AllPlayers";
 import GameDetails from "../../Pages/Home/components/GameSlider/GameDetails";
@@ -9,6 +10,8 @@ import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 import Support from "../../Pages/Support/Support";
+import MyOrder from '../../Pages/Dashboard/MyOrder/MyOrder';
+import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
 
 const router = createBrowserRouter([
   {
@@ -57,5 +60,19 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path : "/dashboard",
+    element: <Dashboard/>,
+    children:[
+      {
+        path: "/dashboard",
+        element:<MyOrder/>
+      },
+      {
+        path: "/dashboard/sidebar",
+        element:<Sidebar/>
+      },
+    ]
+  }
 ]);
 export default router;
