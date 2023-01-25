@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../../Layout/Dashboard/Dashboard";
 import Main from "../../Layout/Main/Main";
 import AllPlayers from "../../Pages/Home/components/ActivePlayers/AllPlayers";
 import GameDetails from "../../Pages/Home/components/GameSlider/GameDetails";
@@ -9,6 +10,9 @@ import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 import Support from "../../Pages/Support/Support";
+import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
+import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
+import Flappy from "../../Pages/Home/components/Flappy/Flappy";
 
 const router = createBrowserRouter([
   {
@@ -47,13 +51,31 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <GameSlider></GameSlider>,
       },
-                  {
-                path:'/support',
-                element: <Support/>
-            },
+      {
+        path: "/support",
+        element: <Support />,
+      },
       {
         path: "*",
         element: <h1>Error 404 page not found</h1>,
+      },
+      {
+        path: "/flappy",
+        element: <Flappy/>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <MyOrder />,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: <Sidebar />,
       },
     ],
   },

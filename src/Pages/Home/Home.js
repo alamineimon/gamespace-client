@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <Header/>
       <ExperianceSection />
-      <ActivePlayers/>
+      {/* <ActivePlayers/> */}
       <Features/>
       <ExtraFeatures/>
       <GameSlider />
