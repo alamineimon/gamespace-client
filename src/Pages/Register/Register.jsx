@@ -85,7 +85,7 @@ const Register = () => {
 
     return (
         <div className="hero registerBG">
-            <div className='card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)] shadow-black border border-gray-800 h[800px] w-96 md:w-3/6 lg:w-2/6 m-auto  text-white py-4 px-6 rounded-none my-12'>
+            <div className='card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)] shadow-black border border-gray-800 h[800px] xs:w-11/12 sm:w-96 md:w-3/6 lg:w-2/6 m-auto  text-white py-4 px-6 rounded-none my-12'>
                 <div >
                     <h2 className="text-4xl font-bold text-center mb-7">Sign Up !</h2>
                     <form onSubmit={handleSubmit(handelSignUp)}>
