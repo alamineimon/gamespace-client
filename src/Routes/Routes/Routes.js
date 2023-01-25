@@ -10,6 +10,7 @@ import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 import Support from "../../Pages/Support/Support";
+import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
 import Flappy from "../../Pages/Home/components/Flappy/Flappy";
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/demoSingle",
         element: <PlayGamesSingle />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
       },
       {
         path: "/shop",
