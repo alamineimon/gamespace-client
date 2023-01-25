@@ -11,14 +11,13 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <div >
       <div className="mx-auto bg-black overflow-hidden text-gray-400">
-        <footer className="py-8 grid lg:grid-cols-3 grid-cols-1 gap-3">
-          <div className="text-center lg:relative ">
-            <h1 className=" font-bold mb-2 ">Players community</h1>
-            <p className="h-1 w-16 left-44 absolute rounded-t-2xl bg-white"></p>
-
-            <div className="my-8 absolute left-44 text-left">
+        <footer className="w-11/12 m-auto py-8 flex flex-wrap justify-between md:justify-around gap-3">
+          <div className="">
+            <h1 className="font-bold mb-2 ">Players community</h1>
+            <p className="h-1 w-16 rounded-t-2xl bg-white"></p>
+            <div className="my-8 text-left">
               <ul className="text-gray-400">
                 <li>Regular Players</li>
                 <li>HTML Game player</li>
@@ -26,11 +25,10 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="text-center lg:relative ">
+          <div className="">
             <h1 className="text-gray-400 font-bold mb-2">Players community</h1>
-            <p className="h-1 w-16 left-44 absolute rounded-t-2xl bg-white"></p>
-
-            <div className="my-8 absolute text-left left-44">
+            <p className="h-1 w-16 rounded-t-2xl bg-white"></p>
+            <div className="my-8 text-left">
               <ul className="text-gray-400">
                 <li>News</li>
                 <li>Team</li>
@@ -38,11 +36,10 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className=" left-4  lg:relative">
+          <div className=" left-4 ">
             <h1 className="text-gray-400 font-bold mb-2">Players community</h1>
-            <p className="h-1 w-16 absolute  rounded-t-2xl bg-white"></p>
-
-            <div className="my-8 absolute  ">
+            <p className="h-1 w-16  rounded-t-2xl bg-white"></p>
+            <div className="my-8  ">
               <ul className="text-gray-400">
                 <div className="flex  items-center">
                   <FaFacebook /> <li className="ml-2">gamespace_community</li>
@@ -54,8 +51,6 @@ const Footer = () => {
                   <FaDiscord /> <li className="ml-2">gamespace_live</li>
                 </div>
               </ul>
-            </div>
-            <div className="flex flex-col absolute left-0 text-gray-400 items-center justify-center flex-shrink-0 mt-6 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4  lg:mt-28 pr-4 lg:justify-end">
               <button className="inline-flex items-center py-3 rounded-lg dark:bg-blue-400 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -86,20 +81,19 @@ const Footer = () => {
           </div>
         </footer>
         <footer>
-          <div className="flex justify-center items-center my-10">
+          <div className="flex justify-center items-center mb-4">
             <img
-              className=" lg:mt-32 h-16 w-32 "
+              className=" h-16 w-32 "
               src="https://i.ibb.co/2s1VHmq/game-Space-Dark.png"
               alt=""
             />
           </div>
-          <div className="flex justify-center items-center pb-10">
+          <div className="w-11/12 md:w-7/12 m-auto flex justify-center items-center text-justify pb-10">
             <p className="text-gray-400">
               Handcrafted by and for Gamers @ 2023 . Game Space by Themosaurus.
-              All related conntent, characters, <br /> names and materials that
+              All related conntent, characters, names and materials that
               could be part of an existing work, are the exclusive property of
-              their authors.{" "}
-            </p>
+              their authors.</p>
           </div>
         </footer>
         <footer className="text-gray-400 flex justify-center items-center pb-5 ">
