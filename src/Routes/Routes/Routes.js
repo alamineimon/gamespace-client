@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../../Layout/Dashboard/Dashboard";
 import Main from "../../Layout/Main/Main";
 import AllPlayers from "../../Pages/Home/components/ActivePlayers/AllPlayers";
 import GameDetails from "../../Pages/Home/components/GameSlider/GameDetails";
@@ -10,6 +11,9 @@ import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 import Support from "../../Pages/Support/Support";
 import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
+import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
+import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
+import Flappy from "../../Pages/Home/components/Flappy/Flappy";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +63,24 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <h1>Error 404 page not found</h1>,
+      },
+      {
+        path: "/flappy",
+        element: <Flappy/>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <MyOrder />,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: <Sidebar />,
       },
     ],
   },
