@@ -1,6 +1,6 @@
 import React from "react";
-import './Subcribtion.css'
-import { SiMinutemailer } from 'react-icons/si';
+import "./Subcribtion.css";
+import { SiMinutemailer } from "react-icons/si";
 
 const Subcribtion = () => {
   return (
@@ -16,7 +16,7 @@ const Subcribtion = () => {
               <label htmlFor="Enter your email" className="hidden">
                 Enter your email
               </label>
-              <div className="w-[350px]" >
+              <div className="w-[350px]">
                 <input
                   type="search"
                   name="Search"
@@ -26,10 +26,12 @@ const Subcribtion = () => {
               </div>
             </fieldset>
             <div className=" doangel flex justify-center items-center  text-black  font-bold bg-yellow-500 file-input-bordered">
-            <button className="lg:mr-0 mr-4  lg:w-full w-1/2 text-black  lg:text-lg text-sm font-bold bg-yellow-500 file-input-bordered py-3 lg:pl-3 pr-2">
-              SUBSCRIBE
-            </button>
-              <p className="pr-2 text-lg"><SiMinutemailer/></p>
+              <button className="lg:mr-0 mr-4  lg:w-full w-1/2 text-black  lg:text-lg text-sm font-bold bg-yellow-500 file-input-bordered py-3 lg:pl-3 pr-2">
+                SUBSCRIBE
+              </button>
+              <p className="pr-2 text-lg">
+                <SiMinutemailer />
+              </p>
             </div>
           </div>
         </div>

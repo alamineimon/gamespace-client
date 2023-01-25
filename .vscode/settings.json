@@ -2,5 +2,8 @@
   "editor.minimap.autohide": false,
   "cSpell.words": [
     "Subcribtion"
-  ]
+  ],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
 }

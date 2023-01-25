@@ -9,7 +9,9 @@ const ExperianceSection = () => {
       <div className="lg:w-1/2 relative pl-6 pt-2">
         <hr className="bg-red-500 h-2" />
         <p className="h-4 w-16 right-0 absolute bg-red-500"></p>
-        <p className="lg:text-5xl text-4xl mt-16 font-black mb-6 ml-16">EXPERIENCE</p>
+        <p className="lg:text-5xl text-4xl mt-16 font-black mb-6 ml-16">
+          EXPERIENCE
+        </p>
         <p className="lg:text-5xl text-3xl lg:text-left text-center mb-6 mt-6 lg:ml-16 ml-10 font-extrabold text-yellow-600">
           STRONG TEAM PLAY
         </p>
@@ -29,10 +31,12 @@ const ExperianceSection = () => {
           </p>
         </div>
       </div>
+
       <div className="w-1/2 hidden p-8 relative lg:flex">
         <div className="parallelogram1 absolute"></div>
         <div className="parallelogram2 absolute"></div>
       </div>
+
     </div>
   );
 };

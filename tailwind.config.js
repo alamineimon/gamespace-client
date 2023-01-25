@@ -2,12 +2,16 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      gaming: "'Black Ops One', cursive",
+    },
     extend: {
       colors: {
         mainHeading: "#ffffff",
         textP: "#cacaca",
         bg1: "#1C2532",
         bg2: "#000000",
+        navLinks: "#ffffff",
       },
     },
   },
