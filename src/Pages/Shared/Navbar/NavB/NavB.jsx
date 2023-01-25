@@ -85,29 +85,32 @@ const NavB = () => {
               Get started
             </Link>
           ) : (
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src="https://placeimg.com/80/80/people" />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52"
-              >
-                <li>
-                  <Link to="/profile" className="justify-between">
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a onClick={logOut}>Logout</a>
-                </li>
-              </ul>
-            </div>
+            <>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src="https://placeimg.com/80/80/people" />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52"
+                >
+                  <li>
+                    <Link to="/profile" className="justify-between">
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <a onClick={logOut}>Logout</a>
+                  </li>
+                </ul>
+              </div>
+              <p>Hi {user?.displayName.slice(" ")}</p>
+            </>
           )}
         </div>
       </div>
