@@ -23,6 +23,8 @@ const Footer = () => {
                 <li>Regular Players</li>
                 <li>HTML Game player</li>
                 <li>Game Space player</li>
+                <li>Game Space player</li>
+                <li>Game Space player3</li>
               </ul>
             </div>
           </div>
