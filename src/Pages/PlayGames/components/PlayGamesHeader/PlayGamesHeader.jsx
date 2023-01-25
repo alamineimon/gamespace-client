@@ -8,9 +8,7 @@ const PlayGamesHeader = () => {
           Play Exciting Games live!
         </h1>
         <p className="w-full lg:w-2/4 mx-auto text-textP">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-          optio at velit? Recusandae porro, unde non sunt mollitia eos pariatur
-          dolorum
+        An HTML5 game allows play directly in modern web browsers without the need for <br /> third party plugins.
         </p>
       </div>
     </section>

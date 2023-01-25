@@ -30,8 +30,8 @@ const ExperianceSection = () => {
         </div>
       </div>
       <div className="w-1/2 hidden p-8 relative lg:flex">
-        <div class="parallelogram1 absolute"></div>
-        <div class="parallelogram2 absolute"></div>
+        <div className="parallelogram1 absolute"></div>
+        <div className="parallelogram2 absolute"></div>
       </div>
     </div>
   );

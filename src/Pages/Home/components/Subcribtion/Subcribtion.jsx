@@ -13,7 +13,7 @@ const Subcribtion = () => {
           </div>
           <div className="flex  ml-5  w-1/3 justify-center items-center lg:ml-10">
             <fieldset className="lg:w-full w-2/3 space-y-1 dark:text-gray-100">
-              <label for="Enter your email" className="hidden">
+              <label htmlFor="Enter your email" className="hidden">
                 Enter your email
               </label>
               <div className="w-[350px]" >
