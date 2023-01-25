@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 import Loader from "../../../Shared/Loader/Loader";
 import "./ActivePlayer.css";
 import PlayersCard from "./PlayersCard";
+import { Link } from "react-router-dom";
 
 const ActivePlayers = () => {
   const { data: players, isLoading } = useQuery({
@@ -27,6 +27,7 @@ const ActivePlayers = () => {
           <PlayersCard key={i} player={player} />
         ))}
       </div>
+
       <div className="flex justify-center items-center mt-16 ">
         <Link
           to="/allplayers"
@@ -35,6 +36,7 @@ const ActivePlayers = () => {
           more players 
         </Link>
       </div>
+
     </div>
   );
 };

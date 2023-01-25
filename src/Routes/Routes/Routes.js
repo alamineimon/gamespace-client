@@ -14,6 +14,7 @@ import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
 import Flappy from "../../Pages/Home/components/Flappy/Flappy";
+import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
         path: "/flappy",
         element: <Flappy/>,
       },
+      {
+        path: "/candycrash",
+        element: <CandyCrash/>
+      }
     ],
   },
   {
