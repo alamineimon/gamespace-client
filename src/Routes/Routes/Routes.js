@@ -14,8 +14,10 @@ import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
 import Flappy from "../../Pages/Home/components/Flappy/Flappy";
+import Memory from "../../Pages/Home/components/Flappy/Memory";
 import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
 import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
+
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "/tikTakToe",
         element: <TikTakToe />,
+      },
+      {
+        path: "/memory",
+        element: <Memory/>,
       },
     ],
   },
