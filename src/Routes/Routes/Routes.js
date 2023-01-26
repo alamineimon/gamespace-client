@@ -18,7 +18,6 @@ import TwoDGmaes from "../../Pages/2Dgames/TwoDGmaes";
 import Memory from "../../Pages/2Dgames/Flappy/Memory";
 import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -78,11 +77,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/memory",
-        element: <Memory/>,
-      },
-      {
-        path: "*",
-        element: <h1>Error 404 page not found</h1>,
+        element: <Memory />,
       },
     ],
   },
@@ -99,6 +94,10 @@ const router = createBrowserRouter([
         element: <Sidebar />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <h1>Error 404 page not found</h1>,
   },
 ]);
 export default router;
