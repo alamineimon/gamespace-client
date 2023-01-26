@@ -1,0 +1,60 @@
+body{
+    background-color: #123;
+    /* padding: 20px; */
+}
+.board{
+    width: calc(100vh - 240px);
+    max-width: calc(100vw - 40px);
+    display:grid;
+    grid-gap:10px;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+}
+.card-outer{
+    perspective:1000px;
+    height: calc((100vh - 290px) / 4);
+    max-height: calc((100vw - 90px) / 4);
+}
+.cards{
+    border-radius: 5px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform:rotateY(180deg);
+    transform-style: preserve-3d;
+    transition: all 0.3s;
+}
+.cards .front, .card .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.cards .front img{
+    display: block;
+    max-width: 100%;
+}
+.cards .back{
+    background-size: cover;
+    /* background-image: url(https://i.ibb.co/KLBbmgc/4k-gaming-phone-league-of-legends-kalista-5sv5iqet0nbegj38.jpg); */
+    background-color: rgb(162, 177, 26);
+    transform:rotateY(180deg);
+}
+.card-outer.flipped .cards{
+    transform:rotateY(0);
+}
+
+
+.stats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 2rem;
+}

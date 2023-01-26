@@ -13,9 +13,9 @@ import Support from "../../Pages/Support/Support";
 import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
-import Flappy from "../../Pages/Home/components/Flappy/Flappy";
-import Memory from "../../Pages/Home/components/Flappy/Memory";
 import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
+import TwoDGmaes from "../../Pages/2Dgames/TwoDGmaes";
+import Memory from "../../Pages/2Dgames/Flappy/Memory";
 import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
 
 
@@ -65,12 +65,8 @@ const router = createBrowserRouter([
         element: <Support />,
       },
       {
-        path: "*",
-        element: <h1>Error 404 page not found</h1>,
-      },
-      {
-        path: "/flappy",
-        element: <Flappy />,
+        path: "/2dgames",
+        element: <TwoDGmaes />,
       },
       {
         path: "/candycrash",
@@ -83,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "/memory",
         element: <Memory/>,
+      },
+      {
+        path: "*",
+        element: <h1>Error 404 page not found</h1>,
       },
     ],
   },
