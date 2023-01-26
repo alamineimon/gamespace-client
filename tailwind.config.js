@@ -15,6 +15,8 @@ module.exports = {
       },
     },
   },
+
+  plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
@@ -36,9 +38,11 @@ module.exports = {
           warning: "#F59A38",
 
           error: "#EE4744",
+
+          "--rounded-box": "0",
+          "--rounded-btn": "0",
         },
       },
     ],
   },
-  plugins: [require("daisyui")],
 };

@@ -22,6 +22,7 @@
     "react-scroll-to-bottom": "^4.2.0",
     "socket.io-client": "^4.5.4",
     "styled-components": "^5.3.6",
+    "swiper": "^8.4.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
