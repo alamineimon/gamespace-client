@@ -15,7 +15,7 @@ body{
     height: calc((100vh - 290px) / 4);
     max-height: calc((100vw - 90px) / 4);
 }
-.card{
+.cards{
     border-radius: 5px;
     position: relative;
     width: 100%;
@@ -24,23 +24,23 @@ body{
     transform-style: preserve-3d;
     transition: all 0.3s;
 }
-.card .front, .card .back{
+.cards .front, .card .back{
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
 }
-.card .front img{
+.cards .front img{
     display: block;
     max-width: 100%;
 }
-.card .back{
+.cards .back{
     background-size: cover;
     /* background-image: url(https://i.ibb.co/KLBbmgc/4k-gaming-phone-league-of-legends-kalista-5sv5iqet0nbegj38.jpg); */
     /* background-color: rgb(162, 177, 26); */
     transform:rotateY(180deg);
 }
-.card-outer.flipped .card{
+.card-outer.flipped .cards{
     transform:rotateY(0);
 }
 

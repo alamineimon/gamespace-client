@@ -61,7 +61,7 @@ const Memory = () => {
               className={"card-outer " + (flippedToFront ? "flipped" : "")}
               onClick={() => flipCard(index)}
             >
-              <div className="card">
+              <div className="cards">
                 <div className="front">
                   <img src={card} alt="" />
                 </div>
