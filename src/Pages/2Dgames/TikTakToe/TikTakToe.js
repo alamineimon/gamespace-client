@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Board from "./Board/Board";
+import Button from "./Button/Button";
+import Score from "./Score/Score";
 
 const TikTakToe = () => {
   // setting state at empty string that will change on button click
@@ -11,7 +14,7 @@ const TikTakToe = () => {
 
   const clickHandler = (i) => {
     // check if there is already content inside button, if yes do nothing, if no change the textContent
-    if (sign[i] == "x" || sign[i] == "o") return;
+    if (sign[i] === "x" || sign[i] === "o") return;
     // check if there is a winner, if yes return, if no continue game
     if (result.length) return;
     sign[i] = isX ? "x" : "o";
@@ -38,13 +41,13 @@ const TikTakToe = () => {
     // content in the three buttons
     let fieldValues = sign[x] + sign[y] + sign[z];
 
-    if (fieldValues == playerX) {
+    if (fieldValues === playerX) {
       setResult("Player X wins!");
-      setResultColor("yellow");
+      setResultColor("skyblue");
       setScoreX(scoreX + 1);
-    } else if (fieldValues == playerO) {
+    } else if (fieldValues === playerO) {
       setResult("Player O wins!");
-      setResultColor("green");
+      setResultColor("yellow");
       setScoreO(scoreO + 1);
     }
   };
@@ -52,7 +55,7 @@ const TikTakToe = () => {
   const draw = (_) => {
     // check if all buttons have content for draw
     let allContent = sign.every((e) => e);
-    if (allContent && result.length == 0) {
+    if (allContent && result.length === 0) {
       setResult("The game is tied!");
       setResultColor("red");
     }
@@ -63,7 +66,44 @@ const TikTakToe = () => {
     setResult("");
     signChange(Array(9).fill(null));
   };
-  return <div></div>;
+  return (
+    <>
+      <div className="w-11/12 mx-auto py-10">
+        <div className="w-full">
+          <h1 className="text-center text-2xl lg:text-4xl uppercase text-mainHeading font-bold">
+            Tik tak toe
+          </h1>
+        </div>
+        <Score pointX={scoreX} pointO={scoreO} />
+        <Board>
+          <Button value={sign[0]} onClick={() => clickHandler(0)} />
+          <Button value={sign[1]} onClick={() => clickHandler(1)} />
+          <Button value={sign[2]} onClick={() => clickHandler(2)} />
+          <Button value={sign[3]} onClick={() => clickHandler(3)} />
+          <Button value={sign[4]} onClick={() => clickHandler(4)} />
+          <Button value={sign[5]} onClick={() => clickHandler(5)} />
+          <Button value={sign[6]} onClick={() => clickHandler(6)} />
+          <Button value={sign[7]} onClick={() => clickHandler(7)} />
+          <Button value={sign[8]} onClick={() => clickHandler(8)} />
+        </Board>
+        <div className="mb-5 space-y-5">
+          {/* <h2 className="text-center">Result &nbsp;</h2> */}
+          <h2 className="winner text-center" style={{ color: resultColor }}>
+            {result}
+          </h2>
+        </div>
+        <div className="text-center">
+          <button
+            className="btn btn-primary btn-sm"
+            id="restartGame"
+            onClick={restartGameHandler}
+          >
+            Restart game
+          </button>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default TikTakToe;

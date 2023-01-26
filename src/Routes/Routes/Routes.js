@@ -15,6 +15,7 @@ import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
 import Flappy from "../../Pages/Home/components/Flappy/Flappy";
 import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
+import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
 
 const router = createBrowserRouter([
   {
@@ -67,12 +68,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/flappy",
-        element: <Flappy/>,
+        element: <Flappy />,
       },
       {
         path: "/candycrash",
-        element: <CandyCrash/>
-      }
+        element: <CandyCrash />,
+      },
+      {
+        path: "/tik-tak-toe",
+        element: <TikTakToe />,
+      },
     ],
   },
   {

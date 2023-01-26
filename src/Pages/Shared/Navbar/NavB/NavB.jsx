@@ -89,7 +89,7 @@ const NavB = () => {
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img src="https://placeimg.com/80/80/people" />
+                    <img alt="" src="https://placeimg.com/80/80/people" />
                   </div>
                 </label>
                 <ul
@@ -102,10 +102,10 @@ const NavB = () => {
                     </Link>
                   </li>
                   <li>
-                    <a>Settings</a>
+                    <Link>Settings</Link>
                   </li>
                   <li>
-                    <a onClick={logOut}>Logout</a>
+                    <p onClick={logOut}>Logout</p>
                   </li>
                 </ul>
               </div>

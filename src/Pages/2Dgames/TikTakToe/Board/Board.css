@@ -1,0 +1,176 @@
+/* * {
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 60em;
+  max-width: 40em;
+  text-align: center;
+} */
+
+.board {
+  width: 30em;
+  height: 30em;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+}
+
+#restartGame {
+  width: 10em;
+  height: 3em;
+  border-radius: 10px;
+  border: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to left, green, red, yellow);
+  color: rgb(238, 229, 229);
+  font-weight: bolder;
+  transition: all 1s ease;
+  opacity: 0.5;
+}
+#restartGame:hover {
+  cursor: pointer;
+  background: linear-gradient(to left, yellow, red, green);
+  opacity: 0.8;
+  color: white;
+}
+
+#resultDiv {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+/* h1 {
+  margin: 0;
+}
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: bolder;
+  font-size: larger;
+  margin-bottom: 0.3em;
+} */
+
+.tik {
+  color: green;
+}
+.tak {
+  color: red;
+}
+.toe {
+  color: yellow;
+}
+
+@media (max-width: 350px) {
+  .heading {
+    position: absolute;
+    top: 1em;
+    left: 8em;
+  }
+
+  .root {
+    flex-direction: column;
+    align-items: center;
+  }
+  .board {
+    width: 90%;
+    height: 5em;
+    position: absolute;
+    left: 0em;
+    top: 8em;
+  }
+
+  #resultDiv {
+    position: absolute;
+    height: 3em;
+    top: 38em;
+    left: 7em;
+  }
+
+  #resultDiv > h2 {
+    width: 5em;
+    height: 2em;
+    margin: 0;
+  }
+
+  .winner {
+    width: 10em;
+    white-space: nowrap;
+  }
+
+  #restartGame {
+    position: absolute;
+    top: 50em;
+    left: 18em;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 510px) {
+  .all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .heading {
+    margin-top: 4em;
+    margin-left: 4em;
+  }
+
+  .board {
+    width: 90%;
+    max-width: 30em;
+    margin-right: 4em;
+  }
+  #root {
+    width: 100%;
+  }
+
+  #restartGame {
+    position: relative;
+    left: 30%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 510px) and (max-width: 1500px) {
+  .all {
+    height: 50em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50em;
+    max-width: 60em;
+  }
+
+  .board {
+    position: relative;
+    left: 15%;
+  }
+
+  .heading {
+    margin-top: 5em;
+  }
+}
+
+@media (min-width: 1500px) {
+  .heading {
+    margin-top: -20em;
+    margin-right: 4em;
+  }
+
+  #resultDiv {
+    margin-right: 8em;
+  }
+  #restartGame {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-120%);
+  }
+}
