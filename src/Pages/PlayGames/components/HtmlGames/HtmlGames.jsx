@@ -7,7 +7,7 @@ const HtmlGames = () => {
   const { data: htmlGames, isLoading } = useQuery({
     queryKey: ["htmlGames"],
     queryFn: async () => {
-      const res = await fetch("HtmlGames.json");
+      const res = await fetch("http://localhost:9000/play-games");
       const data = await res.json();
       return data;
     },
