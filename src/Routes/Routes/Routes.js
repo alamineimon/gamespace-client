@@ -10,10 +10,14 @@ import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 import Support from "../../Pages/Support/Support";
+import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
 import Flappy from "../../Pages/Home/components/Flappy/Flappy";
 import Memory from "../../Pages/Home/components/Flappy/Memory";
+import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
+import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
+
 
 const router = createBrowserRouter([
   {
@@ -41,12 +45,16 @@ const router = createBrowserRouter([
         element: <GameDetails></GameDetails>,
       },
       {
-        path: "/play-games",
+        path: "/playGames",
         element: <PlayGames />,
       },
       {
         path: "/demoSingle",
         element: <PlayGamesSingle />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
       },
       {
         path: "/shop",
@@ -62,7 +70,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/flappy",
-        element: <Flappy/>,
+        element: <Flappy />,
+      },
+      {
+        path: "/candycrash",
+        element: <CandyCrash />,
+      },
+      {
+        path: "/tikTakToe",
+        element: <TikTakToe />,
       },
       {
         path: "/memory",

@@ -1,0 +1,15 @@
+button {
+  width: 12em;
+  height: 12em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+button p {
+  font-size: 10em;
+  text-transform: capitalize;
+  width: fit-content;
+  width: 100%;
+  height: 100%;
+}

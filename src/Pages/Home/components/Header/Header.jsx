@@ -5,32 +5,30 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <div className="landingPage">
-      <video src={bgVideos} autoPlay muted loop className="videoBgs"></video>
-      <div className="bgOverlay"></div>
-      <div className="textArea">
-        <p className="lg:text-8xl text-4xl lg:mt-12 lg:mb-6 font-bold ml-16">
+    <div className=" w-full min-h-[87vh] flex flex-col items-center justify-center relative transition-all">
+      <video
+        src={bgVideos}
+        autoPlay
+        muted
+        loop
+        className=" w-full h-full absolute top-0 z-[1] object-cover"
+      ></video>
+      <div className=" h-full w-full bg-black/50 z-10"></div>
+      <div className="absolute z-20 text-center -translate-y-1/4">
+        <h1 className="text-4xl lg:text-8xl sm:text-6xl lg:mt-12 lg:mb-6 font-bold text-center font-gaming text-mainHeading">
           All Your Games
-          <br />{" "}
-          <span className="lg:text-8xl text-4xl text-yellow-600">
+          <br />
+          <span className="text-4xl lg:text-8xl sm:text-6xl text-primary">
             is Here...
           </span>
-        </p>
-        <p className="lg:text-xl text-lg w-1/2 ml-16 mb-12">
-          Arcane gives you the power to create the perfect website for your team
-          and community.A trully perfect theme for games !
-        </p>
-        <div className="lg:flex block lg:justify-left lg:items-left  ">
-          <p>
-            <Link className="bg-yellow-600  ml-16 text-white  text-lg uppercase hover:text-white font-semibold w-[350px] text-center px-8 py-2">
-              Join Now
-            </Link>
-          </p>
-          <p className="lg:mt-0 mt-10 ">
-            <Link className="bg-yellow-600 ml-16 text-white  text-lg uppercase hover:text-white font-semibold w-[350px] text-center px-8 py-2">
-              Browse Game
-            </Link>
-          </p>
+        </h1>
+        <div className="lg:flex block lg:justify-center lg:items-left space-x-5 ">
+          <Link to="/login" className="btn btn-primary rounded-none font-bold">
+            Join now
+          </Link>
+          <Link to="/shop" className="btn btn-secondary rounded-none font-bold">
+            Browse games
+          </Link>
         </div>
       </div>
     </div>

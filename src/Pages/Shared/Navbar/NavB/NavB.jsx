@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { GiBoltShield } from "react-icons/gi";
+import { useContext } from "react";
+import { AuthContext } from "../../../../context/AuthProvider";
 const NavB = () => {
+  const { user, logOut } = useContext(AuthContext);
   let activeClassName =
     "border-4 border-primary   text-primary  px-5 py-2 hover:text-primary";
   let notActiveClassName =
@@ -15,7 +18,7 @@ const NavB = () => {
         ["game", "/game"],
         ["Blog", "/blog"],
         ["support", "/support"],
-        ["Play !", "/play-games"],
+        ["Play !", "/playGames"],
       ].map(([title, url]) => {
         return (
           <li key={url}>
@@ -74,9 +77,41 @@ const NavB = () => {
           <ul className=" flex px-1 font-bold uppercase">{navlinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn btn-primary font-bold rounded-none">
-            Get started
-          </Link>
+          {!user ? (
+            <Link
+              to="/login"
+              className="btn btn-primary btn-sm font-bold rounded-none"
+            >
+              Get started
+            </Link>
+          ) : (
+            <>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img alt="" src="https://placeimg.com/80/80/people" />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52"
+                >
+                  <li>
+                    <Link to="/profile" className="justify-between">
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link>Settings</Link>
+                  </li>
+                  <li>
+                    <p onClick={logOut}>Logout</p>
+                  </li>
+                </ul>
+              </div>
+              <p>Hi {user?.displayName.slice(" ")}</p>
+            </>
+          )}
         </div>
       </div>
     </div>
