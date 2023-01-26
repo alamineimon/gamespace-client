@@ -65,7 +65,7 @@ const Memory = () => {
                 <div className="front">
                   <img src={card} alt="" />
                 </div>
-                <div className="back" />
+                <div className="back bg-primary" />
               </div>
             </div>
           );
