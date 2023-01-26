@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         element: <GameDetails></GameDetails>,
       },
       {
-        path: "/play-games",
+        path: "/playGames",
         element: <PlayGames />,
       },
       {
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         element: <CandyCrash />,
       },
       {
-        path: "/tik-tak-toe",
+        path: "/tikTakToe",
         element: <TikTakToe />,
       },
     ],
