@@ -1,14 +1,15 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { GiBoltShield } from "react-icons/gi";
+import { HiMenuAlt1 } from "react-icons/hi";
 import { useContext } from "react";
 import { AuthContext } from "../../../../context/AuthProvider";
 const NavB = () => {
   const { user, logOut } = useContext(AuthContext);
   let activeClassName =
-    "border-4 border-primary   text-primary  px-5 py-2 hover:text-primary";
+    "bg-primary lg:border-4 text-secondary lg:border-primary lg:text-secondary  lg:px-5 py-2 lg:hover:text-primary rounded-none";
   let notActiveClassName =
-    "border-4 border-transparent hover:text-accent mx-5 my-2";
+    "lg:border-4 lg:border-transparent hover:text-accent lg:mx-5  rounded-none py-2";
   const navlinks = (
     <>
       {[
@@ -35,38 +36,25 @@ const NavB = () => {
     </>
   );
   return (
-    <div className="bg-bg1 py-2">
-      <div className="navbar w-11/12 mx-auto ">
+    <div className="bg-bg1 py-1 sm:py-2">
+      <div className="navbar w-11/12 mx-auto px-0">
         <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+          <div className="dropdown ">
+            <label tabIndex={0} className=" lg:hidden cursor-pointer ">
+              <HiMenuAlt1 className="text-xl text-white hover:text-primary hover:border border-primary" />
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-6  shadow bg-base-200  w-52  font-bold uppercase text-sm border border-primary rounded-none"
             >
               {navlinks}
             </ul>
           </div>
-          <Link className="text-xl lg:text-2xl flex space-x-3">
-            <GiBoltShield className="text-5xl text-white" />
+          <Link className="text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2">
+            <GiBoltShield className="text-2xl md:text-5xl text-white " />
             <div className="text-white">
               <span className="font-gaming">Game Space</span>
-              <span className="text-xs text-primary block font-bold capitalize">
+              <span className="text-xs text-primary lg:block font-bold capitalize hidden ">
                 Any Game, Any time, Any place
               </span>
             </div>
@@ -79,7 +67,7 @@ const NavB = () => {
           {!user ? (
             <Link
               to="/login"
-              className="btn btn-primary btn-sm font-bold rounded-none"
+              className="btn btn-primary btn-xs md:btn-sm font-bold rounded-none"
             >
               Get started
             </Link>
