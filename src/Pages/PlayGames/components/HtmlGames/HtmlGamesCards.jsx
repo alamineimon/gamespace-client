@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const HtmlGamesCards = ({ game }) => {
   const { gameName, authorName, gameLink, thumbnail, category, description } =
     game;
+  console.log(game._id);
   return (
     <div className="card w-full bg-base-100 shadow-xl image-full h-80  ">
       <figure className="before:hidden">

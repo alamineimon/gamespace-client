@@ -6,9 +6,9 @@ import GamesCards from "./GamesCards";
 
 const GameSlider = () => {
   const { data: games, isLoading } = useQuery({
-    queryKey: ["games"],
+    queryKey: ["downloadGames"],
     queryFn: async () => {
-      const res = await fetch("games.json");
+      const res = await fetch("http://localhost:9000/downloadGames");
       const data = await res.json();
       return data;
     },
