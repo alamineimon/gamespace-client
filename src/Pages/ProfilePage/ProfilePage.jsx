@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const ProfilePage = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = (event, id) => {
     event.preventDefault();
