@@ -15,10 +15,9 @@ const NavB = () => {
         ["Home", "/"],
         ["about", "/about"],
         ["shop", "/shop"],
-        ["game", "/game"],
-        ["Blog", "/blog"],
         ["support", "/support"],
-        ["Play !", "/playGames"],
+        ["2D Games", "/2dgames"],
+        ["HTML Games", "/playGames"],
       ].map(([title, url]) => {
         return (
           <li key={url}>
