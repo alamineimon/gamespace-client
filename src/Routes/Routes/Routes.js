@@ -13,6 +13,7 @@ import Support from "../../Pages/Support/Support";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
 import Flappy from "../../Pages/Home/components/Flappy/Flappy";
+import Memory from "../../Pages/Home/components/Flappy/Memory";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/flappy",
         element: <Flappy/>,
+      },
+      {
+        path: "/memory",
+        element: <Memory/>,
       },
     ],
   },

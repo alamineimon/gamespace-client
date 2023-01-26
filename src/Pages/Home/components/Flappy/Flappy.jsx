@@ -7,7 +7,7 @@ const GRAVITY = 5;
 const JUMP_GEIGHT = 100;
 
 const Flappy = () => {
-  const [birdPosition, setBirdPosition] = useState(400);
+  const [birdPosition, setBirdPosition] = useState(500);
   const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
@@ -27,8 +27,8 @@ const Flappy = () => {
     
     if(!gameStarted){
         setGameStarted(true)
-    } else if (newBirdPosition < 0) {
-      setBirdPosition(-400);
+    } else if (newBirdPosition < 125) {
+      setBirdPosition(400);
     } else {
       setBirdPosition(newBirdPosition);
     }
@@ -60,7 +60,6 @@ const Div = styled.div`
   width: 100%;
   height: 505px;
   background-color: aquamarine;
-//   margin-top: 100px;
   justify-content: center;
   align-items: center;
 `;
@@ -68,5 +67,5 @@ const Div = styled.div`
 const GameBox = styled.div`
   height: ${(props) => props.height}px;
   width: ${(props) => props.width}px;
-  background: blue;
+  background-image: url(https://user-images.githubusercontent.com/18351809/46888871-624a3900-ce7f-11e8-808e-99fd90c8a3f4.png);
 `;
