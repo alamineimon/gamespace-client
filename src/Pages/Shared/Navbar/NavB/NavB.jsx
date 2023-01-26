@@ -7,7 +7,7 @@ import { AuthContext } from "../../../../context/AuthProvider";
 const NavB = () => {
   const { user, logOut } = useContext(AuthContext);
   let activeClassName =
-    "bg-primary lg:border-4 text-secondary lg:border-primary lg:text-secondary  lg:px-5 py-2 lg:hover:text-primary rounded-none";
+    "bg-primary lg:border-4 text-secondary lg:border-primary lg:bg-transparent lg:text-primary  lg:px-5 py-2 lg:hover:text-primary rounded-none";
   let notActiveClassName =
     "lg:border-4 lg:border-transparent hover:text-accent lg:mx-5  rounded-none py-2";
   const navlinks = (
@@ -72,11 +72,11 @@ const NavB = () => {
               Get started
             </Link>
           ) : (
-            <>
-              <div className="dropdown dropdown-end">
+            <div className="flex items-center">
+              <div className="dropdown dropdown-end ">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    <img alt="" src="https://placeimg.com/80/80/people" />
+                    <img alt="" src={user?.photoURL} />
                   </div>
                 </label>
                 <ul
@@ -96,8 +96,13 @@ const NavB = () => {
                   </li>
                 </ul>
               </div>
-              <p>Hi {user?.displayName.slice(" ")}</p>
-            </>
+              <p className="font-bold text-sm">
+                Hi{" "}
+                <span className="text-primary">
+                  {user?.displayName?.split(" ")[0]}
+                </span>
+              </p>
+            </div>
           )}
         </div>
       </div>
