@@ -2,9 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HtmlGamesCards = ({ game }) => {
-  const { gameName, authorName, gameLink, thumbnail, category, description } =
-    game;
-  console.log(game._id);
+  const {
+    gameName,
+    authorName,
+    gameLink,
+    thumbnail,
+    category,
+    description,
+    _id,
+  } = game;
   return (
     <div className="card w-full image-full h-64 rounded-sm">
       <figure className="before:hidden">
@@ -16,7 +22,7 @@ const HtmlGamesCards = ({ game }) => {
         <p>{description.slice(0, 100)}</p>
         <div className="card-actions justify-center">
           <Link
-            to="/demoSingle"
+            to={`/gameshtml/${_id}`}
             className="btn btn-outline rounded-none hover:btn-primary font-bold"
           >
             Play Now
