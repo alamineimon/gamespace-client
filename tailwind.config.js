@@ -13,6 +13,9 @@ module.exports = {
         bg2: "#000000",
         navLinks: "#ffffff",
       },
+      backgroundImage: {
+        'html5banner': "url('https://img.freepik.com/free-psd/funny-game-text-effect_17005-1393.jpg?size=626&ext=jpg&ga=GA1.2.207808977.1658386615&semt=sph')",
+      },
     },
   },
 
