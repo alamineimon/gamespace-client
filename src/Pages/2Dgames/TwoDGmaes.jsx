@@ -4,7 +4,7 @@ import "./TwoDGames.css";
 
 const TwoDGmaes = () => {
   return (
-    <div className="h-[500px] items-center flex justify-evenly">
+    <div className="lg:h-[500px] items-center lg:flex block justify-evenly">
       <div className="CandyCrash w-96 h-60 flex flex-col justify-center items-center rounded-none shadow-xl image-full">
         <p className="text-3xl mb-6 text-white uppercase font-bold">
           Candy Crush
