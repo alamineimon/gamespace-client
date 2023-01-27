@@ -29,6 +29,18 @@ const ExtraFeatures = () => {
           </Link>
         </div>
       </div>
+      <div className="downloadGames  flex justify-center items-center lg:w-1/2 sm:w-full">
+        <div className=" w-full text-center">
+        <BiRun className="text-5xl w-full mx-auto text-yellow-300"></BiRun>
+          <h5 className="text-2xl font-semibold font-serif ">
+            2D Games
+          </h5>
+          <p className="">You can browse and play 2D games here..</p>
+          <Link to='/2dgames' className="btn rounded-none btn-outline btn-sm mt-4">
+            Play 2D
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
