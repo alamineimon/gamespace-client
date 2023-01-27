@@ -6,7 +6,7 @@ const HtmlGamesCards = ({ game }) => {
     game;
   console.log(game._id);
   return (
-    <div className="card w-full bg-base-100 shadow-xl image-full h-80  ">
+    <div className="card w-full image-full h-64 rounded-sm">
       <figure className="before:hidden">
         <img src={thumbnail} alt={gameName} className="w-full" />
       </figure>
