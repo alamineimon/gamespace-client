@@ -1,9 +1,9 @@
-/* .htmlGamesBg{
+.htmlGamesBg{
     background-image: url("https://img.freepik.com/free-psd/funny-game-text-effect_17005-1393.jpg?size=626&ext=jpg&ga=GA1.2.207808977.1658386615&semt=sph");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-} */
+}
 
 .image:after{
     content: '';
