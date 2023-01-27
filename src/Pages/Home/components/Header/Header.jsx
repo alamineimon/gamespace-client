@@ -5,7 +5,7 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <div className=" w-full min-h-[87vh] flex flex-col items-center justify-center relative transition-all">
+        <div className=" w-full min-h-[87vh] flex flex-col items-center justify-center relative transition-all">
       <video
         src={bgVideos}
         autoPlay
