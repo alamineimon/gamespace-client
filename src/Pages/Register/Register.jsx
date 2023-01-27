@@ -16,7 +16,7 @@ const Register = () => {
     const [createUserEmail, setCreateUserEmail] = useState();
 
     const location = useLocation();
-    const navogate = useNavigate();
+    const navigate = useNavigate();
     const from = location.from?.state.pathname || '/'
 
     const handelSignUp = data => {
@@ -30,7 +30,7 @@ const Register = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUser(data.name, data.email);
-                        navogate(from, { replace: true })
+                        navigate(from, { replace: true })
                         console.log(user)
                         toast.success("User Create Succesfully");
                     })
@@ -48,7 +48,7 @@ const Register = () => {
         .then(result =>{
             const user = result.user;
             console.log(user)
-            navogate(from, { replace: true })
+            navigate(from, { replace: true })
         })
     }
 
@@ -66,7 +66,7 @@ const Register = () => {
                     .then(() => {
                         saveUser(userInfo.displayName, userInfo.email, user.uid);
                         toast.success("Login Successfully")
-                        navogate(from, { replace: true })
+                        navigate(from, { replace: true })
 
                     })
                     .catch(err => console.log(err));
@@ -77,9 +77,20 @@ const Register = () => {
             })
     }
     const saveUser = (name, email) => {
-        setCreateUserEmail(name, email);
-
-    }
+        const user = {name, email};
+        fetch('http://localhost:9000/user', {
+          method: "POST",
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        //   setCreatedUserEmail(email);
+        })
+      };
 
 
 
