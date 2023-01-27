@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../../Layout/Dashboard/Dashboard";
 import Main from "../../Layout/Main/Main";
 import AllPlayers from "../../Pages/Home/components/ActivePlayers/AllPlayers";
 import GameDetails from "../../Pages/Home/components/GameSlider/GameDetails";
@@ -9,6 +10,13 @@ import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
 import Support from "../../Pages/Support/Support";
+import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
+import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
+import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
+import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
+import TwoDGmaes from "../../Pages/2Dgames/TwoDGmaes";
+import Memory from "../../Pages/2Dgames/Flappy/Memory";
+import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +44,7 @@ const router = createBrowserRouter([
         element: <GameDetails></GameDetails>,
       },
       {
-        path: "/play-games",
+        path: "/playGames",
         element: <PlayGames />,
       },
       {
@@ -44,18 +52,52 @@ const router = createBrowserRouter([
         element: <PlayGamesSingle />,
       },
       {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+      {
         path: "/shop",
         element: <GameSlider></GameSlider>,
       },
-                  {
-                path:'/support',
-                element: <Support/>
-            },
       {
-        path: "*",
-        element: <h1>Error 404 page not found</h1>,
+        path: "/support",
+        element: <Support />,
+      },
+      {
+        path: "/2dgames",
+        element: <TwoDGmaes />,
+      },
+      {
+        path: "/candycrash",
+        element: <CandyCrash />,
+      },
+      {
+        path: "/tikTakToe",
+        element: <TikTakToe />,
+      },
+      {
+        path: "/memory",
+        element: <Memory />,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <MyOrder />,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: <Sidebar />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <h1>Error 404 page not found</h1>,
   },
 ]);
 export default router;

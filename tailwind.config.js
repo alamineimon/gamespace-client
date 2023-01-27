@@ -15,15 +15,17 @@ module.exports = {
       },
     },
   },
+
+  plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
         mytheme: {
-          primary: "#F89100",
+          primary: "#FA8072",
 
           secondary: "#1A1B1F",
 
-          accent: "#F89100",
+          accent: "#FA8072",
 
           neutral: "#141320",
 
@@ -36,9 +38,11 @@ module.exports = {
           warning: "#F59A38",
 
           error: "#EE4744",
+
+          "--rounded-box": "0",
+          "--rounded-btn": "0",
         },
       },
     ],
   },
-  plugins: [require("daisyui")],
 };

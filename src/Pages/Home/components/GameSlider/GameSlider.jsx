@@ -1,14 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { CgGames } from "react-icons/cg";
+
+import "swiper/css";
+import "swiper/css/effect-coverflow";
 import Loader from "../../../Shared/Loader/Loader";
 import GamesCards from "./GamesCards";
 
 const GameSlider = () => {
   const { data: games, isLoading } = useQuery({
-    queryKey: ["games"],
+    queryKey: ["downloadGames"],
     queryFn: async () => {
-      const res = await fetch("games.json");
+      const res = await fetch("http://localhost:9000/downloadGames");
       const data = await res.json();
       return data;
     },
@@ -26,7 +29,7 @@ const GameSlider = () => {
         <h1 className="text-2xl lg:text-4xl text-mainHeading font-bold uppercase mb-5 text-center">
           Games <span className="text-primary">collection</span>
         </h1>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+        <div className="grid md:grid-cols-2  2xl:grid-cols-4 gap-5">
           {games.map((game, i) => (
             <GamesCards key={i} game={game} />
           ))}

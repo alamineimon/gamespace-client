@@ -1,8 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import { FaVideo } from "react-icons/fa";
 import VideoModal from "../../../Shared/VideoModal/VideoModal";
 const GamesCards = ({ game }) => {
   const { title, description, price, img, videolink, gameDownload } = game;
+  const [video, setVideo] = useState("");
 
   return (
     <div className="card card-compact cursor-pointer bg-secondary rounded-none group">
@@ -14,6 +16,7 @@ const GamesCards = ({ game }) => {
         />
         {videolink && (
           <label
+            onClick={() => setVideo(videolink)}
             htmlFor="see-video"
             className="absolute top-[7%] -right-10 group-hover:right-3 transition-all duration-100 p-2  bg-black/75 hover:bg-primary cursor-pointer  group-hover:block rounded-full"
           >
@@ -34,10 +37,18 @@ const GamesCards = ({ game }) => {
           <h6 className="text-xl lg:text-3xl font-bold text-mainHeading">
             ${price}
           </h6>
-          <a href={gameDownload} className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase" > Download </a>
+          <a
+            href={gameDownload}
+            className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase"
+          >
+            {" "}
+            Download{" "}
+          </a>
         </div>
       </div>
-      {videolink && <VideoModal videolink={videolink} />}
+      {videolink && video && (
+        <VideoModal videolink={videolink} setVideo={setVideo} />
+      )}
     </div>
   );
 };
