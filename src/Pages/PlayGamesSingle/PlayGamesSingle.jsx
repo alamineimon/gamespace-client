@@ -32,7 +32,20 @@ const PlayGamesSingle = () => {
               <BsArrowsFullscreen />
             </button>
           </div>
-          <div className="col-span-2 hidden lg:block"></div>
+          <div className="col-span-2  lg:block text-left space-y-5">
+            <p>
+              <span className="text-white font-bold uppercase">
+                Category<br></br>
+              </span>
+              {category}
+            </p>
+            <p>
+              <span className="text-white font-bold uppercase">
+                description<br></br>
+              </span>
+              {description}
+            </p>
+          </div>
         </div>
       </div>
     </section>
