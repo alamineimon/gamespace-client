@@ -14,7 +14,7 @@ const ExtraFeatures = () => {
             Play Games
           </h4>
           <p className="">You can play your favorite games here..</p>
-          <Link to="/play-games" className="btn rounded-none btn-outline btn-sm mt-4">Play</Link>
+          <Link to="/playgames" className="btn rounded-none btn-outline btn-sm mt-4">Play</Link>
         </div>
       </div>
       <div className="plauHtmlGames  flex justify-center items-center lg:w-1/2 sm:w-full">
