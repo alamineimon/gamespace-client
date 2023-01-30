@@ -48,7 +48,9 @@ const router = createBrowserRouter([
         element: <PlayGames />,
       },
       {
-        path: "/demoSingle",
+        path: "/gameshtml/:id",
+        loader: async ({ params }) =>
+          fetch(`http://localhost:9000/playGames/${params.id}`),
         element: <PlayGamesSingle />,
       },
       {

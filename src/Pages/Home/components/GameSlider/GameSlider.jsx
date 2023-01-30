@@ -33,8 +33,8 @@ const GameSlider = () => {
         <h1 className="text-2xl lg:text-4xl text-mainHeading font-bold uppercase mb-5 text-center">
         <span className={`${theme === "dark" ? "text-white1" : "text-black1"}`}>Games</span> <span className="text-primary">collection</span>
         </h1>
-        <div className="grid md:grid-cols-2  2xl:grid-cols-4 gap-5">
-          {games.map((game, i) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-4 gap-5">
+          {games && games.map((game, i) => (
             <GamesCards key={i} game={game} />
           ))}
         </div>
