@@ -3,8 +3,6 @@
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(../../../../assets/images/bgColor2.jpg);
 }
 .parallelogram1 {
   width: 200px;

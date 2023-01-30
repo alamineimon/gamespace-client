@@ -1,10 +1,13 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import "./TwoDGames.css";
 
 const TwoDGmaes = () => {
+  const {theme} = useContext(AuthContext);
   return (
-    <div className="lg:h-[500px] items-center lg:flex block justify-evenly">
+    <div className={`h-[500px] items-center flex justify-evenly ${theme === "dark" ? "bg-bg1" : "bg-gray"}`}>
       <div className="CandyCrash w-96 h-60 flex flex-col justify-center items-center rounded-none shadow-xl image-full">
         <p className="text-3xl mb-6 text-white uppercase font-bold">
           Candy Crush
