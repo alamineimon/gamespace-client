@@ -6,8 +6,11 @@ const Error404Page = () => {
     <section className="flex flex-col justify-center min-h-screen items-center">
       <h1 className="text-3xl lg:text-9xl font-gaming font-bold">404</h1>
       <h3 className="text-xl capitalize text-white">Page not found</h3>
-      <Link className="btn btn-circle ">
-        <button className=" ">Go back</button>
+      <Link
+        to="/"
+        className="btn btn-circle mt-4 hover:bg-primary hover:text-white "
+      >
+        <button>Go Back</button>
       </Link>
     </section>
   );
