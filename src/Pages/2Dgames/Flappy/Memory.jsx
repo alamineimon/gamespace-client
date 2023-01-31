@@ -58,7 +58,7 @@ const Memory = () => {
             foundPairs.indexOf(index) !== -1;
           return (
             <div
-              className={"card-outer " + (flippedToFront ? "flipped" : "")}
+              className={"card-outer " + (flippedToFront ? "flipped " : "bg-primary")}
               onClick={() => flipCard(index)}
             >
               <div className="cards">

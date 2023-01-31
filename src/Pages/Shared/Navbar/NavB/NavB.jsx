@@ -88,12 +88,17 @@ const NavB = () => {
             >
               Get started
             </Link>
-            <button
+            {/* <button
             className={`font-semibold mr-10 ${theme === "dark" ? "bg-white" : "bg-black"} ${theme === "dark" ? "text-black" : "text-white"} py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
             onClick={toggleTheme}
           >
             {mode === true ? "light" : "dark"}
-          </button>
+          </button> */}
+          <div className="container">
+            <div className="toggle">
+              <div className="toggle-button"></div>
+            </div>
+          </div>
           </>
           ) : (
             <div className="flex items-center">

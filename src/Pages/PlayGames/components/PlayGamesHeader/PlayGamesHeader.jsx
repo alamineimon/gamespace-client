@@ -12,6 +12,7 @@ const PlayGamesHeader = () => {
         </h1>
         <p className={`w-full lg:w-2/4 mx-auto ${theme === "dark" ? "text-gray" : "text-black1"}`}>
         An HTML5 game allows play directly in modern web browsers without the need for <br /> third party plugins.
+
         </p>
       </div>
     </section>
