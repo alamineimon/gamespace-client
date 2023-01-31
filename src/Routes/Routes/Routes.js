@@ -17,6 +17,7 @@ import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
 import TwoDGmaes from "../../Pages/2Dgames/TwoDGmaes";
 import Memory from "../../Pages/2Dgames/Flappy/Memory";
 import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
+import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/gameshtml/:id",
         loader: async ({ params }) =>
-          fetch(`http://localhost:9000/playGames/${params.id}`),
+          fetch(`https://gamespace-server.vercel.app/playGames/${params.id}`),
         element: <PlayGamesSingle />,
       },
       {
@@ -99,7 +100,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>Error 404 page not found</h1>,
+    element: <Error404Page />,
   },
 ]);
 export default router;
