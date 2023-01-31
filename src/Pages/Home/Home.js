@@ -8,6 +8,7 @@ import Subcribtion from "./components/Subcribtion/Subcribtion";
 import ExtraFeatures from "./components/ExtraFeatures/ExtraFeatures";
 import ExperianceSection from "./components/ExperianceSection/ExperianceSection";
 import VideoBg from "./components/Subcribtion/VideoBg";
+import GameDetails from "./components/GameSlider/GameDetails";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <ActivePlayers/>
       <Features/>
       <ExtraFeatures/>
+      {/* <GameDetails /> */}
       <GameSlider />
       <FeaturedGames />
       <VideoBg/>

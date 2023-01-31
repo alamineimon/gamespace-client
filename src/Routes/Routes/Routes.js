@@ -40,8 +40,9 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/gameDetails/:id",
+        path: "/downloadGames/:id",
         element: <GameDetails></GameDetails>,
+        loader:({ params }) => fetch(`http://localhost:9000/downloadGames/${params.id}`),
       },
       {
         path: "/playGames",

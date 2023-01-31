@@ -9,10 +9,10 @@ const Dashboard = () => {
   // const [isAdmin] = useAdmin(user?.email);
   // const [isSeller] = useSeller(user?.email);
   let activeClassName = "bg-[#F1F5F9] rounded-md capitalize  m-2 md:m-3 ";
-  let notActiveClassName =
-    "hover:bg-[#F1F5F9] rounded-md capitalize  m-2 md:m-3 ";
+  let notActiveClassName = "hover:bg-[#F1F5F9] rounded-md capitalize  m-2 md:m-3 ";
+
   return (
-<div>
+    <div>
       <div className="drawer drawer-mobile bg-blue-500  ">
         <input id="dashboard" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content ">
@@ -41,7 +41,7 @@ const Dashboard = () => {
             <li>
               <Link to="/dashboard/allusers">Manage Users</Link>
             </li>
-                
+
           </ul>
         </div>
       </div>

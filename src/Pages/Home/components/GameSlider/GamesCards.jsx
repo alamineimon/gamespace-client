@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { FaVideo } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import VideoModal from "../../../Shared/VideoModal/VideoModal";
 const GamesCards = ({ game }) => {
-  const { title, description, price, img, videolink, gameDownload } = game;
+  const {_id, title, description, price, img, videolink, gameDownload } = game;
   const [video, setVideo] = useState("");
 
   return (
@@ -37,13 +38,13 @@ const GamesCards = ({ game }) => {
           <h6 className="text-xl lg:text-3xl font-bold text-mainHeading">
             ${price}
           </h6>
-          <a
-            href={gameDownload}
+          <Link
+            to={`/downloadGames/${_id}`}
             className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase"
           >
             {" "}
             Download{" "}
-          </a>
+          </Link>
         </div>
       </div>
       {videolink && video && (
