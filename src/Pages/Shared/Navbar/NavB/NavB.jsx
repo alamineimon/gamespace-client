@@ -35,7 +35,7 @@ const NavB = () => {
         ["support", "/support"],
         ["2D Games", "/2dgames"],
         ["HTML Games", "/playGames"],
-      ].map(([title, url]) => {
+      ]?.map(([title, url]) => {
         return (
           <li key={url}>
             <NavLink

@@ -36,7 +36,7 @@ const GameSlider = () => {
         <span className={`${theme === "dark" ? "text-white1" : "text-black1"}`}>Games</span> <span className="text-primary">collection</span>
         </h1>
         <div className="grid md:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-4 gap-5">
-          {games && games.map((game, i) => <GamesCards key={i} game={game} />)}
+          {games && games?.map((game, i) => <GamesCards key={i} game={game} />)}
         </div>
       </div>
     </div>
