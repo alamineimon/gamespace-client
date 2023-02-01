@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -19,6 +20,13 @@ const GameDetails = () => {
         },
     });
 
+    const [gameDisplay, setGameDisplay] = useState();
+    const gameDisplayShow = data =>{
+        setGameDisplay(data)
+
+    }
+    console.log(gameDisplay);
+
     return (
         <div className='text-white'>
             <div className=" w-full  flex flex-col items-center justify-center relative transition-all">
@@ -26,7 +34,7 @@ const GameDetails = () => {
 
             </div>
             <div className='bg-gray-900 px-5 md:px-10'>
-                <div className='flex justify-center items-center space-x-10 space-y-4 pt-5 pb-16'>
+                <div className='flex justify-center items-center space-x-10 lg:space-x-20 space-y-4 pt-5 pb-16'>
                     <div className="hidden md:block -mt-32 z-10 ">
                         <img src={img} className='w-44 md:w-60 p-4 bg-yellow-500' alt="" />
                     </div>
@@ -109,13 +117,13 @@ const GameDetails = () => {
                         <div className='p-4 space-x-4'>
                             {
                                 showAllGame?.map((desplayGame, i) =>
-                                    <Link to={`/downloadGames/${_id}`}>
+                                    <Link onClick={() => gameDisplayShow(gameDetails)} to={`/downloadGames/${_id}`}>
                                         <div className='grid grid-cols-2 items-center gap-4'>
                                             <div className='max-w-32 h-32'>
                                                 <img src={desplayGame?.img} className='w-full h-full' alt="" />
                                             </div>
                                             <div>
-                                                <h5 className='text-xl md:text-md lg:text-xl hover:underline'>{desplayGame?.title}</h5>
+                                                <h5 className='text-xl md:text-sm lg:text-xl hover:underline'>{desplayGame?.title}</h5>
                                             </div>
                                         </div>
                                         <hr className='mt-5' />
