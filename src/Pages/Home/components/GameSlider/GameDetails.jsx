@@ -39,14 +39,14 @@ const GameDetails = () => {
                         <img src={img} className='w-44 md:w-60 p-4 bg-yellow-500' alt="" />
                     </div>
                     <div className=''>
-                        <h1 className="text-2xl md:text-3xl lg:text-4xl hover:underline cursor-pointer ">{title} </h1>
+                        <h1 className="text-1xl sm:text-2xl md:text-3xl lg:text-4xl hover:underline cursor-pointer ">{title} </h1>
                     </div>
 
                     <div className="w-72 p-3 flex justify-between items-center bg-amber-700">
                         <div>
                             <h3 className="text-lg md:text-2xl font-bold">Game Rating</h3>
-                            <h4 className="text-md md:text-xl">User Ratings: {ratings}</h4>
-                            <h4 className="text-md md:text-xl">Our Review: 9/10</h4>
+                            <h4 className="text-sm md:text-md lg:text-xl">User Ratings: {ratings}</h4>
+                            <h4 className="text-sm md:text-md lg:text-xl">Our Review: 9/10</h4>
                         </div>
                         <div>
                             <FaStar className='text-yellow-500 text-5xl md:text-7xl'></FaStar>
@@ -80,8 +80,8 @@ const GameDetails = () => {
                                 <p>{ratings}</p>
                                 <p>{releaseDate}</p>
                                 <p className='font-bold  text-xl'>$ <span className='text-amber-500'>{price}</span></p>
-                                <a href={videolink} className='hover:underline text-blue-600' alt='' target="_blank">{videolink}</a>
-                                <p>{description} </p>
+                                <a  href={videolink} target="_blank" className='hover:underline text-blue-600 text-sm md:text-lg' alt='' >{videolink ? videolink.slice(0, 29) : 'videolink'}</a>
+                                <p className='text-justify'>{description} </p>
                             </div>
                         </div>
                         <div className='space-y-3 mt-8'>
