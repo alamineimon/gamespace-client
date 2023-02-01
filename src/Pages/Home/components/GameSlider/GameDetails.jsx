@@ -82,7 +82,7 @@ const GameDetails = () => {
                                 <p>9 / 10</p>
                                 <p>22 / 01 / 2023</p>
                                 <p>$ {price}</p>
-                                <Link className='hover:underline text-blue-600'>{videolink}</Link>
+                                <a href={videolink} className='hover:underline text-blue-600' alt='' target="_blank">{videolink}</a>
                                 <p>{description} </p>
                             </div>
                         </div>
@@ -102,10 +102,8 @@ const GameDetails = () => {
                                         <div className="hero h-52" >
                                             <div className="hero-content text-center text-neutral-content">
                                                 <div className="flex ">
-                                                    <img src={desplayGame?.img} alt='' />
-
+                                                    <img src={desplayGame?.img} className='h-full' alt='' />
                                                 </div>
-
                                             </div>
                                         </div>
                                     )
