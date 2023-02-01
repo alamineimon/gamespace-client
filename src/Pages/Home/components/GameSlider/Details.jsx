@@ -1,10 +1,22 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from 'react-router-dom';
 
-const Details = () => {
+const Details = ({ gameDetails }) => {
+    const { title, description, price, img, videolink, gameDownload } = gameDetails;
 
-    // const {_id, title, description, price, img, videolink, gameDownload } = gameDetails;
+    const { data: showAllGame } = useQuery({
+        queryKey: ["downloadGames"],
+        queryFn: async () => {
+            const res = await fetch(
+                "https://gamespace-server.vercel.app/downloadGames"
+            );
+            const data = await res.json();
+            return data;
+        },
+    });
+
     return (
         <div>
             <div className='bg-gray-800 pt-6 pb-4'>
@@ -20,20 +32,20 @@ const Details = () => {
                                 <p>Number of Players : </p>
                                 <p>Genre : </p>
                                 <p>Release Date : </p>
-                                <p>Description : </p>
                                 <p>Price : </p>
                                 <p>Videolink : </p>
                                 <p>Official Site : </p>
+                                <p>Description : </p>
                             </div>
                             <div className='space-y-2'>
-                                <p> The Legend of Zelda: Tears of the Kingdom (Switch) </p>
+                                <p>{title} </p>
                                 <p>333</p>
                                 <p>Genre : </p>
                                 <p>22 / 01 / 2023</p>
-                                <p>Description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, adipisci! </p>
-                                <p>price : $234 </p>
+                                <p>$ {price}</p>
                                 <p>Videolink : text</p>
                                 <p>Official Site : text2</p>
+                                <p>{description} </p>
                             </div>
                         </div>
                         <div className='space-y-3 mt-8'>
@@ -83,36 +95,20 @@ const Details = () => {
                     </div>
                     <div className='w-full md:w-4/12 bg-slate-500 mt-5 md:mt-0'>
                         <div className='p-4 space-x-4'>
-                            <Link>
-                                <div className='grid grid-cols-2 items-center gap-4'>
-                                    <div className='max-w-44 h-44 '>
-                                        <img src="https://images.nintendolife.com/3f71c3fc4cdaa/legend-of-zelda-tears-of-the-kingdom-artwork.1920x350.jpg" className='w-full h-full' alt="" />
-                                    </div>
-                                    <div>
-                                        <h5 className='text-xl hover:underline'>The Legend of Zelda: Tears of the Kingdom (Switch)</h5>
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link>
-                                <div className='grid grid-cols-2 items-center gap-4'>
-                                    <div className='max-w-44 h-44 '>
-                                        <img src="https://images.nintendolife.com/3f71c3fc4cdaa/legend-of-zelda-tears-of-the-kingdom-artwork.1920x350.jpg" className='w-full h-full' alt="" />
-                                    </div>
-                                    <div>
-                                        <h5 className='text-xl hover:underline'>The Legend of Zelda: Tears of the Kingdom (Switch)</h5>
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link>
-                                <div className='grid grid-cols-2 items-center gap-4'>
-                                    <div className='max-w-44 h-44 '>
-                                        <img src="https://images.nintendolife.com/3f71c3fc4cdaa/legend-of-zelda-tears-of-the-kingdom-artwork.1920x350.jpg" className='w-full h-full' alt="" />
-                                    </div>
-                                    <div>
-                                        <h5 className='text-xl hover:underline'>The Legend of Zelda: Tears of the Kingdom (Switch)</h5>
-                                    </div>
-                                </div>
-                            </Link>
+                            {
+                                showAllGame.map((desplayGame, i) =>
+                                    <Link>
+                                        <div className='grid grid-cols-2 items-center gap-4'>
+                                            <div className='max-w-44 h-44 '>
+                                                <img src={desplayGame?.img} className='w-full h-full' alt="" />
+                                            </div>
+                                            <div>
+                                                <h5 className='text-xl hover:underline'>{desplayGame?.title}</h5>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                )
+                            }
                         </div>
                     </div>
                 </div>
