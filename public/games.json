@@ -1,43 +1,83 @@
 [
   {
     "id": "01",
-    "title": "Warzone 2",
+    "title": "Call of Duty Warzone 2.0",
     "img": "https://i.ibb.co/j3V3ZDY/15.jpg",
     "description": "Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totamrem aperiam, eaque ipsa quae ab illo inventore",
     "price": "450",
-    "ratings": "4.5",
+    "ratings": "5.0",
     "videolink": "https://www.youtube.com/watch?v=r72GP1PIZa0&t=44s",
-    "gameDownload":"https://d.apkpure.com/b/XAPK/com.dts.freefiremax?version=latest"
+    "gameDownload":"https://d.apkpure.com/b/XAPK/com.dts.freefiremax?version=latest",
+    "totalPlayer": "99",
+    "releaseDate": "25 / 11 / 2018",
+    "imgBG":"https://i.ytimg.com/vi/oJ_Cbvs4LTc/maxresdefault.jpg",
+   "imgScreenshot":[
+      {"screenshot":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThIEJq0q89czmdLuXbrqeMP0OX3EtfBkOWsWcOMSSdFPu-IznIpotNSXP7ou8LiWIVk9c&usqp=CAU"},
+      {"screenshot":"https://assets2.rockpapershotgun.com/cod-warzone-2-shelf.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/cod-warzone-2-shelf.jpg "},
+      {"screenshot":"https://thenerdstash.com/wp-content/uploads/2022/11/Using-a-Ping-Marker-in-Call-of-Duty-Warzone-2.jpg "},
+      {"screenshot":"https://i.ytimg.com/vi/r_G_uu8-md0/maxresdefault.jpg "},
+      {"screenshot":"https://i.ytimg.com/vi/8JWGt2z3XgQ/maxresdefault.jpg "}
+    ]
   },
   {
     "id": "02",
-    "title": "Call of Duty",
+    "title": "Call of Duty Black Ops Cold War",
     "img": "https://i.ibb.co/Vpf987B/Garena-World.png",
     "description": "While the franchise's move to the mobile platforms could be considered late compared to other titles like PUBG and Fortnite, it didn't prevent CoD from entering the market with guns blazing. TiMi Studios and Tencent Games had prior experience in creating shooter titles for the mobile platforms before, and a classic CoD experience emerged.",
     "price": "550",
     "ratings": "5.0",
     "videolink": "https://www.youtube.com/watch?v=0E44DClsX5Q",
-    "gameDownload":"https://d.apkpure.com/b/APK/com.carxtech.sr?version=latest"
+    "gameDownload":"https://d.apkpure.com/b/APK/com.carxtech.sr?version=latest",
+    "totalPlayer": "90",
+    "releaseDate": "12 / 7 / 2020",
+    "imgBG":"https://images.ctfassets.net/vfkpgemp7ek3/3098815104/c9eb4e66e6dcd3efec72034b80291feb/call-of-duty-mobile-first-week-china.jpg",
+   "imgScreenshot":[
+      {"screenshot":"https://gamerbraves.sgp1.cdn.digitaloceanspaces.com/2018/10/Call-of-Duty-mobile-screenshot-feature-image.jpg "},
+      {"screenshot":"https://ip.trueachievements.com/remote/www.trueachievements.com/customimages/050711.jpg?width=900 "},
+      {"screenshot":"https://etgeekera.files.wordpress.com/2014/01/call-of-duty-4-modern-warfare-screenshot-01.jpg "},
+      {"screenshot":"https://assets1.cbsnewsstatic.com/hub/i/r/2007/11/13/5382557c-a642-11e2-a3f0-029118418759/thumbnail/1200x630/966c95f5e26b2e6ce98541e0b73422bd/image3496684.jpg "},
+      {"screenshot":"https://www.mobygames.com/images/shots/l/261400-call-of-duty-4-modern-warfare-windows-screenshot-helicopter.jpg "}
+    ]
   },
   {
     "id": "03",
-    "title": "Modern Road Rush",
+    "title": "Road Redemption Version 2.0",
     "img": "https://i.ibb.co/VT9q5dF/post-1.jpg",
     "description": "Financial experts support or help you to to find out which way you can raise your funds more. Arkit a trusted name for providing assistants. Initially their main objective was to ensure the service they provide these people are loyal to their industry, experienced and professional.",
     "price": "230",
     "ratings": "4.5",
     "videolink": "https://www.youtube.com/watch?v=r72GP1PIZa0&t=44s",
-    "gameDownload":"https://d.apkpure.com/b/XAPK/com.tencent.ig?version=latest"
+    "gameDownload":"https://d.apkpure.com/b/XAPK/com.tencent.ig?version=latest",
+    "totalPlayer": "42",
+    "releaseDate": "12 / 1 / 2022",
+    "imgBG":"https://pbs.twimg.com/media/DrXWqd7WkAEE7ji.jpg:large",
+   "imgScreenshot":[
+      {"screenshot":"https://www.destructoid.com//ul/530171-RRheaderMFER.jpg "},
+      {"screenshot":"https://play-lh.googleusercontent.com/lPCu2LHSJqc2qCXjYrP_lS6X7Der0orvPqwX1X3mhN_zz1L5TU21BkKXqKjWGZQq0A=w526-h296-rw"},
+      {"screenshot":"https://play-lh.googleusercontent.com/BB_2Aw5NCutnpvbOsYikkdW-s38uVgg_ZJetvlQS0t5WK2uYAmyG8BiIzkEEQ0_cmQ=w526-h296-rw"},
+      {"screenshot":"http://traxion.gg/wp-content/uploads/2022/09/1-21.jpg"},
+      {"screenshot":"https://cdn.cloudflare.steamstatic.com/steam/apps/300380/ss_161e9246e339178debee56ad7dcde42c3b0db6cd.1920x1080.jpg?t=1672949688 "}
+    ]
   },
   {
     "id": "04",
-    "title": "Hunter Skull",
-    "img": "https://i.ibb.co/0Z3SRBV/post-2.jpg",
+    "title": "TheHunter Call of the Wild",
+    "img": "https://play-lh.googleusercontent.com/hYSN9ByhoMnCTVa0fYC2GbnLxBUfd0g7dyqXe5HcStIYQT01Jl1mJmmZWAm9gz232g",
     "description": "There are some big shifts taking place in the field of construction equipment mathematics. Starting with the integration of mathematics devices in vehicles right from the manufacturers, to the standardization and integration of mathematics data across various business functions, the future of mathematics has never seemed so full of potential for fleet-based businesses.",
     "price": "430",
     "ratings": "4.5",
     "videolink": "https://premium.apk.aptoide.com/apkpure-api/com-mobile-legends-217448111-63884057-0c9a254474a017ba525ae933b284c00f.apk?d=YXB0b2lkZV92ZXJzaW9uPWFwdG9pZGUtYXBpLTcmZGV2aWNlPSZhbmRyb2lkX3ZlcnNpb249JnJlc29sdXRpb249MTA4MHgxNzc2JmFwdG9pZGVfdWlkPSZvZW1pZD1kZGUyYmJlZjdiOTc3NTQ4YmIxNDdjYjkyYjRjM2VjZCZpcF9hZGRyZXNzPTIwMi44Ni4yMTguODA&oemid=dde2bbef7b977548bb147cb92b4c3ecd",
-    "gameDownload":"https://d.apkpure.com/b/XAPK/com.dts.freefiremax?version=latest"
+    "gameDownload":"https://d.apkpure.com/b/XAPK/com.dts.freefiremax?version=latest",
+    "totalPlayer": "85",
+    "releaseDate": "02 / 10 / 2020",
+    "imgBG":"https://cdn.akamai.steamstatic.com/steam/apps/518790/capsule_616x353.jpg?t=1670323161",
+   "imgScreenshot":[
+      {"screenshot":"https://play-lh.googleusercontent.com/GNyKqF6x9PYjjvRso6BkXESy4eNi7-3K2cruPnuAazP4sWnR15LTUiypFxRJSoT9zQ=w526-h296-rw "},
+      {"screenshot":"https://www.androidauthority.com/wp-content/uploads/2019/08/Deer-Hunter-2018-best-hunting-games-for-Android-1.jpg "},
+      {"screenshot":"https://i.ytimg.com/vi/KX3vbClHWtc/maxresdefault.jpg"},
+      {"screenshot":"https://image.winudf.com/v2/image1/Y29tLm1lbnRvci5odW50aW5nZ2FtZXMuZGVlcmh1bnRlci5hY3Rpb24uZnJlZV9zY3JlZW5fMF8xNTY0NzYzNDczXzAzNw/screen-0.jpg?fakeurl=1&type=.webp "},
+      {"screenshot":"https://image.winudf.com/v2/image1/Y29tLm1lbnRvci5odW50aW5nZ2FtZXMuZGVlcmh1bnRlci5hY3Rpb24uZnJlZV9zY3JlZW5fMF8xNTY0NzYzNDczXzAzNw/screen-0.jpg?fakeurl=1&type=.webp "}
+    ]
   },
   {
     "id": "05",
@@ -47,16 +87,36 @@
     "price": "690",
     "ratings": "5.0",
     "videolink": "https://www.youtube.com/watch?v=r72GP1PIZa0&t=44s",
-    "gameDownload":"https://d.apkpure.com/b/APK/com.nexon.fmk?version=latest"
+    "gameDownload":"https://d.apkpure.com/b/APK/com.nexon.fmk?version=latest",
+    "totalPlayer": "66",
+    "releaseDate": "22 / 3 / 2019",
+    "imgBG":"https://cdn-cf.ginx.tv/respawn-cdn/c7DgyUK7X6EQJrnR4rD97E6cKWn6q3otudJToRWtPns/fill/1280/0/no/1/aHR0cHM6Ly93d3cuZ2lueC50di91cGxvYWRzMi9WYWxvcmFudC94bWFzX2V2ZW50L2RlOGprMTctMWMyZWZlYjktM2VkYy00ZGIyLWFhMjgtZTY3Zjk3NTBiMWQ4LnBuZw.webp",
+   "imgScreenshot":[
+      {"screenshot":"https://www.talkesport.com/wp-content/uploads/maxresdefault-3-25.jpg "},
+      {"screenshot":"https://www.talkesport.com/wp-content/uploads/winter-wonderland-valorant-skin-collection.jpg "},
+      {"screenshot":"https://win.gg/wp-content/uploads/2021/08/valorant-releases-first-ever-holiday-skins-ahead-of-winter-event-scaled.jpg "},
+      {"screenshot":"https://cdn1.dotesports.com/wp-content/uploads/2018/08/12044147/a01dbff9-5ab4-4c0a-96fa-9af0e9417324.jpg "},
+      {"screenshot":"https://prod.assets.earlygamecdn.com/images/blast-x-melee-valorant.jpg?transform=galleryItem_webp&x=0.5&y=0.5 "}
+    ]
   },
   {
     "id": "06",
-    "title": "Devils horn",
-    "img": "https://i.ibb.co/Y0Y0vmv/post-31.jpg",
+    "title": "Dead-Space-3 Survival game",
+    "img": "https://www.gamespot.com/a/uploads/scale_landscape/mig/4/9/1/6/2124916-169_deadspace_3_video_review_multi_020413_m1.jpg",
     "description": "Whales. Evening living said first open female kind he creeping. Deep waters female given seasons light for. Midst above fly. Creature void fowl the. Divide void appear.MATCH DETAILS",
     "price": "990",
     "ratings": "4.9",
     "gameDownload":"https://d.apkpure.com/b/XAPK/com.dts.freefiremax?version=latest",
-    "videolink": "https://youtu.be/JTxsNm9IdYU"
+    "videolink": "https://youtu.be/JTxsNm9IdYU",
+    "totalPlayer": "75",
+    "releaseDate": "10 / 5 / 2020",
+    "imgBG":"https://www.denofgeek.com/wp-content/uploads/2020/02/1_7.jpg",
+   "imgScreenshot":[
+      {"screenshot":"https://d3a1b16i91oc1g.cloudfront.net/article_title_large/2d020b406be0b835609779a33f630b36.jpeg "},
+      {"screenshot":"https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2013/2/6/1360156272273/Dead-Space-3-Main-008.jpg?width=465&quality=85&dpr=1&s=none "},
+      {"screenshot":"https://www.gamespot.com/a/uploads/scale_super/mig/8/3/7/4/2268374-672892_20130204_screen005.jpg "},
+      {"screenshot":"https://dyn.media.titanbooks.com/os3ujpW1mhaTUPCylNzHUkzkq7A=/fit-in/768x0/https://media.titanbooks.com/uploads/posts/2013/02/e702878e1c6a6a96c580f6d3c3c0962cef2282cf.jpg "},
+      {"screenshot":"https://jovemnerd.com.br/wp-content/uploads/ads_deadspace33.jpg "}
+    ]
   }
 ]

@@ -7,7 +7,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const GameDetails = () => {
     const gameDetails = useLoaderData()
-    const { _id, title, description, price, img, videolink, gameDownload } = gameDetails;
+    const { _id, imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
 
     const { data: showAllGame } = useQuery({
         queryKey: ["downloadGames"],
@@ -30,11 +30,11 @@ const GameDetails = () => {
     return (
         <div className='text-white'>
             <div className=" w-full  flex flex-col items-center justify-center relative transition-all">
-                <img src={img} className=' w-full h-[600px]' alt="" />
+                <img src={imgBG} className=' w-full h-[600px]' alt="" />
 
             </div>
             <div className='bg-gray-900 px-5 md:px-10'>
-                <div className='flex justify-center items-center space-x-10 lg:space-x-20 space-y-4 pt-5 pb-16'>
+                <div className='flex justify-center items-center space-x-2 lg:space-x-20 space-y-4 pt-5 pb-16'>
                     <div className="hidden md:block -mt-32 z-10 ">
                         <img src={img} className='w-44 md:w-60 p-4 bg-yellow-500' alt="" />
                     </div>
@@ -42,10 +42,10 @@ const GameDetails = () => {
                         <h1 className="text-2xl md:text-3xl lg:text-4xl hover:underline cursor-pointer ">{title} </h1>
                     </div>
 
-                    <div className="w-72 max-h-48 p-3 flex justify-between items-center bg-amber-700">
+                    <div className="w-72 p-3 flex justify-between items-center bg-amber-700">
                         <div>
                             <h3 className="text-lg md:text-2xl font-bold">Game Rating</h3>
-                            <h4 className="text-md md:text-xl">User Ratings: 238</h4>
+                            <h4 className="text-md md:text-xl">User Ratings: {ratings}</h4>
                             <h4 className="text-md md:text-xl">Our Review: 9/10</h4>
                         </div>
                         <div>
@@ -69,7 +69,6 @@ const GameDetails = () => {
                                 <p>Title : </p>
                                 <p>Number of Players : </p>
                                 <p>Ratings : </p>
-                                <p>Review : </p>
                                 <p>Release Date : </p>
                                 <p>Price : </p>
                                 <p>Videolink : </p>
@@ -77,11 +76,10 @@ const GameDetails = () => {
                             </div>
                             <div className='space-y-2'>
                                 <p>{title} </p>
-                                <p>05</p>
-                                <p>444</p>
-                                <p>9 / 10</p>
-                                <p>22 / 01 / 2023</p>
-                                <p>$ {price}</p>
+                                <p>{totalPlayer}</p>
+                                <p>{ratings}</p>
+                                <p>{releaseDate}</p>
+                                <p className='font-bold  text-xl'>$ <span className='text-amber-500'>{price}</span></p>
                                 <a href={videolink} className='hover:underline text-blue-600' alt='' target="_blank">{videolink}</a>
                                 <p>{description} </p>
                             </div>
@@ -98,11 +96,11 @@ const GameDetails = () => {
                                 showArrows={true}
                             >
                                 {
-                                    showAllGame?.map((desplayGame, i) =>
-                                        <div className="hero h-52" >
+                                    imgScreenshot?.map((desplayGame, i) =>
+                                        <div className="hero w-full h-52 " >
                                             <div className="hero-content text-center text-neutral-content">
-                                                <div className="flex ">
-                                                    <img src={desplayGame?.img} className='h-full' alt='' />
+                                                <div className="flex h-full w-full ">
+                                                    <img src={desplayGame?.screenshot} className='w-full bg-cover' alt='' />
                                                 </div>
                                             </div>
                                         </div>
