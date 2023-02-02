@@ -17,8 +17,12 @@ import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
 import TwoDGmaes from "../../Pages/2Dgames/TwoDGmaes";
 import Memory from "../../Pages/2Dgames/Flappy/Memory";
 import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
+
+import LiveStream from "../../Pages/LiveStream/LiveStream";
+
 import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 import AddHtmlGames from "../../Pages/Dashboard/AddHtmlGames/AddHtmlGames";
+
 
 const router = createBrowserRouter([
   {
@@ -84,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: "/memory",
         element: <Memory />,
+      },
+      {
+        path: "/livestream",
+        element: <LiveStream />,
       },
     ],
   },
