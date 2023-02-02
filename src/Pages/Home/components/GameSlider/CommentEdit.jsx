@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../../../context/AuthProvider';
 
 const CommentEdit = ({ commentEdit, setEditComments }) => {
-    // const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [editComment, setEditComment] = useState(commentEdit);
 
     const handelCommentUpdate = () => {
