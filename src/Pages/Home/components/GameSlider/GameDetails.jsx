@@ -10,7 +10,7 @@ const GameDetails = () => {
     const gameDetails = useLoaderData()
     const { _id, imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
 
-    const { data: showAllGame } = useQuery({
+    const { data: showAllGame , refetch} = useQuery({
         queryKey: ["downloadGames"],
         queryFn: async () => {
             const res = await fetch(
@@ -66,7 +66,7 @@ const GameDetails = () => {
                                 {/* <a href={gameDownload}  className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-red-500 uppercase">Download</a> */}
                                 {/* The button to open modal */}
                                 <label htmlFor="bookingModal" className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-red-500 uppercase cursor-pointer ">Download</label>
-                                <BookingModal gameDetails={gameDetails}></BookingModal>
+                                <BookingModal gameDetails={gameDetails} refetch={refetch}></BookingModal>
                             </div>
                            </div>
                             <hr className='text-gray-400' />

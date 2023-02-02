@@ -1,9 +1,16 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
+import toast from "react-hot-toast";
+import {  useNavigate } from "react-router-dom";
 
-const BookingModal = ({gameDetails}) => {
+const BookingModal = ({gameDetails , refetch}) => {
     const { user } = useContext(AuthContext);
     const { title, price } = gameDetails;
+    const navigate = useNavigate();
+  
+    // const from = location.state?.from?.pathname || "/";
+
+
         const handleBookingModal = (event) => {
           event.preventDefault();
           const form = event.target;
@@ -13,32 +20,31 @@ const BookingModal = ({gameDetails}) => {
           const price = form.Price.value;
           const mobile = form.mobile.value;
           const location = form.location.value;
-          console.log(name, price, email, productName, mobile, location);
+          // console.log(name, price, email, productName, mobile, location);
       
-        //   const booking = {
-        //     name,
-        //     email,
-        //     product_name,
-        //     price,
-        //     location,
-        //     mobile,
-        //   };
-        //   fetch("https://server-nine-plum.vercel.app/bookings", {
-        //     method: "POST",
-        //     headers: {
-        //       "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify(booking),
-        //   })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //       // console.log("save user ", data);
-        //       navigate("/dashboard");
-        //       // setCreateUserEmail(email);
-        //       toast("booked successed");
-        //       form.reset();
-        //       refetch();
-        //     });
+          const orderedGames = {
+            name,
+            email,
+            productName,
+            price,
+            location,
+            mobile,
+          };
+          fetch("http://localhost:9000/bookings", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(orderedGames),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log("save user ", data);
+              navigate("/dashboard");
+              toast("Game Added successfully");
+              form.reset();
+              refetch();
+            });
         };
       
   return (

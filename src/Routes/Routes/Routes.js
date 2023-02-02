@@ -93,11 +93,6 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <MyOrder />,
       },
-      {
-        path: "/dashboard/addproduct",
-        element: <Sidebar />,
-      },
-
     ],
   },
   {
