@@ -10,11 +10,13 @@ const FeaturedGames = () => {
   const { data: games, isLoading } = useQuery({
     queryKey: ["games"],
     queryFn: async () => {
-      const res = await fetch("games.json");
+      const res = await fetch("https://gamespace-server.vercel.app/downloadGames");
       const data = await res.json();
       return data;
     },
   });
+  console.log(games);
+
   if (isLoading) {
     return <Loader/>
   }
