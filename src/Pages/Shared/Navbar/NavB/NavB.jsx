@@ -95,44 +95,20 @@ const NavB = () => {
         <div className="navbar-end">
           {!user ? (
             <>
-<<<<<<< HEAD
             <Link
               to="/login"
               className="btn btn-primary btn-xs md:btn-sm font-bold rounded-none"
             >
               Get started
             </Link>
-            {/* <button
+            <button
             className={`font-semibold mr-10 ${theme === "dark" ? "bg-white" : "bg-black"} ${theme === "dark" ? "text-black" : "text-white"} py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
             onClick={toggleTheme}
           >
             {mode === true ? "light" : "dark"}
-          </button> */}
-          <div className="container">
-            <div className="toggle">
-              <div className="toggle-button"></div>
-            </div>
-          </div>
+          </button>
           </>
-=======
-              <Link
-                to="/login"
-                className="btn btn-primary btn-xs md:btn-sm font-bold rounded-none"
-              >
-                Get started
-              </Link>
-              <button
-                className={`font-semibold mr-10 ${
-                  theme === "dark" ? "bg-white" : "bg-black"
-                } ${
-                  theme === "dark" ? "text-black" : "text-white"
-                } py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
-                onClick={toggleTheme}
-              >
-                {mode === true ? "light" : "dark"}
-              </button>
-            </>
->>>>>>> bf19e0a0367bdb7de7f4d555cae1aa645678e7df
+
           ) : (
             <div className="flex items-center">
               <div className="dropdown dropdown-end ">
@@ -143,7 +119,9 @@ const NavB = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52"
+                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-52 ${
+                    theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1 border"
+                  }`}
                 >
                   <li>
                     <Link to="/profile" className="justify-between">

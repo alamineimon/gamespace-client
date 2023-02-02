@@ -12,7 +12,6 @@ import Register from "../../Pages/Register/Register";
 import Support from "../../Pages/Support/Support";
 import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
-import Sidebar from "../../Pages/Dashboard/Sidebar/Sidebar";
 import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
 import TwoDGmaes from "../../Pages/2Dgames/TwoDGmaes";
 import Memory from "../../Pages/2Dgames/Flappy/Memory";
@@ -22,6 +21,7 @@ import LiveStream from "../../Pages/LiveStream/LiveStream";
 
 import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 import AddHtmlGames from "../../Pages/Dashboard/AddHtmlGames/AddHtmlGames";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -104,8 +104,8 @@ const router = createBrowserRouter([
         element: <MyOrder />,
       },
       {
-        path: "/dashboard/addproduct",
-        element: <Sidebar />,
+        path: "/dashboard/allUsers",
+        element: <AllUsers></AllUsers>
       },
       {
         path: "/dashboard/addHtmlGames",
