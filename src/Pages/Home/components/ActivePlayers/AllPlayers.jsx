@@ -20,7 +20,7 @@ const AllPlayers = () => {
       All Players
     </p>
     <div className="grid lg:grid-cols-8 grid-cols-4 mt-12 px-6 gap-6 justify-items-center">
-      {players.map((player, i) => (
+      {players?.map((player, i) => (
         <img src={player.img} className="h-16 w-16 hover:bg-yellow-300 hover:border-yellow-500 cursor-pointer rounded-full border-2 border-red-500" alt="" />
       ))}
     </div>

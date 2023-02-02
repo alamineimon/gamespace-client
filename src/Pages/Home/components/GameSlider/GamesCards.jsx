@@ -33,17 +33,16 @@ const GamesCards = ({ game }) => {
       </figure>
       <div className="card-body ">
         <h2 className="card-title text-mainHeading font-bold">{title}</h2>
-        <p className="text-textP">{description}</p>
-        <div className="card-actions justify-between items-end">
+        <p className="text-textP mb-12">{description ? description?.slice(0, 100) : "description"}</p>
+        <div className="card-actions justify-between items-end mb-3">
           <h6 className="text-xl lg:text-3xl font-bold text-mainHeading">
-            ${price}
+            $ {price}
           </h6>
           <Link
             to={`/downloadGames/${_id}`}
             className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase"
           >
-            {" "}
-            Download{" "}
+            Details
           </Link>
         </div>
       </div>

@@ -27,7 +27,6 @@ const GameSlider = () => {
 
   return (
     <div className={`bg-base-100 z-0 ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"}`}>
-      
       <div className=" w-[90%] mx-auto py-16">
         <div className="flex justify-center">
           <CgGames className="text-6xl text-primary" />
@@ -36,7 +35,7 @@ const GameSlider = () => {
         <span className={`${theme === "dark" ? "text-white1" : "text-black1"}`}>Games</span> <span className="text-primary">collection</span>
         </h1>
         <div className="grid md:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-4 gap-5">
-          {games && games.map((game, i) => <GamesCards key={i} game={game} />)}
+          {games && games?.map((game, i) => <GamesCards key={i} game={game} />)}
         </div>
       </div>
     </div>
