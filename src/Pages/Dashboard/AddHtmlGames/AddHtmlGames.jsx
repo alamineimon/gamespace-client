@@ -22,7 +22,7 @@ const AddHtmlGames = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:9000/addHtmlGame", {
+    fetch("https://gamespace-server.vercel.app/addHtmlGame", {
       method: "POST",
       headers: {
         "content-type": "application/json",
