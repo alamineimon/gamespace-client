@@ -27,7 +27,6 @@ const GameSlider = () => {
 
   return (
     <div className={`bg-base-100 z-0 ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"}`}>
-      
       <div className=" w-[90%] mx-auto py-16">
         <div className="flex justify-center">
           <CgGames className="text-6xl text-primary" />
