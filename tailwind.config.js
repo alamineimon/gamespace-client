@@ -12,9 +12,14 @@ module.exports = {
         bg1: "#1C2532",
         bg2: "#000000",
         navLinks: "#ffffff",
+        black1: "#151515",
+        white1: "#fff",
+        sai: "#BBD0EC",
+        gray: "#D0D3D8",
       },
       backgroundImage: {
-        'html5banner': "url('https://img.freepik.com/free-psd/funny-game-text-effect_17005-1393.jpg?size=626&ext=jpg&ga=GA1.2.207808977.1658386615&semt=sph')",
+        html5banner:
+          "url('https://img.freepik.com/free-psd/funny-game-text-effect_17005-1393.jpg?size=626&ext=jpg&ga=GA1.2.207808977.1658386615&semt=sph')",
       },
     },
   },

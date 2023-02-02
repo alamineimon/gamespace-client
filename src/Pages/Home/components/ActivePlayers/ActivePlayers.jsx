@@ -23,7 +23,7 @@ const ActivePlayers = () => {
         Active Player
       </p>
       <div className="grid lg:grid-cols-8 grid-cols-4 mt-12 px-6 gap-6 justify-items-center">
-        {players.slice(0, 16).map((player, i) => (
+        {players?.slice(0, 16)?.map((player, i) => (
           <PlayersCard key={i} player={player} />
         ))}
       </div>

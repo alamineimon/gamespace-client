@@ -8,7 +8,7 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const [theme, setTheme] = useState("light");
     const createUser = (email, password) =>{
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
@@ -57,6 +57,8 @@ const AuthProvider = ({children}) => {
 
     const authInfo = {
         user,
+        theme,
+        setTheme,
         createUser, 
         googleSignin,
         facebookSignin,
