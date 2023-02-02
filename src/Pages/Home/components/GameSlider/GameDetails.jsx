@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import { Link, useLoaderData } from 'react-router-dom';
+import BookingModal from '../../../Modal/BookingModal/BookingModal';
 
 const GameDetails = () => {
     const gameDetails = useLoaderData()
@@ -25,7 +26,7 @@ const GameDetails = () => {
         setGameDisplay(data)
 
     }
-    console.log(gameDisplay);
+    // console.log(gameDisplay);
 
     return (
         <div className='text-white'>
@@ -59,8 +60,14 @@ const GameDetails = () => {
                     <div className='w-full md:w-3/6 lg:w-3/6 '>
                         <div className='space-y-3'>
                            <div className='flex justify-between'>
-                           <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
-                           <a href={gameDownload}  className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-yellow-500 uppercase">Download</a>
+                            <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
+                            {/* download button */}
+                            <div>
+                                {/* <a href={gameDownload}  className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-red-500 uppercase">Download</a> */}
+                                {/* The button to open modal */}
+                                <label htmlFor="bookingModal" className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-red-500 uppercase cursor-pointer ">Download</label>
+                                <BookingModal gameDetails={gameDetails}></BookingModal>
+                            </div>
                            </div>
                             <hr className='text-gray-400' />
                         </div>

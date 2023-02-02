@@ -97,6 +97,7 @@ const router = createBrowserRouter([
         path: "/dashboard/addproduct",
         element: <Sidebar />,
       },
+
     ],
   },
   {
