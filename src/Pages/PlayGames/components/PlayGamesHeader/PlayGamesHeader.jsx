@@ -5,7 +5,6 @@ import { AuthContext } from "../../../../context/AuthProvider";
 const PlayGamesHeader = () => {
   const {theme} = useContext(AuthContext);
   return (
-
     <section className={`py-10 lg:py-20 ${theme === "dark" ? "bg-bg1" : "bg-gray"}`}>
 
       <div className="w-11/12 mx-auto text-center space-y-5">

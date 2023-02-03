@@ -50,6 +50,11 @@ const Register = () => {
     facebookSignin().then((result) => {
       const user = result.user;
       console.log(user);
+      const userInfo = {
+        displayName: user.displayName,
+        email: user.email,
+      };
+      saveUser(userInfo.displayName, userInfo.email);
       navigate(from, { replace: true });
     });
   };
@@ -60,13 +65,12 @@ const Register = () => {
         const user = result.user;
         const userInfo = {
           displayName: user.displayName,
-          uid: user.uid,
           email: user.email,
         };
 
         updateUser(userInfo)
           .then(() => {
-            saveUser(userInfo.displayName, userInfo.email, user.uid);
+            saveUser(userInfo.displayName, userInfo.email);
             toast.success("Login Successfully");
             navigate(from, { replace: true });
           })
