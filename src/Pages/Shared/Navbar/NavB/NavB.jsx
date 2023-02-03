@@ -4,7 +4,7 @@ import { GiBoltShield } from "react-icons/gi";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { useContext } from "react";
 import { AuthContext } from "../../../../context/AuthProvider";
-import './NavB.css'
+import "./NavB.css";
 const NavB = () => {
   const { user, logOut, theme, setTheme } = useContext(AuthContext);
   // Toggle dark mode/light mode
@@ -12,7 +12,7 @@ const NavB = () => {
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
-      setMode(true)
+      setMode(true);
     } else {
       setMode(false);
       setTheme("light");
@@ -32,10 +32,11 @@ const NavB = () => {
         ["Home", "/"],
         ["about", "/about"],
         ["shop", "/shop"],
+        ["Live", "/livestream"],
         ["support", "/support"],
         ["2D Games", "/2dgames"],
         ["HTML Games", "/playGames"],
-      ].map(([title, url]) => {
+      ]?.map(([title, url]) => {
         return (
           <li key={url}>
             <NavLink
@@ -52,7 +53,11 @@ const NavB = () => {
     </>
   );
   return (
-    <div className={`py-1 sm:py-2 ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"}`}>
+    <div
+      className={`py-1 sm:py-2 ${
+        theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
+      }`}
+    >
       <div className={"navbar w-11/12 mx-auto px-0"}>
         <div className="navbar-start">
           <div className="dropdown ">
@@ -67,9 +72,17 @@ const NavB = () => {
             </ul>
           </div>
           <Link className="text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2">
-            <GiBoltShield className={`text-2xl md:text-5xl text-white ${theme ==="light" && "text-black"}`} />
+            <GiBoltShield
+              className={`text-2xl md:text-5xl text-white ${
+                theme === "light" && "text-black"
+              }`}
+            />
             <div className="text-white">
-              <span className={`font-gaming ${theme==="light" && "text-black"}`}>Game Space</span>
+              <span
+                className={`font-gaming ${theme === "light" && "text-black"}`}
+              >
+                Game Space
+              </span>
               <span className="text-xs text-primary lg:block font-bold capitalize hidden ">
                 Any Game, Any time, Any place
               </span>
@@ -82,19 +95,23 @@ const NavB = () => {
         <div className="navbar-end">
           {!user ? (
             <>
-            <Link
-              to="/login"
-              className="btn btn-primary btn-xs md:btn-sm font-bold rounded-none"
-            >
-              Get started
-            </Link>
-            <button
-            className={`font-semibold mr-10 ${theme === "dark" ? "bg-white" : "bg-black"} ${theme === "dark" ? "text-black" : "text-white"} py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
-            onClick={toggleTheme}
-          >
-            {mode === true ? "light" : "dark"}
-          </button>
-          </>
+              <Link
+                to="/login"
+                className="btn btn-primary btn-xs md:btn-sm font-bold rounded-none"
+              >
+                Get started
+              </Link>
+              <button
+                className={`font-semibold mr-10 ${
+                  theme === "dark" ? "bg-white" : "bg-black"
+                } ${
+                  theme === "dark" ? "text-black" : "text-white"
+                } py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
+                onClick={toggleTheme}
+              >
+                {mode === true ? "light" : "dark"}
+              </button>
+            </>
           ) : (
             <div className="flex items-center">
               <div className="dropdown dropdown-end ">
@@ -113,7 +130,7 @@ const NavB = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link>Settings</Link>
+                    <Link to="/dashboard">Dashboard</Link>
                   </li>
                   <li>
                     <p onClick={logOut}>Logout</p>
@@ -125,10 +142,14 @@ const NavB = () => {
                 <span className="text-primary">
                   {user?.displayName?.split(" ")[0]}
                   <button
-                      className={`font-semibold mr-10 ${theme === "dark" ? "bg-white1 text-black1" : "bg-black1 text-white1"} py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
-                      onClick={toggleTheme}
-                    >
-                      {mode === true ? "light" : "dark"}
+                    className={`font-semibold mr-10 ${
+                      theme === "dark"
+                        ? "bg-white1 text-black1"
+                        : "bg-black1 text-white1"
+                    } py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
+                    onClick={toggleTheme}
+                  >
+                    {mode === true ? "light" : "dark"}
                   </button>
                 </span>
               </p>

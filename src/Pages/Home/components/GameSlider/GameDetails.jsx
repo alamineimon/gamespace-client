@@ -6,13 +6,19 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Loader from '../../../Shared/Loader/Loader';
 import GameComment from './GameComment';
 
+import BookingModal from '../../../Modal/BookingModal/BookingModal';
+
 const GameDetails = () => {
     const gameDetails = useLoaderData();
     // const [gameDisplay, setGameDisplay] = useState();
 
     const { _id, imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
 
+
     const { data: showAllGame, isLoading } = useQuery({
+
+    const { data: showAllGame , refetch} = useQuery({
+
         queryKey: ["downloadGames"],
         queryFn: async () => {
             const res = await fetch(
@@ -31,6 +37,9 @@ const GameDetails = () => {
     if (isLoading) {
         return <Loader />;
     }
+
+    // console.log(gameDisplay);
+
 
     return (
         <div className='text-white'>
@@ -63,10 +72,23 @@ const GameDetails = () => {
                 <div className='md:flex justify-between mx-5 md:mx-10 gap-5 space-y-5'>
                     <div className='w-full md:w-3/6 lg:w-3/6 '>
                         <div className='space-y-3'>
+
                             <div className='flex justify-between'>
                                 <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
                                 <a href={gameDownload} className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-yellow-500 uppercase">Download</a>
                             </div>
+
+                           <div className='flex justify-between'>
+                            <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
+                            {/* download button */}
+                            <div>
+                                {/* <a href={gameDownload}  className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-red-500 uppercase">Download</a> */}
+                                {/* The button to open modal */}
+                                <label htmlFor="bookingModal" className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-red-500 uppercase cursor-pointer ">Download</label>
+                                <BookingModal gameDetails={gameDetails} refetch={refetch}></BookingModal>
+                            </div>
+                           </div>
+
                             <hr className='text-gray-400' />
                         </div>
                         <div className='grid grid-cols-2 pt-5'>

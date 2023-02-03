@@ -52,7 +52,7 @@ const Memory = () => {
         Clicks: {clicks} &nbsp;&nbsp;&nbsp; Your Score:{foundPairs.length / 2}
       </div>
       <div className="board">
-        {cards.map((card, index) => {
+        {cards?.map((card, index) => {
           const flippedToFront =
             activeCards.indexOf(index) !== -1 ||
             foundPairs.indexOf(index) !== -1;
