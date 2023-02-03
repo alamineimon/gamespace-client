@@ -95,32 +95,48 @@ const NavB = () => {
         <div className="navbar-end">
           {!user ? (
             <>
-            <Link
-              to="/login"
-              className="btn btn-primary btn-xs md:btn-sm font-bold rounded-none"
-            >
-              Get started
-            </Link>
-            <button
-            className={`font-semibold mr-10 ${theme === "dark" ? "bg-white" : "bg-black"} ${theme === "dark" ? "text-black" : "text-white"} py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
-            onClick={toggleTheme}
-          >
-            {mode === true ? "light" : "dark"}
-          </button>
-          </>
-
+              <Link
+                to="/login"
+                className="btn btn-primary btn-xs md:btn-sm font-bold rounded-none"
+              >
+                Get started
+              </Link>
+              <button
+                className={`font-semibold mr-10 ${
+                  theme === "dark" ? "bg-white" : "bg-black"
+                } ${
+                  theme === "dark" ? "text-black" : "text-white"
+                } py-2 px-4 rounded-lg ease-in duration-100 my-4 md:my-0 ml-2`}
+                onClick={toggleTheme}
+              >
+                {mode === true ? "light" : "dark"}
+              </button>
+            </>
           ) : (
             <div className="flex items-center">
               <div className="dropdown dropdown-end ">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
+                  {
+                    user?.photoURL ? <div className="w-10 rounded-full">
                     <img alt="" src={user?.photoURL} />
+                  </div>  : 
+                  <div className="avatar placeholder">
+                  <div className="bg-neutral-focus text-neutral-content rounded-full w-10 h-10">
+                    <span className="text-xl">
+                      {user.displayName.slice(0, 1)}
+                    </span>
                   </div>
+                </div>
+                  }
+                  {/* */}
+                  
                 </label>
                 <ul
                   tabIndex={0}
                   className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-52 ${
-                    theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1 border"
+                    theme === "dark"
+                      ? "bg-black1 text-white1"
+                      : "bg-white1 text-black1 border"
                   }`}
                 >
                   <li>
