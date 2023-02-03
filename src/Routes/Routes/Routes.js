@@ -21,8 +21,12 @@ import LiveStream from "../../Pages/LiveStream/LiveStream";
 
 import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 import AddHtmlGames from "../../Pages/Dashboard/AddHtmlGames/AddHtmlGames";
+<<<<<<< HEAD
+import Payment from "../../Pages/Dashboard/Payment/Payment";
+=======
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
+>>>>>>> fc282326a9bd565eb9899a25e2430b97bc05f8f6
 
 const router = createBrowserRouter([
   {
@@ -108,12 +112,21 @@ const router = createBrowserRouter([
         element: <MyOrder />,
       },
       {
+<<<<<<< HEAD
+=======
         path: "/dashboard/allUsers",
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
+>>>>>>> fc282326a9bd565eb9899a25e2430b97bc05f8f6
         path: "/dashboard/addHtmlGames",
         element: <AddHtmlGames />,
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment />,
+        loader:({ params }) =>
+          fetch(`http://localhost:9000/orderedGames/${params.id}`),
       },
     ],
   },
