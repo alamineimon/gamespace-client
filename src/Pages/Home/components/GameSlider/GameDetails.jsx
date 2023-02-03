@@ -1,16 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import { Link, useLoaderData } from 'react-router-dom';
+import Loader from '../../../Shared/Loader/Loader';
+import GameComment from './GameComment';
+
 import BookingModal from '../../../Modal/BookingModal/BookingModal';
 
 const GameDetails = () => {
-    const gameDetails = useLoaderData()
+    const gameDetails = useLoaderData();
+    // const [gameDisplay, setGameDisplay] = useState();
+
     const { _id, imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
 
+
+    const { data: showAllGame, isLoading } = useQuery({
+
     const { data: showAllGame , refetch} = useQuery({
+
         queryKey: ["downloadGames"],
         queryFn: async () => {
             const res = await fetch(
@@ -21,12 +29,17 @@ const GameDetails = () => {
         },
     });
 
-    const [gameDisplay, setGameDisplay] = useState();
-    const gameDisplayShow = data =>{
-        setGameDisplay(data)
+    
+    // const gameDisplayShow = data => {
+    //     setGameDisplay(data)
+    // }
 
+    if (isLoading) {
+        return <Loader />;
     }
+
     // console.log(gameDisplay);
+
 
     return (
         <div className='text-white'>
@@ -59,6 +72,12 @@ const GameDetails = () => {
                 <div className='md:flex justify-between mx-5 md:mx-10 gap-5 space-y-5'>
                     <div className='w-full md:w-3/6 lg:w-3/6 '>
                         <div className='space-y-3'>
+
+                            <div className='flex justify-between'>
+                                <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
+                                <a href={gameDownload} className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-yellow-500 uppercase">Download</a>
+                            </div>
+
                            <div className='flex justify-between'>
                             <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
                             {/* download button */}
@@ -69,6 +88,7 @@ const GameDetails = () => {
                                 <BookingModal gameDetails={gameDetails} refetch={refetch}></BookingModal>
                             </div>
                            </div>
+
                             <hr className='text-gray-400' />
                         </div>
                         <div className='grid grid-cols-2 pt-5'>
@@ -87,7 +107,7 @@ const GameDetails = () => {
                                 <p>{ratings}</p>
                                 <p>{releaseDate}</p>
                                 <p className='font-bold  text-xl'>$ <span className='text-amber-500'>{price}</span></p>
-                                <a  href={videolink} target="_blank" className='hover:underline text-blue-600 text-sm md:text-lg' alt='' >{videolink ? videolink.slice(0, 29) : 'videolink'}</a>
+                                <a href={videolink} target="_blank" className='hover:underline text-blue-600 text-sm md:text-lg' alt='' >{videolink ? videolink.slice(0, 29) : 'videolink'}</a>
                                 <p className='text-justify'>{description} </p>
                             </div>
                         </div>
@@ -115,12 +135,13 @@ const GameDetails = () => {
                                 }
                             </ Carousel>
                         </div>
+                      <GameComment></GameComment>
                     </div>
                     <div className='w-full md:w-4/12 bg-yellow-600 mt-5 md:mt-0 '>
                         <div className='p-4 space-x-4'>
                             {
                                 showAllGame?.map((desplayGame, i) =>
-                                    <Link onClick={() => gameDisplayShow(gameDetails)} to={`/downloadGames/${_id}`}>
+                                    <Link >
                                         <div className='grid grid-cols-2 items-center gap-4'>
                                             <div className='max-w-32 h-32'>
                                                 <img src={desplayGame?.img} className='w-full h-full' alt="" />
