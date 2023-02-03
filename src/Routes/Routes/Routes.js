@@ -23,7 +23,6 @@ import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 import AddHtmlGames from "../../Pages/Dashboard/AddHtmlGames/AddHtmlGames";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,15 +47,19 @@ const router = createBrowserRouter([
       {
         path: "/downloadGames/:id",
         element: <GameDetails></GameDetails>,
+
+        loader:({ params }) => fetch(`https://gamespace-server.vercel.app/downloadGames/${params.id}`),
+
         loader: ({ params }) =>
           fetch(`http://localhost:9000/downloadGames/${params.id}`),
+
       },
       {
         path: "/playGames",
         element: <PlayGames />,
       },
       {
-        path: "/gameshtml/:id",
+        path: "/gameshtml/:id", 
         loader: async ({ params }) =>
           fetch(`https://gamespace-server.vercel.app/playGames/${params.id}`),
         element: <PlayGamesSingle />,
@@ -104,10 +107,13 @@ const router = createBrowserRouter([
         element: <MyOrder />,
       },
       {
+<<<<<<< HEAD
         path: "/dashboard/allUsers",
         element: <AllUsers></AllUsers>
       },
       {
+=======
+>>>>>>> 69fa0a8bc57d948f1d4b524a5ec2d27b3b1c645b
         path: "/dashboard/addHtmlGames",
         element: <AddHtmlGames />,
       },
