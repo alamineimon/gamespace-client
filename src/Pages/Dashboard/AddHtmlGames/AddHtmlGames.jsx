@@ -22,8 +22,20 @@ const AddHtmlGames = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    toast.success("Data submited");
-    console.log(data);
+    fetch("https://gamespace-server.vercel.app/addHtmlGame", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((resData) => {
+        if (resData.acknowledged) {
+          toast.success("Data submited");
+          reset();
+        }
+      });
   };
   if (isLoading) {
     return <Loader />;
@@ -70,8 +82,6 @@ const AddHtmlGames = () => {
               <label className="font-semibold"> Category</label>
               <br />
               <select
-                // onChange={handleChange}
-
                 {...register("category", { required: true })}
                 required
                 className="select w-full border border-gray-200 outline-none focus:outline-none bg-white/10 focus:border-primary rounded  mt-3 mb-5 p-3 "

@@ -1,9 +1,13 @@
 import React from 'react'
 import { FaVideo } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import VideoModal from '../../../Shared/VideoModal/VideoModal';
 
 const FeaturedGamesCard = ({ game }) => {
-    const { title, description, price, img, videolink ,gameDownload} = game;
+    const {_id, title, description, price, img, videolink} = game;
+    
+  console.log(game);
+  
   return (
     <div className="card relative card-compact cursor-pointer bg-secondary rounded-none group">
     <figure className="relative">
@@ -32,12 +36,17 @@ const FeaturedGamesCard = ({ game }) => {
     </figure>
     <div className="card-body ">
       <h2 className="card-title text-mainHeading font-bold">{title}</h2>
-      <p className="text-textP">{description}</p>
+      <p className="text-textP mt-3 mb-10">{ description ? description.slice(0, 100) +' ...': "description"}</p>
       <div className="card-actions justify-between items-end">
         <h6 className="text-xl lg:text-3xl font-bold text-mainHeading">
           ${price}
         </h6>
-        <a href={gameDownload} className="py-3 text-secondary hover:translate-y-1 relative px-5 rounded-none font-bold bg-primary uppercase" > Download </a>
+        <Link
+            to={`/downloadGames/${_id}`}
+            className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase"
+          >
+            Details
+          </Link>
       </div>
     </div>
     {videolink && <VideoModal videolink={videolink} />}

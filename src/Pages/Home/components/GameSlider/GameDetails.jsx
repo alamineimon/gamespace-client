@@ -1,32 +1,32 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import { Link, useLoaderData } from 'react-router-dom';
+import GameComment from './GameComment';
 import BookingModal from '../../../Modal/BookingModal/BookingModal';
 
 const GameDetails = () => {
-    const gameDetails = useLoaderData()
-    const { _id, imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
+    const gameDetails = useLoaderData();
 
-    const { data: showAllGame , refetch} = useQuery({
+    const { imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
+
+
+
+    const { data: showAllGame ,isLoading, refetch} = useQuery({
+
         queryKey: ["downloadGames"],
         queryFn: async () => {
             const res = await fetch(
                 "https://gamespace-server.vercel.app/downloadGames"
             );
             const data = await res.json();
+
             return data;
         },
     });
 
-    const [gameDisplay, setGameDisplay] = useState();
-    const gameDisplayShow = data =>{
-        setGameDisplay(data)
 
-    }
-    // console.log(gameDisplay);
 
     return (
         <div className='text-white'>
@@ -56,8 +56,8 @@ const GameDetails = () => {
                 </div>
             </div>
             <div className='bg-gray-800 pt-6 pb-4'>
-                <div className='md:flex justify-between mx-5 md:mx-10 gap-5 space-y-5'>
-                    <div className='w-full md:w-3/6 lg:w-3/6 '>
+                <div className='md:flex justify-between mx-5 md:mx-10 gap-5 md:gap-20 lg:gap-44 space-y-5'>
+                    <div className='w-full md:w-6/6 lg:w-6/6 '>
                         <div className='space-y-3'>
                            <div className='flex justify-between'>
                             <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
@@ -68,6 +68,7 @@ const GameDetails = () => {
                                 <BookingModal gameDetails={gameDetails} refetch={refetch}></BookingModal>
                             </div>
                            </div>
+
                             <hr className='text-gray-400' />
                         </div>
                         <div className='grid grid-cols-2 pt-5'>
@@ -86,7 +87,7 @@ const GameDetails = () => {
                                 <p>{ratings}</p>
                                 <p>{releaseDate}</p>
                                 <p className='font-bold  text-xl'>$ <span className='text-amber-500'>{price}</span></p>
-                                <a  href={videolink} target="_blank" className='hover:underline text-blue-600 text-sm md:text-lg' alt='' >{videolink ? videolink.slice(0, 29) : 'videolink'}</a>
+                                <a href={videolink} target="_blank" className='hover:underline text-blue-600 text-sm md:text-lg' alt='' >{videolink ? videolink.slice(0, 29) : 'videolink'}</a>
                                 <p className='text-justify'>{description} </p>
                             </div>
                         </div>
@@ -114,25 +115,30 @@ const GameDetails = () => {
                                 }
                             </ Carousel>
                         </div>
-                    </div>
-                    <div className='w-full md:w-4/12 bg-yellow-600 mt-5 md:mt-0 '>
-                        <div className='p-4 space-x-4'>
-                            {
-                                showAllGame?.map((desplayGame, i) =>
-                                    <Link onClick={() => gameDisplayShow(gameDetails)} to={`/downloadGames/${_id}`}>
-                                        <div className='grid grid-cols-2 items-center gap-4'>
-                                            <div className='max-w-32 h-32'>
-                                                <img src={desplayGame?.img} className='w-full h-full' alt="" />
-                                            </div>
-                                            <div>
-                                                <h5 className='text-xl md:text-sm lg:text-xl hover:underline'>{desplayGame?.title}</h5>
-                                            </div>
-                                        </div>
-                                        <hr className='mt-5' />
-                                    </Link>
+                        <GameComment>
 
-                                )
-                            }
+                        </GameComment>
+                    </div>
+                    <div className='w-full md:w-6/12'>
+                        <div className='w-full bg-yellow-600 mt-5 md:mt-0 '>
+                            <div className='p-4 space-x-4'>
+                                {
+                                    showAllGame?.map((desplayGame, i) =>
+                                        <Link to={`/downloadGames/${desplayGame?._id}`}>
+                                            <div className='grid grid-cols-4 lg:grid-cols-2 items-center gap-4'>
+                                                <div className='col-span-1 lg:col-span-1 md:w-full'>
+                                                    <img src={desplayGame?.img} className='w-full h-full object-cover' alt="" />
+                                                </div>
+                                                <div className='col-span-3 lg:col-span-1'>
+                                                    <h5 className='text-xl md:text-sm lg:text-xl hover:underline'>{desplayGame?.title}</h5>
+                                                </div>
+                                            </div>
+                                            <hr className='mt-5' />
+                                        </Link>
+
+                                    )
+                                }
+                            </div>
                         </div>
 
                     </div>

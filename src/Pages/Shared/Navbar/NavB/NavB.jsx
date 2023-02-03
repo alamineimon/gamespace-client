@@ -32,6 +32,7 @@ const NavB = () => {
         ["Home", "/"],
         ["about", "/about"],
         ["shop", "/shop"],
+        ["Live", "/livestream"],
         ["support", "/support"],
         ["2D Games", "/2dgames"],
         ["HTML Games", "/playGames"],
@@ -115,13 +116,28 @@ const NavB = () => {
             <div className="flex items-center">
               <div className="dropdown dropdown-end ">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
+                  {
+                    user?.photoURL ? <div className="w-10 rounded-full">
                     <img alt="" src={user?.photoURL} />
+                  </div>  : 
+                  <div className="avatar placeholder">
+                  <div className="bg-neutral-focus text-neutral-content rounded-full w-10 h-10">
+                    <span className="text-xl">
+                      {user.displayName.slice(0, 1)}
+                    </span>
                   </div>
+                </div>
+                  }
+                  {/* */}
+                  
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52"
+                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-52 ${
+                    theme === "dark"
+                      ? "bg-black1 text-white1"
+                      : "bg-white1 text-black1 border"
+                  }`}
                 >
                   <li>
                     <Link to="/profile" className="justify-between">

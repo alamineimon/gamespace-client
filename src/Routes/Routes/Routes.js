@@ -16,9 +16,17 @@ import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
 import TwoDGmaes from "../../Pages/2Dgames/TwoDGmaes";
 import Memory from "../../Pages/2Dgames/Flappy/Memory";
 import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
+
+import LiveStream from "../../Pages/LiveStream/LiveStream";
+
 import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 import AddHtmlGames from "../../Pages/Dashboard/AddHtmlGames/AddHtmlGames";
+<<<<<<< HEAD
 import Payment from "../../Pages/Dashboard/Payment/Payment";
+=======
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "../AdminRoute/AdminRoute";
+>>>>>>> fc282326a9bd565eb9899a25e2430b97bc05f8f6
 
 const router = createBrowserRouter([
   {
@@ -44,15 +52,19 @@ const router = createBrowserRouter([
       {
         path: "/downloadGames/:id",
         element: <GameDetails></GameDetails>,
+
+        loader:({ params }) => fetch(`https://gamespace-server.vercel.app/downloadGames/${params.id}`),
+
         loader: ({ params }) =>
           fetch(`http://localhost:9000/downloadGames/${params.id}`),
+
       },
       {
         path: "/playGames",
         element: <PlayGames />,
       },
       {
-        path: "/gameshtml/:id",
+        path: "/gameshtml/:id", 
         loader: async ({ params }) =>
           fetch(`https://gamespace-server.vercel.app/playGames/${params.id}`),
         element: <PlayGamesSingle />,
@@ -85,6 +97,10 @@ const router = createBrowserRouter([
         path: "/memory",
         element: <Memory />,
       },
+      {
+        path: "/livestream",
+        element: <LiveStream />,
+      },
     ],
   },
   {
@@ -96,6 +112,13 @@ const router = createBrowserRouter([
         element: <MyOrder />,
       },
       {
+<<<<<<< HEAD
+=======
+        path: "/dashboard/allUsers",
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+>>>>>>> fc282326a9bd565eb9899a25e2430b97bc05f8f6
         path: "/dashboard/addHtmlGames",
         element: <AddHtmlGames />,
       },
