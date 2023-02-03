@@ -7,7 +7,6 @@ import Loader from '../../../Shared/Loader/Loader';
 import CommentEdit from './CommentEdit';
 import { TiDeleteOutline } from "react-icons/ti";
 import { CiEdit } from "react-icons/ci";
-import { fromPairs } from 'lodash';
 
 const GameComment = () => {
     const { user } = useContext(AuthContext);
