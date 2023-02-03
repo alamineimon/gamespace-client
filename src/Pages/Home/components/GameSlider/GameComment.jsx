@@ -10,9 +10,8 @@ import { CiEdit } from "react-icons/ci";
 
 const GameComment = () => {
     const { user } = useContext(AuthContext);
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const [deleteComment, setDeleteComment] = useState([]);
-    const [editComments, setEditComments] = useState(null);
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [editComments, setEditComments] = useState();
 
     const handelComment = (data) => {
         const comment = {
@@ -30,7 +29,9 @@ const GameComment = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.acknowledged) {
-                    toast.success("comment Add Confirm");
+                    refetch()
+                    reset()
+                    toast.success("Comment Added Successfully");
                 }
                 else {
                     toast.error(result.message);
@@ -38,8 +39,8 @@ const GameComment = () => {
             })
     }
 
-    const { data: comments, isLoading } = useQuery({
-        queryKey: ["downloadGames"],
+    const { data: comments, isLoading, refetch } = useQuery({
+        queryKey: ["comment"],
         queryFn: async () => {
             const res = await fetch(
                 "https://gamespace-server.vercel.app/comment"
@@ -49,10 +50,10 @@ const GameComment = () => {
         },
     });
 
-    const handlerDeleteUsers = id => {
+    const handlerDeleteComment = id => {
         console.log(id)
-        const proseed = window.confirm('Are you sure , you went to cancel this .Comment');
-        if (proseed) {
+        const proceed = window.confirm('Are you sure , you went to cancel this .Comment');
+        if (proceed) {
             fetch(`https://gamespace-server.vercel.app/comment/${id}`, {
                 method: 'DELETE',
 
@@ -61,9 +62,8 @@ const GameComment = () => {
                 .then(data => {
                     console.log(data)
                     if (data.deletedCount > 0) {
-                        alert('Delete successfully')
-                        const remaining = deleteComment.filter(ord => ord._id !== id);
-                        setDeleteComment(remaining);
+                        refetch()
+                        toast.success("Comment Deleted Successfully");
                     }
                 })
         }
@@ -77,20 +77,20 @@ const GameComment = () => {
         <div>
             <div>
                 <form onSubmit={handleSubmit(handelComment)}>
-                    <div className=" flex items-center  gap-3">
-                        <div className='w-12 h-12 '>
-                            <img src={user?.photoURL} className="w-full rounded-full  border-4 border-orange-500" alt="" />
+                    <div className=" flex justify-center gap-3">
+                        <div className='w-16 '>
+                            <img src={ user?.photoURL } className="w-full rounded-full border-4 border-orange-500" alt="" />
                         </div>
-                        <textarea type="textarea" className="input  w-full max-w-xs text-slate-200 bg-slate-600 px-3 pt-3 rounded-lg " name='comment'  {...register("comment",
+                        <textarea type="textarea" className="input  w-full text-slate-200 bg-slate-600 px-3 pt-3 rounded-lg " name='comment'  {...register("comment",
                             { required: "comment Address is required" })} placeholder='Comment add' />
                         {errors.comment && <p className='text-orange-400'>{errors.comment?.message}</p>}
-                        <input className='bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold p-2 cursor-pointer' value="Submit" type="submit" />
+                        <input className='bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer' value="Submit" type="submit" />
                     </div>
                 </form>
             </div>
             <div className='mt-5 space-y-4'>
                 {
-                    comments.map((comment, i) =>
+                    comments?.map((comment, i) =>
                         <div className=' space-y-2'>
                             <div className='flex flex-wrap items-center gap-2'>
                                 <div className='w-8 h-8 '>
@@ -109,7 +109,7 @@ const GameComment = () => {
                                     <div>
                                         <TiDeleteOutline
                                             className=' text-xl cursor-pointer'
-                                            onClick={() => handlerDeleteUsers(comment._id)}
+                                            onClick={() => handlerDeleteComment(comment._id)}
                                         ></TiDeleteOutline>
                                     </div>
                                 </div>
@@ -123,7 +123,8 @@ const GameComment = () => {
             {
                 editComments &&
                 <CommentEdit
-                    commentEdit={editComments}
+                    refetch={refetch}
+                    editComments={editComments}
                     setEditComments={setEditComments}
                 >
                 </CommentEdit>

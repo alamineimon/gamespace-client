@@ -1,38 +1,38 @@
-import React, { useContext } from 'react';
-import { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-hot-toast';
-import { AuthContext } from '../../../../context/AuthProvider';
 
-const CommentEdit = ({ commentEdit, setEditComments }) => {
-    const { user } = useContext(AuthContext);
-    const [editComment, setEditComment] = useState(commentEdit);
+const CommentEdit = ({ editComments, setEditComments, refetch }) => {
+    // const { user } = useContext(AuthContext);
+    // const [editComment, setEditComment] = useState(editComments);
 
-    const handelCommentUpdate = () => {
-        fetch(`https://gamespace-server.vercel.app/comment/${commentEdit?._id}`, {
+    const handelCommentUpdate = (event) => {
+        event.preventDefault();
+        fetch(`https://gamespace-server.vercel.app/comment/${editComments?._id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(editComment)
+            body: JSON.stringify(editComments)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                  if(data.acknowledged) {
-                    setEditComments(null);
+                    setEditComments('');
+                    refetch()
                     toast.success('Updated Seccess', { autoClose: "1000" })
                 }
             })
 
     }
 
-    const handlerInputChange = e => {
-        e.preventDefault();
-        const value = e.target.value;
-        const field = e.target.name;
-        const newComment = { ...editComment };
+    const handlerInputChange = event => {
+        event.preventDefault();
+        const value = event.target.value;
+        const field = event.target.name;
+        const newComment = { ...editComments };
         newComment[field] = value;
-        setEditComment(newComment);
+        setEditComments(newComment);
         console.log(newComment);
 
     }
@@ -41,10 +41,10 @@ const CommentEdit = ({ commentEdit, setEditComments }) => {
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
             <label htmlFor="my-modal-4" className="modal cursor-pointer">
                 <label className="modal-box relative rounded-lg" htmlFor="">
-                    <label htmlFor="my-modal-4" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label onClick={() => setEditComments('') } className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={handelCommentUpdate}>
                         <div className=" flex gap-3 items-center mt-8">
-                            <textarea onChange={handlerInputChange} cols="30" rows="6" name='comment' defaultValue={commentEdit?.comment} type="textarea" className=" w-full text-slate-200 bg-slate-600  px-3 pt-3 rounded-lg " />
+                            <textarea onChange={handlerInputChange} cols="30" rows="6" name='comment' defaultValue={editComments?.comment} type="textarea" className=" w-full text-slate-200 bg-slate-600  px-3 pt-3 rounded-lg " />
                         </div>
                         <input className='bg-yellow-500 rounded border-2 mt-4 border-yellow-500 text-white text-lg font-semibold px-2' value="Submit" type="submit" />
                     </form>
