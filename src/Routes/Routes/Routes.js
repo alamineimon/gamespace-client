@@ -22,6 +22,7 @@ import LiveStream from "../../Pages/LiveStream/LiveStream";
 import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 import AddHtmlGames from "../../Pages/Dashboard/AddHtmlGames/AddHtmlGames";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -107,13 +108,10 @@ const router = createBrowserRouter([
         element: <MyOrder />,
       },
       {
-<<<<<<< HEAD
         path: "/dashboard/allUsers",
-        element: <AllUsers></AllUsers>
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
-=======
->>>>>>> 69fa0a8bc57d948f1d4b524a5ec2d27b3b1c645b
         path: "/dashboard/addHtmlGames",
         element: <AddHtmlGames />,
       },

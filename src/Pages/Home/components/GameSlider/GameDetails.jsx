@@ -5,7 +5,6 @@ import { Carousel } from 'react-responsive-carousel';
 import { Link, useLoaderData } from 'react-router-dom';
 import Loader from '../../../Shared/Loader/Loader';
 import GameComment from './GameComment';
-
 import BookingModal from '../../../Modal/BookingModal/BookingModal';
 
 const GameDetails = () => {
@@ -15,9 +14,8 @@ const GameDetails = () => {
     const { _id, imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
 
 
-    const { data: showAllGame, isLoading } = useQuery({
 
-    const { data: showAllGame , refetch} = useQuery({
+    const { data: showAllGame ,isLoading, refetch} = useQuery({
 
         queryKey: ["downloadGames"],
         queryFn: async () => {
@@ -72,12 +70,6 @@ const GameDetails = () => {
                 <div className='md:flex justify-between mx-5 md:mx-10 gap-5 space-y-5'>
                     <div className='w-full md:w-3/6 lg:w-3/6 '>
                         <div className='space-y-3'>
-
-                            <div className='flex justify-between'>
-                                <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
-                                <a href={gameDownload} className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-yellow-500 uppercase">Download</a>
-                            </div>
-
                            <div className='flex justify-between'>
                             <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
                             {/* download button */}
