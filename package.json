@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "@stripe/react-stripe-js": "^1.16.4",
+    "@stripe/stripe-js": "^1.46.0",
     "@tanstack/react-query": "^4.22.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

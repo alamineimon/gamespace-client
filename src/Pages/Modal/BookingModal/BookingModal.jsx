@@ -30,7 +30,7 @@ const BookingModal = ({gameDetails , refetch}) => {
             location,
             mobile,
           };
-          fetch("http://localhost:9000/bookings", {
+          fetch("http://localhost:9000/orderedGames", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -39,9 +39,8 @@ const BookingModal = ({gameDetails , refetch}) => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log("save user ", data);
-              navigate("/dashboard");
               toast("Game Added successfully");
+              navigate("/dashboard");
               form.reset();
               refetch();
             });
@@ -109,7 +108,7 @@ const BookingModal = ({gameDetails , refetch}) => {
           />
           <br />
           <input
-            className=" hover:text-gray-100 px-8 rounded py-3 text-bold hover:bg-green-600 bg-blue-800 text-white w-full"
+            className="hover:bg-yellow-500 rounded border-2 border-yellow-500 text-yellow-500 hover:text-white text-md md:text-lg uppercase font-semibold px-8 py-2"
             type="submit"
             value="Submit"
           />
