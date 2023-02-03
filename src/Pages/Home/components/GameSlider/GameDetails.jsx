@@ -3,7 +3,6 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import { Link, useLoaderData } from 'react-router-dom';
-import Loader from '../../../Shared/Loader/Loader';
 import GameComment from './GameComment';
 
 import BookingModal from '../../../Modal/BookingModal/BookingModal';
