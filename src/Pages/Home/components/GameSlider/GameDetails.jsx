@@ -3,7 +3,6 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import { Link, useLoaderData } from 'react-router-dom';
-import Loader from '../../../Shared/Loader/Loader';
 import GameComment from './GameComment';
 
 import BookingModal from '../../../Modal/BookingModal/BookingModal';
@@ -14,7 +13,6 @@ const GameDetails = () => {
     const { imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
 
 
-    const { data: showAllGame, isLoading } = useQuery({
 
     const { data: showAllGame , refetch} = useQuery({
 
@@ -29,12 +27,6 @@ const GameDetails = () => {
         },
     });
 
-
-    if (isLoading) {
-        return <Loader />;
-    }
-
-    // console.log(gameDisplay);
 
 
     return (
