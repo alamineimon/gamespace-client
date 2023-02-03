@@ -8,9 +8,8 @@ import GameComment from './GameComment';
 
 const GameDetails = () => {
     const gameDetails = useLoaderData();
-    // const [gameDisplay, setGameDisplay] = useState();
 
-    const { _id, imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
+    const { imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
 
     const { data: showAllGame, isLoading } = useQuery({
         queryKey: ["downloadGames"],
@@ -19,14 +18,11 @@ const GameDetails = () => {
                 "https://gamespace-server.vercel.app/downloadGames"
             );
             const data = await res.json();
+
             return data;
         },
     });
 
-    
-    // const gameDisplayShow = data => {
-    //     setGameDisplay(data)
-    // }
 
     if (isLoading) {
         return <Loader />;
@@ -60,8 +56,8 @@ const GameDetails = () => {
                 </div>
             </div>
             <div className='bg-gray-800 pt-6 pb-4'>
-                <div className='md:flex justify-between mx-5 md:mx-10 gap-5 space-y-5'>
-                    <div className='w-full md:w-3/6 lg:w-3/6 '>
+                <div className='md:flex justify-between mx-5 md:mx-10 gap-5 md:gap-20 lg:gap-44 space-y-5'>
+                    <div className='w-full md:w-6/6 lg:w-6/6 '>
                         <div className='space-y-3'>
                             <div className='flex justify-between'>
                                 <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
@@ -113,26 +109,30 @@ const GameDetails = () => {
                                 }
                             </ Carousel>
                         </div>
-                      <GameComment></GameComment>
-                    </div>
-                    <div className='w-full md:w-4/12 bg-yellow-600 mt-5 md:mt-0 '>
-                        <div className='p-4 space-x-4'>
-                            {
-                                showAllGame?.map((desplayGame, i) =>
-                                    <Link >
-                                        <div className='grid grid-cols-2 items-center gap-4'>
-                                            <div className='max-w-32 h-32'>
-                                                <img src={desplayGame?.img} className='w-full h-full' alt="" />
-                                            </div>
-                                            <div>
-                                                <h5 className='text-xl md:text-sm lg:text-xl hover:underline'>{desplayGame?.title}</h5>
-                                            </div>
-                                        </div>
-                                        <hr className='mt-5' />
-                                    </Link>
+                        <GameComment>
 
-                                )
-                            }
+                        </GameComment>
+                    </div>
+                    <div className='w-full md:w-6/12'>
+                        <div className='w-full bg-yellow-600 mt-5 md:mt-0 '>
+                            <div className='p-4 space-x-4'>
+                                {
+                                    showAllGame?.map((desplayGame, i) =>
+                                        <Link to={`/downloadGames/${desplayGame?._id}`}>
+                                            <div className='grid grid-cols-4 lg:grid-cols-2 items-center gap-4'>
+                                                <div className='col-span-1 lg:col-span-1 md:w-full'>
+                                                    <img src={desplayGame?.img} className='w-full h-full object-cover' alt="" />
+                                                </div>
+                                                <div className='col-span-3 lg:col-span-1'>
+                                                    <h5 className='text-xl md:text-sm lg:text-xl hover:underline'>{desplayGame?.title}</h5>
+                                                </div>
+                                            </div>
+                                            <hr className='mt-5' />
+                                        </Link>
+
+                                    )
+                                }
+                            </div>
                         </div>
 
                     </div>
