@@ -1,19 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { useContext } from 'react';
-import { useState } from 'react';
-import { toast } from 'react-hot-toast';
 import { FaStar } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import { Link, useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../../../context/AuthProvider';
 import Loader from '../../../Shared/Loader/Loader';
 import GameComment from './GameComment';
 
 const GameDetails = () => {
-    const { user } = useContext(AuthContext);
     const gameDetails = useLoaderData();
-    const [gameDisplay, setGameDisplay] = useState();
+    // const [gameDisplay, setGameDisplay] = useState();
 
     const { _id, imgBG, title, ratings, imgScreenshot, releaseDate, totalPlayer, description, price, img, videolink, gameDownload } = gameDetails;
 
@@ -29,9 +24,9 @@ const GameDetails = () => {
     });
 
     
-    const gameDisplayShow = data => {
-        setGameDisplay(data)
-    }
+    // const gameDisplayShow = data => {
+    //     setGameDisplay(data)
+    // }
 
     if (isLoading) {
         return <Loader />;
@@ -124,7 +119,7 @@ const GameDetails = () => {
                         <div className='p-4 space-x-4'>
                             {
                                 showAllGame?.map((desplayGame, i) =>
-                                    <Link onClick={() => gameDisplayShow(gameDetails)} to={`/downloadGames/${_id}`}>
+                                    <Link >
                                         <div className='grid grid-cols-2 items-center gap-4'>
                                             <div className='max-w-32 h-32'>
                                                 <img src={desplayGame?.img} className='w-full h-full' alt="" />
