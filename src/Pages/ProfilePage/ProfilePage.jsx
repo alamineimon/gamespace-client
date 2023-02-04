@@ -65,7 +65,7 @@ const ProfilePage = () => {
   // }
 
   return (
-    <div className=" mt-16 px-64 ">
+    <div className="  ">
       <div className=" p-10">
         <h1 className="text-3xl">Acount</h1>
         <hr className="mt-2 h-[2px] bg-blue-400 mb-4" />

@@ -24,6 +24,8 @@ import Payment from "../../Pages/Dashboard/Payment/Payment";
 
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -100,7 +102,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -113,6 +119,18 @@ const router = createBrowserRouter([
             <AllUsers></AllUsers>
           </AdminRoute>
         ),
+      },
+      {
+        path: "/dashboard/favoriteGames",
+        element: <h1>Favorite games</h1>,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <ProfilePage />,
+      },
+      {
+        path: "/dashboard/allHtmlGames",
+        element: <AllHtmlGames />,
       },
       {
         path: "/dashboard/addHtmlGames",
