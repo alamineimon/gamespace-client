@@ -18,7 +18,6 @@ const Register = () => {
   const { createUser, googleSignin, facebookSignin, updateUser } =
     useContext(AuthContext);
   const [signUpError, setSingUpError] = useState("");
-  const [createUserEmail, setCreateUserEmail] = useState();
 
   const location = useLocation();
   const navigate = useNavigate();
