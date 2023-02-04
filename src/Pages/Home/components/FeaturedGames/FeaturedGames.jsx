@@ -17,7 +17,6 @@ const FeaturedGames = () => {
       return data;
     },
   });
-  console.log(games);
 
   if (isLoading) {
     return <Loader />;

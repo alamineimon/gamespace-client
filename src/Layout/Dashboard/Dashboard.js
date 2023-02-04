@@ -9,9 +9,6 @@ const Dashboard = () => {
   const { user } = useContext(AuthContext);
   // const [isAdmin] = useAdmin(user?.email);
   // const [isSeller] = useSeller(user?.email);
-  let activeClassName = "bg-[#F1F5F9] rounded-md capitalize  m-2 md:m-3 ";
-  let notActiveClassName =
-    "hover:bg-[#F1F5F9] rounded-md capitalize  m-2 md:m-3 ";
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -24,9 +21,9 @@ const Dashboard = () => {
             <Outlet></Outlet>
           </div>
         </div>
-        <div className="drawer-side  ">
+        <div className="drawer-side   ">
           <label htmlFor="dashboard" className="drawer-overlay"></label>
-          <ul className="menu py-4 pl-4 w-80 bg-base-100 text-base-content font-semibold">
+          <ul className="menu py-4 pl-4 w-80 bg-neutral text-base-content font-semibold">
             {/* <!-- Sidebar content here --> */}
             <li className="text-2xl mx-3 mb-10 capitalize font-bold m">
               Hi! {user?.displayName.split(" ")[0]}
