@@ -17,11 +17,15 @@ const NavT = () => {
         <div className="flex items-center">
           <FaGlobe className="text-secondary" />
           <select className="border-none outline-none rounded-none bg-primary text-secondary font-bold">
-            <option disabled selected className="bg-secondary text-white  ">
+            <option className="bg-secondary text-white" value="">
               Language
             </option>
-            <option className="bg-secondary text-white">En</option>
-            <option className="bg-secondary text-white">Bn</option>
+            <option className="bg-secondary text-white" value="En">
+              En
+            </option>
+            <option className="bg-secondary text-white" value="Bn">
+              Bn
+            </option>
           </select>
         </div>
       </div>
