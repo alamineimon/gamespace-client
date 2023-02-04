@@ -1,17 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AiFillDelete } from "react-icons/ai";
+import Loader from "../../Shared/Loader/Loader";
 
 const AllUsers = () => {
-  //   const [userInformations, setUserInformations] = useState([]);
-  //   useEffect(() => {
-  //     fetch("")
-  //       .then((res) => res.json())
-  //       .then((data) => setUserInformations(data));
-  //   }, []);
-
-  const { data: userInformations = [], refetch } = useQuery({
-    queryKey: "users",
+  const {
+    data: userInformations,
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch("https://gamespace-server.vercel.app/users");
       const data = await res.json();
@@ -32,7 +30,9 @@ const AllUsers = () => {
         });
     }
   };
-
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="overflow-x-auto w-full">
       <table className="table w-full">
@@ -46,8 +46,8 @@ const AllUsers = () => {
           </tr>
         </thead>
         <tbody>
-          {userInformations.map((userInformation) => (
-            <tr>
+          {userInformations.map((userInformation, i) => (
+            <tr key={i}>
               <th>
                 <label>
                   <input type="checkbox" className="checkbox" />
