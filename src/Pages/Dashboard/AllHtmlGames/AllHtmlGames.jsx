@@ -1,10 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import UpdateHtmlGame from "../../Modal/UpdateHtmlGame/UpdateHtmlGame";
+import Title2 from "../../Shared/DashTitle/Title2";
 import Loader from "../../Shared/Loader/Loader";
 import HtmlCards from "./HtmlCards";
 
 const AllHtmlGames = () => {
+  const [currentGame, setCurrentGame] = useState("");
   const {
     data: htmlgames,
     isLoading,
@@ -13,6 +16,14 @@ const AllHtmlGames = () => {
     queryKey: ["play-games"],
     queryFn: async () => {
       const res = await fetch(`https://gamespace-server.vercel.app/play-games`);
+      const data = await res.json();
+      return data;
+    },
+  });
+  const { data: categories, isLoading: categoryLoading } = useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const res = await fetch("https://gamespace-server.vercel.app/categories");
       const data = await res.json();
       return data;
     },
@@ -29,17 +40,30 @@ const AllHtmlGames = () => {
         }
       });
   };
-  if (isLoading) {
+  if (isLoading || categoryLoading) {
     return <Loader />;
   }
   return (
     <section>
-      <h1>All games</h1>
-      <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-5">
+      <Title2 color={"Games"}>All</Title2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-5">
         {htmlgames?.map((game, i) => (
-          <HtmlCards key={game._id} game={game} deleteGame={deleteGame} />
+          <HtmlCards
+            key={game._id}
+            game={game}
+            deleteGame={deleteGame}
+            setCurrentGame={setCurrentGame}
+          />
         ))}
       </div>
+      {currentGame && (
+        <UpdateHtmlGame
+          currentGame={currentGame}
+          setCurrentGame={setCurrentGame}
+          categories={categories}
+          refetch={refetch}
+        />
+      )}
     </section>
   );
 };

@@ -130,11 +130,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/allHtmlGames",
-        element: <AllHtmlGames />,
+        element: (
+          <AdminRoute>
+            <AllHtmlGames />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/addHtmlGames",
-        element: <AddHtmlGames />,
+        element: (
+          <AdminRoute>
+            <AddHtmlGames />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/payment/:id",

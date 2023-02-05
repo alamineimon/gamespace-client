@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa";
+import Title2 from "../../Shared/DashTitle/Title2";
 import Loader from "../../Shared/Loader/Loader";
 
 const AddHtmlGames = () => {
@@ -18,7 +19,6 @@ const AddHtmlGames = () => {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -42,9 +42,7 @@ const AddHtmlGames = () => {
   }
   return (
     <div>
-      <h1 className="text-xl uppercase font-bold font-gaming">
-        Add html games here
-      </h1>
+      <Title2 color={"Games"}>Add</Title2>
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}

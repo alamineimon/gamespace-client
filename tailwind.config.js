@@ -6,6 +6,15 @@ module.exports = {
       gaming: "'Black Ops One', cursive",
     },
     extend: {
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 1s ease-in-out infinite",
+      },
       colors: {
         mainHeading: "#ffffff",
         textP: "#cacaca",

@@ -19,16 +19,19 @@ import {
 import { HiShoppingCart } from "react-icons/hi";
 import defaultAvtar from "../../assets/images/gamingAvatar.webp";
 import useAdmin from "../../Hooks/userAdmin/useAdmin";
+import Loader from "../../Pages/Shared/Loader/Loader";
 const Dashboard = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, loading } = useContext(AuthContext);
 
-  const [isAdmin] = useAdmin(user?.email);
-  console.log(user);
+  const [isAdmin, isAdminLoading] = useAdmin(user?.email);
   let activeClassName =
     "border-l-4 border-primary bg-gradient-to-r from-primary/10 to-primary/0 text-primary font-semibold capitalize lg:text-lg";
   let notActiveClassName =
     "border-l-4 border-transparent font-semibold capitalize lg:text-lg";
   const [open, setOpen] = useState(false);
+  if (loading || isAdminLoading) {
+    return <Loader />;
+  }
   return (
     <div>
       <div className="drawer drawer-mobile bg-secondary ">
