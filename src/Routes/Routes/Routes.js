@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         loader:({ params }) => fetch(`https://gamespace-server.vercel.app/downloadGames/${params.id}`),
 
         loader: ({ params }) =>
-          fetch(`http://localhost:9000/downloadGames/${params.id}`),
+          fetch(`https://gamespace-server-tau.vercel.app/downloadGames/${params.id}`),
 
       },
       {

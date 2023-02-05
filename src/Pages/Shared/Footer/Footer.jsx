@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import ScrollToTop from "react-scroll-to-top";
 import {
   FaDiscord,
   FaFacebook,
@@ -19,6 +20,7 @@ const Footer = () => {
         <footer className="w-11/12 m-auto py-8 flex flex-wrap justify-between md:justify-around gap-3">
           <div className="">
             <h1 className={`font-bold mb-2 ${theme === "dark" ? "text-white1" : "text-black1"}`}>Players community</h1>
+            <ScrollToTop smooth top="1100" color="#ED4844" className="btn btn-info btn-sm"/>
             <p className="h-1 w-16 rounded-t-2xl bg-white"></p>
             <div className="my-8 text-left">
               <ul className="text-gray-400">
