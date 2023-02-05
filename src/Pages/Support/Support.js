@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import { useState } from "react";
 import Chat from "../Support/Component/Chat.jsx";
 
-const socket = io.connect("https://scocket-server.vercel.app", {
+const socket = io.connect("https://socket-server-1559ix97r-delower68.vercel.app", {
   reconnectionDelay: 1000,
   reconnection:true,
   reconnectionAttempts: 10,
