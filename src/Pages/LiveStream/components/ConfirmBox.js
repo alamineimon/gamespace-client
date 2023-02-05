@@ -32,7 +32,7 @@ const ConfirmBox = ({
       <Box
         style={{
           padding: 8,
-          backgroundColor: theme.palette.darkTheme?.main,
+          // backgroundColor: theme.palette.darkTheme.main,
         }}
       >
         <Box

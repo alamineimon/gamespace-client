@@ -27,19 +27,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: "transparent"#212032; 
+  background: "transparent"#9b9aa8; 
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #1178f880;
+  background: #e71e1e80;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1178f8;
+  background: #161617;
 }
-
-
-
 div .button {
   margin: 0 15px 15px 0;
 }
