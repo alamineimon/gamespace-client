@@ -10,14 +10,14 @@ const AdminRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading || isAdminLoading) {
-    return <Loader></Loader>
+    return <Loader></Loader>;
   }
 
   if (user && isAdmin) {
     return children;
   }
   logOut();
-return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
+  return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
 };
 
 export default AdminRoute;

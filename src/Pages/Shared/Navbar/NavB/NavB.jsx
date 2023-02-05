@@ -27,9 +27,9 @@ const NavB = ({ defaultAvtar }) => {
   }, [theme]);
 
   let activeClassName =
-    "bg-primary lg:border-4 text-secondary lg:border-primary lg:bg-transparent lg:text-primary  lg:px-5 py-2 lg:hover:text-primary rounded-none";
+    "bg-primary lg:border-4 text-secondary lg:border-primary lg:bg-transparent lg:text-primary  lg:px-5 py-2 lg:hover:text-primary rounded-none text-sm";
   let notActiveClassName =
-    "lg:border-4 lg:border-transparent hover:text-accent lg:mx-5  rounded-none py-2";
+    "lg:border-4 lg:border-transparent hover:text-accent lg:mx-5  rounded-none py-2 text-sm";
   const navlinks = (
     <>
       {[
