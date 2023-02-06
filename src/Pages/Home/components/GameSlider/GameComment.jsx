@@ -1,15 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../../context/AuthProvider";
-import Loader from "../../../Shared/Loader/Loader";
 import CommentEdit from "./CommentEdit";
 import { TiDeleteOutline } from "react-icons/ti";
 import { CiEdit } from "react-icons/ci";
 
-const GameComment = () => {
+const GameComment = ({ refetch, rightSideGame, detailsId }) => {
   const { user } = useContext(AuthContext);
+  const [comments, setComments] = useState()
+  console.log(rightSideGame)
+
   const {
     register,
     formState: { errors },
@@ -21,6 +22,7 @@ const GameComment = () => {
   const handelComment = (data) => {
     const comment = {
       comment: data.comment,
+      gameDetailsId:detailsId,
       photoURL: user.photoURL,
       displayName: user.displayName,
     };
@@ -43,21 +45,20 @@ const GameComment = () => {
       });
   };
 
-  const {
-    data: comments,
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["comment"],
-    queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/comment");
-      const data = await res.json();
-      return data;
-    },
-  });
+  useEffect(() => {
+    fetch("https://gamespace-server.vercel.app/comment")
+    .then(res => res.json())
+    .then(data => {
+          const result = data.filter(gameId => gameId.gameDetailsId === detailsId || rightSideGame);
+          setComments(result)
+          refetch();
+
+    })
+  }, [])
+
+  console.log(comments)
 
   const handlerDeleteComment = (id) => {
-    console.log(id);
     const proceed = window.confirm(
       "Are you sure , you went to cancel this .Comment"
     );
@@ -76,9 +77,7 @@ const GameComment = () => {
     }
   };
 
-  if (isLoading) {
-    <Loader />;
-  }
+
 
   return (
     <div>
@@ -113,7 +112,7 @@ const GameComment = () => {
         </form>
       </div>
       <div className="mt-5 space-y-4">
-        {comments?.map((comment, i) => (
+        {comments?.map((comment , i) => (
           <div className=" space-y-2">
             <div className="flex flex-wrap items-center gap-2">
               <div className="w-8 h-8 ">
@@ -156,7 +155,7 @@ const GameComment = () => {
       </div>
       {editComments && (
         <CommentEdit
-          refetch={refetch}
+          // refetch={refetch}
           editComments={editComments}
           setEditComments={setEditComments}
         ></CommentEdit>

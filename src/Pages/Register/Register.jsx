@@ -3,21 +3,17 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import { BsFacebook, BsPersonFill } from "react-icons/bs";
+import { BsEyeFill, BsEyeSlashFill, BsFacebook, BsPersonFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Register.css";
 
 const Register = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
-  const { createUser, googleSignin, facebookSignin, updateUser } =
-    useContext(AuthContext);
+  const { register, formState: { errors }, handleSubmit, } = useForm();
+  const { createUser, googleSignin, facebookSignin, updateUser } = useContext(AuthContext);
   const [signUpError, setSingUpError] = useState("");
+  const [passwordShown, setPasswordShown] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -95,52 +91,56 @@ const Register = () => {
       });
   };
 
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  }
+
   return (
     <div className="hero registerBG">
-      <div className="card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)] shadow-black border border-gray-800 h[800px] xs:w-11/12 sm:w-96 md:w-3/6 lg:w-2/6 m-auto  text-white py-4 px-6 rounded-none my-12">
+      <div className="card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)] shadow-black border border-gray-800 xs:w-11/12 sm:w-96 md:w-3/6 lg:w-2/6 m-auto  text-white py-4 px-6 rounded-none my-12">
         <div>
           <h2 className="text-4xl font-bold text-center mb-7">Sign Up !</h2>
           <form onSubmit={handleSubmit(handelSignUp)}>
-            <div className="form-control w-full relative justify-center mb-5 ">
-              <label className="label absolute ml-1">
+            <div className="form-control w-full relative ">
+              <label className="absolute ml-2 mt-4 text-gray">
                 <BsPersonFill className="text-gray-400 text-xl"></BsPersonFill>
               </label>
               <input
                 type="name"
                 name="name"
-                {...register("name", { required: "name Address is required" })}
+                {...register("name", { required: "Name is required" })}
                 placeholder="User Name"
                 className="input input-primary input-bordered rounded-none w-full text-gray-400 px-8"
               />
               {errors.name && (
-                <p className="text-orange-400">{errors.name?.message}</p>
+                <p className="text-orange-400 mt-2">{errors.name?.message}</p>
               )}
             </div>
-            <div className="form-control w-full relative justify-center mb-5">
-              <label className="label absolute ml-1">
+            <div className="form-control w-full relative mt-8">
+              <label className="absolute ml-2 mt-4 text-gray">
                 <FiMail className="text-gray-400"></FiMail>
               </label>
               <input
                 type="email"
                 name="email"
                 {...register("email", {
-                  required: "Email Address is required",
+                  required: "Email or Phone is required",
                 })}
                 placeholder="Email or Phone"
-                className="input input-primary  rounded-none input-bordered w-full text-gray-400 px-8"
+                className="input input-primary rounded-none input-bordered w-full text-gray-400 px-8"
               />
               {errors.email && (
-                <p className="text-orange-400">{errors.email?.message}</p>
+                <p className="text-orange-400 mt-2">{errors.email?.message}</p>
               )}
             </div>
-            <div className="form-control w-full relative justify-center">
-              <label className="label absolute ml-1">
+            <div className="form-control w-full relative mt-8">
+              <label className="absolute ml-2 mt-4 text-gray">
                 <FaLock className="text-gray-400"></FaLock>
               </label>
               <input
-                type="password"
+               type={passwordShown ? "text" : "password"}
                 {...register("password", {
-                  required: "Password Address is required",
+                  required: "Password is required",
                   minLength: {
                     value: 6,
                     message: "Password must be 6 characters or length",
@@ -151,13 +151,20 @@ const Register = () => {
                 className="input input-bordered w-full rounded-none input-primary text-gray-400 px-8"
               />
               {errors.password && (
-                <p className="text-orange-400">{errors.password?.message}</p>
+                <p className="text-orange-400 mt-2">{errors.password?.message}</p>
               )}
+              <label className=' right-2 mt-4 cursor-pointer absolute text-gray'>
+                { passwordShown ?
+                  <BsEyeSlashFill onClick={togglePassword} className="text-xl"></BsEyeSlashFill>
+                  :
+                  <BsEyeFill onClick={togglePassword} className="text-xl"></BsEyeFill>
+                }
+              </label>
             </div>
             <br />
 
             <input
-              className="hover:bg-yellow-500 rounded border-2 mt-8 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2"
+              className="hover:bg-yellow-500 rounded border-2 mt-5 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2 cursor-pointer"
               value="Sign Up"
               type="submit"
             />

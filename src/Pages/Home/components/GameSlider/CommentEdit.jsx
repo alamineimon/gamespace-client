@@ -2,8 +2,6 @@ import React from "react";
 import { toast } from "react-hot-toast";
 
 const CommentEdit = ({ editComments, setEditComments, refetch }) => {
-  // const { user } = useContext(AuthContext);
-  // const [editComment, setEditComment] = useState(editComments);
 
   const handelCommentUpdate = (event) => {
     event.preventDefault();

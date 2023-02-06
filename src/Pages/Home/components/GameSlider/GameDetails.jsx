@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { Carousel } from "react-responsive-carousel";
 import { Link, useLoaderData } from "react-router-dom";
@@ -8,8 +8,10 @@ import BookingModal from "../../../Modal/BookingModal/BookingModal";
 
 const GameDetails = () => {
   const gameDetails = useLoaderData();
+  const [rightSideGame, setRightSideGame] = useState()
 
   const {
+    _id,
     imgBG,
     title,
     ratings,
@@ -42,7 +44,7 @@ const GameDetails = () => {
   return (
     <div className="text-white">
       <div className=" w-full  flex flex-col items-center justify-center relative transition-all">
-        <img src={imgBG} className=" w-full h-[600px]" alt="" />
+        <img src={imgBG} className=" w-full h-[400] md:h-[450] lg:h-[500px]" alt="" />
       </div>
       <div className="bg-gray-900 px-5 md:px-10">
         <div className="flex justify-center items-center space-x-2 lg:space-x-20 space-y-4 pt-5 pb-16">
@@ -147,13 +149,18 @@ const GameDetails = () => {
                 ))}
               </Carousel>
             </div>
-            <GameComment></GameComment>
+            <GameComment
+              refetch={refetch}
+              detailsId={_id}
+              rightSideGame={rightSideGame}
+            ></GameComment>
           </div>
           <div className="w-full md:w-6/12">
             <div className="w-full bg-yellow-600 mt-5 md:mt-0 ">
               <div className="p-4 space-x-4">
                 {showAllGame?.map((desplayGame, i) => (
-                  <Link to={`/downloadGames/${desplayGame?._id}`}>
+                  <Link to={`/downloadGames/${desplayGame?._id}`}
+                    onClick={() => setRightSideGame(desplayGame?._id)}>
                     <div className="grid grid-cols-4 lg:grid-cols-2 items-center gap-4">
                       <div className="col-span-1 lg:col-span-1 md:w-full">
                         <img
