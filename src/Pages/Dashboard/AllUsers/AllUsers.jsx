@@ -78,7 +78,7 @@ const AllUsers = () => {
                 </div>
               </td>
               <td>{userInformation.email}</td>
-              <td>Purple</td>
+              <td>Buyer</td>
               <th>
                 <button className="btn btn-lg btn-ghost" onClick={() => handleDelete(userInformation)}>
                     <AiFillDelete></AiFillDelete>
