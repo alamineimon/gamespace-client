@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import ConfirmationModal from "../../Modal/ConfirmationModal/ConfirmationModal";
 import UpdateHtmlGame from "../../Modal/UpdateHtmlGame/UpdateHtmlGame";
 import Title2 from "../../Shared/DashTitle/Title2";
 import Loader from "../../Shared/Loader/Loader";
@@ -28,8 +29,8 @@ const AllHtmlGames = () => {
       return data;
     },
   });
-  const deleteGame = (id) => {
-    fetch(`https://gamespace-server.vercel.app/deleteHtmlGame/${id}`, {
+  const deleteGame = (game) => {
+    fetch(`https://gamespace-server.vercel.app/deleteHtmlGame/${game._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -39,6 +40,9 @@ const AllHtmlGames = () => {
           refetch();
         }
       });
+  };
+  const closeModal = () => {
+    setCurrentGame(null);
   };
   if (isLoading || categoryLoading) {
     return <Loader />;
@@ -62,6 +66,15 @@ const AllHtmlGames = () => {
           setCurrentGame={setCurrentGame}
           categories={categories}
           refetch={refetch}
+        />
+      )}
+      {currentGame && (
+        <ConfirmationModal
+          successAction={deleteGame}
+          modalData={currentGame}
+          closeModal={closeModal}
+          title={`Are you sure you wanna delete? `}
+          message={`If you delete ${currentGame.gameName}.  It cann't be undone`}
         />
       )}
     </section>

@@ -2,8 +2,8 @@ import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
-const HtmlCards = ({ game, deleteGame, setCurrentGame }) => {
-  const { _id, gameName, thumbnail } = game;
+const HtmlCards = ({ game, setCurrentGame }) => {
+  const { gameName, thumbnail } = game;
   return (
     <div className="bg-neutral group border hover:border-primary">
       <div className="w-full h-28 relative overflow-hidden">
@@ -17,10 +17,12 @@ const HtmlCards = ({ game, deleteGame, setCurrentGame }) => {
             <FaEdit className=" translate-y-5 group-hover:translate-y-0 transition-transform bg-primary hover:bg-white hover:text-primary cursor-pointer  text-white p-2 w-8 h-8 " />
           </label>
 
-          <AiFillDelete
-            onClick={() => deleteGame(_id)}
-            className=" translate-y-5 group-hover:translate-y-0 transition-transform bg-primary hover:bg-white hover:text-primary cursor-pointer  text-white p-2 w-8 h-8 "
-          />
+          <label
+            onClick={() => setCurrentGame(game)}
+            htmlFor="confirmation-modal"
+          >
+            <AiFillDelete className=" translate-y-5 group-hover:translate-y-0 transition-transform bg-primary hover:bg-white hover:text-primary cursor-pointer  text-white p-2 w-8 h-8 " />
+          </label>
         </div>
       </div>
       <div className="p-2 text-xs text-center">
