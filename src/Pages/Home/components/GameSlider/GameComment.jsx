@@ -24,7 +24,7 @@ const GameComment = () => {
       photoURL: user.photoURL,
       displayName: user.displayName,
     };
-    fetch(`https://gamespace-server.vercel.app/comment`, {
+    fetch(`http://localhost:9000/comment`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,7 +50,7 @@ const GameComment = () => {
   } = useQuery({
     queryKey: ["comment"],
     queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/comment");
+      const res = await fetch("http://localhost:9000/comment");
       const data = await res.json();
       return data;
     },
@@ -62,7 +62,7 @@ const GameComment = () => {
       "Are you sure , you went to cancel this .Comment"
     );
     if (proceed) {
-      fetch(`https://gamespace-server.vercel.app/comment/${id}`, {
+      fetch(`http://localhost:9000/comment/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

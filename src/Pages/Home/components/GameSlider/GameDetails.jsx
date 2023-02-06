@@ -31,7 +31,7 @@ const GameDetails = () => {
     queryKey: ["downloadGames"],
     queryFn: async () => {
       const res = await fetch(
-        "https://gamespace-server.vercel.app/downloadGames"
+        "http://localhost:9000/downloadGames"
       );
       const data = await res.json();
 

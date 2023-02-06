@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Nunito+Sans:wght@400;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -189,4 +190,4 @@ input[type="radio"]:checked + label{
 #carousel-2:checked ~ .control-2,
 #carousel-3:checked ~ .control-3 {
   display: block;
-}
+} 

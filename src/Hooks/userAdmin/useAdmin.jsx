@@ -5,7 +5,7 @@ const useAdmin = (email) => {
   const [isAdminLoading, setIsAdminLoading] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(`https://gamespace-server.vercel.app/users/admin/${email}`)
+      fetch(`http://localhost:9000/users/admin/${email}`)
         .then((res) => res.json())
         .then((data) => {
           setIsAdmin(data.isAdmin);
