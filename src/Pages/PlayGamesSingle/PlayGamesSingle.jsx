@@ -1,12 +1,12 @@
 import React, { useContext, useRef, useState } from "react";
 import { BsArrowsFullscreen } from "react-icons/bs";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { MdFavorite } from "react-icons/md";
 import { AuthContext } from "../../context/AuthProvider";
 const PlayGamesSingle = () => {
   const htmlGame = useLoaderData();
   const { user } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const iframeRef = useRef(null);
   const handleFullscreen = () => {
     iframeRef.current.requestFullscreen();
@@ -21,8 +21,10 @@ const PlayGamesSingle = () => {
     favorites,
   } = htmlGame;
   const [fav, setFav] = useState(favorites?.includes(user?.email));
-  console.log(fav);
   const handleFavorite = () => {
+    if (!user) {
+      return navigate("/login");
+    }
     fetch(
       `https://gamespace-server.vercel.app/handleFavorite/${_id}?email=${user?.email}`,
       {
