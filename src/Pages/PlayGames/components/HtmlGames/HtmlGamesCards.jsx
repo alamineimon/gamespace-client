@@ -2,15 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HtmlGamesCards = ({ game }) => {
-  const {
-    gameName,
-    authorName,
-    gameLink,
-    thumbnail,
-    category,
-    description,
-    _id,
-  } = game;
+  const { gameName, thumbnail, _id } = game;
   return (
     <div className="card w-full image-full  rounded-sm border group hover:border-primary">
       <figure className="before:hidden">
