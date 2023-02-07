@@ -23,6 +23,7 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import MyFavoriteGames from "../../Pages/Dashboard/MyFavoriteGames/MyFavoriteGames";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -115,7 +116,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/favoriteGames",
-        element: <h1>Favorite games</h1>,
+        element: <MyFavoriteGames />,
       },
       {
         path: "/dashboard/profile",
