@@ -9,7 +9,6 @@ import Login from "../../Pages/Login/Login";
 import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
-import Support from "../../Pages/Support/Support";
 import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
@@ -19,9 +18,7 @@ import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
 import LiveStream from "../../Pages/LiveStream/LiveStream";
 import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 import AddHtmlGames from "../../Pages/Dashboard/AddHtmlGames/AddHtmlGames";
-
 import Payment from "../../Pages/Dashboard/Payment/Payment";
-
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
@@ -73,10 +70,6 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <GameSlider></GameSlider>,
-      },
-      {
-        path: "/support",
-        element: <Support />,
       },
       {
         path: "/2dgames",
