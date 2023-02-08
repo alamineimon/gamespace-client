@@ -5,10 +5,11 @@ import { AuthContext } from "../../../../context/AuthProvider";
 import CommentEdit from "./CommentEdit";
 import { TiDeleteOutline } from "react-icons/ti";
 import { CiEdit } from "react-icons/ci";
+import { useQuery } from "@tanstack/react-query";
+import Loader from "../../../Shared/Loader/Loader";
 
-const GameComment = ({ refetch, rightSideGame, detailsId }) => {
+const GameComment = ({ rightSideGame, detailsId }) => {
   const { user } = useContext(AuthContext);
-  const [comments, setComments] = useState()
   console.log(rightSideGame)
 
   const {
@@ -44,17 +45,17 @@ const GameComment = ({ refetch, rightSideGame, detailsId }) => {
         }
       });
   };
+  const {
+    data: comments, isLoading, refetch,} = useQuery({
+    queryKey: ["comment"],
+    queryFn: async () => {
+      const res = await fetch("https://gamespace-server.vercel.app/comment" );
+      const result = await res.json();
+      const data = result.filter(gameId => gameId.gameDetailsId === detailsId || rightSideGame);
+      return data;
+    },
+  });
 
-  useEffect(() => {
-    fetch("https://gamespace-server.vercel.app/comment")
-    .then(res => res.json())
-    .then(data => {
-          const result = data.filter(gameId => gameId.gameDetailsId === detailsId || rightSideGame);
-          setComments(result)
-          refetch();
-
-    })
-  }, [])
 
   console.log(comments)
 
@@ -76,7 +77,9 @@ const GameComment = ({ refetch, rightSideGame, detailsId }) => {
         });
     }
   };
-
+if(isLoading){
+  <Loader />
+}
 
 
   return (
@@ -104,7 +107,7 @@ const GameComment = ({ refetch, rightSideGame, detailsId }) => {
               <p className="text-orange-400">{errors.comment?.message}</p>
             )}
             <input
-              className="bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
+              className="bg-orange-500 rounded border-2 border-orange-500 text-white text-lg font-semibold px-2 cursor-pointer"
               value="Submit"
               type="submit"
             />

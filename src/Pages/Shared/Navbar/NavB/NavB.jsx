@@ -37,7 +37,6 @@ const NavB = ({ defaultAvtar }) => {
         ["about", "/about"],
         ["shop", "/shop"],
         ["Live", "/livestream"],
-        ["support", "/support"],
         ["2D Games", "/2dgames"],
         ["HTML Games", "/playGames"],
       ]?.map(([title, url]) => {

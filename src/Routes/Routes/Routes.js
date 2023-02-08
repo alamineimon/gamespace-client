@@ -9,7 +9,6 @@ import Login from "../../Pages/Login/Login";
 import PlayGames from "../../Pages/PlayGames/PlayGames";
 import PlayGamesSingle from "../../Pages/PlayGamesSingle/PlayGamesSingle";
 import Register from "../../Pages/Register/Register";
-import Support from "../../Pages/Support/Support";
 import ProfilePage from "../../Pages/ProfilePage/ProfilePage";
 import MyOrder from "../../Pages/Dashboard/MyOrder/MyOrder";
 import CandyCrash from "../../Pages/2Dgames/CandyCrash/CandyCrash";
@@ -25,6 +24,7 @@ import AdminRoute from "../AdminRoute/AdminRoute";
 import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UserProfile from "../../Pages/UserProfile/UserProfile";
+import MyFavoriteGames from "../../Pages/Dashboard/MyFavoriteGames/MyFavoriteGames";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -74,10 +74,6 @@ const router = createBrowserRouter([
         element: <GameSlider></GameSlider>,
       },
       {
-        path: "/support",
-        element: <Support />,
-      },
-      {
         path: "/2dgames",
         element: <TwoDGmaes />,
       },
@@ -125,7 +121,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/favoriteGames",
-        element: <h1>Favorite games</h1>,
+        element: <MyFavoriteGames />,
       },
       {
         path: "/dashboard/profile",

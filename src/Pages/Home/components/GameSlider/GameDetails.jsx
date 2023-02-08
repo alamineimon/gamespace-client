@@ -48,18 +48,20 @@ const GameDetails = () => {
       </div>
       <div className="bg-gray-900 px-5 md:px-10">
         <div className="flex justify-center items-center space-x-2 lg:space-x-20 space-y-4 pt-5 pb-16">
-          <div className="hidden md:block -mt-32 z-10 ">
-            <img src={img} className="w-44 md:w-60 p-4 bg-yellow-500" alt="" />
-          </div>
-          <div className="">
-            <h1 className="text-1xl sm:text-2xl md:text-3xl lg:text-4xl hover:underline cursor-pointer ">
-              {title}{" "}
-            </h1>
+          <div className="flex items-end gap-5">
+            <div className="hidden md:block -mt-32 z-10 ">
+              <img src={img} className="w-44 md:w-60 p-4 bg-yellow-500" alt="" />
+            </div>
+            <div className=" ">
+              <h1 className="text-xl md:text-3xl lg:text-4xl font-bold hover:underline cursor-pointer ">
+                {title}{" "}
+              </h1>
+            </div>
           </div>
 
-          <div className="w-72 p-3 flex justify-between items-center bg-amber-700">
+          <div className="max-w-80 p-3 flex justify-between items-center bg-amber-700 gap-1">
             <div>
-              <h3 className="text-lg md:text-2xl font-bold">Game Rating</h3>
+              <h3 className="text-md md:text-2xl font-bold">Game Rating</h3>
               <h4 className="text-sm md:text-md lg:text-xl">
                 User Ratings: {ratings}
               </h4>
@@ -150,7 +152,6 @@ const GameDetails = () => {
               </Carousel>
             </div>
             <GameComment
-              refetch={refetch}
               detailsId={_id}
               rightSideGame={rightSideGame}
             ></GameComment>
@@ -158,20 +159,20 @@ const GameDetails = () => {
           <div className="w-full md:w-6/12">
             <div className="w-full bg-yellow-600 mt-5 md:mt-0 ">
               <div className="p-4 space-x-4">
-                {showAllGame?.map((desplayGame, i) => (
-                  <Link to={`/downloadGames/${desplayGame?._id}`}
-                    onClick={() => setRightSideGame(desplayGame?._id)}>
+                {showAllGame?.map((displayGame, i) => (
+                  <Link to={`/downloadGames/${displayGame?._id}`}
+                    onClick={() => setRightSideGame(displayGame?._id)}>
                     <div className="grid grid-cols-4 lg:grid-cols-2 items-center gap-4">
                       <div className="col-span-1 lg:col-span-1 md:w-full">
                         <img
-                          src={desplayGame?.img}
+                          src={displayGame?.img}
                           className="w-full h-full object-cover"
                           alt=""
                         />
                       </div>
                       <div className="col-span-3 lg:col-span-1">
                         <h5 className="text-xl md:text-sm lg:text-xl hover:underline">
-                          {desplayGame?.title}
+                          {displayGame?.title}
                         </h5>
                       </div>
                     </div>
