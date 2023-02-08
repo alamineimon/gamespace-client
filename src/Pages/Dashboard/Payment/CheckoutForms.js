@@ -1,251 +1,169 @@
-// import { CardCvcElement, CardElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from "@stripe/react-stripe-js";
-// import React, { useState } from "react";
+import React, { useEffect } from "react";
+import Styles from "./Styles";
+import { Form, Field } from "react-final-form";
+import {
+  formatCreditCardNumber,
+  formatCVC,
+  formatExpirationDate,
+} from "./cardUtils";
+import axios from "axios";
+import Card from "./Card";
+// axios = "http://localhost:9000/";
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// const CheckoutForm = () => {
-//   // const [cardError , setCardError] = useState()
-//   // const stripe = useStripe()
-//   // const elements = useElements()
+const CheckoutForms = () => {
+  useEffect(() => {
+    if (!window.document.getElementById("stripe-script")) {
+      var s = window.document.createElement("script");
+      s.id = "stripe-script";
+      s.type = "text/javascript";
+      s.src = "https://js.stripe.com/v2/";
+      s.onload = () => {
+        window["Stripe"].setPublishableKey(
+          "pk_test_51M6QZ6IlSJrakpLcejt8uaFqeGHJhiESRp8lr0jTDGosknsdgyYUAeU5oJpVo4OTYO3jD7DFhaJGE6Lx8huHoUVX00FadybHQK"
+        );
+      };
+      window.document.body.appendChild(s);
+    }
+  }, []);
 
-//   // const handleSubmit =async(event) =>{
-//   //   event.preventDefault();
-//   //   if (!stripe || !elements) {
-//   //     return;
-//   //   }
-//   //   const card = elements.getElement(CardElement);
+  const onSubmit = async (values) => {
+    await sleep(300);
+    try {
+      window.Stripe.card.createToken(
+        {
+          number: values.number,
+          exp_month: values.expiry.split("/")[0],
+          exp_year: values.expiry.split("/")[1],
+          cvc: values.cvc,
+          name: values.name,
+        },
+        (status, response) => {
+          if (status === 200) {
+            fetch("http://localhost:9000/stripe-payment", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify({
+                     token: response,
+                     email: values.email,
+                     amount: values.amount,
+                   }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                //   setCreatedUserEmail(email);
+              });
+            // axios.post("/stripe-payment", {
+            //     token: response,
+            //     email: values.email,
+            //     amount: values.amount,
+            //   })
+            //   .then((res) => window.alert(JSON.stringify(res.data, 0, 2)))
+            //   // .then((res) => window.alert(JSON.stringify(res.data, 0, 2)))
+            //   .catch((err) => console.log(err));
+          } else {
+            console.log(response.error.message);
+          }
+        }
+      );
+    } catch (error) {}
+  };
 
-//   //   if (card == null) {
-//   //     return;
-//   //   }
-//   //   const {error, paymentMethod} = await stripe.createPaymentMethod({
-//   //     type: 'card',
-//   //     card,
-//   //   });
-//   //   if (error) {
-//   //     console.log(error);
-//   //     setCardError(error.message)
-//   //   } 
-//   //   else {
-//   //     setCardError('')
-//   //   }
-//   // }
-//   // import {logEvent, Result, ErrorResult} from '../util';
-//   const ELEMENT_OPTIONS = {
-//     style: {
-//       base: {
-//         fontSize: '18px',
-//         color: '#424770',
-//         letterSpacing: '0.025em',
-//         '::placeholder': {
-//           color: '#aab7c4',
-//         },
-//       },
-//       invalid: {
-//         color: '#9e2146',
-//       },
-//     },
-//   };
-//  const logEvent = (name) => (event) => {
-//     console.log(`[${name}]`, event);
-//   };
-// //   const Result = ({children}) => <div className="result">{children}</div>;
+  return (
+    <Styles>
+      <h1>🏁 React Stripe</h1>
+      <Form
+        onSubmit={onSubmit}
+        render={({
+          handleSubmit,
+          form,
+          submitting,
+          pristine,
+          values,
+          active,
+        }) => {
+          return (
+            <form onSubmit={handleSubmit}>
+              <Card
+                number={values.number || ""}
+                name={values.name || ""}
+                expiry={values.expiry || ""}
+                cvc={values.cvc || ""}
+                focused={active}
+              />
+              <div>
+                <Field
+                  name="amount"
+                  component="input"
+                  type="number"
+                  placeholder="Amount"
+                />
+                <Field
+                  name="email"
+                  component="input"
+                  type="text"
+                  placeholder="Your email"
+                />
+              </div>
+              <div>
+                <Field
+                  name="number"
+                  component="input"
+                  type="text"
+                  pattern="[\d| ]{16,22}"
+                  placeholder="Card Number"
+                  format={formatCreditCardNumber}
+                />
+              </div>
+              <div>
+                <Field
+                  name="name"
+                  component="input"
+                  type="text"
+                  placeholder="Name"
+                />
+              </div>
+              <div>
+                <Field
+                  name="expiry"
+                  component="input"
+                  type="text"
+                  pattern="\d\d/\d\d"
+                  placeholder="Valid Thru"
+                  format={formatExpirationDate}
+                />
+                <Field
+                  name="cvc"
+                  component="input"
+                  type="text"
+                  pattern="\d{3,4}"
+                  placeholder="CVC"
+                  format={formatCVC}
+                />
+              </div>
+              <div className="buttons">
+                <button type="submit" disabled={submitting}>
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  onClick={form.reset}
+                  disabled={submitting || pristine}
+                >
+                  Reset
+                </button>
+              </div>
+              <h2>Values</h2>
+              <pre>{JSON.stringify(values, 0, 2)}</pre>
+            </form>
+          );
+        }}
+      />
+    </Styles>
+  );
+};
 
-// //   const ErrorResult = ({children}) => (
-// //   <div className="error">{children}</div>
-// // );
-
-//   const stripe = useStripe()
-//   const elements = useElements()
-//   // const {postal, name, paymentMethod, errorMessage} = this.state;
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-//     // const form = event.t
-//     console.log(event)
- 
-
-//     // if (!stripe || !elements) {
-//     //   // Stripe.js has not loaded yet. Make sure to disable
-//     //   // form submission until Stripe.js has loaded.
-//     //   return;
-//     // }
-
-//     // const card = elements.getElement(CardNumberElement);
-
-//     // if (card == null) {
-//     //   return;
-//     // }
-
-//     // const payload = await stripe.createPaymentMethod({
-//     //   type: 'card',
-//     //   card,
-//     //   billing_details: {
-//     //     name,
-//     //     address: {
-//     //       postal_code: postal,
-//     //     },
-//     //   },
-//     // });
-
-//     // if (payload.error) {
-//     //   console.log('[error]', payload.error);
-//     //   this.setState({
-//     //     errorMessage: payload.error.message,
-//     //     paymentMethod: null,
-//     //   });
-//     // } else {
-//     //   console.log('[PaymentMethod]', payload.paymentMethod);
-//     //   this.setState({
-//     //     paymentMethod: payload.paymentMethod,
-//     //     errorMessage: null,
-//     //   });
-//     // }
-//   };
-
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//         <label htmlFor="name">Full Name</label>
-//         <input
-//           id="name"
-//           required
-//           placeholder="Jenny Rosen"
-//           value={name}
-//           onChange={(event) => {
-//             this.setState({name: event.target.value});
-//           }}
-//         />
-//         <label htmlFor="cardNumber">Card Number</label>
-//         <CardNumberElement
-//           id="cardNumber"
-//           onBlur={logEvent('blur')}
-//           onChange={logEvent('change')}
-//           onFocus={logEvent('focus')}
-//           onReady={logEvent('ready')}
-//           options={ELEMENT_OPTIONS}
-//         />
-//         <label htmlFor="expiry">Card Expiration</label>
-//         <CardExpiryElement
-//           id="expiry"
-//           onBlur={logEvent('blur')}
-//           onChange={logEvent('change')}
-//           onFocus={logEvent('focus')}
-//           onReady={logEvent('ready')}
-//           options={ELEMENT_OPTIONS}
-//         />
-//         <label htmlFor="cvc">CVC</label>
-//         <CardCvcElement
-//           id="cvc"
-//           onBlur={logEvent('blur')}
-//           onChange={logEvent('change')}
-//           onFocus={logEvent('focus')}
-//           onReady={logEvent('ready')}
-//           options={ELEMENT_OPTIONS}
-//         />
-//         <label htmlFor="postal">Postal Code</label>
-//         <input
-//           id="postal"
-//           required
-//           placeholder="12345"
-//           value={postal}
-//           onChange={(event) => {
-//             this.setState({postal: event.target.value});
-//           }}
-//         />
-//         {/* {errorMessage && <ErrorResult>{errorMessage}</ErrorResult>}
-//         {paymentMethod && (
-//           <Result>Got PaymentMethod: {paymentMethod.id}</Result>
-//         )} */}
-//         <button type="submit" disabled={!stripe}>
-//           Pay
-//         </button>
-//       </form>
-//     // <form onSubmit={handleSubmit}>
-//     //   <CardElement
-//     //     options={{
-//     //       style: {
-//     //         base: {
-//     //           fontSize: "16px",
-//     //           color: "#FFCC00",
-//     //           "::placeholder": {
-//     //             color: "#aab7c4",
-//     //           },
-//     //         },
-//     //         invalid: {
-//     //           color: "#9e2146",
-//     //         },
-//     //       },
-//     //     }}
-//     //   />
-//     //   <button className="btn btn-sm btn-primary mt-6" type="submit" disabled={!stripe}>
-//     //     Pay
-//     //   </button>
-//     // </form>
-//   );
-// };
-
-// export default CheckoutForm;
-
-
-
-// meaningfull form.........................................
-// import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-// import React, { useState } from "react";
-
-// const CheckoutForm = () => {
-// const [cardError , setCardError] = useState()
-// const stripe = useStripe()
-// const elements = useElements
-// const handleSubmit =async(event) =>{
-//   event.preventDefault();
-//   if (!stripe || !elements) {
-//     return;
-//   }
-//   const card = elements.getElement(CardElement);
-//   if (card == null) {
-//     return;
-//   }
-//   const {error, paymentMethod} = await stripe.createPaymentMethod({
-//     type: 'card',
-//     card,
-//   });
-//   if (error) {
-//     console.log(error);
-//     setCardError(error.message)
-//   } 
-//   else {
-//     setCardError('')
-//   }
-// }
-//   return (
-//     <div>
-//       <form onSubmit={handleSubmit}>
-//         <CardElement
-//           options={{
-//             style: {
-//               base: {
-//                 fontSize: "16px",
-//                 color: "#FFCC00",
-//                 "::placeholder": {
-//                   color: "#aab7c4",
-//                 },
-//               },
-//               invalid: {
-//                 color: "#9e2146",
-//               },
-//             },
-//           }}
-//         />
-//         <button
-//           className="btn btn-sm btn-primary mt-6"
-//           type="submit"
-//           disabled={!stripe}
-//         >
-//           Pay
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default CheckoutForm;
-
+export default CheckoutForms;

@@ -1,6 +1,8 @@
+import { useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
 import Cards from "react-credit-cards";
 import 'react-credit-cards/es/styles-compiled.css'
+
 
 const CheckoutForm = () => {
   const [number, setNumber] = useState("");
@@ -9,16 +11,31 @@ const CheckoutForm = () => {
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
 
+const [cardError , setCardError] = useState()
+const stripe = useStripe()
+const elements = useElements
+const handleSubmit =async(event) =>{
+  event.preventDefault();
+  const form = event.target;
+  const name = form.name.value;
+  const number = form.number.value;
+  const expiry = form.expiry.value;
+  const cvc = form.cvc.value;
+  console.log(name, number, expiry, cvc)
+}
+
+
   return (
-    <div>
+    <div >
       <Cards
         number={number}
         name={name}
         expiry={expiry}
         cvc={cvc}
         focused={focus}
+        className="bg-green-500"
        />
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="tel"
           name="number"
@@ -51,6 +68,13 @@ const CheckoutForm = () => {
           onChange={(e) => setCvc(e.target.value)}
           onFocus={(e) => setFocus(e.target.name)}
         />
+        <button
+           className="btn btn-sm btn-primary mt-6"
+           type="submit"
+           disabled={!stripe}
+         >
+           Pay
+         </button>
       </form>
     </div>
   );

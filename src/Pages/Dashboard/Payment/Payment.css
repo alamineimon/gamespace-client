@@ -1,6 +1,9 @@
-.card{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url(https://i.ibb.co/FxtmHrm/credit-card-bg.jpg);
+.card {
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://i.ibb.co/FxtmHrm/credit-card-bg.jpg);
 }

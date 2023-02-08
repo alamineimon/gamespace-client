@@ -2,7 +2,10 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import CheckoutForm from "./CheckoutForm";
+import Checkoutt from "./Checkoutt";
+import './Payment.css'
+
+
 
 
 const stripePromise = loadStripe(
@@ -14,11 +17,13 @@ const Payment = () => {
   const { name, email, productName, price, location, mobile } = gamesData;
 
   return (
-    <div className="">
-      <p>Total price $ {price}</p>
+    <div className="card justify-center items-center">
+      <p className="text-center ">Total price $ {price}</p>
       <div className="w-96 my-12">
         <Elements stripe={stripePromise}>
-          <CheckoutForm/>
+          <Checkoutt gamesData={gamesData}/>
+          {/* <CheckoutForm/> */}
+          {/* <CheckoutForms/> */}
         </Elements>
       </div>
     </div>
