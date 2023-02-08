@@ -19,13 +19,12 @@ import TikTakToe from "../../Pages/2Dgames/TikTakToe/TikTakToe";
 import LiveStream from "../../Pages/LiveStream/LiveStream";
 import Error404Page from "../../Pages/Shared/Error404Page/Error404Page";
 import AddHtmlGames from "../../Pages/Dashboard/AddHtmlGames/AddHtmlGames";
-
 import Payment from "../../Pages/Dashboard/Payment/Payment";
-
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UserProfile from "../../Pages/UserProfile/UserProfile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -97,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "/livestream",
         element: <LiveStream />,
+      },
+      {
+        path: "/userProfile",
+        element: <UserProfile></UserProfile>,
       },
     ],
   },

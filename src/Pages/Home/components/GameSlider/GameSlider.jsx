@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { AuthContext } from "../../../../context/AuthProvider";
 import Loader from "../../../Shared/Loader/Loader";
+// import Loader from "../../../Shared/Loader/Loader";
 import GamesCards from "./GamesCards";
 
 const GameSlider = () => {
