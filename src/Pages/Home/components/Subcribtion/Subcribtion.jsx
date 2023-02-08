@@ -1,48 +1,64 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Subcribtion.css";
 import { SiMinutemailer } from "react-icons/si";
+import { AuthContext } from "../../../../context/AuthProvider";
+
+
+
 
 const Subcribtion = () => {
+  const { user } = useContext(AuthContext)
   const [formState, setFormstate] = useState({});
 
-  const subcribtion = (event)=>{
-    event.preventDafault()
-    setFormstate({...formState, [event.target.email]: event.target.value})
+  const changeHandler = (event) => {
+    setFormstate({ ...formState, [event.target.name]: event.target.value });
+
+  }
+
+  const submitHanlder = (event) => {
+    event.preventDefault()
+    const emailConfig = {
+      Host: "smtp.elasticemail.com",
+      Username: "delowerhossain20201@yopmail.com",
+      Password: "A50646288A1EC91316BFF9A2BD75EB626852",
+      Port: 2525,
+      To: 'delowerhossain20201@yopmail.com',
+      From: "hdelower68@gmail.com",
+      Subject: "New member on our GameSpace",
+      Body: `${user.displayName} conneted to our website over email.`
+
+    }
+    if (window.Email) {
+      window.Email.send(emailConfig).then(() => alert('email sent seuccesfully')
+      )
+    }
   }
 
 
   return (
-    <div className=" ">
-      <div className="flex bg-transparent justify-center">
-        <div className="flex justify-around  rounded-t-full items-center bg-black w-11/12 md:w-2/3 pt-6 pb-4">
-          <div className=" -space-y-2 text-lg md:text-2xl">
-            <p className="text-white font-bold">Our</p>
-            <p className="text-yellow-400 font-bold"> Newsletter</p>
-         </div>
-          <div className="flex justify-center items-center">
-            <fieldset className=" space-y-1 dark:text-gray-100">
-              <label htmlFor="Enter your email" className="hidden">
-                Enter your email
-              </label>
-              <div className="w-28 md:w-48 lg:w-96">
-                <input
-                  onChange={subcribtion}
-                  type="search"
-                  name="email"
-                  placeholder="Enter your email"
-                  className="w-full py-3 doangel p-4 mb-1 text-sm focus:outline-none "
-                />
-              </div>
-            </fieldset>
-            <div  className=" doangel flex justify-center items-center  text-black  font-bold bg-yellow-500 file-input-bordered">
-              <button type="submit" className="lg:mr-0 mr-4 lg:w-full w-1/2 text-black text-sm lg:text-lg font-bold bg-yellow-500 file-input-bordered py-3 lg:pl-3 pr-2 ">
-                SUBSCRIBE
-              </button>
-              <p className="pr-2 text-lg">
+    <div className="flex justify-center  w-full  ">
+      <div className="lg:flex  bg-transparent justify-center items-center px-4">
+        <div className="lg:flex sm:block items-center justify-around  rounded-t-full bg-black w-full pt-6 pb-4 px-8">
+          <div className="text-lg lg:mx-4  text-center sm:ml-10 md:text-2xl">
+            <h1 className="text-white font-bold">Our</h1>
+            <h1 className="text-yellow-400 font-bold"> Newsletter</h1>
+          </div>
+          <div className="flex justify-center items-center lg:mx-4 ">
+            <form className=" doangel flex justify-center items-center  text-black  font-bold bg-yellow-500 file-input-bordered" action="" onSubmit={submitHanlder} >
+              <input
+                className="w-24 p-2  md:w-48 lg:w-96 dark:text-gray-100"
+                onChange={changeHandler}
+                type="email"
+                name="email"
+                value={formState.email}
+                placeholder="Your Email" />
+              <input className="ml-1" type="submit" value="SUBSCRIBE"/>
+              <p className="pr-2 text-lg text-black ">
                 <SiMinutemailer />
               </p>
-            </div>
+            </form>
           </div>
+
         </div>
       </div>
     </div>
