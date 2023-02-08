@@ -23,6 +23,7 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UserProfile from "../../Pages/UserProfile/UserProfile";
 import MyFavoriteGames from "../../Pages/Dashboard/MyFavoriteGames/MyFavoriteGames";
 const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "/livestream",
         element: <LiveStream />,
+      },
+      {
+        path: "/userProfile",
+        element: <UserProfile></UserProfile>,
       },
     ],
   },
