@@ -17,7 +17,7 @@ const Payment = () => {
   const { name, email, productName, price, location, mobile } = gamesData;
 
   return (
-    <div className="card justify-center items-center">
+    <div className="cardd justify-center items-center">
       <p className="text-center ">Total price $ {price}</p>
       <div className="w-96 my-12">
         <Elements stripe={stripePromise}>
