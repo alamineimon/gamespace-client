@@ -1,15 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../../context/AuthProvider";
-import Loader from "../../../Shared/Loader/Loader";
 import CommentEdit from "./CommentEdit";
 import { TiDeleteOutline } from "react-icons/ti";
 import { CiEdit } from "react-icons/ci";
+import { useQuery } from "@tanstack/react-query";
+import Loader from "../../../Shared/Loader/Loader";
 
-const GameComment = () => {
+const GameComment = ({ rightSideGame, detailsId }) => {
   const { user } = useContext(AuthContext);
+  console.log(rightSideGame)
+
   const {
     register,
     formState: { errors },
@@ -21,6 +23,7 @@ const GameComment = () => {
   const handelComment = (data) => {
     const comment = {
       comment: data.comment,
+      gameDetailsId:detailsId,
       photoURL: user.photoURL,
       displayName: user.displayName,
     };
@@ -42,22 +45,17 @@ const GameComment = () => {
         }
       });
   };
-
   const {
-    data: comments,
-    isLoading,
-    refetch,
-  } = useQuery({
+    data: comments, isLoading, refetch,} = useQuery({
     queryKey: ["comment"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:9000/comment");
-      const data = await res.json();
+      const res = await fetch("https://gamespace-server.vercel.app/comment" );
+      const result = await res.json();
+      const data = result.filter(gameId => gameId.gameDetailsId === detailsId || rightSideGame);
       return data;
     },
   });
-
   const handlerDeleteComment = (id) => {
-    console.log(id);
     const proceed = window.confirm(
       "Are you sure , you went to cancel this .Comment"
     );
@@ -75,10 +73,10 @@ const GameComment = () => {
         });
     }
   };
+if(isLoading){
+  <Loader />
+}
 
-  if (isLoading) {
-    <Loader />;
-  }
 
   return (
     <div>
@@ -105,7 +103,7 @@ const GameComment = () => {
               <p className="text-orange-400">{errors.comment?.message}</p>
             )}
             <input
-              className="bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
+              className="bg-orange-500 rounded border-2 border-orange-500 text-white text-lg font-semibold px-2 cursor-pointer"
               value="Submit"
               type="submit"
             />
@@ -113,7 +111,7 @@ const GameComment = () => {
         </form>
       </div>
       <div className="mt-5 space-y-4">
-        {comments?.map((comment, i) => (
+        {comments?.map((comment , i) => (
           <div className=" space-y-2">
             <div className="flex flex-wrap items-center gap-2">
               <div className="w-8 h-8 ">
@@ -156,7 +154,7 @@ const GameComment = () => {
       </div>
       {editComments && (
         <CommentEdit
-          refetch={refetch}
+          // refetch={refetch}
           editComments={editComments}
           setEditComments={setEditComments}
         ></CommentEdit>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 // import { useNavigate } from "react-router-dom";
+import { AiFillCamera } from 'react-icons/ai';
 import { AuthContext } from "../../context/AuthProvider";
 
 const ProfilePage = () => {
@@ -43,7 +44,7 @@ const ProfilePage = () => {
           photoUrl,
         };
         console.log(updateUser);
-        toast("Updatttttttttttttttttte");
+        toast("Updated");
         // fetch(`http://localhost:5000/users${user.uid}`, {
         //   method: "PUT",
         //   headers: {
@@ -78,8 +79,7 @@ const ProfilePage = () => {
         >
           <div className="space-y-4">
             <div className="flex items-center">
-              <div className="flex mr-6 space-between">
-                <p className="text-xl mr-4 text-bold">Profile Picture</p>
+              <div className="flex mr-6 space-between relative">
                 {user?.photoURL ? (
                   <img
                     className="rounded-full h-28"
@@ -93,12 +93,12 @@ const ProfilePage = () => {
                     alt=""
                   />
                 )}
-              </div>
-              <div>
-                <label htmlFor="image" className="block mb-2 text-sm">
-                  Select Image:
+                <label htmlFor="image" className="block mb-2 text-sm absolute bottom-1 right-0 cursor-pointer">
+                  <AiFillCamera className="text-3xl bg-gray text-black rounded-full p-1"></AiFillCamera>
                 </label>
-                <input type="file" id="image" name="image" accept="image/*" />
+              </div>
+              <div>                
+                <input className="hidden" type="file" id="image" name="image" accept="image/*" />
               </div>
             </div>
 
@@ -180,11 +180,8 @@ const ProfilePage = () => {
               />
             </div>
           </div>
-          <div className="space-y-2">
-            <div className="buttons flex">
-              <button className="update">Update</button>
-              {/* <button onClick={handleCancel} className="cancel">Cancel</button> */}
-            </div>
+          <div className="text-center">
+              <button className="btn btn-primary">Update</button>
           </div>
         </form>
       </div>

@@ -16,3 +16,13 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url(https://wallpapercave.com/wp/gY7ponW.jpg);
 }
+.profile-icon{
+  font-size: 90px;
+  margin: auto;
+  border: 1px solid rgb(107, 192, 241);
+  background-color: rgb(48, 46, 46);
+  color: rgb(206, 195, 195);
+  border-radius: 100%;
+  padding: 10px;
+  
+}
