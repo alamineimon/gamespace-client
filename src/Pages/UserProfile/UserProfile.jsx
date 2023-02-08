@@ -55,7 +55,7 @@ const UserProfile = () => {
         </div>
       </div>
       <div className="absolute bottom-80 lg:left-40 flex flex-col lg:flex-row justify-center items-center">
-        <div className="avatar">
+        <div className="avatar border-4 border-primary rounded-full">
           <div className="w-40 rounded-full">
             <img
               src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=1060&t=st=1675753022~exp=1675753622~hmac=9e9eec61e681a503d976bf360dd33682435fddb5b79907411a528cfca139ffa3"
@@ -63,8 +63,8 @@ const UserProfile = () => {
             />
           </div>
         </div>
-        <div className="ml-14">
-          <h1 className="text-3xl text-white font-bold shadow-xl ml-3">
+        <div className="ml-8">
+          <h1 className="text-4xl text-white font-bold shadow-xl ml-3">
             Mohammad Rafi
           </h1>
           <h4 className="text-2xl text-yellow-400 ml-3 mt-2 shadow-xl">
@@ -92,7 +92,7 @@ const UserProfile = () => {
           clickable: true,
         }}
         modules={[EffectCoverflow, Pagination, Navigation]}
-      className="swiper_container my-8 w-2/4 mx-auto"
+      className="swiper_container w-2/4 mx-auto"
       >
         <SwiperSlide>
           <img src="https://i.ibb.co/KXXNyM0/download.jpg" alt="slide_image" />
