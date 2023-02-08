@@ -27,7 +27,7 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       photoURL: user.photoURL,
       displayName: user.displayName,
     };
-    fetch(`https://gamespace-server.vercel.app/comment`, {
+    fetch(`http://localhost:9000/comment`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,16 +55,12 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       return data;
     },
   });
-
-
-  console.log(comments)
-
   const handlerDeleteComment = (id) => {
     const proceed = window.confirm(
       "Are you sure , you went to cancel this .Comment"
     );
     if (proceed) {
-      fetch(`https://gamespace-server.vercel.app/comment/${id}`, {
+      fetch(`http://localhost:9000/comment/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

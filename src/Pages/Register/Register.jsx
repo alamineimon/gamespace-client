@@ -77,7 +77,7 @@ const Register = () => {
   };
   const saveUser = (name, email) => {
     const user = { name, email };
-    fetch("https://gamespace-server.vercel.app/user", {
+    fetch("http://localhost:9000/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",

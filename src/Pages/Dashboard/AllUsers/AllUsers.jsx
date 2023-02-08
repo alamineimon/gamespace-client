@@ -11,7 +11,7 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/users");
+      const res = await fetch("http://localhost:9000/users");
       const data = await res.json();
       return data;
     },
@@ -20,7 +20,7 @@ const AllUsers = () => {
   const handleDelete = (userInfo) => {
     const confirm = window.confirm("Are you sure?");
     if (confirm) {
-      fetch(`https://gamespace-server.vercel.app/delete/${userInfo._id}`, {
+      fetch(`http://localhost:9000/delete/${userInfo._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
