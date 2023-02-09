@@ -86,7 +86,7 @@ const UserProfile = () => {
 
 
   if (isLoading || loading) {
-    return <Loader />
+     <Loader />
   }
 
   return (
