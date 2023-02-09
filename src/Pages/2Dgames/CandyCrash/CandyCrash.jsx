@@ -24,6 +24,7 @@ const CandyCrash = () => {
   const [squareBeingDragged, setSquareBeingDragged] = useState(null);
   const [squareBeingReplaced, setSquareBeingReplaced] = useState(null);
   const [scoreDisplay, setScoreDisplay] = useState(0);
+  
 
   const checkForColumnOfFour = () => {
     for (let i = 0; i <= 39; i++) {
@@ -212,11 +213,14 @@ const CandyCrash = () => {
     return () => clearInterval(timer);
   });
 
+  
+
   return (
-    <div className="app ">
+    <div className="lg:flex justify-center items-center p-4">
       <div className="game">
         {currentColorArrangement?.map((candyColor, index) => (
           <img
+            className=""
             key={index}
             src={candyColor}
             alt={candyColor}
@@ -231,8 +235,9 @@ const CandyCrash = () => {
           />
         ))}
       </div>
-      <ScoreBoard  score={scoreDisplay} />
-  
+      <div className="ml-3">
+        <ScoreBoard score={scoreDisplay} />
+      </div>
     </div>
   );
 };

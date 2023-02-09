@@ -34,7 +34,6 @@ const NavB = ({ defaultAvtar }) => {
     <>
       {[
         ["Home", "/"],
-        ["about", "/about"],
         ["shop", "/shop"],
         ["Live", "/livestream"],
         ["2D Games", "/2dgames"],
@@ -161,8 +160,8 @@ const NavB = ({ defaultAvtar }) => {
                     </div>
                   ) : (
                     <div className="avatar placeholder">
-                      <div className="bg-neutral-focus text-neutral-content rounded-full w-10 h-10">
-                        <span className="text-xl">
+                      <div className="bg-neutral-focus text-neutral-content rounded-full lg:w-10 w-8 h-8 lg:h-10">
+                        <span className="text-xl mt-1">
                           {user.displayName.slice(0, 1)}
                         </span>
                       </div>
@@ -193,11 +192,11 @@ const NavB = ({ defaultAvtar }) => {
               </div>
               <p className="font-bold text-sm">
                 <span
-                  className={`text-primary ${
+                  className={`text-primary text-lg ${
                     currentPath === "dashboard" && "hidden"
                   }`}
                 >
-                  Hi {user?.displayName?.split(" ")[0]}
+                  {user?.displayName?.split(" ")[0]}
                 </span>
                 <label className="swap swap-rotate ml-3">
                   <input
