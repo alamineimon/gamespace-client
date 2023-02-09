@@ -10,7 +10,6 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const GameComment = ({ rightSideGame, detailsId }) => {
   const { user } = useContext(AuthContext);
-  console.log(rightSideGame)
 
   const {
     register,
