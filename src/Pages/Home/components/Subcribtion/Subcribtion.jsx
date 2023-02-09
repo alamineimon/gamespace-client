@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "./Subcribtion.css";
 import { SiMinutemailer } from "react-icons/si";
 import { AuthContext } from "../../../../context/AuthProvider";
+import toast from "react-hot-toast";
 
 
 
@@ -29,7 +30,7 @@ const Subcribtion = () => {
 
     }
     if (window.Email) {
-      window.Email.send(emailConfig).then(() => alert('email sent seuccesfully')
+      window.Email.send(emailConfig).then(() => toast.success('email sent seuccesfully')
       )
     }
   }
@@ -52,7 +53,7 @@ const Subcribtion = () => {
                 name="email"
                 value={formState.email}
                 placeholder="Your Email" />
-              <input className="ml-1" type="submit" value="SUBSCRIBE"/>
+              <input className="ml-1 pointer" type="submit" value="SUBSCRIBE"/>
               <p className="pr-2 text-lg text-black ">
                 <SiMinutemailer />
               </p>

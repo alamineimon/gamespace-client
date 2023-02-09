@@ -86,7 +86,7 @@ const TwoDGmaes = () => {
          
           <Link
         
-           to="/tikTakToe"
+           to="/candycrash"
           onClick={handlerPlayGame} 
             htmlFor="booking-modal"
             className="px-6 py-3 hover:text-white text-black bg-primary rounded-none"> Play Now</Link>
