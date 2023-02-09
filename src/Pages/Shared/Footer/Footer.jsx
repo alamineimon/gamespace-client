@@ -54,7 +54,7 @@ const Footer = () => {
                   <FaDiscord /> <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>gamespace_live</li>
                 </div>
               </ul>
-              <button className="inline-flex items-center py-3 rounded-lg dark:bg-blue-400 ">
+              <button className="inline-flex items-center py-3 rounded-lg dark:bg-blue-400 mr-2 p-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
