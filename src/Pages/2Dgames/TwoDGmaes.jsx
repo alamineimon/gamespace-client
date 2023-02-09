@@ -15,7 +15,9 @@ const TwoDGmaes = () => {
             Candy Crush
           </p>
           <Link
-           to="/tikTakToe"
+           to="/candycrash"
+          onClick={handlerPlayGame} 
+            htmlFor="booking-modal"
             className="px-6 py-3 hover:text-white text-black bg-primary rounded-none"> Play Now</Link>
         </div>
         <div className="ticyactoe  w-96 h-60 flex flex-col justify-center items-center rounded-none shadow-xl image-full">
