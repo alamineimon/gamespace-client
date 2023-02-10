@@ -25,6 +25,7 @@ import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UserProfile from "../../Pages/UserProfile/UserProfile";
 import MyFavoriteGames from "../../Pages/Dashboard/MyFavoriteGames/MyFavoriteGames";
+import PaymentSuccess from "../../Pages/Dashboard/Payment/PaymentSuccess";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -97,6 +98,11 @@ const router = createBrowserRouter([
         path: "/userProfile",
         element: <UserProfile></UserProfile>,
       },
+      {
+        path: "/payment/success",
+        element: <PaymentSuccess/>
+      },
+  
     ],
   },
   {

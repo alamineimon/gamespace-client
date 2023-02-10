@@ -88,7 +88,7 @@ const GameDetails = () => {
                     htmlFor="bookingModal"
                     className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-red-500 uppercase cursor-pointer "
                   >
-                    Download
+                    Add to Cart
                   </label>
                   <BookingModal
                     gameDetails={gameDetails}

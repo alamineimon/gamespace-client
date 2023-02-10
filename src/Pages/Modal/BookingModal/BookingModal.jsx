@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const BookingModal = ({ gameDetails, refetch }) => {
   const { user } = useContext(AuthContext);
-  const { title, price } = gameDetails;
+  const { title, price , img} = gameDetails;
   const navigate = useNavigate();
 
   // const from = location.state?.from?.pathname || "/";
@@ -28,6 +28,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
       price,
       location,
       mobile,
+      img
     };
     fetch("http://localhost:9000/orderedGames", {
       method: "POST",
@@ -39,7 +40,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
       .then((res) => res.json())
       .then((data) => {
         toast("Game Added successfully");
-        navigate("/dashboard");
+        navigate("/shop");
         form.reset();
         refetch();
       });

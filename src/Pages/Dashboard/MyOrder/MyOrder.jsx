@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 import ConfirmationModal from "../../Modal/ConfirmationModal/ConfirmationModal";
+import Title2 from "../../Shared/DashTitle/Title2";
 
 const MyOrder = (props) => {
   const { user } = useContext(AuthContext);
@@ -45,7 +46,7 @@ const MyOrder = (props) => {
   // }
   return (
     <div>
-      <h1 className="text-3xl text-left mb-4">My Order</h1>
+      <h1 className="text-lg lg:text-3xl font-bold capitalize mb-5 text-center">My <span className="text-primary">Order</span></h1>
       <div className="overflow-x-auto">
         <table className="table w-3/4">
           <thead>
