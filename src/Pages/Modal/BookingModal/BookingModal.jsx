@@ -102,7 +102,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
             />
             <input
               name="mobile"
-              type="text"
+              type="tel"
               placeholder="Phone Number"
               className="input w-full input-bordered"
             />
