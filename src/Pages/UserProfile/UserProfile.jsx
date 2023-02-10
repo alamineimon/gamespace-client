@@ -11,7 +11,6 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
 import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
@@ -20,7 +19,7 @@ import { useContext } from "react";
 import Loader from "../Shared/Loader/Loader";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-
+import defaultAvtar from "../../assets/images/gamingAvatar.webp";
 const UserProfile = () => {
   const { user, loading } = useContext(AuthContext);
   const {
@@ -33,8 +32,6 @@ const UserProfile = () => {
   const imageHostingKey = "f71054c9a0ba3277364d756c3417b18e";
   const navigate = useNavigate();
 
-  const url = `https://gamespace-server.vercel.app/profileUpdate/${user?.email}`;
-
   const {
     data: profiles,
     refetch,
@@ -42,7 +39,9 @@ const UserProfile = () => {
   } = useQuery({
     queryKey: ["profile", "user"],
     queryFn: async () => {
-      const res = await fetch(url);
+      const res = await fetch(
+        `https://gamespace-server.vercel.app/profileUpdate/${user?.email}`
+      );
       const data = await res.json();
       return data;
     },
@@ -107,7 +106,26 @@ const UserProfile = () => {
           alt=""
           className="w-full lg:h-[700px] object-cover object-top"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-black/100"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/100"></div>
+        <div className="absolute bottom-1/4 left-[10%] flex flex-col lg:flex-row justify-center items-center">
+          <div className="avatar border-4 border-primary rounded-full">
+            <div className="w-40 rounded-full">
+              <img
+                src={profiles?.photoURL ? profiles.photoURL : defaultAvtar}
+                alt=""
+                onError={(e) => (e.target.src = defaultAvtar)}
+              />
+            </div>
+          </div>
+          <div className="ml-8">
+            <h1 className="text-4xl text-white font-bold shadow-xl ml-3">
+              {profiles?.name}
+            </h1>
+            <h4 className="text-2xl text-yellow-400 ml-3 mt-2 shadow-xl">
+              Advance Player
+            </h4>
+          </div>
+        </div>
         <label
           htmlFor="my-modal-4"
           className="flex justify-center items-center bg-white1 p-2 right-5 w-24 absolute top-6 cursor-pointer rounded-md text-black"
@@ -318,22 +336,8 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-80 lg:left-40 flex flex-col lg:flex-row justify-center items-center">
-        <div className="avatar border-4 border-primary rounded-full">
-          <div className="w-40 rounded-full">
-            <img src={profiles?.photoURL} alt="" />
-          </div>
-        </div>
-        <div className="ml-8">
-          <h1 className="text-4xl text-white font-bold shadow-xl ml-3">
-            {profiles?.name}
-          </h1>
-          <h4 className="text-2xl text-yellow-400 ml-3 mt-2 shadow-xl">
-            Advance Player
-          </h4>
-        </div>
-      </div>
-      <p className="w-10/12 md:w-8/12 text-justify my-4 mx-auto text-xl font-semibold p-2">
+
+      <p className="w-10/12 md:w-8/12 text-center my-4 mx-auto text-xl font-semibold p-2 ">
         Gaming is really a workout for our mind disguised as fun. Studies have
         shown that playing video games regularly may increase grey matter in the
         brain and boost brain connectivity.(Gray matter is associated with

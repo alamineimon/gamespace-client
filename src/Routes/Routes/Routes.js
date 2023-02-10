@@ -100,9 +100,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment/success",
-        element: <PaymentSuccess/>
+        element: <PaymentSuccess />,
       },
-  
     ],
   },
   {
@@ -131,7 +130,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/profile",
-        element: <ProfilePage />,
+        element: <UserProfile />,
       },
       {
         path: "/dashboard/allHtmlGames",
