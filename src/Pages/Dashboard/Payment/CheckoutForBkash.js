@@ -1,10 +1,8 @@
 import React from "react";
-import { useContext } from "react";
 import "../../../context/AuthProvider.js";
 
 const CheckoutForBkash = ({ gamesData }) => {
-  const { name, email, productName, img, price, location, mobile, _id } =
-    gamesData;
+  const { email, productName, img, price, _id } = gamesData;
 
   const handlePlaceOrder = (event) => {
     event.preventDefault();
@@ -27,7 +25,6 @@ const CheckoutForBkash = ({ gamesData }) => {
       postcode,
       currency,
     };
-    console.log(order)
 
     // if(phone.length > 10){
     //     alert('Phone number should be 10 characters or longer')
@@ -36,7 +33,7 @@ const CheckoutForBkash = ({ gamesData }) => {
 
     // }
 
-    fetch("http://localhost:9000/bkashpayment", {
+    fetch("https://gamespace-server.vercel.app/bkashpayment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,7 +54,9 @@ const CheckoutForBkash = ({ gamesData }) => {
           <img src={img} alt="" className="h-[80px] mr-2" />
           <div>
             <h2 className="text-2xl">{productName}</h2>
-            <h4 className="text-xl">Price: $<span className="text-primary"> {price}</span></h4>
+            <h4 className="text-xl">
+              Price: $<span className="text-primary"> {price}</span>
+            </h4>
           </div>
         </div>
         <div>

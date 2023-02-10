@@ -21,7 +21,7 @@ const GamesCards = ({ game }) => {
   };
 
   return (
-    <div className="card card-compact cursor-pointer bg-secondary rounded-none group">
+    <div className="card card-compact cursor-pointer bg-secondary rounded-none group border border-primary/20 hover:border-primary">
       <figure className="relative">
         <ReactPlayer
           ref={playerRef}
@@ -30,7 +30,7 @@ const GamesCards = ({ game }) => {
           controls={false}
           playing={playP}
           width="100%"
-          height="400px"
+          height="350px"
           light={img}
           onPause={handlePause}
           onPlay={handlePlay}

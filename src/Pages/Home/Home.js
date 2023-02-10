@@ -8,19 +8,21 @@ import Subcribtion from "./components/Subcribtion/Subcribtion";
 import ExtraFeatures from "./components/ExtraFeatures/ExtraFeatures";
 import ExperianceSection from "./components/ExperianceSection/ExperianceSection";
 import VideoBg from "./components/Subcribtion/VideoBg";
+import PopularGames from "./components/PopularGames/PopularGames";
 
 const Home = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <ExperianceSection />
-      <ActivePlayers/>
-      <Features/>
-      <ExtraFeatures/>
+      <ActivePlayers />
+      <Features />
+      <ExtraFeatures />
       <GameSlider />
-      <FeaturedGames />
-      <VideoBg/>
-      <Subcribtion/>
+      {/* <FeaturedGames /> */}
+      <PopularGames />
+      <VideoBg />
+      <Subcribtion />
     </div>
   );
 };
