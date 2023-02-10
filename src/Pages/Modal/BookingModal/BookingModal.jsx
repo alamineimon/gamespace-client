@@ -29,7 +29,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
       location,
       mobile,
     };
-    fetch("http://localhost:9000/orderedGames", {
+    fetch("https://gamespace-server.vercel.app/orderedGames", {
       method: "POST",
       headers: {
         "content-type": "application/json",

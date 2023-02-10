@@ -3,15 +3,25 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import { BsEyeFill, BsEyeSlashFill, BsFacebook, BsPersonFill } from "react-icons/bs";
+import {
+  BsEyeFill,
+  BsEyeSlashFill,
+  BsFacebook,
+  BsPersonFill,
+} from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Register.css";
 
 const Register = () => {
-  const { register, formState: { errors }, handleSubmit, } = useForm();
-  const { createUser, googleSignin, facebookSignin, updateUser } = useContext(AuthContext);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const { createUser, googleSignin, facebookSignin, updateUser } =
+    useContext(AuthContext);
   const [signUpError, setSingUpError] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
 
@@ -77,7 +87,7 @@ const Register = () => {
   };
   const saveUser = (name, email) => {
     const user = { name, email };
-    fetch("http://localhost:9000/user", {
+    fetch("https://gamespace-server.vercel.app/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -93,7 +103,7 @@ const Register = () => {
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
-  }
+  };
 
   return (
     <div className="hero registerBG">
@@ -138,7 +148,7 @@ const Register = () => {
                 <FaLock className="text-gray-400"></FaLock>
               </label>
               <input
-               type={passwordShown ? "text" : "password"}
+                type={passwordShown ? "text" : "password"}
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
@@ -151,14 +161,22 @@ const Register = () => {
                 className="input input-bordered w-full rounded-none input-primary text-gray-400 px-8"
               />
               {errors.password && (
-                <p className="text-orange-400 mt-2">{errors.password?.message}</p>
+                <p className="text-orange-400 mt-2">
+                  {errors.password?.message}
+                </p>
               )}
-              <label className=' right-2 mt-4 cursor-pointer absolute text-gray'>
-                { passwordShown ?
-                  <BsEyeSlashFill onClick={togglePassword} className="text-xl"></BsEyeSlashFill>
-                  :
-                  <BsEyeFill onClick={togglePassword} className="text-xl"></BsEyeFill>
-                }
+              <label className=" right-2 mt-4 cursor-pointer absolute text-gray">
+                {passwordShown ? (
+                  <BsEyeSlashFill
+                    onClick={togglePassword}
+                    className="text-xl"
+                  ></BsEyeSlashFill>
+                ) : (
+                  <BsEyeFill
+                    onClick={togglePassword}
+                    className="text-xl"
+                  ></BsEyeFill>
+                )}
               </label>
             </div>
             <br />

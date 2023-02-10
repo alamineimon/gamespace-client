@@ -10,7 +10,7 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const GameComment = ({ rightSideGame, detailsId }) => {
   const { user } = useContext(AuthContext);
-  console.log(rightSideGame)
+  console.log(rightSideGame);
 
   const {
     register,
@@ -23,11 +23,11 @@ const GameComment = ({ rightSideGame, detailsId }) => {
   const handelComment = (data) => {
     const comment = {
       comment: data.comment,
-      gameDetailsId:detailsId,
+      gameDetailsId: detailsId,
       photoURL: user.photoURL,
       displayName: user.displayName,
     };
-    fetch(`http://localhost:9000/comment`, {
+    fetch(`https://gamespace-server.vercel.app/comment`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,12 +46,17 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       });
   };
   const {
-    data: comments, isLoading, refetch,} = useQuery({
+    data: comments,
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["comment"],
     queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/comment" );
+      const res = await fetch("https://gamespace-server.vercel.app/comment");
       const result = await res.json();
-      const data = result.filter(gameId => gameId.gameDetailsId === detailsId || rightSideGame);
+      const data = result.filter(
+        (gameId) => gameId.gameDetailsId === detailsId || rightSideGame
+      );
       return data;
     },
   });
@@ -60,7 +65,7 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       "Are you sure , you went to cancel this .Comment"
     );
     if (proceed) {
-      fetch(`http://localhost:9000/comment/${id}`, {
+      fetch(`https://gamespace-server.vercel.app/comment/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -73,10 +78,9 @@ const GameComment = ({ rightSideGame, detailsId }) => {
         });
     }
   };
-if(isLoading){
-  <Loader />
-}
-
+  if (isLoading) {
+    <Loader />;
+  }
 
   return (
     <div>
@@ -111,7 +115,7 @@ if(isLoading){
         </form>
       </div>
       <div className="mt-5 space-y-4">
-        {comments?.map((comment , i) => (
+        {comments?.map((comment, i) => (
           <div className=" space-y-2">
             <div className="flex flex-wrap items-center gap-2">
               <div className="w-8 h-8 ">

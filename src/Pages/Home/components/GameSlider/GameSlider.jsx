@@ -16,7 +16,7 @@ const GameSlider = () => {
     queryKey: ["downloadGames"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:9000/downloadGames"
+        "https://gamespace-server.vercel.app/downloadGames"
       );
       const data = await res.json();
       return data;
@@ -45,7 +45,9 @@ const GameSlider = () => {
           <span className="text-primary">collection</span>
         </h1>
         <div className="grid md:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-4 gap-5">
-          {games && games?.map((game, i) => <GamesCards key={i} game={game} />)}
+          {games?.map((game, i) => (
+            <GamesCards key={i} game={game} />
+          ))}
         </div>
       </div>
     </div>

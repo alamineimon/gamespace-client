@@ -8,7 +8,7 @@ import BookingModal from "../../../Modal/BookingModal/BookingModal";
 
 const GameDetails = () => {
   const gameDetails = useLoaderData();
-  const [rightSideGame, setRightSideGame] = useState()
+  const [rightSideGame, setRightSideGame] = useState();
 
   const {
     _id,
@@ -33,7 +33,7 @@ const GameDetails = () => {
     queryKey: ["downloadGames"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:9000/downloadGames"
+        "https://gamespace-server.vercel.app/downloadGames"
       );
       const data = await res.json();
 
@@ -44,13 +44,21 @@ const GameDetails = () => {
   return (
     <div className="text-white">
       <div className=" w-full  flex flex-col items-center justify-center relative transition-all">
-        <img src={imgBG} className=" w-full h-[400] md:h-[450] lg:h-[500px]" alt="" />
+        <img
+          src={imgBG}
+          className=" w-full h-[400] md:h-[450] lg:h-[500px]"
+          alt=""
+        />
       </div>
       <div className="bg-gray-900 px-5 md:px-10">
         <div className="flex justify-center items-center space-x-2 lg:space-x-20 space-y-4 pt-5 pb-16">
           <div className="flex items-end gap-5">
             <div className="hidden md:block -mt-32 z-10 ">
-              <img src={img} className="w-44 md:w-60 p-4 bg-yellow-500" alt="" />
+              <img
+                src={img}
+                className="w-44 md:w-60 p-4 bg-yellow-500"
+                alt=""
+              />
             </div>
             <div className=" ">
               <h1 className="text-xl md:text-3xl lg:text-4xl font-bold hover:underline cursor-pointer ">
@@ -160,8 +168,10 @@ const GameDetails = () => {
             <div className="w-full bg-yellow-600 mt-5 md:mt-0 ">
               <div className="p-4 space-x-4">
                 {showAllGame?.map((displayGame, i) => (
-                  <Link to={`/downloadGames/${displayGame?._id}`}
-                    onClick={() => setRightSideGame(displayGame?._id)}>
+                  <Link
+                    to={`/downloadGames/${displayGame?._id}`}
+                    onClick={() => setRightSideGame(displayGame?._id)}
+                  >
                     <div className="grid grid-cols-4 lg:grid-cols-2 items-center gap-4">
                       <div className="col-span-1 lg:col-span-1 md:w-full">
                         <img
