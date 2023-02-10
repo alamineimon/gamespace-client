@@ -15,7 +15,7 @@ const Footer = () => {
   const {theme} = useContext(AuthContext);
   return (
     <div >
-      <div className={`mx-auto bg-black overflow-hidden text-gray-400 ${theme === "dark" ? "bg-black" : "bg-gray"}`}>
+      <div className={`mx-auto overflow-hidden text-gray-400 ${theme === "dark" ? "bg-black" : "bg-gray"}`}>
         <footer className="w-11/12 m-auto py-8 flex flex-wrap justify-between md:justify-around gap-3">
           <div className="">
             <h1 className={`font-bold mb-2 ${theme === "dark" ? "text-white1" : "text-black1"}`}>Players community</h1>
@@ -54,7 +54,7 @@ const Footer = () => {
                   <FaDiscord /> <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>gamespace_live</li>
                 </div>
               </ul>
-              <button className="inline-flex items-center py-3 rounded-lg dark:bg-blue-400 ">
+              <button className="inline-flex items-center py-3 rounded-lg dark:bg-blue-400 mr-2 p-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -108,17 +108,17 @@ const Footer = () => {
         </footer>
         <footer className="text-gray-400 flex justify-center items-center pb-10 ">
           <div className="flex items-center gap-6 text-[#dedee2]">
-            <FaFacebook className="hover:text-yellow-600" title="Facebook" />
+            <FaFacebook className={`hover:text-yellow-600 ${theme === "dark" ? "text-gray" : "text-black1"}`} title="Facebook" />
             <FaTwitter
-              className="hover:text-yellow-600"
+              className={`hover:text-yellow-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
               title="Twitter"
             ></FaTwitter>
             <FaPinterest
-              className="hover:text-yellow-600"
+              className={`hover:text-yellow-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
               title="Pinterest"
             ></FaPinterest>
             <FaGoogle
-              className="hover:text-yellow-600"
+              className={`hover:text-yellow-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
               title="Google"
             ></FaGoogle>
           </div>

@@ -8,7 +8,7 @@ import ConfirmationModal from "../../Modal/ConfirmationModal/ConfirmationModal";
 const MyOrder = (props) => {
   const { user } = useContext(AuthContext);
   const [deleteProduct, setDeleteProduct] = useState(null);
-  const url = `http://localhost:9000/orderedGames?email=${user?.email}`;
+  const url = `https://gamespace-server.vercel.app/orderedGames?email=${user?.email}`;
   const {
     data: orderedGames = [],
     refetch,
@@ -27,7 +27,7 @@ const MyOrder = (props) => {
   };
 
   const handleDelete = (product) => {
-    fetch(`http://localhost:9000/orderedGames/${product._id}`, {
+    fetch(`https://gamespace-server.vercel.app/orderedGames/${product._id}`, {
       method: "DELETE",
       headers: {},
     })

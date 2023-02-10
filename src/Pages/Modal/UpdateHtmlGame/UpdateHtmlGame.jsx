@@ -24,7 +24,7 @@ const UpdateHtmlGame = ({
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:9000/updateHtmlGame/${_id}`, {
+    fetch(`https://gamespace-server.vercel.app/updateHtmlGame/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
