@@ -8,7 +8,7 @@ const HtmlGames = () => {
   const { data: htmlGames, isLoading } = useQuery({
     queryKey: ["htmlGames"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:9000/play-games");
+      const res = await fetch("https://gamespace-server.vercel.app/play-games");
       const data = await res.json();
       return data;
     },
