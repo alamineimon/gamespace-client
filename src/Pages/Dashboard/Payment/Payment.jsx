@@ -12,22 +12,20 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const gamesData = useLoaderData();
-  const { price } = gamesData;
 
   return (
-    <div className="cardd justify-center items-center">
-      <p className="text-center ">Total price $ {price}</p>
-      <div className="flex gap-6 ">
-        <div className="w-full my-12 border-2 border-blue-400">
-          <h1 className="text-lg lg:text-3xl font-bold capitalize mb-5 text-center">
+    <div className="cardd lg:h-[600px] sm:h-[1100px] p-6 justify-center items-center">
+      <div className="lg:flex block gap-6 ">
+        <div className="w-full my-12 border-2 p-2 border-primary">
+          <h1 className="text-lg lg:text-3xl  mb-3 font-bold capitalize mb-5 text-center">
             Bkash <span className="text-primary">Pay</span>
           </h1>
           <CheckoutForBkash gamesData={gamesData}/>
         </div>
-        <div className="w-full my-12 border-2 border-blue-400">
-          <p>Card Payment System</p>
-          <h1 className="text-lg lg:text-3xl font-bold capitalize mb-5 text-center">
-            Card<span className="text-primary">Pay</span>
+        <div className="w-full p-2  my-12 border-2 border-primary">
+          
+          <h1 className="text-lg lg:text-3xl mt-12 font-bold capitalize mb-5 text-center">
+            Card<span className="text-primary ">Pay</span>
           </h1>
           <Elements stripe={stripePromise}>
             <Checkoutt gamesData={gamesData} />
