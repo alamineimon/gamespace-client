@@ -85,6 +85,7 @@ const Register = () => {
         console.error(error.message);
       });
   };
+  
   const saveUser = (name, email) => {
     const user = { name, email };
     fetch("https://gamespace-server.vercel.app/user", {
