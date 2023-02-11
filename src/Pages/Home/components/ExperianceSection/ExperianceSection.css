@@ -1,8 +1,11 @@
 .featureBg {
-  min-height: 600px;
+  min-height: 900px;
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
+  /* background-color: red; */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  url(https://i.ibb.co/QHcMCVv/2136766.webp);
 }
 .parallelogram1 {
   width: 200px;
