@@ -7,18 +7,21 @@ import Subcribtion from "./components/Subcribtion/Subcribtion";
 import ExtraFeatures from "./components/ExtraFeatures/ExtraFeatures";
 import VideoBg from "./components/Subcribtion/VideoBg";
 import ExperianceSection from "./components/ExperianceSection/ExperianceSection";
+import PopularGames from "./components/PopularGames/PopularGames";
+
 
 const Home = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <ExperianceSection />
       <Features/>
       <ExtraFeatures/>
       <GameSlider />
       <FeaturedGames />
-      <VideoBg/>
-      <Subcribtion/>
+      <PopularGames />
+      <VideoBg />
+      <Subcribtion />
     </div>
   );
 };

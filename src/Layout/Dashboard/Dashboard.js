@@ -39,7 +39,7 @@ const Dashboard = () => {
         <div className="drawer-content ">
           {/* <!-- Page content here --> */}
           <NavB></NavB>
-          <div className=" ">
+          <div className=" p-2 lg:p-5 ">
             <Outlet></Outlet>
           </div>
         </div>

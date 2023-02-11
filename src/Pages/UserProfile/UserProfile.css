@@ -1,6 +1,13 @@
-.insta{
-    background: linear-gradient(to bottom, #feda75,#fa7e1e,#d62976, #962fbf, #4f5bd5);
-    border-radius: 10px;
+.insta {
+  background: linear-gradient(
+    to bottom,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  border-radius: 10px;
 }
 *,
 *::before,
@@ -21,24 +28,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
-::-webkit-scrollbar {
-  width: 1.3rem;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 1rem;
-  background: #797979;
-  transition: all 0.5s ease-in-out;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #222224;
-}
-
-::-webkit-scrollbar-track {
-  background: #f9f9f9;
-}
 .swiper_container {
   height: 30rem;
   padding: 2rem 0;
@@ -134,7 +123,7 @@ html {
 }
 
 .slider-controler .slider-arrow::after {
-  content: '';
+  content: "";
 }
 
 .swiper-pagination {

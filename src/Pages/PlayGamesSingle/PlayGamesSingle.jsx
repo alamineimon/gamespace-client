@@ -1,6 +1,10 @@
 import React, { useContext, useRef, useState } from "react";
 import { BsArrowsFullscreen } from "react-icons/bs";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import {
+  ScrollRestoration,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import { MdFavorite } from "react-icons/md";
 import { AuthContext } from "../../context/AuthProvider";
 const PlayGamesSingle = () => {
@@ -96,6 +100,7 @@ const PlayGamesSingle = () => {
           <div className="col-span-2  lg:block text-left space-y-5"></div>
         </div>
       </div>
+      <ScrollRestoration />
     </section>
   );
 };
