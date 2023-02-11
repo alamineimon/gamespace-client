@@ -3,7 +3,6 @@
 }
 .videoo{
     width: 100%;
-    height: 300px;
     position: relative;
     transition: 0.5s;
 }
@@ -15,8 +14,9 @@
 }
 .videoBg{
     width: 100%;
-    height: 300px;
+    height: 345px;
     position: absolute;
+    margin-bottom: 10px;
     top: 0;
     left: 0;
     z-index: 1;
