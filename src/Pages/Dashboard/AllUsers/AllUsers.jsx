@@ -1,9 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 import { AiFillDelete } from "react-icons/ai";
 import Loader from "../../Shared/Loader/Loader";
+import AllUsersModal from "./AllUsersModal";
 
 const AllUsers = () => {
+  const [deleteUser, setDeleteUser] = useState(null)
+  const closeModal = () => {
+    setDeleteUser(null);
+  }
   const {
     data: userInformations,
     refetch,
@@ -17,9 +23,20 @@ const AllUsers = () => {
     },
   });
 
+  const handleMakeAdmin = (id) => {
+      fetch(`http://localhost:9000/admin/${id}`, {
+        method: "PUT"
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.modifiedCount > 0){
+          toast.success('Make admin successful');
+          refetch();
+        }
+      })
+  }
+
   const handleDelete = (userInfo) => {
-    const confirm = window.confirm("Are you sure?");
-    if (confirm) {
       fetch(`https://gamespace-server.vercel.app/delete/${userInfo._id}`, {
         method: "DELETE",
       })
@@ -28,7 +45,6 @@ const AllUsers = () => {
           console.log(data);
           refetch();
         });
-    }
   };
   if (isLoading) {
     return <Loader />;
@@ -38,21 +54,23 @@ const AllUsers = () => {
       <table className="table w-full">
         <thead>
           <tr>
+            <th>Num</th>
             <th>Admin</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
-            <th>Edit / Delete</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           {userInformations.map((userInformation, i) => (
             <tr key={i}>
-              <th>
+              <th>{i + 1}</th>
+              <td>
                 <label>
-                  <input type="checkbox" className="checkbox" />
+                {userInformation.role !== 'admin' && <input onClick={() => handleMakeAdmin(userInformation._id)} type="checkbox" className="checkbox" />}            
                 </label>
-              </th>
+              </td>
               <td>
                 <div className="flex items-center space-x-3">
                   {userInformation.image ? (
@@ -82,12 +100,23 @@ const AllUsers = () => {
               <td>{userInformation.email}</td>
               <td>Buyer</td>
               <th>
-                <button
+                {/* The button to open modal */}
+                <label
+                  htmlFor="delete-user"
                   className="btn btn-lg btn-ghost"
-                  onClick={() => handleDelete(userInformation)}
+                  onClick={() => setDeleteUser(userInformation)}
                 >
                   <AiFillDelete></AiFillDelete>
-                </button>
+                </label>
+                {
+                  deleteUser && <AllUsersModal
+                  message={`Are you sure you want to delete the user???`}
+                  successAction={handleDelete}
+                  data={deleteUser}
+                  closeModal={closeModal}
+                  userInformation={userInformation}
+                ></AllUsersModal>
+                }
               </th>
             </tr>
           ))}
