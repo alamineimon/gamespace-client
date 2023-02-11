@@ -25,12 +25,7 @@ const FeaturedGamesCard = ({ game }) => {
         <div className="h-10 w-32 bg-yellow-500 absolute top-0 left-0">
           <p className="text-2xl text-white">Top Rated</p>
         </div>
-        <span className="absolute cursor-pointer bottom-3 left-[3%] text-sm p-2 rounded-none bg-black/75 text-white hover:text-primary backdrop-blur">
-          Category 1
-        </span>
-        <span className="absolute cursor-pointer ml-4 bottom-3 left-[30%] text-sm p-2 rounded-none bg-black/75 text-white hover:text-primary backdrop-blur">
-          Category 2
-        </span>
+        
       </figure>
       <div className="card-body ">
         <h2 className="card-title text-mainHeading font-bold">{title}</h2>
@@ -43,7 +38,7 @@ const FeaturedGamesCard = ({ game }) => {
           </h6>
           <Link
             to={`/downloadGames/${_id}`}
-            className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-primary uppercase"
+            className="py-3 text-secondary   relative px-5 rounded-none font-bold bg-primary uppercase"
           >
             Details
           </Link>

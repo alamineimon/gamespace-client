@@ -84,6 +84,7 @@ const NavB = ({ defaultAvtar }) => {
             </ul>
           </div>
           <Link
+          to="/"
             className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
           >
             <GiBoltShield

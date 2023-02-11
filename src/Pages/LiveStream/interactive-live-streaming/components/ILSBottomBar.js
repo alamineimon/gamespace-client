@@ -180,7 +180,7 @@ export function ILSBottomBar({
             style={{
               marginLeft: 12,
               fontSize: 14,
-              color: theme?.palette?.darkTheme?.contrastText,
+              color: theme.palette.darkTheme?.contrastText,
             }}
           >
             {label}
