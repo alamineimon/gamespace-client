@@ -16,6 +16,8 @@ const CheckoutForBkash = ({ gamesData }) => {
     const postcode = form.postcode.value;
     const currency = form.currency.value;
 
+    const  date = new Date()  
+
     const order = {
       service: _id,
       serviceName: productName,
@@ -26,6 +28,7 @@ const CheckoutForBkash = ({ gamesData }) => {
       address,
       postcode,
       currency,
+      date
     };
     console.log(order)
 

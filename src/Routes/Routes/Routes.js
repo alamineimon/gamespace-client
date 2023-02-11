@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../../Layout/Dashboard/Dashboard";
 import Main from "../../Layout/Main/Main";
-import AllPlayers from "../../Pages/Home/components/ActivePlayers/AllPlayers";
 import GameDetails from "../../Pages/Home/components/GameSlider/GameDetails";
 import GameSlider from "../../Pages/Home/components/GameSlider/GameSlider";
 import Home from "../../Pages/Home/Home";
@@ -26,6 +25,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UserProfile from "../../Pages/UserProfile/UserProfile";
 import MyFavoriteGames from "../../Pages/Dashboard/MyFavoriteGames/MyFavoriteGames";
 import PaymentSuccess from "../../Pages/Dashboard/Payment/PaymentSuccess";
+import AllPlayers from "../../Pages/Home/components/ExperianceSection/AllPlayers";
 const router = createBrowserRouter([
   {
     path: "/",

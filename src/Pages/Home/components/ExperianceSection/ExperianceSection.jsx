@@ -1,45 +1,71 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../context/AuthProvider";
+import Loader from "../../../Shared/Loader/Loader";
 import "./ExperianceSection.css";
-// import { AiFillGift, AiOutlineShoppingCart } from "react-icons/ai";
-// import { CgGames } from "react-icons/cg";
+import PlayersCard from "./PlayersCard";
+
 const ExperianceSection = () => {
-  const {theme} = useContext(AuthContext);
+  const { theme } = useContext(AuthContext);
+  const { data: players, isLoading } = useQuery({
+    queryKey: ["players"],
+    queryFn: async () => {
+      const res = await fetch("team.json");
+      const data = await res.json();
+      return data;
+    },
+  });
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
-    <div className={`py-20 featureBg lg:flex block justify-between ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"}`}>
-      <div className="lg:w-1/2 relative px-6 pt-2 md:ml-16">
-        <hr className="bg-red-500 h-2" />
-        <p className="h-4 w-16 right-6 absolute bg-red-500"></p>
-        <p className={`md:text-4xl text-3xl mt-16 ${theme === "dark" ? "text-white1" : "text-black1"}`}>
-          EXPERIENCE
-        </p>
-        <p className="md:text-4xl text-3xl my-2 md:my-6 font-extrabold text-yellow-600">
-          STRONG TEAM PLAY
-        </p>
-        <p className={`text-md md:text-xl mb-12 ${theme === "dark" ? "text-white1" : "text-black1"}`}>
-          Nullam quis ante. Maecenas ullamcorper, dui et placerat feugiat, eros
-          pede varius nisi, condimentum viverra felis nunc et lorem. In auctor
-          lobortis lacus. Phasellus gravida semper nisi. Aliquam lobortis.
-        </p>
-        <div className=" lg:mb-0 mb-10 lg:flex block lg:justify-start justify-center ">
-          <p className="">
-            <Link className={`uppercase underline hover:text-yellow-500 ${theme === "dark" ? "text-white1" : "text-black1"}`}>
-              Find team player
-            </Link>
+    <div className="featureBg">
+      <div className="py-20 lg:flex block justify-between">
+        <div className="lg:w-1/2 relative px-6 pt-2 md:ml-16">
+          <hr className="bg-red-500 h-2" />
+          <p className="h-4 w-16 right-6 absolute bg-red-500"></p>
+          <p
+            className={`md:text-4xl text-3xl mt-16 ${
+              theme === "dark" ? "text-white1" : "text-black1"
+            }`}
+          >
+            EXPERIENCE
           </p>
-          <p className={`lg:ml-6 uppercase underline hover:text-yellow-500 ${theme === "dark" ? "text-white1" : "text-black1"}`}>
-            <Link>Find community player</Link>
+          <p className="md:text-4xl text-3xl my-2 md:my-6 font-extrabold text-yellow-600">
+            STRONG TEAM PLAY
+          </p>
+          <p
+            className={`text-md md:text-xl mb-12 ${
+              theme === "dark" ? "text-white1" : "text-black1"
+            }`}
+          >
+            An example of successful teamwork is effective active listening skills. Maintaining eye contact when others are talking, having open and friendly body language, and responding appropriately to the questions and comments of others establishes a professional work environment and shows good teamwork.
           </p>
         </div>
-      </div>
 
-      <div className="w-1/2 hidden p-8 relative lg:flex">
-        <div className="parallelogram1 absolute"></div>
-        <div className="parallelogram2 absolute"></div>
+        <div className="w-1/2 hidden p-8 relative lg:flex">
+          <div className="parallelogram1 absolute"></div>
+          <div className="parallelogram2 absolute"></div>
+        </div>
       </div>
+      <div>
+        <div className="grid lg:grid-cols-8 grid-cols-4 px-6 gap-6 justify-items-center">
+          {players?.slice(0, 16)?.map((player, i) => (
+            <PlayersCard key={i} player={player} />
+          ))}
+        </div>
 
+        <div className="flex justify-center items-center mt-16 ">
+          <Link
+            to="/allplayers"
+            className="hover:bg-yellow-500 rounded border-2 border-yellow-500 text-yellow-500 hover:text-white text-md md:text-lg uppercase font-semibold px-8 py-2"
+          >
+            more players
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
