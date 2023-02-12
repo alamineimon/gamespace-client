@@ -34,12 +34,12 @@ const Dashboard = () => {
   }
   return (
     <div>
-      <div className="drawer drawer-mobile bg-secondary ">
+      <div className="drawer drawer-mobile ">
         <input id="dashboard" type="checkbox" className="drawer-toggle " />
         <div className="drawer-content ">
           {/* <!-- Page content here --> */}
           <NavB></NavB>
-          <div className=" p-2 lg:p-5 ">
+          <div>
             <Outlet></Outlet>
           </div>
         </div>
@@ -151,7 +151,7 @@ const Dashboard = () => {
             )}
             <li className="pl-1 font-semibold capitalize lg:text-lg hover:text-primary hover:bg-gradient-to-r from-bg-primary/10 to-bg-primary/5">
               <Link onClick={logOut}>
-                <MdLogout /> Logout
+              <MdLogout /> Logout
               </Link>
             </li>
           </ul>

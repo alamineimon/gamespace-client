@@ -1,9 +1,9 @@
 import React from "react";
 
-const AllUsersModal = ({message, successAction, closeModal, data}) => {
+const DeleteModal = ({message, successAction, closeModal, data}) => {
   return (
     <div>
-      {/* Put this part before </body> tag */}
+      {/* delete modal */}
       <input type="checkbox" id="delete-user" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box">
@@ -22,4 +22,4 @@ const AllUsersModal = ({message, successAction, closeModal, data}) => {
   );
 };
 
-export default AllUsersModal;
+export default DeleteModal;
