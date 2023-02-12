@@ -12,6 +12,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
+import { useQuery } from "@tanstack/react-query";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -20,10 +21,20 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState("dark");
+  // const [userInfo, setUserInfo] = useState([])
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
+  const {data: userInfo} = useQuery({
+    queryKey: ['profileUpdate', 'user'],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:9000/profileUpdate/${user?.email}`)
+      const data = await res.json();
+      return data;
+    }
+  })
 
   const googleProvider = new GoogleAuthProvider();
   const googleSignin = () => {
@@ -68,6 +79,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     theme,
+    userInfo,
     setTheme,
     createUser,
     googleSignin,
