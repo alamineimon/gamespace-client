@@ -14,13 +14,16 @@ import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
 import { Link, useLoaderData } from "react-router-dom";
 import defaultAvtar from "../../assets/images/gamingAvatar.webp";
+import { AuthContext } from "../../context/AuthProvider";
+import { useContext } from "react";
 
 
 const ProfileDetail = () => {
-    // const { user, loading } = useContext(AuthContext);
+    const { userInfo } = useContext(AuthContext);
+    console.log(userInfo);
     const profileDetails = useLoaderData();
     console.log(profileDetails);
-
+    
 
     return (
         <div>
