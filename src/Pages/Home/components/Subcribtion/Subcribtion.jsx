@@ -39,7 +39,7 @@ const Subcribtion = () => {
   return (
     <div className="flex justify-center  w-full  ">
       <div className="lg:flex  bg-transparent justify-center items-center px-4">
-        <div className="lg:flex sm:block items-center justify-around  rounded-t-full bg-black w-full pt-6 pb-4 px-8">
+        <div className="lg:flex sm:block items-center justify-around  rounded-t-full bg-black lg:w-[850px] w-[340px] pt-3 pb-4 px-10">
           <div className="text-lg lg:mx-4  text-center sm:ml-10 md:text-2xl">
             <h1 className="text-white font-bold">Our</h1>
             <h1 className="text-yellow-400 font-bold"> Newsletter</h1>

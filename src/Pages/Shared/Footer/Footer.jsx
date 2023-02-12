@@ -25,6 +25,7 @@ const Footer = () => {
                 <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>Regular Players</li>
                 <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>HTML Game player</li>
                 <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>Game Space player</li>
+                <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>Live Stream with community</li>
               </ul>
             </div>
           </div>
@@ -85,11 +86,14 @@ const Footer = () => {
         </footer>
         <footer>
           <div className="flex justify-center items-center mb-4">
+            <Link to="/">
             <img
-              className=" h-16 w-32 "
+              
+              className=" h-20 w-32 "
               src="https://i.ibb.co/2s1VHmq/game-Space-Dark.png"
               alt=""
-            />
+              />
+              </Link>
           </div>
           <div className="w-11/12 md:w-7/12 m-auto flex justify-center items-center text-justify pb-10">
             <p className={`text-gray-400 ${theme === "dark" ? "text-gray" : "text-black1"}`}>

@@ -49,7 +49,7 @@ const GamesCards = ({ game }) => {
             <FaVideo className="text-white text-lg " />
           </label>
         )} */}
-        {!playP && (
+        {/* {!playP && (
           <>
             {" "}
             <span className="absolute cursor-pointer bottom-3 left-[3%] text-sm p-2 rounded-none bg-black/75 text-white hover:text-primary backdrop-blur">
@@ -59,7 +59,7 @@ const GamesCards = ({ game }) => {
               Category 2
             </span>
           </>
-        )}
+        )} */}
       </figure>
       <div className="card-body ">
         <h2 className="card-title text-mainHeading font-bold">{title}</h2>
