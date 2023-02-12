@@ -26,6 +26,7 @@ import UserProfile from "../../Pages/UserProfile/UserProfile";
 import MyFavoriteGames from "../../Pages/Dashboard/MyFavoriteGames/MyFavoriteGames";
 import PaymentSuccess from "../../Pages/Dashboard/Payment/PaymentSuccess";
 import AllPlayers from "../../Pages/Home/components/ExperianceSection/AllPlayers";
+import ProfileDetail from "../../Pages/ProfilePage/ProfileDetail";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -69,6 +70,12 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <ProfilePage />,
+      },
+      {
+        path: "/users/:id",
+        loader: async ({ params }) =>
+          fetch(`http://localhost:9000/users/${params.id}`),
+        element: <ProfileDetail />,
       },
       {
         path: "/shop",
