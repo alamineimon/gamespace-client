@@ -20,6 +20,7 @@ import Loader from "../Shared/Loader/Loader";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import defaultAvtar from "../../assets/images/gamingAvatar.webp";
+
 const UserProfile = () => {
   const { user, loading } = useContext(AuthContext);
   const {
@@ -104,12 +105,12 @@ const UserProfile = () => {
         <img
           src="https://w0.peakpx.com/wallpaper/346/545/HD-wallpaper-clash-of-clans-town-hall-14-clash-of-clans-games-2021-games-artstation.jpg"
           alt=""
-          className="w-full lg:h-[700px] object-cover object-top"
+          className="w-full lg:h-[500px] object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/100"></div>
-        <div className="absolute bottom-1/4 left-[10%] flex flex-col lg:flex-row justify-center items-center">
+        <div className="absolute top-0 bottom-0 left-[10%] flex justify-center items-center">
           <div className="avatar border-4 border-primary rounded-full">
-            <div className="w-40 rounded-full">
+            <div className="w-16 md:w-32 lg:w-40 rounded-full">
               <img
                 src={profiles?.photoURL ? profiles.photoURL : defaultAvtar}
                 alt=""
@@ -117,11 +118,11 @@ const UserProfile = () => {
               />
             </div>
           </div>
-          <div className="ml-8">
-            <h1 className="text-4xl text-white font-bold shadow-xl ml-3">
+          <div className="ml-5 md:ml-10">
+            <h1 className="text-2xl md:text-4xl text-white font-bold shadow-xl ">
               {profiles?.name}
             </h1>
-            <h4 className="text-2xl text-yellow-400 ml-3 mt-2 shadow-xl">
+            <h4 className="text-xl md:text-2xl text-yellow-400 mt-1 md:mt-2 shadow-xl">
               Advance Player
             </h4>
           </div>

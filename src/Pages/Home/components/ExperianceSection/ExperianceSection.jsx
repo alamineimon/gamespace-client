@@ -12,7 +12,7 @@ const ExperianceSection = () => {
   const { data: players, isLoading } = useQuery({
     queryKey: ["players"],
     queryFn: async () => {
-      const res = await fetch("team.json");
+      const res = await fetch("https://gamespace-server.vercel.app/users");
       const data = await res.json();
       return data;
     },
