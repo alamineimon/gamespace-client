@@ -33,13 +33,19 @@ const GameDetails = () => {
     queryKey: ["downloadGames"],
     queryFn: async () => {
       const res = await fetch(
-        "https://gamespace-server.vercel.app/downloadGames"
+        "https://gamespace-server.vercel.app/downloadGames", {
+          headers: {
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+          }
+        }
       );
       const data = await res.json();
 
       return data;
     },
   });
+
+  
 
   return (
     <div className="text-white">

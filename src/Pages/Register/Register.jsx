@@ -13,6 +13,9 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Register.css";
+import useToken from "../../Hooks/useToken/useToken";
+import { useQuery } from "@tanstack/react-query";
+
 
 const Register = () => {
   const {
@@ -20,14 +23,21 @@ const Register = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const { createUser, googleSignin, facebookSignin, updateUser } =
+  const {user, createUser, googleSignin, facebookSignin, updateUser } =
     useContext(AuthContext);
   const [signUpError, setSingUpError] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
-
+  const [createUserEmail, setCeateUserEmail] = useState('')
+  const [token] = useToken(createUserEmail);
+  
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.from?.state.pathname || "/";
+  
+    if(token){
+      navigate(from, { replace: true });
+    }
+
 
   const handelSignUp = (data) => {
     setSingUpError("");
@@ -35,12 +45,13 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         const userInfo = {
-          displayName: data.name,
+          name: data.name,
+          email:data.email,
+          photoURL: user.photoURL,
         };
         updateUser(userInfo)
           .then(() => {
-            saveUser(data.name, data.email);
-            navigate(from, { replace: true });
+            saveUser(data.name, data.email, data.photoURL);
             console.log(user);
             toast.success("User Create Succesfully");
           })
@@ -56,11 +67,11 @@ const Register = () => {
       const user = result.user;
       console.log(user);
       const userInfo = {
-        displayName: user.displayName,
+        name: user.displayName,
         email: user.email,
+        photoURL: user.photoURL,
       };
-      saveUser(userInfo.displayName, userInfo.email);
-      navigate(from, { replace: true });
+      saveUser(userInfo.name, userInfo.email, userInfo.photoURL);
     });
   };
 
@@ -68,16 +79,30 @@ const Register = () => {
     googleSignin()
       .then((result) => {
         const user = result.user;
+        console.log(user)
         const userInfo = {
-          displayName: user.displayName,
+          name: user.displayName,
           email: user.email,
+          photoURL:user.photoURL,
+          
         };
-
         updateUser(userInfo)
           .then(() => {
-            saveUser(userInfo.displayName, userInfo.email);
-            toast.success("Login Successfully");
-            navigate(from, { replace: true });
+            if( userInfo.email){
+              fetch(`https://gamespace-server.vercel.app/users`)
+              .then(data => data.json())
+              .then(result => {
+                const userEmail = result.find(userEmail => userEmail.email === userInfo.email );
+                if(!userEmail){
+                  saveUser(userInfo.name, userInfo.email, userInfo.photoURL);
+                  toast.success("Login Successfully");
+                }
+                else{
+                  navigate(from, { replace: true });
+                  alert('alrady User Create')
+                }
+              })
+            }
           })
           .catch((err) => console.log(err));
       })
@@ -85,9 +110,9 @@ const Register = () => {
         console.error(error.message);
       });
   };
-  
-  const saveUser = (name, email) => {
-    const user = { name, email };
+
+  const saveUser = (name, email, photoURL) => {
+    const user = { name, email, photoURL };
     fetch("https://gamespace-server.vercel.app/user", {
       method: "POST",
       headers: {
@@ -98,13 +123,14 @@ const Register = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        //   setCreatedUserEmail(email);
+        setCeateUserEmail(email);
       });
   };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
+
 
   return (
     <div className="hero registerBG">

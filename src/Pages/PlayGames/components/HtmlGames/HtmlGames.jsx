@@ -8,7 +8,11 @@ const HtmlGames = () => {
   const { data: htmlGames, isLoading } = useQuery({
     queryKey: ["htmlGames"],
     queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/play-games");
+      const res = await fetch("https://gamespace-server.vercel.app/play-games", {
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+      });
       const data = await res.json();
       return data;
     },
