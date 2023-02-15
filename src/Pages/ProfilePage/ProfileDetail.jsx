@@ -20,9 +20,7 @@ import { useContext } from "react";
 
 const ProfileDetail = () => {
     const { userInfo } = useContext(AuthContext);
-    console.log(userInfo);
     const profileDetails = useLoaderData();
-    console.log(profileDetails);
     
 
     return (
@@ -60,10 +58,6 @@ const ProfileDetail = () => {
                     >
                         <BsPersonPlusFill className="text-black mr-2 text-xl"></BsPersonPlusFill> <p>Invite</p>
                     </label>
-
-                    {/*  ================= Open Modal ===================== */}
-
-                    {/*  ================= Close Modal ===================== */}
                     <div className="flex justify-center w-full m-auto my-8 absolute bottom-0 space-x-10">
                         <div>
                             <Link>

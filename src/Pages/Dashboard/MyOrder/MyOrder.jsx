@@ -30,7 +30,9 @@ const MyOrder = (props) => {
   const handleDelete = (product) => {
     fetch(`https://gamespace-server.vercel.app/orderedGames/${product._id}`, {
       method: "DELETE",
-      headers: {},
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
     })
       .then((res) => res.json())
       .then((data) => {

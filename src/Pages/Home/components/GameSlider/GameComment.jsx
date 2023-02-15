@@ -25,10 +25,12 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       photoURL: user.photoURL,
       displayName: user.displayName,
     };
+
     fetch(`https://gamespace-server.vercel.app/comment`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
       },
       body: JSON.stringify(comment),
     })
@@ -65,6 +67,10 @@ const GameComment = ({ rightSideGame, detailsId }) => {
     if (proceed) {
       fetch(`https://gamespace-server.vercel.app/comment/${id}`, {
         method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+
+        }
       })
         .then((res) => res.json())
         .then((data) => {

@@ -30,10 +30,12 @@ const BookingModal = ({ gameDetails, refetch }) => {
       mobile,
       img
     };
+    
     fetch("https://gamespace-server.vercel.app/orderedGames", {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
       },
       body: JSON.stringify(orderedGames),
     })

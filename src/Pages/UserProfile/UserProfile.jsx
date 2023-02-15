@@ -14,12 +14,12 @@ import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
 import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../../context/AuthProvider";
 import { useContext } from "react";
 import Loader from "../Shared/Loader/Loader";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import defaultAvtar from "../../assets/images/gamingAvatar.webp";
+import { AuthContext } from "../../context/AuthProvider";
 
 const UserProfile = () => {
   const { user, loading } = useContext(AuthContext);
@@ -40,9 +40,7 @@ const UserProfile = () => {
   } = useQuery({
     queryKey: ["profile", "user"],
     queryFn: async () => {
-      const res = await fetch(
-        `https://gamespace-server.vercel.app/profileUpdate/${user?.email}`
-      );
+      const res = await fetch(`https://gamespace-server.vercel.app/profileUpdate/${user?.email}`);      
       const data = await res.json();
       return data;
     },
@@ -69,7 +67,7 @@ const UserProfile = () => {
             twitter: data.twitter,
             photoURL: imgbb.data.url,
           };
-
+         
           fetch(
             `https://gamespace-server.vercel.app/profileUpdate/${profiles?._id}`,
             {
@@ -96,7 +94,7 @@ const UserProfile = () => {
   };
 
   if (isLoading || loading) {
-    <Loader />;
+   return <Loader />;
   }
 
   return (
@@ -162,11 +160,15 @@ const UserProfile = () => {
                       <input
                         type="file"
                         {...register("photoURL")}
-                        defaultValue={profiles?.photoURL}
                         className="hidden"
                         id="image"
                         accept="image/*"
                       />
+                      {errors.photoURL && (
+                        <p className="text-orange-400 mt-2">
+                          {errors.photoURL?.message}
+                        </p>
+                      )}
                     </div>
                   </>
                 ) : (
