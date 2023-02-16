@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { CgChevronRightO } from "react-icons/cg";
 import Loader from "../../Shared/Loader/Loader";
 import DeleteModal from "./DeleteModal";
-import { AiFillPlusCircle, AiOutlineDownCircle, AiFillRightCircle, AiFillDelete } from "react-icons/ai";
+import { AiFillPlusCircle, AiFillRightCircle, AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const AllUsers = () => {
