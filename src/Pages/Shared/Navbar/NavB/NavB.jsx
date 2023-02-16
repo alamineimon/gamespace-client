@@ -59,7 +59,7 @@ const NavB = ({ defaultAvtar }) => {
       className={`py-1 sm:py-2 ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
         }`}
     >
-      <div className={"navbar w-11/12 mx-auto px-0"}>
+      <div id="mainmenu" className={"navbar w-11/12 mx-auto px-0"}>
         <div className="navbar-start">
           {currentPath === "dashboard" ? (
             <label
@@ -118,8 +118,8 @@ const NavB = ({ defaultAvtar }) => {
                 <input
                   type="checkbox"
                   className={`ml-3${theme === "dark"
-                      ? "bg-white1 text-black1"
-                      : "bg-black1 text-white1"
+                    ? "bg-white1 text-black1"
+                    : "bg-black1 text-white1"
                     }ease-in duration-100 my-4`}
                   onClick={toggleTheme}
                 />
@@ -169,8 +169,8 @@ const NavB = ({ defaultAvtar }) => {
                 <ul
                   tabIndex={0}
                   className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-52 ${theme === "dark"
-                      ? "bg-black1 text-white1"
-                      : "bg-white1 text-black1 border"
+                    ? "bg-black1 text-white1"
+                    : "bg-white1 text-black1 border"
                     }`}
                 >
                   <li>
@@ -197,8 +197,8 @@ const NavB = ({ defaultAvtar }) => {
                   <input
                     type="checkbox"
                     className={`ml-3${theme === "dark"
-                        ? "bg-white1 text-black1"
-                        : "bg-black1 text-white1"
+                      ? "bg-white1 text-black1"
+                      : "bg-black1 text-white1"
                       }ease-in duration-100 my-4`}
                     onClick={toggleTheme}
                   />
