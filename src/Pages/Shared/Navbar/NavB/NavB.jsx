@@ -150,17 +150,19 @@ const NavB = ({ defaultAvtar }) => {
                   currentPath === "dashboard" && "hidden"
                 } `}
               >
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-2">
                   {user?.photoURL ? (
-                    <div className="w-10 rounded-full">
+                    <div className="avatar">
+                      <div className="w-10 rounded-full">
                       <img
                         alt=""
                         src={user?.photoURL ? user.photoURL : defaultAvtar}
                         onError={(e) => (e.target.src = defaultAvtar)}
                       />
                     </div>
+                    </div>
                   ) : (
-                    <div className="avatar placeholder">
+                    <div className="avatar border-4 border-primary rounded-full placeholder">
                       <div className="bg-neutral-focus text-neutral-content rounded-full lg:w-10 w-8 h-8 lg:h-10">
                         <span className="text-xl mt-1">
                           {user.displayName.slice(0, 1)}

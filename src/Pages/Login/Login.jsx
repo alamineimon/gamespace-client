@@ -26,7 +26,7 @@ const Login = () => {
                 // setLoginUserEmail(data.email);
                 toast.success("Login Successfully");
                 navogate(from, { replace: true })
-
+                console.log(result);
             }).catch(error => {
                 console.log(error.message)
                 setLoginError(error.message);
