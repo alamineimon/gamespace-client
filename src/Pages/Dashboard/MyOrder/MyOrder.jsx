@@ -48,7 +48,7 @@ const MyOrder = (props) => {
   // }
   return (
     <div>
-      <h1 className="text-lg lg:text-3xl font-bold capitalize mb-5 text-center">My <span className="text-primary">Order</span></h1>
+      <h1 className="text-lg lg:text-3xl font-bold capitalize my-5 text-center">My <span className="text-primary">Order</span></h1>
       <div className="overflow-x-auto">
         <table className="table w-3/4">
           <thead>

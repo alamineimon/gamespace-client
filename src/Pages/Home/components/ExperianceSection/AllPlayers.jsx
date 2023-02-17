@@ -21,7 +21,7 @@ const AllPlayers = () => {
   }
   return (
     <div className="py-6 pt-10 bg-gray-400 activePlayer ">
-      <p className="text-2xl md:text-3xl text-yellow-500 font-bold text-center uppercase">
+      <p className="text-2xl md:text-3xl text-yellow-500 font-bold text-center uppercase mb-7">
         All Players
       </p>
       <div className="grid lg:grid-cols-8 grid-cols-4 px-6 gap-6 justify-items-center">

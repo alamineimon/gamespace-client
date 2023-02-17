@@ -216,7 +216,7 @@ const CandyCrash = () => {
   
 
   return (
-    <div className="lg:flex justify-center items-center p-4">
+    <div className="lg:flex justify-center items-center p-10">
       <div className="game">
         {currentColorArrangement?.map((candyColor, index) => (
           <img
@@ -235,7 +235,7 @@ const CandyCrash = () => {
           />
         ))}
       </div>
-      <div className="ml-3">
+      <div className="ml-3 m-auto">
         <ScoreBoard score={scoreDisplay} />
       </div>
     </div>
