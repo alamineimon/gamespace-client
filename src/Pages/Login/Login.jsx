@@ -20,7 +20,7 @@ const Login = () => {
     const [token] = useToken(loginUserEmail);
 
     const location = useLocation();
-    const navogate = useNavigate();
+    const navigate = useNavigate();
     const from = location.from?.state.pathname || '/'
 
     if(token){
@@ -32,6 +32,11 @@ const Login = () => {
             .then(result => {
                 setLoginUserEmail(data.email);
                 toast.success("Login Successfully");
+
+                navigate(from, { replace: true })
+                console.log(result);
+
+
 
             }).catch(error => {
                 console.log(error.message)
