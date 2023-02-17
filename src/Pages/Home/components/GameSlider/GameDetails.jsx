@@ -21,13 +21,11 @@ const GameDetails = () => {
     description,
     price,
     img,
-    videolink,
-    gameDownload,
+    videolink
   } = gameDetails;
 
   const {
     data: showAllGame,
-    isLoading,
     refetch,
   } = useQuery({
     queryKey: ["downloadGames"],
@@ -100,7 +98,7 @@ const GameDetails = () => {
                   {/* The button to open modal */}
                   <label
                     htmlFor="bookingModal"
-                    className="py-3 text-secondary hover:translate-y-1  relative px-5 rounded-none font-bold bg-red-500 uppercase cursor-pointer "
+                    className="py-3 hover:translate-y-1 text-white  relative px-5 rounded-none font-bold bg-yellow-500 uppercase cursor-pointer "
                   >
                     Add to Cart
                   </label>

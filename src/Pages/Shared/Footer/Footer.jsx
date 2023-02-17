@@ -8,6 +8,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
+import { GiBoltShield } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
@@ -46,29 +47,46 @@ const Footer = () => {
             <p className="h-1 w-16  rounded-t-2xl bg-white"></p>
             <div className="my-8  ">
               <ul className="text-gray-400">
-                <div className="flex  items-center">
-                  <FaFacebook /> <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>gamespace_community</li>
+                <a href="https://www.facebook.com/GameSpace7777" target={'_blank'} alt="/">
+                <div className="flex items-center space-x-1">
+                  <FaFacebook /> <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}> gamespace_community</li>
                 </div>
-                <div className="flex  items-center">
-                  <FaYoutube /> <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>gamespace_tv</li>
-                </div>
-                <div className="flex  items-center">
-                  <FaDiscord /> <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}>gamespace_live</li>
-                </div>
+                  </a>
+                <a href="https://www.facebook.com/GameSpace7777" target={'_blank'} alt="/">
+                <div className="flex  items-center space-x-1">
+                  <FaYoutube /> <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}> gamespace_tv</li>
+                  </div>
+                  </a>
+                <a href="https://www.facebook.com/GameSpace7777" target={'_blank'} alt="/">
+                <div className="flex  items-center space-x-1">
+                  <FaDiscord /> <li className={`${theme === "dark" ? "text-gray" : "text-black1"}`}> gamespace_live</li>
+                  </div>
+                  </a>
               </ul>
             </div>
           </div>
         </footer>
         <footer>
-          <div className="flex justify-center items-center mb-4">
-            <Link to="/">
-              <img
-
-                className=" h-20 w-32 "
-                src="https://i.ibb.co/2s1VHmq/game-Space-Dark.png"
-                alt=""
-              />
-            </Link>
+          <div className="flex justify-center items-center mb-6">
+          <Link
+            to="/"
+            className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
+          >
+            <GiBoltShield
+              className={`text-2xl md:text-5xl text-white ${theme === "light" && "text-black"
+                }`}
+            />
+            <div className="text-white">
+              <span
+                className={`font-gaming ${theme === "light" && "text-black"}`}
+              >
+                Game Space
+              </span>
+              <span className="text-xs text-primary lg:block font-bold capitalize hidden ">
+                Any Game, Any time, Any place
+              </span>
+            </div>
+          </Link>
           </div>
           <div className="w-11/12 md:w-7/12 m-auto flex justify-center items-center text-justify pb-10">
             <p className={`text-gray-400 ${theme === "dark" ? "text-gray" : "text-black1"}`}>
@@ -85,21 +103,29 @@ const Footer = () => {
             <p> Register</p>
           </Link>
         </footer>
-        <footer className="text-gray-400 flex justify-center items-center ">
+        <footer className="text-gray-400 flex md:justify-center pl-7 items-center ">
           <div className="flex items-center  gap-6 text-[#dedee2]">
-            <FaFacebook className={`hover:text-yellow-600 ${theme === "dark" ? "text-gray" : "text-black1"}`} title="Facebook" />
+            <a href="https://www.facebook.com/GameSpace7777" target={'_blank'} alt="/">            
+            <FaFacebook className={`hover:text-blue-600 ${theme === "dark" ? "text-gray" : "text-black1"}`} title="Facebook" />
+            </a>
+            <a href="https://www.facebook.com/GameSpace7777" target={'_blank'} alt="/">
             <FaTwitter
-              className={`hover:text-yellow-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
+              className={`hover:text-blue-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
               title="Twitter"
             ></FaTwitter>
+              </a>
+            <a href="https://www.facebook.com/GameSpace7777" target={'_blank'} alt="/">
             <FaPinterest
-              className={`hover:text-yellow-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
+              className={`hover:text-blue-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
               title="Pinterest"
             ></FaPinterest>
+              </a>
+            <a href="https://www.facebook.com/GameSpace7777" target={'_blank'} alt="/">
             <FaGoogle
-              className={`hover:text-yellow-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
+              className={`hover:text-blue-600 ${theme === "dark" ? "text-gray" : "text-black1"}`}
               title="Google"
             ></FaGoogle>
+            </a>
           </div>
         </footer>
           <div className="text-end">
@@ -109,8 +135,8 @@ const Footer = () => {
               </a>
             </div>
        
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

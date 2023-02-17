@@ -35,7 +35,7 @@ const PopularGames = () => {
           </span>{" "}
           <span className="text-primary">Games</span>
         </h1>
-        <div className="grid md:grid-cols-3 gap-5 lg:grid-cols-4">
+        <div className="grid md:grid-cols-2 gap-5 lg:grid-cols-4">
           {games?.map((games, i) => {
             return <PopularGamesCards key={i} games={games} />;
           })}
