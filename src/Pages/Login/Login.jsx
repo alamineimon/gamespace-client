@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLock } from 'react-icons/fa';
 import { FiMail } from "react-icons/fi";
 import './Login.css'
+import useToken from '../../Hooks/useToken/useToken';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -15,18 +16,28 @@ const Login = () => {
     const [loginError, setLoginError] = useState('')
     const [resetEmail, setresetEmail] = useState(' ')
     const [passwordShown, setPasswordShown] = useState(false);
+    const [loginUserEmail, setLoginUserEmail] = useState('')
+    const [token] = useToken(loginUserEmail);
 
     const location = useLocation();
-    const navogate = useNavigate();
+    const navigate = useNavigate();
     const from = location.from?.state.pathname || '/'
+
+    if(token){
+        navogate(from, { replace: true })
+    }
 
     const handelLogin = data => {
         loginUser(data.email, data.password)
             .then(result => {
-                // setLoginUserEmail(data.email);
+                setLoginUserEmail(data.email);
                 toast.success("Login Successfully");
-                navogate(from, { replace: true })
+
+                navigate(from, { replace: true })
                 console.log(result);
+
+
+
             }).catch(error => {
                 console.log(error.message)
                 setLoginError(error.message);

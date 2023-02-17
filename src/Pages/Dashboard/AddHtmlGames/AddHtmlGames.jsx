@@ -21,11 +21,13 @@ const AddHtmlGames = () => {
     reset,
     formState: { errors },
   } = useForm();
+ 
   const onSubmit = (data) => {
     fetch("https://gamespace-server.vercel.app/addHtmlGame", {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
       },
       body: JSON.stringify(data),
     })

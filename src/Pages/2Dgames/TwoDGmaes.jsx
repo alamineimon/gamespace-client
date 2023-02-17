@@ -9,8 +9,8 @@ const TwoDGmaes = () => {
 
   return (
     <div>
-      <div className={`lg:h-[500px] items-center lg:flex justify-evenly ${theme === "dark" ? "bg-bg1" : "bg-gray"}`}>
-        <div className="CandyCrash w-96 h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
+      <div className={`lg:h-[500px] py-5 lg:flex justify-evenly lg:items-center  ${theme === "dark" ? "bg-bg1" : "bg-gray"}`}>
+        <div className="CandyCrash w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
           <p className="text-3xl mb-6 text-white uppercase font-bold">
             Candy Crush
           </p>
@@ -19,7 +19,7 @@ const TwoDGmaes = () => {
             htmlFor="booking-modal"
             className="px-6 py-3 hover:text-white text-black bg-primary rounded-none"> Play Now</Link>
         </div>
-        <div className="ticyactoe  w-96 h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
+        <div className="ticyactoe  w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
           <p className="text-3xl mb-6 text-white uppercase font-bold">
             Tic Tac Toe
           </p>
@@ -30,7 +30,7 @@ const TwoDGmaes = () => {
             Play Now
           </Link>
         </div>
-        <div className="CardsFlip w-96 h-60 flex flex-col justify-center items-center rounded-none shadow-xl image-full">
+        <div className="CardsFlip w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
           <p className="text-3xl mb-6 text-white uppercase font-bold">
             Cards Flip
           </p>

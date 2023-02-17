@@ -11,7 +11,11 @@ const MyFavoriteGames = () => {
     queryKey: ["favoriteGames", "user"],
     queryFn: async () => {
       const res = await fetch(
-        `https://gamespace-server.vercel.app/favoriteGames?email=${user?.email}`
+        `https://gamespace-server.vercel.app/favoriteGames?email=${user?.email}`, {
+          headers: {
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+          }
+        }
       );
       const data = await res.json();
       console.log(data);

@@ -20,7 +20,11 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/users");
+      const res = await fetch("https://gamespace-server.vercel.app/users", {
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+      });
       const data = await res.json();
       return data;
     },
@@ -38,6 +42,7 @@ const AllUsers = () => {
   const handleMakeAdmin = (id) => {
     fetch(`http://localhost:9000/users/admin/${id}`, {
       method: "PUT",
+     
     })
       .then((res) => res.json())
       .then((data) => {
@@ -51,6 +56,10 @@ const AllUsers = () => {
   const handleDelete = (userInfo) => {
     fetch(`https://gamespace-server.vercel.app/delete/${userInfo._id}`, {
       method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
+      }
+     
     })
       .then((res) => res.json())
       .then((data) => {

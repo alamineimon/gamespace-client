@@ -3,8 +3,6 @@ import { useLocation } from "react-router-dom";
 
 const PaymentSuccess = () => {
   const location = useLocation();
-
-  console.log(location.search);
   const query = new URLSearchParams(location.search);
 
   const transactionId = query.get("transactionId");
@@ -18,11 +16,11 @@ const PaymentSuccess = () => {
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [transactionId]);
-  console.log(order);
 
   if (!order?._id) {
     return <div>No order found</div>;
   }
+  
   return (
     <div>
       <h4 className="text-4xl my-5 text-center">

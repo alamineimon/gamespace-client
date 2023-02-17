@@ -8,6 +8,8 @@ const CommentEdit = ({ editComments, setEditComments, refetch }) => {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
+        
       },
       body: JSON.stringify(editComments),
     })

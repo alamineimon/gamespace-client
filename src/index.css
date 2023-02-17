@@ -40,6 +40,7 @@ body {
 }
 div .button {
   margin: 0 15px 15px 0;
+  background-color: #161617;
 }
 .video-contain video {
   object-fit: contain;
@@ -55,6 +56,7 @@ input:focus-visible{
   outline: none;
   border-color: none;
   box-shadow: none;
+  color: #161617;
 }
 
 .video-cover video {
@@ -64,13 +66,13 @@ input:focus-visible{
 } 
 
 input[type="radio"]:checked + label span {
-background-color: #fff; 
+background-color: rgb(244, 214, 20); 
 box-shadow: 0px 0px 0px 2px black inset;
 }
 
 
 input[type="radio"]:checked + label{
- color: #fff; 
+ color: rgb(246, 240, 240); 
 }
 
 

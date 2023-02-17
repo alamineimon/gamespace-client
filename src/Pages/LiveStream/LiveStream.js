@@ -6,6 +6,7 @@ import { JoiningScreen } from "../LiveStream/components/screens/JoiningScreen";
 import { meetingTypes } from "./utils/common";
 import { MeetingContainer } from "./meeting/MeetingContainer";
 import { ILSContainer } from "./interactive-live-streaming/ILSContainer";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const LiveStream = () => {
   const [token, setToken] = useState("");
@@ -92,16 +93,16 @@ const LiveStream = () => {
     return { participantRaisedHand };
   };
 
-  // const theme = useTheme();
-  // const isXStoSM = useMediaQuery(theme?.breakpoints.only("xs"));
+  const theme = useTheme();
+  const isXStoSM = useMediaQuery(theme?.breakpoints.only("xs"));
 
-  // useEffect(() => {
-  //   if (isXStoSM) {
-  //     window.onbeforeunload = () => {
-  //       return "Are you sure you want to exit?";
-  //     };
-  //   }
-  // }, [isXStoSM]);
+  useEffect(() => {
+    if (isXStoSM) {
+      window.onbeforeunload = () => {
+        return "Are you sure you want to exit?";
+      };
+    }
+  }, [isXStoSM]);
 
   return (
     <div className="bg-gray-800">

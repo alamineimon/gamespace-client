@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const PopularGamesCards = ({ games }) => {
   const { _id, gameName, authorName, thumbnail } = games;
   return (
-    <div className="group">
+    <div >
       <img
         src={thumbnail}
         alt=""

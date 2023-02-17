@@ -10,6 +10,7 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const GameComment = ({ rightSideGame, detailsId }) => {
   const { user } = useContext(AuthContext);
+  // console.log(user.photoURL);
   const {
     register,
     formState: { errors },
@@ -25,10 +26,12 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       photoURL: user.photoURL,
       displayName: user.displayName,
     };
+
     fetch(`https://gamespace-server.vercel.app/comment`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
       },
       body: JSON.stringify(comment),
     })
@@ -65,6 +68,10 @@ const GameComment = ({ rightSideGame, detailsId }) => {
     if (proceed) {
       fetch(`https://gamespace-server.vercel.app/comment/${id}`, {
         method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+
+        }
       })
         .then((res) => res.json())
         .then((data) => {
@@ -86,11 +93,15 @@ const GameComment = ({ rightSideGame, detailsId }) => {
         <form onSubmit={handleSubmit(handelComment)}>
           <div className=" flex justify-center gap-3">
             <div className="w-16 ">
-              <img
-                src={user?.photoURL}
-                className="w-full rounded-full border-4 border-orange-500"
-                alt=""
-              />
+              { !user?.photoURL ?
+               <img src="http://localhost:3000/static/media/gamingAvatar.62414f06fcf0dc8773f0.webp" className="w-full rounded-full border-4 border-orange-500" alt="" />
+               :
+               <img
+               src={user?.photoURL}
+               className="w-full rounded-full border-4 border-orange-500"
+               alt=""
+             />
+              }
             </div>
             <textarea
               type="textarea"
@@ -105,7 +116,7 @@ const GameComment = ({ rightSideGame, detailsId }) => {
               <p className="text-orange-400">{errors.comment?.message}</p>
             )}
             <input
-              className="bg-orange-500 rounded border-2 border-orange-500 text-white text-lg font-semibold px-2 cursor-pointer"
+              className="bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
               value="Submit"
               type="submit"
             />
@@ -117,11 +128,16 @@ const GameComment = ({ rightSideGame, detailsId }) => {
           <div className=" space-y-2">
             <div className="flex flex-wrap items-center gap-2">
               <div className="w-8 h-8 ">
-                <img
-                  src={comment?.photoURL}
-                  className="w-full rounded-full  border-1 border-orange-500"
-                  alt=""
-                />
+                {comment?.photoURL ?
+                  <img
+                    src={comment?.photoURL}
+                    className="w-full rounded-full  border-1 border-orange-500"
+                    alt=""
+                  />
+                  :
+                  <img src="http://localhost:3000/static/media/gamingAvatar.62414f06fcf0dc8773f0.webp" className="w-full rounded-full  border-1 border-orange-500" alt="" />
+                }
+
               </div>
               <h6 className="text-sm font-semibold">{comment?.displayName}</h6>
             </div>

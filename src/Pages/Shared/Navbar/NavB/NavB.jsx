@@ -56,11 +56,10 @@ const NavB = ({ defaultAvtar }) => {
   );
   return (
     <div
-      className={`py-1 sm:py-2 ${
-        theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
-      }`}
+      className={`py-1 sm:py-2 ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
+        }`}
     >
-      <div className={"navbar w-11/12 mx-auto px-0"}>
+      <div id="mainmenu" className={"navbar w-11/12 mx-auto px-0"}>
         <div className="navbar-start">
           {currentPath === "dashboard" ? (
             <label
@@ -84,13 +83,12 @@ const NavB = ({ defaultAvtar }) => {
             </ul>
           </div>
           <Link
-          to="/"
+            to="/"
             className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
           >
             <GiBoltShield
-              className={`text-2xl md:text-5xl text-white ${
-                theme === "light" && "text-black"
-              }`}
+              className={`text-2xl md:text-5xl text-white ${theme === "light" && "text-black"
+                }`}
             />
             <div className="text-white">
               <span
@@ -119,11 +117,10 @@ const NavB = ({ defaultAvtar }) => {
               <label className="swap swap-rotate ml-3">
                 <input
                   type="checkbox"
-                  className={`ml-3${
-                    theme === "dark"
-                      ? "bg-white1 text-black1"
-                      : "bg-black1 text-white1"
-                  }ease-in duration-100 my-4`}
+                  className={`ml-3${theme === "dark"
+                    ? "bg-white1 text-black1"
+                    : "bg-black1 text-white1"
+                    }ease-in duration-100 my-4`}
                   onClick={toggleTheme}
                 />
                 <svg
@@ -146,9 +143,8 @@ const NavB = ({ defaultAvtar }) => {
           ) : (
             <div className={`flex items-center `}>
               <div
-                className={`dropdown dropdown-end ${
-                  currentPath === "dashboard" && "hidden"
-                } `}
+                className={`dropdown dropdown-end ${currentPath === "dashboard" && "hidden"
+                  } `}
               >
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-2">
                   {user?.photoURL ? (
@@ -156,7 +152,7 @@ const NavB = ({ defaultAvtar }) => {
                       <div className="w-10 rounded-full">
                       <img
                         alt=""
-                        src={user?.photoURL ? user.photoURL : defaultAvtar}
+                        src={user?.photoURL}
                         onError={(e) => (e.target.src = defaultAvtar)}
                       />
                     </div>
@@ -165,7 +161,7 @@ const NavB = ({ defaultAvtar }) => {
                     <div className="avatar border-4 border-primary rounded-full placeholder">
                       <div className="bg-neutral-focus text-neutral-content rounded-full lg:w-10 w-8 h-8 lg:h-10">
                         <span className="text-xl mt-1">
-                          {user.displayName.slice(0, 1)}
+                          {user?.displayName?.slice(0, 1)}
                         </span>
                       </div>
                     </div>
@@ -174,11 +170,10 @@ const NavB = ({ defaultAvtar }) => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-52 ${
-                    theme === "dark"
-                      ? "bg-black1 text-white1"
-                      : "bg-white1 text-black1 border"
-                  }`}
+                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-52 ${theme === "dark"
+                    ? "bg-black1 text-white1"
+                    : "bg-white1 text-black1 border"
+                    }`}
                 >
                   <li>
                     <Link to="/dashboard/profile" className="justify-between">
@@ -195,20 +190,18 @@ const NavB = ({ defaultAvtar }) => {
               </div>
               <p className="font-bold text-sm flex items-center ">
                 <span
-                  className={`text-primary ${
-                    currentPath === "dashboard" && "hidden"
-                  }`}
+                  className={`text-primary ${currentPath === "dashboard" && "hidden"
+                    }`}
                 >
                   {user?.displayName?.split(" ")[0]}
                 </span>
                 <label className="swap swap-rotate ml-5">
                   <input
                     type="checkbox"
-                    className={`ml-3${
-                      theme === "dark"
-                        ? "bg-white1 text-black1"
-                        : "bg-black1 text-white1"
-                    }ease-in duration-100 my-4`}
+                    className={`ml-3${theme === "dark"
+                      ? "bg-white1 text-black1"
+                      : "bg-black1 text-white1"
+                      }ease-in duration-100 my-4`}
                     onClick={toggleTheme}
                   />
                   <svg
