@@ -45,10 +45,10 @@ const MyOrder = (props) => {
   //   return <Spinner></Spinner>;
   // }
   return (
-    <div>
-      <h1 className="text-lg lg:text-3xl font-bold capitalize mb-5 text-center">My <span className="text-primary">Order</span></h1>
+    <div className="mx-auto w-11/12 py-10">
+      <Title2 colored={"Order"}>My</Title2>
       <div className="overflow-x-auto">
-        <table className="table w-3/4">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>
@@ -73,7 +73,7 @@ const MyOrder = (props) => {
                 <td>
                   {games.price && !games.paid && (
                     <Link to={`/dashboard/payment/${games._id}`}>
-                      <button className="btn border-none hover:bg-green-500 bg-yellow-400 btn-sm text-white">
+                      <button className="btn border-none hover:bg-green-500 bg-yellow-400 btn-sm text-secondary">
                         Pay
                       </button>
                     </Link>

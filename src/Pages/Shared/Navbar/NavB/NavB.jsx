@@ -8,7 +8,7 @@ import { AuthContext } from "../../../../context/AuthProvider";
 import "./NavB.css";
 
 const NavB = ({ defaultAvtar }) => {
-  const { user, logOut, theme, setTheme } = useContext(AuthContext);
+  const { user, logOut, theme, setTheme, userinfo } = useContext(AuthContext);
   const location = useLocation();
   let currentPath = location.pathname.split("/")[1];
   // Toggle dark mode/light mode
@@ -38,6 +38,7 @@ const NavB = ({ defaultAvtar }) => {
         ["Live", "/livestream"],
         ["2D Games", "/2dgames"],
         ["HTML Games", "/playGames"],
+        ["Community", "/communityfeed"],
       ]?.map(([title, url]) => {
         return (
           <li key={url}>
@@ -84,7 +85,7 @@ const NavB = ({ defaultAvtar }) => {
             </ul>
           </div>
           <Link
-          to="/"
+            to="/"
             className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
           >
             <GiBoltShield
@@ -151,19 +152,21 @@ const NavB = ({ defaultAvtar }) => {
                 } `}
               >
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  {user?.photoURL ? (
+                  {userinfo?.photoURL ? (
                     <div className="w-10 rounded-full">
                       <img
                         alt=""
-                        src={user?.photoURL ? user.photoURL : defaultAvtar}
+                        src={
+                          userinfo?.photoURL ? userinfo.photoURL : defaultAvtar
+                        }
                         onError={(e) => (e.target.src = defaultAvtar)}
                       />
                     </div>
                   ) : (
                     <div className="avatar placeholder">
                       <div className="bg-neutral-focus text-neutral-content rounded-full lg:w-10 w-8 h-8 lg:h-10">
-                        <span className="text-xl mt-1">
-                          {user.displayName.slice(0, 1)}
+                        <span className="text-xl mt-1 ">
+                          {user?.displayName?.slice(0, 1)}
                         </span>
                       </div>
                     </div>
@@ -172,21 +175,21 @@ const NavB = ({ defaultAvtar }) => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-52 ${
+                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-40 ${
                     theme === "dark"
                       ? "bg-black1 text-white1"
                       : "bg-white1 text-black1 border"
                   }`}
                 >
-                  <li>
+                  <li className="hover:bg-primary/10 hover:text-primary">
                     <Link to="/dashboard/profile" className="justify-between">
                       Profile
                     </Link>
                   </li>
-                  <li>
+                  <li className="hover:bg-primary/10 hover:text-primary">
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
-                  <li>
+                  <li className="hover:bg-primary/10 hover:text-primary">
                     <p onClick={logOut}>Logout</p>
                   </li>
                 </ul>

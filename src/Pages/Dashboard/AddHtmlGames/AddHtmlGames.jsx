@@ -41,8 +41,8 @@ const AddHtmlGames = () => {
     return <Loader />;
   }
   return (
-    <div>
-      <Title2 color={"Games"}>Add</Title2>
+    <div className="w-11/12 mx-auto py-10">
+      <Title2 colored={"Games"}>Add</Title2>
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}

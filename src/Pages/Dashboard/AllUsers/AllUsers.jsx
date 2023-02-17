@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { AiFillDelete } from "react-icons/ai";
 import Loader from "../../Shared/Loader/Loader";
 import DeleteModal from "./DeleteModal";
-import { AiFillPlusCircle, AiOutlineDownCircle } from 'react-icons/ai';
+import { AiFillPlusCircle, AiOutlineDownCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const AllUsers = () => {
@@ -52,8 +52,8 @@ const AllUsers = () => {
     return <Loader />;
   }
   return (
-    <div className="w-full">
-      <Link to='/register' className="flex items-center mt-3 mb-5 ml-3">
+    <div className="w-11/12 mx-auto py-10">
+      <Link to="/register" className="flex items-center mt-3 mb-5 ml-3">
         <AiFillPlusCircle className="text-green-400 text-3xl mr-2"></AiFillPlusCircle>
         <p className="text-white text-xl">Add User</p>
       </Link>
@@ -85,28 +85,33 @@ const AllUsers = () => {
                 {userInformation.photoURL ? (
                   <div className="flex items-center">
                     <div className="avatar mr-2">
-                    <div className="w-12 rounded-full">
-                      <img src={userInformation.photoURL} alt="" />
+                      <div className="w-12 rounded-full">
+                        <img src={userInformation.photoURL} alt="" />
+                      </div>
                     </div>
-                  </div>
                     <div className="text-white">{userInformation.name}</div>
                   </div>
-                  
                 ) : (
                   <div className="flex items-center">
                     <div className="avatar placeholder mr-2">
-                    <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
-                      <span className="text-3xl">
-                        {userInformation.name.slice(0, 1)}
-                      </span>
+                      <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                        <span className="text-3xl">
+                          {userInformation.name.slice(0, 1)}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <p className="text-white">{userInformation.name}</p>
+                    <p className="text-white">{userInformation.name}</p>
                   </div>
                 )}
               </td>
-              <td className="underline text-white hover:text-blue-500"><a href={`mailto:${userInformation.email}`}>{userInformation.email}</a></td>
-              <td className="text-white">{userInformation.role==="admin" ? "Admin" : "Buyer"}</td>
+              <td className="underline text-white hover:text-blue-500">
+                <a href={`mailto:${userInformation.email}`}>
+                  {userInformation.email}
+                </a>
+              </td>
+              <td className="text-white">
+                {userInformation.role === "admin" ? "Admin" : "Buyer"}
+              </td>
               <th>
                 {/* The button to open modal */}
                 <label
@@ -135,7 +140,6 @@ const AllUsers = () => {
         <AiOutlineDownCircle className="text-white text-3xl"></AiOutlineDownCircle>
         <p className="text-primary text-xl">Removed User</p>
       </div>
-      
     </div>
   );
 };

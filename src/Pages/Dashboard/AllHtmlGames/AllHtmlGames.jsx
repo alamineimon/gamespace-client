@@ -48,7 +48,7 @@ const AllHtmlGames = () => {
     return <Loader />;
   }
   return (
-    <section>
+    <section className="w-11/12 mx-auto py-10">
       <Title2 colored={"Games"}>All</Title2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-5">
         {htmlgames?.map((game, i) => (

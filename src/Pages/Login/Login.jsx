@@ -1,138 +1,189 @@
-import React, { useContext, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthProvider';
+import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import { BsEyeFill, BsEyeSlashFill, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { FaLock } from 'react-icons/fa';
+import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-import './Login.css'
+import "./Login.css";
 
 const Login = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const { loginUser, handlerForgete, facebookSignin, googleSignin } = useContext(AuthContext);
-    const [loginError, setLoginError] = useState('')
-    const [resetEmail, setresetEmail] = useState(' ')
-    const [passwordShown, setPasswordShown] = useState(false);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const { loginUser, handlerForgete, facebookSignin, googleSignin } =
+    useContext(AuthContext);
+  const [loginError, setLoginError] = useState("");
+  const [resetEmail, setresetEmail] = useState(" ");
+  const [passwordShown, setPasswordShown] = useState(false);
 
-    const location = useLocation();
-    const navogate = useNavigate();
-    const from = location.from?.state.pathname || '/'
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    const handelLogin = data => {
-        loginUser(data.email, data.password)
-            .then(result => {
-                // setLoginUserEmail(data.email);
-                toast.success("Login Successfully");
-                navogate(from, { replace: true })
+  const from = location.from?.state.pathname || "/";
 
-            }).catch(error => {
-                console.log(error.message)
-                setLoginError(error.message);
-            })
-    }
+  const handelLogin = (data) => {
+    loginUser(data.email, data.password)
+      .then((result) => {
+        // setLoginUserEmail(data.email);
+        toast.success("Login Successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setLoginError(error.message);
+      });
+  };
 
-    const handlerFacebookSignin = () => {
-        facebookSignin()
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-                navogate(from, { replace: true })
-            })
-    }
+  const handlerFacebookSignin = () => {
+    facebookSignin().then((result) => {
+      const user = result.user;
+      console.log(user);
+      navigate(from, { replace: true });
+    });
+  };
 
-    const handlerGoogleSignin = () => {
-        googleSignin()
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                toast.success("Login Successfully")
-                navogate(from, { replace: true })
+  const handlerGoogleSignin = () => {
+    googleSignin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Login Successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setLoginError(error.message);
+      });
+  };
 
-            })
-            .catch(error => {
-                console.error(error.message);
-                setLoginError(error.message)
-            })
+  const handlerForgetePassword = () => {
+    handlerForgete(resetEmail)
+      .then(() => {
+        alert(" Password reaste email send. Please chck your email");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    }
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
 
-    const handlerForgetePassword = () => {
-        handlerForgete(resetEmail)
-            .then(() => {
-                alert(' Password reaste email send. Please chck your email')
-            })
-            .catch(error => {
-                console.log(error);
-
-            })
-    }
-
-    const togglePassword = () => {
-        setPasswordShown(!passwordShown);
-    }
-
-    return (
-        <div className="hero loginBG">
-            <div className='card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)] shadow-black border border-yellow-800 h[800px] xs:w-11/12 sm:w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white py-4 px-6 rounded-none my-12'>
-                <div >
-                    <h2 className="text-4xl font-bold text-center mb-7">Login !</h2>
-                    <form onSubmit={handleSubmit(handelLogin)}>
-                        <div className="form-control w-full relative">
-                            <label className="absolute ml-2 mt-4 text-gray">
-                                <FiMail className='text-gray-400'></FiMail>
-                            </label>
-                            <input type="email" className="input input-bordered bg-none input-primary w-full rounded-none text-gray-400 px-8 " name='email'  {...register("email", { required: "Email or Phone is required" },
-                                {
-                                    onBlur: (event) => setresetEmail(event.target.value)
-                                },
-                            )}
-                                placeholder='Email or Phone' />
-                            {errors.email && <p className='text-orange-400 pt-2'>{errors.email?.message}</p>}
-                        </div>
-                        <div className="form-control w-full relative mt-8">
-                            <label className=" absolute ml-2 mt-4 text-gray">
-                                <FaLock className='text-gray-400'></FaLock>
-                            </label>
-                            <input type={passwordShown ? "text" : "password"}
-                                {...register("password", {
-                                    required: "Password is required",
-                                    minLength: { value: 6, message: "Password must be 6 characters or length" }
-                                })} placeholder='Password'
-                                className="input input-bordered bg-none input-primary w-full rounded-none text-gray-400 px-8" />
-                            {errors.password && <p className='text-orange-400 mt-2'>{errors.password?.message}</p>}
-                            <label className=' right-2 mt-4 cursor-pointer absolute text-gray'>
-                                {passwordShown ?
-                                    <BsEyeSlashFill onClick={togglePassword} className="text-xl"></BsEyeSlashFill>
-                                    :
-                                    <BsEyeFill onClick={togglePassword} className="text-xl"></BsEyeFill>
-                                }
-                            </label>
-                        </div>
-                        <div className='my-3'>
-                            <b>
-                                <Link onClick={handlerForgetePassword} className="text-blue-500 underline">Forgete Password! </Link>
-                            </b>
-                        </div>
-
-                        <input className='hover:bg-yellow-500 rounded border-2 mt-8 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2 cursor-pointer' value="Login" type="submit" />
-                        <div>
-                            {
-                                loginError && <p className='text-orange-400'>{loginError}</p>
-                            }
-                        </div>
-                    </form>
-                    <p className="divider text-sm">OR LOGIN WITH</p>
-                    <div className='flex justify-between gap-5 w-full'>
-                        <button onClick={handlerGoogleSignin} className='btn rounded-none btn-outline text-white normal-case w-2/5'><FcGoogle className='text-2xl mr-2'></FcGoogle> Google</button>
-                        <button onClick={handlerFacebookSignin} className='btn rounded-none  btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5'><BsFacebook className='text-2xl mr-2 text-whait' ></BsFacebook> Facebook</button>
-                    </div>
-                    <p className='mt-4 mb-8 text-center'> New to Game Space ? <Link className='text-blue-500 font-bold underline' to='/register'>Create new Account</Link></p>
-                </div>
+  return (
+    <div className="hero loginBG">
+      <div className="card shadow-[0_5px_20px_5px_rgba(0,0,0,0.3)] shadow-black border border-yellow-800 h[800px] xs:w-11/12 sm:w-96 md:w-3/6 lg:w-2/6 m-auto bg-transparen text-white py-4 px-6 rounded-none my-12">
+        <div>
+          <h2 className="text-4xl font-bold text-center mb-7">Login !</h2>
+          <form onSubmit={handleSubmit(handelLogin)}>
+            <div className="form-control w-full relative">
+              <label className="absolute ml-2 mt-4 text-gray">
+                <FiMail className="text-gray-400"></FiMail>
+              </label>
+              <input
+                type="email"
+                className="input input-bordered bg-none input-primary w-full rounded-none text-gray-400 px-8 "
+                name="email"
+                {...register(
+                  "email",
+                  { required: "Email or Phone is required" },
+                  {
+                    onBlur: (event) => setresetEmail(event.target.value),
+                  }
+                )}
+                placeholder="Email or Phone"
+              />
+              {errors.email && (
+                <p className="text-orange-400 pt-2">{errors.email?.message}</p>
+              )}
             </div>
+            <div className="form-control w-full relative mt-8">
+              <label className=" absolute ml-2 mt-4 text-gray">
+                <FaLock className="text-gray-400"></FaLock>
+              </label>
+              <input
+                type={passwordShown ? "text" : "password"}
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be 6 characters or length",
+                  },
+                })}
+                placeholder="Password"
+                className="input input-bordered bg-none input-primary w-full rounded-none text-gray-400 px-8"
+              />
+              {errors.password && (
+                <p className="text-orange-400 mt-2">
+                  {errors.password?.message}
+                </p>
+              )}
+              <label className=" right-2 mt-4 cursor-pointer absolute text-gray">
+                {passwordShown ? (
+                  <BsEyeSlashFill
+                    onClick={togglePassword}
+                    className="text-xl"
+                  ></BsEyeSlashFill>
+                ) : (
+                  <BsEyeFill
+                    onClick={togglePassword}
+                    className="text-xl"
+                  ></BsEyeFill>
+                )}
+              </label>
+            </div>
+            <div className="my-3">
+              <b>
+                <Link
+                  onClick={handlerForgetePassword}
+                  className="text-blue-500 underline"
+                >
+                  Forgete Password!{" "}
+                </Link>
+              </b>
+            </div>
+
+            <input
+              className="hover:bg-yellow-500 rounded border-2 mt-8 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2 cursor-pointer"
+              value="Login"
+              type="submit"
+            />
+            <div>
+              {loginError && <p className="text-orange-400">{loginError}</p>}
+            </div>
+          </form>
+          <p className="divider text-sm">OR LOGIN WITH</p>
+          <div className="flex justify-between gap-5 w-full">
+            <button
+              onClick={handlerGoogleSignin}
+              className="btn rounded-none btn-outline text-white normal-case w-2/5"
+            >
+              <FcGoogle className="text-2xl mr-2"></FcGoogle> Google
+            </button>
+            <button
+              onClick={handlerFacebookSignin}
+              className="btn rounded-none  btn-outline border-none bg-blue-700 w-lg text-white normal-case w-2/5"
+            >
+              <BsFacebook className="text-2xl mr-2 text-whait"></BsFacebook>{" "}
+              Facebook
+            </button>
+          </div>
+          <p className="mt-4 mb-8 text-center">
+            {" "}
+            New to Game Space ?{" "}
+            <Link className="text-blue-500 font-bold underline" to="/register">
+              Create new Account
+            </Link>
+          </p>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Login;

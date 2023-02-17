@@ -22,11 +22,12 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import UserProfile from "../../Pages/UserProfile/UserProfile";
 import MyFavoriteGames from "../../Pages/Dashboard/MyFavoriteGames/MyFavoriteGames";
 import PaymentSuccess from "../../Pages/Dashboard/Payment/PaymentSuccess";
 import AllPlayers from "../../Pages/Home/components/ExperianceSection/AllPlayers";
 import ProfileDetail from "../../Pages/ProfilePage/ProfileDetail";
+import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
+import CommunityFeed from "../../Pages/Dashboard/CommunityFeed/CommunityFeed";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -102,12 +103,16 @@ const router = createBrowserRouter([
         element: <LiveStream />,
       },
       {
-        path: "/userProfile",
-        element: <UserProfile></UserProfile>,
-      },
-      {
         path: "/payment/success",
         element: <PaymentSuccess />,
+      },
+      {
+        path: "/communityfeed",
+        element: (
+          <PrivateRoute>
+            <CommunityFeed />
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -135,9 +140,10 @@ const router = createBrowserRouter([
         path: "/dashboard/favoriteGames",
         element: <MyFavoriteGames />,
       },
+
       {
         path: "/dashboard/profile",
-        element: <UserProfile />,
+        element: <MyProfile />,
       },
       {
         path: "/dashboard/allHtmlGames",
