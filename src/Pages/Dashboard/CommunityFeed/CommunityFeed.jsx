@@ -76,7 +76,7 @@ const CommunityFeed = () => {
         </div>
         <div className="col-span-2 space-y-5">
           {allposts ? (
-            allposts.map((post, i) => {
+            allposts?.map((post, i) => {
               return (
                 <PostCards
                   key={i}
@@ -93,7 +93,7 @@ const CommunityFeed = () => {
         </div>
         <div>
           <div className="space-y-5">
-            {friendReq.length > 0 && (
+            {friendReq?.length > 0 && (
               <FriendRequest
                 user={user}
                 friendReq={friendReq}
