@@ -36,7 +36,7 @@ const CheckoutForBkash = ({ gamesData }) => {
 
     // }
 
-    fetch("https://gamespace-server.vercel.app/bkashpayment", {
+    fetch("http://localhost:9000/bkashpayment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

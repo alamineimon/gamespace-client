@@ -8,7 +8,7 @@ import { AuthContext } from "../../../../context/AuthProvider";
 import "./NavB.css";
 
 const NavB = ({ defaultAvtar }) => {
-  const { user, logOut, theme, setTheme } = useContext(AuthContext);
+  const { user, logOut, theme, setTheme, userinfo } = useContext(AuthContext);
   const location = useLocation();
   let currentPath = location.pathname.split("/")[1];
   // Toggle dark mode/light mode
@@ -38,6 +38,7 @@ const NavB = ({ defaultAvtar }) => {
         ["Live", "/livestream"],
         ["2D Games", "/2dgames"],
         ["HTML Games", "/playGames"],
+        ["Community", "/communityfeed"],
       ]?.map(([title, url]) => {
         return (
           <li key={url}>
@@ -147,15 +148,15 @@ const NavB = ({ defaultAvtar }) => {
                   } `}
               >
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-2">
-                  {user?.photoURL ? (
-                    <div className="avatar">
-                      <div className="w-10 rounded-full">
+                  {userinfo?.photoURL ? (
+                    <div className="w-10 rounded-full">
                       <img
                         alt=""
-                        src={user?.photoURL}
+                        src={
+                          userinfo?.photoURL ? userinfo.photoURL : defaultAvtar
+                        }
                         onError={(e) => (e.target.src = defaultAvtar)}
                       />
-                    </div>
                     </div>
                   ) : (
                     <div className="avatar border-4 border-primary rounded-full placeholder">
@@ -166,24 +167,25 @@ const NavB = ({ defaultAvtar }) => {
                       </div>
                     </div>
                   )}
-                  {/* */}
                 </label>
                 <ul
                   tabIndex={0}
-                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-52 ${theme === "dark"
-                    ? "bg-black1 text-white1"
-                    : "bg-white1 text-black1 border"
-                    }`}
+
+                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-40 ${
+                    theme === "dark"
+                      ? "bg-black1 text-white1"
+                      : "bg-white1 text-black1 border"
+                  }`}
                 >
-                  <li>
+                  <li className="hover:bg-primary/10 hover:text-primary">
                     <Link to="/dashboard/profile" className="justify-between">
                       Profile
                     </Link>
                   </li>
-                  <li>
+                  <li className="hover:bg-primary/10 hover:text-primary">
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
-                  <li>
+                  <li className="hover:bg-primary/10 hover:text-primary">
                     <p onClick={logOut}>Logout</p>
                   </li>
                 </ul>

@@ -20,14 +20,15 @@ import { HiShoppingCart } from "react-icons/hi";
 import defaultAvtar from "../../assets/images/gamingAvatar.webp";
 import useAdmin from "../../Hooks/userAdmin/useAdmin";
 import Loader from "../../Pages/Shared/Loader/Loader";
+import { CgFeed } from "react-icons/cg";
 const Dashboard = () => {
-  const { user, logOut, loading } = useContext(AuthContext);
+  const { user, logOut, loading, userinfo } = useContext(AuthContext);
 
   const [isAdmin, isAdminLoading] = useAdmin(user?.email);
   let activeClassName =
-    "border-l-4 border-primary bg-gradient-to-r from-primary/10 to-primary/0 text-primary font-semibold capitalize lg:text-lg";
+    "border-l-4 border-primary bg-gradient-to-r from-primary/10 to-primary/0 text-primary font-semibold capitalize lg:text-lg font-rajdhani";
   let notActiveClassName =
-    "border-l-4 border-transparent font-semibold capitalize lg:text-lg";
+    "border-l-4 border-transparent font-semibold capitalize lg:text-lg font-rajdhani";
   const [open, setOpen] = useState(false);
   if (loading || isAdminLoading) {
     return <Loader />;
@@ -45,21 +46,24 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboard" className="drawer-overlay"></label>
-          <ul className="menu py-4  w-80 bg-neutral text-base-content font-semibold">
+          <ul className="menu py-4  w-64 bg-neutral text-base-content font-semibold">
             {/* <!-- Sidebar content here --> */}
-            <div className="flex items-center space-x-5 pl-4">
+            <div className="flex items-start space-x-5 pl-4 font-rajdhani">
               <div className="avatar mb-5 online ">
-                <div className="w-16 mask mask-squircle">
+                <div className="w-16 mask mask-squircle ">
                   <img
                     alt=""
-                    src={user?.photoURL ? user.photoURL : defaultAvtar}
+                    src={userinfo?.photoURL ? userinfo.photoURL : defaultAvtar}
                     onError={(e) => (e.target.src = defaultAvtar)}
+                    className="rounded-full border"
                   />
                 </div>
               </div>
               <div>
-                <p className="font-gaming">{user?.displayName}</p>
-                <p className="text-xs">Age: 22</p>
+                <p className="font-bold text-xl lg:font-2xl">
+                  {userinfo?.name}
+                </p>
+                <p className="text-xs">{userinfo?.email}</p>
               </div>
             </div>
             <li>
@@ -84,6 +88,7 @@ const Dashboard = () => {
                 <MdFavorite /> Favorite Games
               </NavLink>
             </li>
+
             <li>
               <NavLink
                 className={({ isActive }) =>
@@ -92,7 +97,18 @@ const Dashboard = () => {
                 end
                 to="profile"
               >
-                <FaUserAstronaut /> See profile
+                <FaUserAstronaut /> Profile
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? activeClassName : notActiveClassName
+                }
+                end
+                to="/communityfeed"
+              >
+                <CgFeed /> Community
               </NavLink>
             </li>
             {isAdmin && (
@@ -151,7 +167,7 @@ const Dashboard = () => {
             )}
             <li className="pl-1 font-semibold capitalize lg:text-lg hover:text-primary hover:bg-gradient-to-r from-bg-primary/10 to-bg-primary/5">
               <Link onClick={logOut}>
-              <MdLogout /> Logout
+                <MdLogout /> Logout
               </Link>
             </li>
           </ul>

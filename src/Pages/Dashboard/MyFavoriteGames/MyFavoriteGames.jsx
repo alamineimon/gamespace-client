@@ -11,7 +11,7 @@ const MyFavoriteGames = () => {
     queryKey: ["favoriteGames", "user"],
     queryFn: async () => {
       const res = await fetch(
-        `https://gamespace-server.vercel.app/favoriteGames?email=${user?.email}`, {
+        `http://localhost:9000/favoriteGames?email=${user?.email}`, {
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
           }
@@ -27,7 +27,7 @@ const MyFavoriteGames = () => {
     return <Loader></Loader>;
   }
   return (
-    <div>
+    <div className="w-11/12 mx-auto py-10">
       <Title2 colored={"Games"}>Favorite</Title2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-5">
         {favGames?.map((favG, i) => {

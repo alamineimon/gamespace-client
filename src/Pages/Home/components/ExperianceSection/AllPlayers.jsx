@@ -7,7 +7,7 @@ const AllPlayers = () => {
   const { data: players, isLoading } = useQuery({
     queryKey: ["players"],
     queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/users", {
+      const res = await fetch("http://localhost:9000/users", {
         headers: {
           authorization: `bearer ${localStorage.getItem('accessToken')}`
         }

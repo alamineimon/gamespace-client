@@ -89,7 +89,7 @@ const Register = () => {
         updateUser(userInfo)
           .then(() => {
             if( userInfo.email){
-              fetch(`https://gamespace-server.vercel.app/users`)
+              fetch(`http://localhost:9000/users`)
               .then(data => data.json())
               .then(result => {
                 const userEmail = result.find(userEmail => userEmail.email === userInfo.email );
@@ -113,7 +113,7 @@ const Register = () => {
 
   const saveUser = (name, email, photoURL) => {
     const user = { name, email, photoURL };
-    fetch("https://gamespace-server.vercel.app/user", {
+    fetch("http://localhost:9000/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",

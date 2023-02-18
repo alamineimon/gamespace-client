@@ -13,28 +13,33 @@ import {
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
 import { useQuery } from "@tanstack/react-query";
-
+import axios from "../axios";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  // const [userinfo, setUserinfo] = useState({});
   const [theme, setTheme] = useState("dark");
-  // const [userInfo, setUserInfo] = useState([])
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const {data: userInfo} = useQuery({
-    queryKey: ['profileUpdate', 'user'],
+  const {
+    data: userinfo,
+    isLoading: userLoading,
+    refetch: userRefetch,
+  } = useQuery({
+    queryKey: ["profileUpdate", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:9000/profileUpdate/${user?.email}`)
-      const data = await res.json();
+      const { data } = await axios.get(
+        `http://localhost:9000/profileUpdate/${user?.email}`
+      );
       return data;
-    }
-  })
+    },
+  });
 
   const googleProvider = new GoogleAuthProvider();
   const googleSignin = () => {
@@ -79,7 +84,9 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     theme,
-    userInfo,
+    userinfo,
+    userLoading,
+    userRefetch,
     setTheme,
     createUser,
     googleSignin,

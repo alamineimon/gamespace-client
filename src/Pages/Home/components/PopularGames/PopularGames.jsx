@@ -5,14 +5,13 @@ import { FiTrendingUp } from "react-icons/fi";
 import { AuthContext } from "../../../../context/AuthProvider";
 import Loader from "../../../Shared/Loader/Loader";
 import PopularGamesCards from "./PopularGamesCards";
-
 const PopularGames = () => {
   const { theme } = useContext(AuthContext);
   const { data: games, isLoading } = useQuery({
     queryKey: ["popularGames"],
     queryFn: async () => {
       const res = await fetch(
-        `https://gamespace-server.vercel.app/popularGames`
+        `http://localhost:9000/popularGames`
       );
       const data = await res.json();
       return data;
@@ -22,7 +21,7 @@ const PopularGames = () => {
     return <Loader />;
   }
   return (
-    <section className="pt-10 lg:pt -20 bg-secondary">
+    <section className="pt-10 lg:py-20 bg-secondary">
       <div className="w-11/12 mx-auto">
         <div className="flex justify-center">
           <FiTrendingUp className="text-6xl text-primary" />
@@ -35,7 +34,7 @@ const PopularGames = () => {
           </span>{" "}
           <span className="text-primary">Games</span>
         </h1>
-        <div className="grid md:grid-cols-2 gap-5 lg:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {games?.map((games, i) => {
             return <PopularGamesCards key={i} games={games} />;
           })}
