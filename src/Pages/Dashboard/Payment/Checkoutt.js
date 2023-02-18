@@ -14,7 +14,7 @@ const CheckoutForm = ({ gamesData }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("https://gamespace-server.vercel.app/create-payment-intent", {
+    fetch("http://localhost:9000/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const CheckoutForm = ({ gamesData }) => {
         transactionId: paymentIntent.id,
         bookingId: _id,
       };
-      fetch("https://gamespace-server.vercel.app/payments", {
+      fetch("http://localhost:9000/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",

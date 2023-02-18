@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       gaming: "'Black Ops One', cursive",
+      rajdhani: "'Rajdhani', sans-serif",
     },
     extend: {
       keyframes: {
@@ -25,6 +26,8 @@ module.exports = {
         white1: "#fff",
         sai: "#BBD0EC",
         gray: "#D0D3D8",
+        dashboardCards: "#172e44",
+        // dashboardCards: "#141320",
       },
       backgroundImage: {
         html5banner:

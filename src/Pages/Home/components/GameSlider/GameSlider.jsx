@@ -14,7 +14,7 @@ const GameSlider = () => {
   const { data: games, isLoading } = useQuery({
     queryKey: ["downloadGames"],
     queryFn: async () => {
-      const res = await fetch(`https://gamespace-server.vercel.app/downloadGames`);
+      const res = await fetch(`http://localhost:9000/downloadGames`);
       const data = await res.json();
       return data;
     },

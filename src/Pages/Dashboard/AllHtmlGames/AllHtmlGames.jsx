@@ -16,7 +16,7 @@ const AllHtmlGames = () => {
   } = useQuery({
     queryKey: ["play-games"],
     queryFn: async () => {
-      const res = await fetch(`https://gamespace-server.vercel.app/play-games`, {
+      const res = await fetch(`http://localhost:9000/play-games`, {
         headers: {
           authorization: `bearer ${localStorage.getItem('accessToken')}`
         }
@@ -28,13 +28,13 @@ const AllHtmlGames = () => {
   const { data: categories, isLoading: categoryLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/categories");
+      const res = await fetch("http://localhost:9000/categories");
       const data = await res.json();
       return data;
     },
   });
   const deleteGame = (game) => {
-    fetch(`https://gamespace-server.vercel.app/deleteHtmlGame/${game._id}`, {
+    fetch(`http://localhost:9000/deleteHtmlGame/${game._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -57,7 +57,7 @@ const AllHtmlGames = () => {
   }
 
   return (
-    <section>
+    <section className="w-11/12 mx-auto py-10">
       <Title2 colored={"Games"}>All</Title2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-5">
         {htmlgames?.map((game, i) => (

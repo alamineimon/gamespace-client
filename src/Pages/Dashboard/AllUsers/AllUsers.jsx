@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import Loader from "../../Shared/Loader/Loader";
 import DeleteModal from "./DeleteModal";
 import { AiFillPlusCircle, AiFillRightCircle, AiFillDelete } from "react-icons/ai";
+
 import { Link } from "react-router-dom";
 
 const AllUsers = () => {
@@ -20,7 +21,7 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("https://gamespace-server.vercel.app/users", {
+      const res = await fetch("http://localhost:9000/users", {
         headers: {
           authorization: `bearer ${localStorage.getItem('accessToken')}`
         }
@@ -54,7 +55,7 @@ const AllUsers = () => {
   };
 
   const handleDelete = (userInfo) => {
-    fetch(`https://gamespace-server.vercel.app/delete/${userInfo._id}`, {
+    fetch(`http://localhost:9000/delete/${userInfo._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -83,7 +84,8 @@ const AllUsers = () => {
     return <Loader />;
   }
   return (
-    <div className="w-full">
+
+    <div className="w-11/12 mx-auto py-10">
       <Link to="/register" className="flex items-center mt-3 mb-5 ml-3">
         <AiFillPlusCircle className="text-green-400 text-3xl mr-2"></AiFillPlusCircle>
         <p className="text-white text-xl">Add User</p>
@@ -133,11 +135,8 @@ const AllUsers = () => {
                   </div>
                 )}
               </td>
-              <td className="underline text-white">
-                <a
-                  className="hover:text-blue-400"
-                  href={`mailto:${userInformation.email}`}
-                >
+              <td className="underline text-white hover:text-blue-500">
+                <a href={`mailto:${userInformation.email}`}>
                   {userInformation.email}
                 </a>
               </td>
@@ -226,7 +225,6 @@ const AllUsers = () => {
         </tbody>
       </table>
       }
-
     </div>
   );
 };

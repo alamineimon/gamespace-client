@@ -8,7 +8,7 @@ import {
 } from "./cardUtils";
 import axios from "axios";
 import Card from "./Card";
-// axios = "https://gamespace-server.vercel.app/";
+// axios = "http://localhost:9000/";
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const CheckoutForms = () => {
@@ -40,7 +40,7 @@ const CheckoutForms = () => {
         },
         (status, response) => {
           if (status === 200) {
-            fetch("https://gamespace-server.vercel.app/stripe-payment", {
+            fetch("http://localhost:9000/stripe-payment", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

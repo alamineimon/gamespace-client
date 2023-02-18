@@ -9,7 +9,7 @@ import Title2 from "../../Shared/DashTitle/Title2";
 const MyOrder = (props) => {
   const { user } = useContext(AuthContext);
   const [deleteProduct, setDeleteProduct] = useState(null);
-  const url = `https://gamespace-server.vercel.app/orderedGames?email=${user?.email}`;
+  const url = `http://localhost:9000/orderedGames?email=${user?.email}`;
   const {
     data: orderedGames = [],
     refetch,
@@ -28,7 +28,7 @@ const MyOrder = (props) => {
   };
 
   const handleDelete = (product) => {
-    fetch(`https://gamespace-server.vercel.app/orderedGames/${product._id}`, {
+    fetch(`http://localhost:9000/orderedGames/${product._id}`, {
       method: "DELETE",
         headers: {
           authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -47,10 +47,11 @@ const MyOrder = (props) => {
   //   return <Spinner></Spinner>;
   // }
   return (
-    <div>
-      <h1 className="text-lg lg:text-3xl font-bold capitalize my-5 text-center">My <span className="text-primary">Order</span></h1>
+
+    <div className="mx-auto w-11/12 py-10">
+      <Title2 colored={"Order"}>My</Title2>
       <div className="overflow-x-auto">
-        <table className="table w-3/4">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>
@@ -75,7 +76,7 @@ const MyOrder = (props) => {
                 <td>
                   {games.price && !games.paid && (
                     <Link to={`/dashboard/payment/${games._id}`}>
-                      <button className="btn border-none hover:bg-green-500 bg-yellow-400 btn-sm text-white">
+                      <button className="btn border-none hover:bg-green-500 bg-yellow-400 btn-sm text-secondary">
                         Pay
                       </button>
                     </Link>

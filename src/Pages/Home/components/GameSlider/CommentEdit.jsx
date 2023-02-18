@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 const CommentEdit = ({ editComments, setEditComments, refetch }) => {
   const handelCommentUpdate = (event) => {
     event.preventDefault();
-    fetch(`https://gamespace-server.vercel.app/comment/${editComments?._id}`, {
+    fetch(`http://localhost:9000/comment/${editComments?._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

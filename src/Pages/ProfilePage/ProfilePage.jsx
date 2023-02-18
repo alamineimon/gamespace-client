@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 // import { useNavigate } from "react-router-dom";
-import { AiFillCamera } from 'react-icons/ai';
+import { AiFillCamera } from "react-icons/ai";
 import { AuthContext } from "../../context/AuthProvider";
-
 const ProfilePage = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
@@ -93,12 +92,21 @@ const ProfilePage = () => {
                     alt=""
                   />
                 )}
-                <label htmlFor="image" className="block mb-2 text-sm absolute bottom-1 right-0 cursor-pointer">
+                <label
+                  htmlFor="image"
+                  className="block mb-2 text-sm absolute bottom-1 right-0 cursor-pointer"
+                >
                   <AiFillCamera className="text-3xl bg-gray text-black rounded-full p-1"></AiFillCamera>
                 </label>
               </div>
-              <div>                
-                <input className="hidden" type="file" id="image" name="image" accept="image/*" />
+              <div>
+                <input
+                  className="hidden"
+                  type="file"
+                  id="image"
+                  name="image"
+                  accept="image/*"
+                />
               </div>
             </div>
 
@@ -181,7 +189,7 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="text-center">
-              <button className="btn btn-primary">Update</button>
+            <button className="btn btn-primary">Update</button>
           </div>
         </form>
       </div>

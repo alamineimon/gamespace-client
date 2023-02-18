@@ -30,7 +30,7 @@ const PlayGamesSingle = () => {
       return navigate("/login");
     }
     fetch(
-      `https://gamespace-server.vercel.app/handleFavorite/${_id}?email=${user?.email}`,
+      `http://localhost:9000/handleFavorite/${_id}?email=${user?.email}`,
       {
         method: "PUT",
         headers: {

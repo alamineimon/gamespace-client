@@ -11,7 +11,7 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     fetch(
-      `https://gamespace-server.vercel.app/orderedgames/by-transaction-id/${transactionId}`
+      `http://localhost:9000/orderedgames/by-transaction-id/${transactionId}`
     )
       .then((res) => res.json())
       .then((data) => setOrder(data));

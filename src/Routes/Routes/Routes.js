@@ -22,11 +22,12 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllHtmlGames from "../../Pages/Dashboard/AllHtmlGames/AllHtmlGames";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import UserProfile from "../../Pages/UserProfile/UserProfile";
 import MyFavoriteGames from "../../Pages/Dashboard/MyFavoriteGames/MyFavoriteGames";
 import PaymentSuccess from "../../Pages/Dashboard/Payment/PaymentSuccess";
 import AllPlayers from "../../Pages/Home/components/ExperianceSection/AllPlayers";
 import ProfileDetail from "../../Pages/ProfilePage/ProfileDetail";
+import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
+import CommunityFeed from "../../Pages/Dashboard/CommunityFeed/CommunityFeed";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
 
         loader: ({ params }) =>
           fetch(
-            `https://gamespace-server.vercel.app/downloadGames/${params.id}`
+            `http://localhost:9000/downloadGames/${params.id}`
           ),
       },
       {
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
       {
         path: "/gameshtml/:id",
         loader: async ({ params }) =>
-          fetch(`https://gamespace-server.vercel.app/playGames/${params.id}`),
+          fetch(`http://localhost:9000/playGames/${params.id}`),
         element: <PlayGamesSingle />,
       },
       {
@@ -102,12 +103,16 @@ const router = createBrowserRouter([
         element: <LiveStream />,
       },
       {
-        path: "/userProfile",
-        element: <UserProfile></UserProfile>,
-      },
-      {
         path: "/payment/success",
         element: <PaymentSuccess />,
+      },
+      {
+        path: "/communityfeed",
+        element: (
+          <PrivateRoute>
+            <CommunityFeed />
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -135,9 +140,10 @@ const router = createBrowserRouter([
         path: "/dashboard/favoriteGames",
         element: <MyFavoriteGames />,
       },
+
       {
         path: "/dashboard/profile",
-        element: <UserProfile />,
+        element: <MyProfile />,
       },
       {
         path: "/dashboard/allHtmlGames",
@@ -160,7 +166,7 @@ const router = createBrowserRouter([
         element: <Payment />,
         loader: ({ params }) =>
           fetch(
-            `https://gamespace-server.vercel.app/orderedGames/${params.id}`
+            `http://localhost:9000/orderedGames/${params.id}`
           ),
       },
     ],

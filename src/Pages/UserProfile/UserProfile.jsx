@@ -40,7 +40,7 @@ const UserProfile = () => {
   } = useQuery({
     queryKey: ["profile", "user"],
     queryFn: async () => {
-      const res = await fetch(`https://gamespace-server.vercel.app/profileUpdate/${user?.email}`);      
+      const res = await fetch(`http://localhost:9000/profileUpdate/${user?.email}`);      
       const data = await res.json();
       return data;
     },
@@ -69,7 +69,7 @@ const UserProfile = () => {
           };
          
           fetch(
-            `https://gamespace-server.vercel.app/profileUpdate/${profiles?._id}`,
+            `http://localhost:9000/profileUpdate/${profiles?._id}`,
             {
               method: "PATCH",
               headers: {
