@@ -16,6 +16,12 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url(https://wallpapercave.com/wp/gY7ponW.jpg);
 }
+.flappy{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url(https://i.ibb.co/sHjsqB2/images-6.jpg);
+}
 .profile-icon{
   font-size: 90px;
   margin: auto;
