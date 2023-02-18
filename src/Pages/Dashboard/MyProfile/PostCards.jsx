@@ -6,7 +6,7 @@ import defaultAvtar from "../../../assets/images/gamingAvatar.webp";
 const PostCards = ({ post, user, setCurrentPost, handleLike }) => {
   const { postText, postTime, authorName, authorImage, privacy, _id } = post;
   return (
-    <div className="bg-dashboardCards rounded-2xl font-rajdhani py-5 space-y-5 ">
+    <div className="bg-dashboardCards rounded-2xl font-rajdhani py-5 space-y-5 hover:brightness-125 max-w-xl mx-auto">
       <div className="flex justify-between px-5 border-white/20">
         <div className="flex space-x-2 items-center">
           <div className="w-12 bg-white/10 hexagon p-1">

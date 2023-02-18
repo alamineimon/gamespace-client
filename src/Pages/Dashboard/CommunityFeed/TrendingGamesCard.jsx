@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 const TrendingGamesCard = ({ games }) => {
   const { _id, gameName, authorName, thumbnail } = games;
-
-  console.log(gameName);
   return (
     <div className="flex justify-start items-start space-x-3">
       <img
