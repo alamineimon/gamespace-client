@@ -41,6 +41,17 @@ const TwoDGmaes = () => {
             Play Now
           </Link>
         </div>
+        <div className="flappy w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
+          <p className="text-3xl mb-6 text-white uppercase font-bold">
+            flappy Bird
+          </p>
+          <Link
+            to="/flappy"
+            className=" px-6 py-3 hover:text-white text-black bg-primary rounded-none"
+          >
+            Play Now
+          </Link>
+        </div>
 
       </div>
     </div>
