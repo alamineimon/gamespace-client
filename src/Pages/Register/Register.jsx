@@ -14,8 +14,6 @@ import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Register.css";
 import useToken from "../../Hooks/useToken/useToken";
-import { useQuery } from "@tanstack/react-query";
-
 
 const Register = () => {
   const {
@@ -23,21 +21,20 @@ const Register = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const {user, createUser, googleSignin, facebookSignin, updateUser } =
+  const { createUser, googleSignin, facebookSignin, updateUser } =
     useContext(AuthContext);
   const [signUpError, setSingUpError] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
-  const [createUserEmail, setCeateUserEmail] = useState('')
+  const [createUserEmail, setCeateUserEmail] = useState("");
   const [token] = useToken(createUserEmail);
-  
+
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.from?.state.pathname || "/";
-  
-    if(token){
-      navigate(from, { replace: true });
-    }
 
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   const handelSignUp = (data) => {
     setSingUpError("");
@@ -46,13 +43,12 @@ const Register = () => {
         const user = result.user;
         const userInfo = {
           name: data.name,
-          email:data.email,
+          email: data.email,
           photoURL: user.photoURL,
         };
         updateUser(userInfo)
           .then(() => {
             saveUser(data.name, data.email, data.photoURL);
-            console.log(user);
             toast.success("User Create Succesfully");
           })
           .catch((err) => console.log(err));
@@ -79,29 +75,29 @@ const Register = () => {
     googleSignin()
       .then((result) => {
         const user = result.user;
-        console.log(user)
+        console.log(user);
         const userInfo = {
           name: user.displayName,
           email: user.email,
-          photoURL:user.photoURL,
-          
+          photoURL: user.photoURL,
         };
         updateUser(userInfo)
           .then(() => {
-            if( userInfo.email){
+            if (userInfo.email) {
               fetch(`http://localhost:9000/users`)
-              .then(data => data.json())
-              .then(result => {
-                const userEmail = result.find(userEmail => userEmail.email === userInfo.email );
-                if(!userEmail){
-                  saveUser(userInfo.name, userInfo.email, userInfo.photoURL);
-                  toast.success("Login Successfully");
-                }
-                else{
-                  navigate(from, { replace: true });
-                  alert('alrady User Create')
-                }
-              })
+                .then((data) => data.json())
+                .then((result) => {
+                  const userEmail = result.find(
+                    (userEmail) => userEmail.email === userInfo.email
+                  );
+                  if (!userEmail) {
+                    saveUser(userInfo.name, userInfo.email, userInfo.photoURL);
+                    toast.success("Login Successfully");
+                  } else {
+                    navigate(from, { replace: true });
+                    alert("alrady User Create");
+                  }
+                });
             }
           })
           .catch((err) => console.log(err));
@@ -122,7 +118,6 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCeateUserEmail(email);
       });
   };
@@ -130,7 +125,6 @@ const Register = () => {
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
-
 
   return (
     <div className="hero registerBG">
@@ -147,7 +141,7 @@ const Register = () => {
                 name="name"
                 {...register("name", { required: "Name is required" })}
                 placeholder="User Name"
-                className="input input-primary input-bordered rounded-none w-full text-gray-400 px-8"
+                className="input input-primary input-bordered rounded-none w-full text-gray-400 focus:text-white  px-8 "
               />
               {errors.name && (
                 <p className="text-orange-400 mt-2">{errors.name?.message}</p>
@@ -155,7 +149,7 @@ const Register = () => {
             </div>
             <div className="form-control w-full relative mt-8">
               <label className="absolute ml-2 mt-4 text-gray">
-                <FiMail className="text-gray-400"></FiMail>
+                <FiMail className="text-gray-400 focus:text-white"></FiMail>
               </label>
               <input
                 type="email"
@@ -164,7 +158,7 @@ const Register = () => {
                   required: "Email or Phone is required",
                 })}
                 placeholder="Email or Phone"
-                className="input input-primary rounded-none input-bordered w-full text-gray-400 px-8"
+                className="input input-primary rounded-none input-bordered w-full text-gray-400 focus:text-white px-8"
               />
               {errors.email && (
                 <p className="text-orange-400 mt-2">{errors.email?.message}</p>
@@ -172,7 +166,7 @@ const Register = () => {
             </div>
             <div className="form-control w-full relative mt-8">
               <label className="absolute ml-2 mt-4 text-gray">
-                <FaLock className="text-gray-400"></FaLock>
+                <FaLock className="text-gray-400 focus:text-white"></FaLock>
               </label>
               <input
                 type={passwordShown ? "text" : "password"}
@@ -185,7 +179,7 @@ const Register = () => {
                   // pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "Password must be Strong" }
                 })}
                 placeholder="Password"
-                className="input input-bordered w-full rounded-none input-primary text-gray-400 px-8"
+                className="input input-bordered w-full rounded-none input-primary text-gray-400 focus:text-white px-8"
               />
               {errors.password && (
                 <p className="text-orange-400 mt-2">

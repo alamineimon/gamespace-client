@@ -1,4 +1,5 @@
 import React from "react";
+import { useContext } from "react";
 import {
   FaEdit,
   FaFacebookF,
@@ -7,8 +8,10 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import defaultAvtar from "../../../assets/images/gamingAvatar.webp";
+import { AuthContext } from "../../../context/AuthProvider";
 const BannerPart = ({ userinfo, posts, setEditProfile }) => {
   const { name, email } = userinfo;
+  const { user } = useContext(AuthContext);
   return (
     <div className=" bg-dashboardCards rounded-2xl font-rajdhani col-span-4 relative">
       <div className="relative">
@@ -70,12 +73,14 @@ const BannerPart = ({ userinfo, posts, setEditProfile }) => {
           )}
         </div>
       </div>
-      <label htmlFor="editProfileModal" onClick={() => setEditProfile(true)}>
-        <FaEdit
-          className="absolute top-2 right-2  text-xl cursor-pointer hover:text-primary"
-          title="edit profile"
-        />
-      </label>
+      {email === user?.email && (
+        <label htmlFor="editProfileModal" onClick={() => setEditProfile(true)}>
+          <FaEdit
+            className="absolute top-2 right-2  text-xl cursor-pointer hover:text-primary"
+            title="edit profile"
+          />
+        </label>
+      )}
     </div>
   );
 };

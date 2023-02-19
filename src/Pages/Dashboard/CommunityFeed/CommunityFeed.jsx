@@ -8,7 +8,7 @@ import PostCards from "../MyProfile/PostCards";
 import FriendRequest from "../MyProfile/FriendRequest";
 import FriendList from "../MyProfile/FriendList";
 import TrendingGames from "./TrendingGames";
-
+import AddPost from "../MyProfile/AddPost";
 const CommunityFeed = () => {
   const [currentPost, setCurrentPost] = useState(null);
   const { userinfo, user } = useContext(AuthContext);
@@ -20,7 +20,6 @@ const CommunityFeed = () => {
     queryKey: ["posts"],
     queryFn: async () => {
       const { data } = await axios.get(`/posts`);
-      console.log(data);
       return data;
     },
   });
@@ -62,7 +61,6 @@ const CommunityFeed = () => {
       .then((res) => res.json())
       .then((data) => {
         postRefetch();
-        console.log(data);
       });
   };
   if (isLoading || postsLoading || friendsLoading) {
@@ -75,6 +73,7 @@ const CommunityFeed = () => {
           <TrendingGames />
         </div>
         <div className="col-span-2 space-y-5">
+          <AddPost userinfo={userinfo} postRefetch={postRefetch} />
           {allposts ? (
             allposts?.map((post, i) => {
               return (
