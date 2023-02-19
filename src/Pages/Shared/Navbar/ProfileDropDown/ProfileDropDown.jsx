@@ -1,25 +1,34 @@
+import { signOut } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { BsArrowRightShort } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../../context/AuthProvider";
+import auth from "../../../../Firebase/firebase.config";
+import { logout } from "../../../../slice/auth/authSlice";
 import "./ProfileDropDown.css";
 
 const ProfileDropDown = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isReadOnly, setIsReadOnly] = useState(false)
   const navigate = useNavigate();
-
+  const dispatch = useDispatch()
   
+  const handelLogOut = () => {
+    signOut(auth).then(()=>{
+      dispatch(logout());
+    })
+  }
 
-  const handleLogout = () => {
-    logOut()
-      .then(() => {
-        toast("Logout successfully");
-        navigate("/");
-      })
-      .catch((err) => console.log(err));
-  };
+  // const handleLogout = () => {
+  //   logOut()
+  //     .then(() => {
+  //       toast("Logout successfully");
+  //       navigate("/");
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <div
@@ -100,14 +109,14 @@ const ProfileDropDown = () => {
           </div>
         </p>
 
-        <p onClick={handleLogout} className="flex mt-6 cursor-pointer">
+        <p onClick={handelLogOut} className="flex mt-6 cursor-pointer">
           <img
             className="h-8 p-1 mr-3 bg-white rounded-full"
             src="https://i.ibb.co/s335h1Y/logout.png"
             alt=""
           />
           <div className="flex items-center">
-            <p className=" hover:font-semibold ">Logout</p>
+            <p  className=" hover:font-semibold ">Logout</p>
             <span>
               <BsArrowRightShort className=" hover:mr-2 "></BsArrowRightShort>
             </span>

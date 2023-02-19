@@ -6,9 +6,9 @@ const NavbarBottom = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 ">
       <div className="navbarBottomBG p-3">
-        <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8">
           <div className="relative flex items-center justify-center">
             <ul className="items-center justify-center hidden space-x-8 lg:flex">
               <li>

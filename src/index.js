@@ -7,11 +7,14 @@ import generateMuiTheme from "../src/Pages/LiveStream/mui/theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AuthProvider from "./context/AuthProvider";
 import { ThemeProvider } from "@mui/material";
+import { Provider } from "react-redux";
+import store from "./app/store";
 const queryClient = new QueryClient();
 
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <ThemeProvider theme={generateMuiTheme()}>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
@@ -19,6 +22,7 @@ ReactDOM.render(
         </AuthProvider>
       </QueryClientProvider>
     </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
   );
