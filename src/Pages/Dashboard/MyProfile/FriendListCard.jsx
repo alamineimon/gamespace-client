@@ -1,11 +1,17 @@
 import React from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import defaultAvtar from "../../../assets/images/gamingAvatar.webp";
+import { AuthContext } from "../../../context/AuthProvider";
 const FriendListCard = ({ friend }) => {
-  const { name, email, photoURL, _id } = friend;
+  const { name, email, photoURL } = friend;
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const visitProfile = () => {
-    navigate(`/users/${_id}`);
+    if (user?.email === email) {
+      return navigate("/dashboard/profile");
+    }
+    navigate(`/playerProfile/${email}`);
   };
   return (
     <div className="flex space-x-3 ">
