@@ -10,8 +10,8 @@ const Navbar = () => {
   return (
     <nav >
       {/* <NavT /> */}
-      <NavbarTop/>
-      <NavbarBottom/>
+      <NavbarTop defaultAvtar={defaultAvtar} />
+      {/* <NavbarBottom/> */}
       {/* <NavB defaultAvtar={defaultAvtar} /> */}
     </nav>
   );
