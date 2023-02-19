@@ -28,7 +28,9 @@ import AllPlayers from "../../Pages/Home/components/ExperianceSection/AllPlayers
 import ProfileDetail from "../../Pages/ProfilePage/ProfileDetail";
 import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
 import CommunityFeed from "../../Pages/Dashboard/CommunityFeed/CommunityFeed";
+import Flappy from "../../Pages/2Dgames/FlappyGames/Flappy";
 import PlayerProfile from "../../Pages/PlayerProfile/PlayerProfile";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -96,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "/memory",
         element: <Memory />,
+      },
+      {
+        path: "/flappy",
+        element: <Flappy />,
       },
       {
         path: "/livestream",
