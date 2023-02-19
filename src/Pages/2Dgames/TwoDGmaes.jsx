@@ -9,7 +9,7 @@ const TwoDGmaes = () => {
 
   return (
     <div>
-      <div className={`lg:h-[500px] py-5 lg:flex justify-evenly lg:items-center  ${theme === "dark" ? "bg-bg1" : "bg-gray"}`}>
+      <div className={`lg:h-[500px] py-5 grid md:grid-cols-2 sm:grid-cols-1 grid-cols-3 justify-evenly lg:items-center  ${theme === "dark" ? "bg-bg1" : "bg-gray"}`}>
         <div className="CandyCrash w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
           <p className="text-3xl mb-6 text-white uppercase font-bold">
             Candy Crush

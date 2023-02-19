@@ -2,20 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvider";
 import {
   BsEyeFill,
   BsEyeSlashFill,
-  BsFacebook,
   BsPersonFill,
 } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Register.css";
-import useToken from "../../Hooks/useToken/useToken";
+
 import { useDispatch, useSelector } from "react-redux";
-import { createUser } from "../../slice/auth/authSlice";
+import { createUser , googleSingIn } from "../../../slice/auth/authSlice";
+import useToken from "../../../Hooks/useToken/useToken";
 
 const Register = () => {
   const {
@@ -23,8 +22,6 @@ const Register = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const {  googleSignin, updateUser } =
-    useContext(AuthContext);
   const [signUpError, setSingUpError] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
   const [createUserEmail, setCeateUserEmail] = useState("");
@@ -47,7 +44,7 @@ const Register = () => {
 
   
 const handlerGoogleSignin = ()=>{
-  dispatch(googleSignin())
+  dispatch(googleSingIn())
 }
 
   // const handlerGoogleSignin = () => {
@@ -86,20 +83,20 @@ const handlerGoogleSignin = ()=>{
   //     });
   // };
 
-  const saveUser = (name, email, photoURL) => {
-    const user = { name, email, photoURL };
-    fetch("http://localhost:9000/user", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setCeateUserEmail(email);
-      });
-  };
+  // const saveUser = (name, email, photoURL) => {
+  //   const user = { name, email, photoURL };
+  //   fetch("http://localhost:9000/user", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(user),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setCeateUserEmail(email);
+  //     });
+  // };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
