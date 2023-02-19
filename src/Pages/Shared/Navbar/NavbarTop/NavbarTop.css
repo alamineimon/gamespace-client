@@ -1,8 +1,23 @@
-select{
+/* select{
   padding: 0px 5px;
   border: 1px solid #eee;
   border-radius: 10px;
 }
 /* .bgTransparent{
   background-color: #1e304e	;
-} */
+} */ */
+
+.navbarBottomBG {
+  width: 100%;
+  height: 40px;
+  margin: auto;
+  color: white;
+  z-index: 40;;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../../../../assets/images/bgColor2.jpg);
+}
+ul li a:hover {
+  color: yellow;
+}

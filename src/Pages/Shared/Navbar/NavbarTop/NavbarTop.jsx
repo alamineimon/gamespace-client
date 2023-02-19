@@ -1,350 +1,381 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom"
 import { GiBoltShield } from "react-icons/gi";
-import headerLogo from "../../../../assets/images/logo.png";
-import Button from "../../Button/Button";
 import "./NavbarTop.css";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaPinterest,
-  FaGoogle
-} from "react-icons/fa";
 import { RxLockClosed } from "react-icons/rx";
 import { MdOutlineLogout } from "react-icons/md";
 import { AuthContext } from "../../../../context/AuthProvider";
-import ProfileDropDown from "../ProfileDropDown/ProfileDropDown";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import auth from "../../../../Firebase/firebase.config";
+import { signOut } from "@firebase/auth";
+import { logout } from "../../../../slice/auth/authSlice";
+import { BiFoodMenu } from "react-icons/bi";
+import { HiMenuAlt1 } from "react-icons/hi";
+import {  FaGoogle, FaPinterestSquare } from "react-icons/fa";
+import { AiOutlineFacebook , AiFillTwitterSquare, AiFillGoogleSquare} from "react-icons/ai";
 
 
-const NavbarTop = () => {
-  const [open, setOpen] = useState(false);
-  const { user } = useContext(AuthContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const NavbarTop = ({ defaultAvtar }) => {
+  const { theme, setTheme, userinfo } = useContext(AuthContext);
+  const location = useLocation();
+  let currentPath = location.pathname.split("/")[1];
+  // Toggle dark mode/light mode
+  const [mode, setMode] = useState(true);
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      setMode(true);
+    } else {
+      setMode(false);
+      setTheme("light");
+    }
+  };
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
-  const { email } = useSelector((state) => state.auth)
+  const handelLogOut = () => {
+    signOut(auth).then(()=>{
+      dispatch(logout());
+    })
+  }
 
-
-
-
-  return (
-    <div className="h-[80px] px-6 lg:block mx-auto sm:max-w-xl md:max-w-full lg:w-full   ">
-      <div className="relative flex pt-3 items-center justify-between">
-        {/* social icon  */}
-        <div className="hidden  lg:flex  items-center justify-center ">
-
-          <FaFacebook
-            className="hover:text-yellow-600 mr-3"
-            title="Facebook"
-          />
-          <FaTwitter
-            className="hover:text-yellow-600 mr-3"
-            title="Twitter"
-          ></FaTwitter>
-          <FaPinterest
-            className="hover:text-yellow-600 mr-3"
-            title="Pinterest"
-          ></FaPinterest>
-          <FaGoogle
-            className="hover:text-yellow-600"
-            title="Google"
-          ></FaGoogle>
-
-        </div>
-
-        {/* logo  */}
-        <div>
+  const navlinks = (
+    <>
+      <ul>
+      <li>
           <Link
             to="/"
-            aria-label="Games space"
-            title="Games space"
-            className="inline-flex items-center"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
           >
-            <div className="text-2xl text-white ">
-              <Link
-                to="/"
-                className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
-              >
-                <GiBoltShield
-                  className="lg:text-5xl"
-                />
-                <div className="text-white">
-                  <span
-                    className="font-gaming text-mainHeading"
-                  >
-                    Game Space
-                  </span>
-                  <span className="text-xs text-primary lg:block font-bold capitalize hidden ">
-                    Any Game, Any time, Any place
-                  </span>
-                </div>
-              </Link>
-            </div>
+            Home
           </Link>
-        </div>
+        </li>
+        <li>
+          <Link
+            to="/shop"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            Shop
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/livestream"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            Live stream
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/2dgames"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            2D games
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/playGames"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            html gmaes
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/communityfeed"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            Community
+          </Link>
+        </li>
+      </ul>
+    </>
+  );
 
+  const { email } = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
 
-        <div>
-          <ul className=" items-center hidden space-x-8 lg:flex">
-            {email ? (
-              <>
-                <div>
-                  <div onClick={() => setOpen(!open)} className="user-pic">
-                    {user?.photoURL ? (
-                      <img className="h-12 rounded-full cursor-pointer" src={user?.photoURL} alt="" />
-                    ) : (
-                      <img className="h-12 rounded-full cursor-pointer"
-                        src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
-                        alt=""
-                      />
-                    )}
-                  </div>
-                  {open && <ProfileDropDown></ProfileDropDown>}
-                  {/* <div id="sub-menu-wrap">
-                <div className="sub-menu">
-                  <div className="user-info">
-                    <img
-                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
-                      alt=""
-                    />
-                    <p>{user?.displayName}</p>
-                  </div>
-                  <hr />
-                  <p className="sub-menu-link">
-                    <img src="https://i.ibb.co/cX6Z03G/profile.png" alt="" />
-                    <p>Edite Profile</p>
-                    <span> <BsArrowRightShort></BsArrowRightShort></span>
-                  </p>
-                  <p className="sub-menu-link">
-                    <img src="https://i.ibb.co/8B3pj1W/setting.png" alt="" />
-                    <p>Settings & Privacy</p>
-                    <span> <BsArrowRightShort></BsArrowRightShort></span>
-                  </p>
-                  <p className="sub-menu-link">
-                    <img src="https://i.ibb.co/myzpv5S/help.png" alt="" />
-                    <p>Helps & Support</p>
-                    <span> <BsArrowRightShort></BsArrowRightShort></span>
-                  </p>
-                  <p onClick={handleLogout} className="sub-menu-link">
-                    <img src="https://i.ibb.co/s335h1Y/logout.png" alt="" />
-                    <p>Logout</p>
-                    <span> <BsArrowRightShort></BsArrowRightShort></span>
-                  </p>
-                </div>
-              </div> */}
-                </div>
-                {/* <li>
-              <button onClick={handleLogout}>LOGOUT</button>
-            </li> */}
-              </>
-            ) : (
-              <div className="lg:flex ">
-
-                <li>
-
-                  <Link
-                    to="/login"
-                    className="bg-yellow-600 flex justify-center items-center text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-5 py-2"
-                  >
-                    <MdOutlineLogout className="mr-2" />
-                    Sign In
-                  </Link>
-                </li>
-                <p className="mx-3">or</p>
-                <li>
-                  <Link
-                    to="/register"
-                    className="bg-yellow-600 flex justify-center items-center text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-5 py-2"
-                  >
-                    <RxLockClosed className="mr-2" />
-                    Sign Up
-                  </Link>
-                </li>
-              </div>
-            )}
-          </ul>
-        </div>
-        <div className="lg:hidden">
-          {user?.uid ? (
-            <>
-              <div>
-                <div onClick={() => setOpen(!open)} className="user-pic">
-                  {user?.photoURL ? (
-                    <img className="h-10 rounded-full cursor-pointer" src={user?.photoURL} alt="" />
-                  ) : (
-                    <img className="h-10 rounded-full cursor-pointer"
-                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
-                      alt=""
-                    />
-                  )}
-                </div>
-                {open && <ProfileDropDown></ProfileDropDown>}
-                {/* <div id="sub-menu-wrap">
-                <div className="sub-menu">
-                  <div className="user-info">
-                    <img
-                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
-                      alt=""
-                    />
-                    <p>{user?.displayName}</p>
-                  </div>
-                  <hr />
-                  <p className="sub-menu-link">
-                    <img src="https://i.ibb.co/cX6Z03G/profile.png" alt="" />
-                    <p>Edite Profile</p>
-                    <span> <BsArrowRightShort></BsArrowRightShort></span>
-                  </p>
-                  <p className="sub-menu-link">
-                    <img src="https://i.ibb.co/8B3pj1W/setting.png" alt="" />
-                    <p>Settings & Privacy</p>
-                    <span> <BsArrowRightShort></BsArrowRightShort></span>
-                  </p>
-                  <p className="sub-menu-link">
-                    <img src="https://i.ibb.co/myzpv5S/help.png" alt="" />
-                    <p>Helps & Support</p>
-                    <span> <BsArrowRightShort></BsArrowRightShort></span>
-                  </p>
-                  <p onClick={handleLogout} className="sub-menu-link">
-                    <img src="https://i.ibb.co/s335h1Y/logout.png" alt="" />
-                    <p>Logout</p>
-                    <span> <BsArrowRightShort></BsArrowRightShort></span>
-                  </p>
-                </div>
-              </div> */}
-              </div>
-              {/* <li>
-              <button onClick={handleLogout}>LOGOUT</button>
-            </li> */}
-            </>
+  return (
+    <div className="h-[140px] lg:block mx-auto sm:max-w-xl md:max-w-full lg:w-full   ">
+      <div
+      className={` sm:py-2 ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
+        }`}
+    >
+      <div id="mainmenu" className={"navbar w-11/12 mx-auto px-0"}>
+        <div className="navbar-start">
+          {currentPath === "dashboard" ? (
+            <label
+              htmlFor="dashboard"
+              className="drawer-button lg:hidden text-2xl mr-3 "
+            >
+              <BiFoodMenu />
+            </label>
           ) : (
-            <li>
+            <></>
+          )}
+          <div className="dropdown ">
+            <label tabIndex={0} className=" lg:hidden cursor-pointer ">
+              <HiMenuAlt1 className="text-xl text-white hover:text-primary hover:border border-primary" />
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-6  shadow bg-base-200  w-52  font-bold uppercase text-sm border border-primary rounded-none"
+            >
+              {navlinks}
+            </ul>
+          </div>
+           {/* social media icons */}
+          <div className="hidden  lg:flex  items-center justify-center ">
+          <AiOutlineFacebook
+            className="text-primary hover:text-white mr-3"
+            title="Facebook"
+          />
+          <AiFillTwitterSquare
+            className="text-primary hover:text-white mr-3"
+            title="Twitter"
+          />
+          <FaPinterestSquare
+            className="text-primary hover:text-white mr-3"
+            title="Pinterest"
+          />
+          <AiFillGoogleSquare
+            className="text-primary hover:text-white"
+            title="Google"
+          />
+          </div>
+          {/* <Link
+            to="/"
+            className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
+          >
+            <GiBoltShield
+              className={`text-2xl md:text-5xl text-white ${theme === "light" && "text-black"
+                }`}
+            />
+            <div className="text-white">
+              <span
+                className={`font-gaming ${theme === "light" && "text-black"}`}
+              >
+                Game Space
+              </span>
+              <span className="text-xs text-primary lg:block font-bold capitalize hidden ">
+                Any Game, Any time, Any place
+              </span>
+            </div>
+          </Link> */}
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className=" flex px-1 font-bold uppercase">          
+          <Link
+            to="/"
+            className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
+          >
+            <GiBoltShield
+              className={`text-2xl md:text-5xl text-white ${theme === "light" && "text-black"
+                }`}
+            />
+            <div className="text-white">
+              <span
+                className={`font-gaming ${theme === "light" && "text-black"}`}
+              >
+                Game Space
+              </span>
+              <span className="text-xs text-primary lg:block font-bold capitalize hidden ">
+                Any Game, Any time, Any place
+              </span>
+            </div>
+          </Link></ul>
+        </div>
+        <div className="navbar-end">
+          {!email ? (
+            <>
               <Link
                 to="/login"
-                className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2"
-              >
-                Join
+                className="btn btn-primary btn-xs md:btn-sm mr-4 text-white font-bold rounded-none"
+              > <MdOutlineLogout className="mr-2" />
+                Sign In
               </Link>
-            </li>
-          )}
-          {/* <button
-            aria-label="Open Menu"
-            title="Open Menu"
-            className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
-            onClick={() => setIsMenuOpen(true)}
-          >
-            <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-              />
-              <path
-                fill="currentColor"
-                d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-              />
-              <path
-                fill="currentColor"
-                d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-              />
-            </svg>
-          </button> */}
-          {isMenuOpen && (
-            <div className="absolute top-0 left-0 w-full">
-              <div className="p-5 bg-white border rounded shadow-sm">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <Link
-                      to="/"
-                      aria-label="Company"
-                      title="Company"
-                      className="inline-flex items-center"
-                    >
-                      <img src={headerLogo} alt="header-logo" />
-                    </Link>
-                  </div>
-                  <div>
-                    <button
-                      aria-label="Close Menu"
-                      title="Close Menu"
-                      className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
-                        <path
-                          fill="currentColor"
-                          d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <nav>
-                  <ul className="space-y-4">
-                    <li>
-                      <Link className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                        <div className="flex items-center gap-6 text-[#dedee2]">
-                          <FaFacebook title="Facebook" />
-                          <FaTwitter title="Twitter"></FaTwitter>
-                          <FaPinterest title="Pinterest"></FaPinterest>
-                          <FaGoogle title="Google"></FaGoogle>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <div className="flex items-center justify-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="#dedee2"
-                          className="w-6 h-6 mt-2"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
-                          />
-                        </svg>
+              <Link
+                to="/login"
+                className="btn btn-primary btn-xs md:btn-sm text-white font-bold rounded-none"
+              >
+              <RxLockClosed className="mr-2" />
+                Sign Up
+              </Link>
+              {/* toggle svg  */}
+              <label className="swap swap-rotate ml-3">
+                <input
+                  type="checkbox"
+                  className={`ml-3${theme === "dark"
+                      ? "bg-white1 text-black1"
+                      : "bg-black1 text-white1"
+                    }ease-in duration-100 my-4`}
+                  onClick={toggleTheme}
+                />
+                <svg
+                  className="swap-off fill-current w-10 h-10"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+                </svg>
 
-                        <select className="bg-transparent text-xl cursor-pointer border-none text-[#dedee2] outline-none">
-                          <option
-                            className="bg-[#1c1d55] cursor-pointer border-none text-xl"
-                            value="Languages"
-                          >
-                            Languages
-                          </option>
-                          <option
-                            className="bg-[#1c1d55] cursor-pointer border-none text-xl"
-                            value="Bangla"
-                          >
-                            Bangla
-                          </option>
-                          <option
-                            className="bg-[#1c1d55] cursor-pointer border-none text-xl"
-                            value="English"
-                          >
-                            English
-                          </option>
-                        </select>
+                <svg
+                  className="swap-on fill-current w-10 h-10"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+                </svg>
+              </label>
+            </>
+          ) : (
+            <div className={`flex items-center `}>
+              <div
+                className={`dropdown dropdown-end ${
+                  currentPath === "dashboard" && "hidden"
+                } `}
+              >
+                <label
+                  tabIndex={0}
+                  className="btn btn-ghost btn-circle avatar mr-2"
+                >
+                  {email.uid ? (
+                    <div className="w-10 rounded-full">
+                      <img
+                        alt=""
+                        src={
+                          userinfo?.photoURL ? userinfo?.photoURL : defaultAvtar
+                        }
+                        onError={(e) => (e.target.src = defaultAvtar)}
+                      />
+                    </div>
+                  ) : (
+                    <div className="avatar border-4 border-primary rounded-full placeholder">
+                      <div className="bg-neutral-focus text-neutral-content rounded-full lg:w-10 w-8 h-8 lg:h-10">
+                        <span className="text-xl mt-1">
+                          {userinfo?.name?.slice(0, 1)}
+                        </span>
                       </div>
-                    </li>
-                    <li>
-                      <Link
-                        to="/login"
-                        aria-label="login"
-                        title="login"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >
-                        <Button name={"Register"}></Button>
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
+                    </div>
+                  )}
+                </label>
+                <ul
+                  tabIndex={0}
+                  className={`menu menu-compact dropdown-content mt-4 p-2 shadow bg-secondary rounded-box w-40 ${
+                    theme === "dark"
+                      ? "bg-black1 text-white1"
+                      : "bg-white1 text-black1 border"
+                  }`}
+                >
+                  <li className="hover:bg-primary/10 hover:text-primary">
+                    <Link to="/dashboard/profile" className="justify-between">
+                      Profile
+                    </Link>
+                  </li>
+                  <li className="hover:bg-primary/10 hover:text-primary">
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li className="hover:bg-primary/10 hover:text-primary">
+                    <p onClick={handelLogOut}>Logout</p>
+                  </li>
+                </ul>
               </div>
+              <p className="font-bold text-sm flex items-center ">
+                <span
+                  className={`text-primary ${
+                    currentPath === "dashboard" && "hidden"
+                  }`}
+                >
+                  {userinfo?.name?.split(" ")[0]}
+                </span>
+                <label className="swap swap-rotate ml-5">
+                  <input
+                    type="checkbox"
+                    className={`ml-3${
+                      theme === "dark"
+                        ? "bg-white1 text-black1"
+                        : "bg-black1 text-white1"
+                    }ease-in duration-100 my-4`}
+                    onClick={toggleTheme}
+                  />
+                  <svg
+                    className="swap-off fill-current w-8 h-8"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+                  </svg>
+
+                  <svg
+                    className="swap-on fill-current w-8 h-8"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+                  </svg>
+                </label>
+              </p>
             </div>
           )}
         </div>
       </div>
+    </div>
+    {/* nav bottom */}
+      <div className="navbarBottomBG flex items-center justify-center">
+      <ul className="items-center justify-center hidden space-x-8 lg:flex">
+        <li>
+          <Link
+            to="/"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/shop"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+          >
+            Shop
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/livestream"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+          >
+            Live stream
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/2dgames"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+          >
+            2D games
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/playGames"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+          >
+            html gmaes
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/communityfeed"
+            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
+          >
+            Community
+          </Link>
+        </li>
+      </ul>
+    </div>
     </div>
   );
 };
