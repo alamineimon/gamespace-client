@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { GiBoltShield } from "react-icons/gi";
 import headerLogo from "../../../../assets/images/logo.png";
 import Button from "../../Button/Button";
 import "./NavbarTop.css";
@@ -7,108 +8,99 @@ import {
   FaFacebook,
   FaTwitter,
   FaPinterest,
-  FaGoogle,
-  FaGlobeAmericas,
+  FaGoogle
 } from "react-icons/fa";
+import { RxLockClosed } from "react-icons/rx";
+import { MdOutlineLogout } from "react-icons/md";
 import { AuthContext } from "../../../../context/AuthProvider";
 import ProfileDropDown from "../ProfileDropDown/ProfileDropDown";
+import { useSelector } from "react-redux";
+
 
 const NavbarTop = () => {
   const [open, setOpen] = useState(false);
   const { user } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  return (
-    <div className="px-4  lg:block mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bgTransparent">
-      <div className="relative flex items-center justify-between">
-        <Link
-          to="/"
-          aria-label="Games space"
-          title="Games space"
-          className="inline-flex items-center"
-        >
-        <p className="text-2xl text-white font-bold">Game Space</p>
-        </Link>
-        <ul className=" items-center hidden space-x-8 lg:flex">
-          <li>
-            <Link className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-              <div className="flex items-center gap-6 text-[#dedee2]">
-                <FaFacebook
-                  className="hover:text-yellow-600"
-                  title="Facebook"
-                />
-                <FaTwitter
-                  className="hover:text-yellow-600"
-                  title="Twitter"
-                ></FaTwitter>
-                <FaPinterest
-                  className="hover:text-yellow-600"
-                  title="Pinterest"
-                ></FaPinterest>
-                <FaGoogle
-                  className="hover:text-yellow-600"
-                  title="Google"
-                ></FaGoogle>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <div className="flex ml-6 items-center justify-center">
-              <FaGlobeAmericas
-                className="hover:text-yellow-600 text-xl text-white"
-                title="Google"
-              ></FaGlobeAmericas>
-              {/* <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="#dedee2"
-                className="w-6 h-6 mt-2 hover:bg-yellow-600 cursor-pointer"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25"
-                />
-              </svg> */}
 
-              <select className="bg-transparent text-xl cursor-pointer border-none text-[#dedee2] outline-none">
-                <option
-                  className="bg-[#1c1d55] hover:bg-yellow-600 cursor-pointer border-none text-xl"
-                  value=""
-                >
-                  Languages
-                </option>
-                <option
-                  className="bg-[#1c1d55] cursor-pointer border-none text-xl"
-                  value="Bangla"
-                >
-                  BN
-                </option>
-                <option
-                  className="bg-[#1c1d55] cursor-pointer border-none text-xl"
-                  value="English"
-                >
-                  ENG
-                </option>
-              </select>
-            </div>
-          </li>
-          {user?.uid ? (
-            <>
-              <div>
-                <div onClick={() => setOpen(!open)} className="user-pic">
-                  {user?.photoURL ? (
-                    <img className="h-12 rounded-full cursor-pointer" src={user?.photoURL} alt="" />
-                  ) : (
-                    <img className="h-12 rounded-full cursor-pointer"
-                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
-                      alt=""
-                    />
-                  )}
+  const { email } = useSelector((state) => state.auth)
+
+
+
+
+  return (
+    <div className="h-[80px] px-6 lg:block mx-auto sm:max-w-xl md:max-w-full lg:w-full   ">
+      <div className="relative flex pt-3 items-center justify-between">
+        {/* social icon  */}
+        <div className="hidden  lg:flex  items-center justify-center ">
+
+          <FaFacebook
+            className="hover:text-yellow-600 mr-3"
+            title="Facebook"
+          />
+          <FaTwitter
+            className="hover:text-yellow-600 mr-3"
+            title="Twitter"
+          ></FaTwitter>
+          <FaPinterest
+            className="hover:text-yellow-600 mr-3"
+            title="Pinterest"
+          ></FaPinterest>
+          <FaGoogle
+            className="hover:text-yellow-600"
+            title="Google"
+          ></FaGoogle>
+
+        </div>
+
+        {/* logo  */}
+        <div>
+          <Link
+            to="/"
+            aria-label="Games space"
+            title="Games space"
+            className="inline-flex items-center"
+          >
+            <div className="text-2xl text-white ">
+              <Link
+                to="/"
+                className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
+              >
+                <GiBoltShield
+                  className="lg:text-5xl"
+                />
+                <div className="text-white">
+                  <span
+                    className="font-gaming text-mainHeading"
+                  >
+                    Game Space
+                  </span>
+                  <span className="text-xs text-primary lg:block font-bold capitalize hidden ">
+                    Any Game, Any time, Any place
+                  </span>
                 </div>
-                {open && <ProfileDropDown></ProfileDropDown>}
-                {/* <div id="sub-menu-wrap">
+              </Link>
+            </div>
+          </Link>
+        </div>
+
+
+        <div>
+          <ul className=" items-center hidden space-x-8 lg:flex">
+            {email ? (
+              <>
+                <div>
+                  <div onClick={() => setOpen(!open)} className="user-pic">
+                    {user?.photoURL ? (
+                      <img className="h-12 rounded-full cursor-pointer" src={user?.photoURL} alt="" />
+                    ) : (
+                      <img className="h-12 rounded-full cursor-pointer"
+                        src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                        alt=""
+                      />
+                    )}
+                  </div>
+                  {open && <ProfileDropDown></ProfileDropDown>}
+                  {/* <div id="sub-menu-wrap">
                 <div className="sub-menu">
                   <div className="user-info">
                     <img
@@ -140,24 +132,40 @@ const NavbarTop = () => {
                   </p>
                 </div>
               </div> */}
-              </div>
-              {/* <li>
+                </div>
+                {/* <li>
               <button onClick={handleLogout}>LOGOUT</button>
             </li> */}
-            </>
-          ) : (
-            <li>
-            <Link
-              to="/login"
-              className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2"
-            >
-              Join
-            </Link>
-          </li>
-          )}
-        </ul>
+              </>
+            ) : (
+              <div className="lg:flex ">
+
+                <li>
+
+                  <Link
+                    to="/login"
+                    className="bg-yellow-600 flex justify-center items-center text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-5 py-2"
+                  >
+                    <MdOutlineLogout className="mr-2" />
+                    Sign In
+                  </Link>
+                </li>
+                <p className="mx-3">or</p>
+                <li>
+                  <Link
+                    to="/register"
+                    className="bg-yellow-600 flex justify-center items-center text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-5 py-2"
+                  >
+                    <RxLockClosed className="mr-2" />
+                    Sign Up
+                  </Link>
+                </li>
+              </div>
+            )}
+          </ul>
+        </div>
         <div className="lg:hidden">
-        {user?.uid ? (
+          {user?.uid ? (
             <>
               <div>
                 <div onClick={() => setOpen(!open)} className="user-pic">
@@ -210,13 +218,13 @@ const NavbarTop = () => {
             </>
           ) : (
             <li>
-            <Link
-              to="/login"
-              className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2"
-            >
-              Join
-            </Link>
-          </li>
+              <Link
+                to="/login"
+                className="bg-yellow-600 ml-16 text-white sm:mb-16 text-lg uppercase hover:text-white font-semibold px-8 py-2"
+              >
+                Join
+              </Link>
+            </li>
           )}
           {/* <button
             aria-label="Open Menu"
