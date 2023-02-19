@@ -97,7 +97,7 @@ const AddPost = ({ userinfo, postRefetch }) => {
     fileInputRef.current.click();
   };
   return (
-    <div className="bg-dashboardCards py-5 rounded-2xl font-rajdhani ">
+    <div className="bg-dashboardCards py-5 rounded-2xl font-rajdhani max-w-xl mx-auto ">
       <form onSubmit={handleSubmit(postSubmit)}>
         <div className="flex justify-between border-b pb-4 px-5 border-white/20">
           <div className="flex space-x-2 items-center">
@@ -134,7 +134,7 @@ const AddPost = ({ userinfo, postRefetch }) => {
         <div className="text-right">
           <textarea
             placeholder={`Hi ${name}! What's on your mind? `}
-            rows="4"
+            rows="1"
             className="w-full bg-transparent p-5 border-b border-white/20"
             {...register("postText", { required: true })}
           ></textarea>
