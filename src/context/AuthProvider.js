@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
     queryKey: ["profileUpdate", user?.email],
     queryFn: async () => {
       const { data } = await axios.get(
-        `http://localhost:9000/profileUpdate/${user?.email}`
+        `https://gamespace-server.vercel.app/profileUpdate/${user?.email}`
       );
       return data;
     },
@@ -70,15 +70,15 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     setUser(currentUser);
-  //     setLoading(false);
-  //   });
-  //   return () => {
-  //     unsubscribe();
-  //   };
-  // }, []);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const authInfo = {
     user,

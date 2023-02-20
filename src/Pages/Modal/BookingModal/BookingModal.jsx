@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const BookingModal = ({ gameDetails, refetch }) => {
   const { user } = useContext(AuthContext);
-  const { title, price , img} = gameDetails;
+  const { title, price, img } = gameDetails;
   const navigate = useNavigate();
 
   // const from = location.state?.from?.pathname || "/";
@@ -28,14 +28,14 @@ const BookingModal = ({ gameDetails, refetch }) => {
       price,
       location,
       mobile,
-      img
+      img,
     };
-    
-    fetch("http://localhost:9000/orderedGames", {
+
+    fetch("https://gamespace-server.vercel.app/orderedGames", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `bearer ${localStorage.getItem('accessToken')}`
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(orderedGames),
     })

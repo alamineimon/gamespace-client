@@ -59,12 +59,15 @@ const MyProfile = () => {
   });
   //handle like button
   const handleLike = (id) => {
-    fetch(`http://localhost:9000/posts/like/${id}?email=${user?.email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://gamespace-server.vercel.app/posts/like/${id}?email=${user?.email}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         postRefetch();

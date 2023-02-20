@@ -14,7 +14,7 @@ const CheckoutForBkash = ({ gamesData }) => {
     const postcode = form.postcode.value;
     const currency = form.currency.value;
 
-    const  date = new Date()  
+    const date = new Date();
 
     const order = {
       service: _id,
@@ -26,7 +26,7 @@ const CheckoutForBkash = ({ gamesData }) => {
       address,
       postcode,
       currency,
-      date
+      date,
     };
 
     // if(phone.length > 10){
@@ -36,7 +36,7 @@ const CheckoutForBkash = ({ gamesData }) => {
 
     // }
 
-    fetch("http://localhost:9000/bkashpayment", {
+    fetch("https://gamespace-server.vercel.app/bkashpayment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

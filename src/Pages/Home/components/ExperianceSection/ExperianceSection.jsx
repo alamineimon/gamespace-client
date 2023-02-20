@@ -12,7 +12,7 @@ const ExperianceSection = () => {
   const { data: players, isLoading } = useQuery({
     queryKey: ["players"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:9000/users");
+      const res = await fetch("https://gamespace-server.vercel.app/users");
       const data = await res.json();
       return data;
     },
@@ -41,7 +41,11 @@ const ExperianceSection = () => {
               theme === "dark" ? "text-white1" : "text-black1"
             }`}
           >
-            An example of successful teamwork is effective active listening skills. Maintaining eye contact when others are talking, having open and friendly body language, and responding appropriately to the questions and comments of others establishes a professional work environment and shows good teamwork.
+            An example of successful teamwork is effective active listening
+            skills. Maintaining eye contact when others are talking, having open
+            and friendly body language, and responding appropriately to the
+            questions and comments of others establishes a professional work
+            environment and shows good teamwork.
           </p>
         </div>
 

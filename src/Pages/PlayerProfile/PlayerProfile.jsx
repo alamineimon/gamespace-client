@@ -33,7 +33,7 @@ const PlayerProfile = () => {
   //handle like button
   const handleLike = (id) => {
     fetch(
-      `http://localhost:9000/posts/like/${id}?email=${currentUser?.email}`,
+      `https://gamespace-server.vercel.app/posts/like/${id}?email=${currentUser?.email}`,
       {
         method: "PUT",
         headers: {

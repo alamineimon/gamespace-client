@@ -40,7 +40,7 @@ const Dashboard = () => {
         <div className="drawer-content ">
           {/* <!-- Page content here --> */}
           <NavB></NavB>
-          <div>
+          <div className="bg-[#0e1015]">
             <Outlet></Outlet>
           </div>
         </div>

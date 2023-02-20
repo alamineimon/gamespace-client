@@ -11,7 +11,7 @@ const PopularGames = () => {
     queryKey: ["popularGames"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:9000/popularGames`
+        `https://gamespace-server.vercel.app/popularGames`
       );
       const data = await res.json();
       return data;

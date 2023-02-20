@@ -25,7 +25,6 @@ import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 
 const ProfileDetail = () => {
-
   const profileDetails = useLoaderData();
   const navigation = useNavigation();
   const { user } = useContext(AuthContext);
@@ -35,7 +34,7 @@ const ProfileDetail = () => {
       return navigate("/login");
     }
     const res = await fetch(
-      `http://localhost:9000/sendFriendRequest?from=${user?.email}&to=${profileDetails?.email}`,
+      `https://gamespace-server.vercel.app/sendFriendRequest?from=${user?.email}&to=${profileDetails?.email}`,
       {
         method: "PUT",
         headers: {

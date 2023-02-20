@@ -27,11 +27,11 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       displayName: user.displayName,
     };
 
-    fetch(`http://localhost:9000/comment`, {
+    fetch(`https://gamespace-server.vercel.app/comment`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `bearer ${localStorage.getItem('accessToken')}`
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(comment),
     })
@@ -53,7 +53,7 @@ const GameComment = ({ rightSideGame, detailsId }) => {
   } = useQuery({
     queryKey: ["comment"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:9000/comment");
+      const res = await fetch("https://gamespace-server.vercel.app/comment");
       const result = await res.json();
       const data = result.filter(
         (gameId) => gameId.gameDetailsId === detailsId || rightSideGame
@@ -66,12 +66,11 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       "Are you sure , you went to cancel this .Comment"
     );
     if (proceed) {
-      fetch(`http://localhost:9000/comment/${id}`, {
+      fetch(`https://gamespace-server.vercel.app/comment/${id}`, {
         method: "DELETE",
         headers: {
-          authorization: `bearer ${localStorage.getItem('accessToken')}`
-
-        }
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -93,15 +92,19 @@ const GameComment = ({ rightSideGame, detailsId }) => {
         <form onSubmit={handleSubmit(handelComment)}>
           <div className=" flex justify-center gap-3">
             <div className="w-16 ">
-              { !user?.photoURL ?
-               <img src="http://localhost:3000/static/media/gamingAvatar.62414f06fcf0dc8773f0.webp" className="w-full rounded-full border-4 border-orange-500" alt="" />
-               :
-               <img
-               src={user?.photoURL}
-               className="w-full rounded-full border-4 border-orange-500"
-               alt=""
-             />
-              }
+              {!user?.photoURL ? (
+                <img
+                  src="http://localhost:3000/static/media/gamingAvatar.62414f06fcf0dc8773f0.webp"
+                  className="w-full rounded-full border-4 border-orange-500"
+                  alt=""
+                />
+              ) : (
+                <img
+                  src={user?.photoURL}
+                  className="w-full rounded-full border-4 border-orange-500"
+                  alt=""
+                />
+              )}
             </div>
             <textarea
               type="textarea"
@@ -128,16 +131,19 @@ const GameComment = ({ rightSideGame, detailsId }) => {
           <div className=" space-y-2">
             <div className="flex flex-wrap items-center gap-2">
               <div className="w-8 h-8 ">
-                {comment?.photoURL ?
+                {comment?.photoURL ? (
                   <img
                     src={comment?.photoURL}
                     className="w-full rounded-full  border-1 border-orange-500"
                     alt=""
                   />
-                  :
-                  <img src="http://localhost:3000/static/media/gamingAvatar.62414f06fcf0dc8773f0.webp" className="w-full rounded-full  border-1 border-orange-500" alt="" />
-                }
-
+                ) : (
+                  <img
+                    src="http://localhost:3000/static/media/gamingAvatar.62414f06fcf0dc8773f0.webp"
+                    className="w-full rounded-full  border-1 border-orange-500"
+                    alt=""
+                  />
+                )}
               </div>
               <h6 className="text-sm font-semibold">{comment?.displayName}</h6>
             </div>

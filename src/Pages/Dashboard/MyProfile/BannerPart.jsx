@@ -13,7 +13,7 @@ const BannerPart = ({ userinfo, posts, setEditProfile }) => {
   const { name, email } = userinfo;
   const { user } = useContext(AuthContext);
   return (
-    <div className=" bg-dashboardCards rounded-2xl font-rajdhani col-span-4 relative">
+    <div className=" bg-dashboardCards rounded-2xl font-rajdhani col-span-4 relative border-l border-t border-white/20 ">
       <div className="relative">
         <img
           src="https://i.ibb.co/85dmt1X/profilebg3.webp"

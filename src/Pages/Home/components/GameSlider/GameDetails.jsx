@@ -21,20 +21,18 @@ const GameDetails = () => {
     description,
     price,
     img,
-    videolink
+    videolink,
   } = gameDetails;
 
-  const {
-    data: showAllGame,
-    refetch,
-  } = useQuery({
+  const { data: showAllGame, refetch } = useQuery({
     queryKey: ["downloadGames"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:9000/downloadGames", {
+        "https://gamespace-server.vercel.app/downloadGames",
+        {
           headers: {
-            authorization: `bearer ${localStorage.getItem('accessToken')}`
-          }
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
         }
       );
       const data = await res.json();
@@ -42,8 +40,6 @@ const GameDetails = () => {
       return data;
     },
   });
-
-  
 
   return (
     <div className="text-white">

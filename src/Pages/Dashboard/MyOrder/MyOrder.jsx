@@ -9,7 +9,7 @@ import Title2 from "../../Shared/DashTitle/Title2";
 const MyOrder = (props) => {
   const { user } = useContext(AuthContext);
   const [deleteProduct, setDeleteProduct] = useState(null);
-  const url = `http://localhost:9000/orderedGames?email=${user?.email}`;
+  const url = `https://gamespace-server.vercel.app/orderedGames?email=${user?.email}`;
   const {
     data: orderedGames = [],
     refetch,
@@ -28,11 +28,11 @@ const MyOrder = (props) => {
   };
 
   const handleDelete = (product) => {
-    fetch(`http://localhost:9000/orderedGames/${product._id}`, {
+    fetch(`https://gamespace-server.vercel.app/orderedGames/${product._id}`, {
       method: "DELETE",
-        headers: {
-          authorization: `bearer ${localStorage.getItem('accessToken')}`
-        }
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -47,7 +47,6 @@ const MyOrder = (props) => {
   //   return <Spinner></Spinner>;
   // }
   return (
-
     <div className="mx-auto w-11/12 py-10">
       <Title2 colored={"Order"}>My</Title2>
       <div className="overflow-x-auto">
