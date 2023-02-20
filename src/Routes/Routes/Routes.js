@@ -57,7 +57,9 @@ const router = createBrowserRouter([
         element: <GameDetails></GameDetails>,
 
         loader: ({ params }) =>
-          fetch(`http://localhost:9000/downloadGames/${params.id}`),
+          fetch(
+            `https://gamespace-server.vercel.app/downloadGames/${params.id}`
+          ),
       },
       {
         path: "/playGames",
@@ -66,7 +68,7 @@ const router = createBrowserRouter([
       {
         path: "/gameshtml/:id",
         loader: async ({ params }) =>
-          fetch(`http://localhost:9000/playGames/${params.id}`),
+          fetch(`https://gamespace-server.vercel.app/playGames/${params.id}`),
         element: <PlayGamesSingle />,
       },
       {
@@ -76,7 +78,7 @@ const router = createBrowserRouter([
       {
         path: "/users/:id",
         loader: async ({ params }) =>
-          fetch(`http://localhost:9000/users/${params.id}`),
+          fetch(`https://gamespace-server.vercel.app/users/${params.id}`),
         element: <ProfileDetail />,
       },
       {
@@ -122,7 +124,9 @@ const router = createBrowserRouter([
       {
         path: "/playerProfile/:playerEmail",
         loader: async ({ params }) =>
-          fetch(`http://localhost:9000/playerprofile/${params.playerEmail}`),
+          fetch(
+            `https://gamespace-server.vercel.app/playerprofile/${params.playerEmail}`
+          ),
         element: <PlayerProfile />,
       },
     ],
@@ -176,7 +180,9 @@ const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment />,
         loader: ({ params }) =>
-          fetch(`http://localhost:9000/orderedGames/${params.id}`),
+          fetch(
+            `https://gamespace-server.vercel.app/orderedGames/${params.id}`
+          ),
       },
     ],
   },

@@ -3,14 +3,18 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import Loader from "../../Shared/Loader/Loader";
 import DeleteModal from "./DeleteModal";
-import { AiFillPlusCircle, AiFillRightCircle, AiFillDelete } from "react-icons/ai";
+import {
+  AiFillPlusCircle,
+  AiFillRightCircle,
+  AiFillDelete,
+} from "react-icons/ai";
 
 import { Link } from "react-router-dom";
 
 const AllUsers = () => {
   const [deleteUser, setDeleteUser] = useState(null);
   const [arrow, setArrow] = useState(true);
-  console.log(arrow);
+
   const closeModal = () => {
     setDeleteUser(null);
   };
@@ -21,29 +25,32 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:9000/users", {
+      const res = await fetch("https://gamespace-server.vercel.app/users", {
         headers: {
-          authorization: `bearer ${localStorage.getItem('accessToken')}`
-        }
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
       });
+
       const data = await res.json();
+      console.log(data);
       return data;
     },
   });
 
-  const { data: removedUsers } = useQuery({
-    queryKey: ["removedUsers"],
-    queryFn: async () => {
-      const res = await fetch(`http://localhost:9000/removedUsers`);
-      const data = await res.json();
-      return data;
-    },
-  });
+  // const { data: removedUsers } = useQuery({
+  //   queryKey: ["removedUsers"],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       `https://gamespace-server.vercel.app/removedUsers`
+  //     );
+  //     const data = await res.json();
+  //     return data;
+  //   },
+  // });
 
   const handleMakeAdmin = (id) => {
-    fetch(`http://localhost:9000/users/admin/${id}`, {
+    fetch(`https://gamespace-server.vercel.app/users/admin/${id}`, {
       method: "PUT",
-     
     })
       .then((res) => res.json())
       .then((data) => {
@@ -55,12 +62,11 @@ const AllUsers = () => {
   };
 
   const handleDelete = (userInfo) => {
-    fetch(`http://localhost:9000/delete/${userInfo._id}`, {
+    fetch(`https://gamespace-server.vercel.app/delete/${userInfo._id}`, {
       method: "DELETE",
       headers: {
-        authorization: `bearer ${localStorage.getItem('accessToken')}`
-      }
-     
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -68,7 +74,7 @@ const AllUsers = () => {
         refetch();
       });
 
-    fetch(`http://localhost:9000/removedUser`, {
+    fetch(`https://gamespace-server.vercel.app/removedUser`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -84,7 +90,6 @@ const AllUsers = () => {
     return <Loader />;
   }
   return (
-
     <div className="w-11/12 mx-auto py-10">
       <Link to="/register" className="flex items-center mt-3 mb-5 ml-3">
         <AiFillPlusCircle className="text-green-400 text-3xl mr-2"></AiFillPlusCircle>
@@ -101,19 +106,19 @@ const AllUsers = () => {
           </tr>
         </thead>
         <tbody>
-          {userInformations.map((userInformation, i) => (
+          {userInformations?.map((userInformation, i) => (
             <tr key={i} className="hover:bg-base-100">
               <th>
                 {userInformation.role !== "admin" && (
                   <input
-                    onClick={() => handleMakeAdmin(userInformation._id)}
+                    onClick={() => handleMakeAdmin(userInformation?._id)}
                     type="checkbox"
                     className="checkbox border border-yellow-300"
                   />
                 )}
               </th>
               <td>
-                {userInformation.photoURL ? (
+                {userInformation?.photoURL ? (
                   <div className="flex items-center">
                     <div className="avatar mr-2">
                       <div className="w-12 rounded-full">
@@ -174,57 +179,64 @@ const AllUsers = () => {
 
           <CgChevronRightO className="text-white text-3xl mr-2 swap-on fill-current"></CgChevronRightO>
         </label> */}
-        <button><AiFillRightCircle className={`text-3xl mr-2 transition-transform ${arrow ? "rotate-90" : ""}`} onClick={() => setArrow(!arrow)}></AiFillRightCircle></button>
-        <p className="text-primary text-xl">Removed User</p>
+        {/* <button>
+          <AiFillRightCircle
+            className={`text-3xl mr-2 transition-transform ${
+              arrow ? "rotate-90" : ""
+            }`}
+            onClick={() => setArrow(!arrow)}
+          ></AiFillRightCircle>
+        </button>
+        <p className="text-primary text-xl">Removed User</p> */}
         {/*  */}
       </div>
-      {
-        arrow &&       <table className={`table w-full `}>
-        <tbody>
-          {removedUsers.map((removedUser, i) => (
-            <tr key={i} className="hover:bg-base-100">
-              <th>
-                <p>{i + 1}</p>
-              </th>
-              <td>
-                {removedUser.photoURL ? (
-                  <div className="flex items-center">
-                    <div className="avatar mr-2">
-                      <div className="w-12 rounded-full">
-                        <img src={removedUser.photoURL} alt="" />
+      {/* {arrow && (
+        <table className={`table w-full `}>
+          <tbody>
+            {removedUsers?.map((removedUser, i) => (
+              <tr key={i} className="hover:bg-base-100">
+                <th>
+                  <p>{i + 1}</p>
+                </th>
+                <td>
+                  {removedUser.photoURL ? (
+                    <div className="flex items-center">
+                      <div className="avatar mr-2">
+                        <div className="w-12 rounded-full">
+                          <img src={removedUser.photoURL} alt="" />
+                        </div>
                       </div>
+                      <div className="text-white">{removedUser.name}</div>
                     </div>
-                    <div className="text-white">{removedUser.name}</div>
-                  </div>
-                ) : (
-                  <div className="flex items-center">
-                    <div className="avatar placeholder mr-2">
-                      <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
-                        <span className="text-3xl">
-                          {removedUser.name.slice(0, 1)}
-                        </span>
+                  ) : (
+                    <div className="flex items-center">
+                      <div className="avatar placeholder mr-2">
+                        <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                          <span className="text-3xl">
+                            {removedUser.name.slice(0, 1)}
+                          </span>
+                        </div>
                       </div>
+                      <p className="text-white">{removedUser.name}</p>
                     </div>
-                    <p className="text-white">{removedUser.name}</p>
-                  </div>
-                )}
-              </td>
-              <td className="underline text-white">
-                <a
-                  className="hover:text-blue-400"
-                  href={`mailto:${removedUser.email}`}
-                >
-                  {removedUser.email}
-                </a>
-              </td>
-              <td className="text-white">
-                {removedUser.role === "admin" ? "Admin" : "Buyer"}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      }
+                  )}
+                </td>
+                <td className="underline text-white">
+                  <a
+                    className="hover:text-blue-400"
+                    href={`mailto:${removedUser.email}`}
+                  >
+                    {removedUser.email}
+                  </a>
+                </td>
+                <td className="text-white">
+                  {removedUser.role === "admin" ? "Admin" : "Buyer"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )} */}
     </div>
   );
 };
