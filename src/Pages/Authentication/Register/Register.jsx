@@ -11,8 +11,10 @@ import "./Register.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser, googleSingIn } from "../../../slice/auth/authSlice";
 import useToken from "../../../Hooks/useToken/useToken";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Register = () => {
+  const { googleSignin, updateUser } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
@@ -38,60 +40,60 @@ const Register = () => {
     dispatch(createUser({ email, password }));
   };
 
+  // const handlerGoogleSignin = () => {
+  //   dispatch(googleSingIn());
+  // };
+
   const handlerGoogleSignin = () => {
-    dispatch(googleSingIn());
+    googleSignin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        const userInfo = {
+          name: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+        };
+        updateUser(userInfo)
+          .then(() => {
+            if (userInfo.email) {
+              fetch(`https://gamespace-server.vercel.app/users`)
+                .then((data) => data.json())
+                .then((result) => {
+                  const userEmail = result.find(
+                    (userEmail) => userEmail.email === userInfo.email
+                  );
+                  if (!userEmail) {
+                    saveUser(userInfo.name, userInfo.email, userInfo.photoURL);
+                    toast.success("Login Successfully");
+                  } else {
+                    navigate(from, { replace: true });
+                    alert("alrady User Create");
+                  }
+                });
+            }
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
   };
 
-  // const handlerGoogleSignin = () => {
-  //   googleSignin()
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log(user);
-  //       const userInfo = {
-  //         name: user.displayName,
-  //         email: user.email,
-  //         photoURL: user.photoURL,
-  //       };
-  //       updateUser(userInfo)
-  //         .then(() => {
-  //           if (userInfo.email) {
-  //             fetch(`https://gamespace-server.vercel.app/users`)
-  //               .then((data) => data.json())
-  //               .then((result) => {
-  //                 const userEmail = result.find(
-  //                   (userEmail) => userEmail.email === userInfo.email
-  //                 );
-  //                 if (!userEmail) {
-  //                   saveUser(userInfo.name, userInfo.email, userInfo.photoURL);
-  //                   toast.success("Login Successfully");
-  //                 } else {
-  //                   navigate(from, { replace: true });
-  //                   alert("alrady User Create");
-  //                 }
-  //               });
-  //           }
-  //         })
-  //         .catch((err) => console.log(err));
-  //     })
-  //     .catch((error) => {
-  //       console.error(error.message);
-  //     });
-  // };
-
-  // const saveUser = (name, email, photoURL) => {
-  //   const user = { name, email, photoURL };
-  //   fetch("https://gamespace-server.vercel.app/user", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setCeateUserEmail(email);
-  //     });
-  // };
+  const saveUser = (name, email, photoURL) => {
+    const user = { name, email, photoURL };
+    fetch("https://gamespace-server.vercel.app/user", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCeateUserEmail(email);
+      });
+  };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
