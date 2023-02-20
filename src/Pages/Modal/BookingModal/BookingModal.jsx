@@ -4,8 +4,8 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const BookingModal = ({ gameDetails, refetch }) => {
-  const { user } = useContext(AuthContext);
-  const { title, price, img } = gameDetails;
+  const { user, userinfo } = useContext(AuthContext);
+  const { title, price, img, gameDownload } = gameDetails;
   const navigate = useNavigate();
 
   // const from = location.state?.from?.pathname || "/";
@@ -19,8 +19,6 @@ const BookingModal = ({ gameDetails, refetch }) => {
     const price = form.Price.value;
     const mobile = form.mobile.value;
     const location = form.location.value;
-    // console.log(name, price, email, productName, mobile, location);
-
     const orderedGames = {
       name,
       email,
@@ -29,8 +27,8 @@ const BookingModal = ({ gameDetails, refetch }) => {
       location,
       mobile,
       img,
+      gameDownload,
     };
-
     fetch("https://gamespace-server.vercel.app/orderedGames", {
       method: "POST",
       headers: {
@@ -66,7 +64,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
           >
             <input
               disabled
-              defaultValue={user?.displayName}
+              defaultValue={userinfo?.name}
               name="username"
               type="text"
               placeholder="Your Name"
@@ -74,7 +72,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
             />
             <input
               disabled
-              defaultValue={user?.email}
+              defaultValue={userinfo?.email}
               name="email"
               type="email"
               placeholder="Email Address"
