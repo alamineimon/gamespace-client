@@ -79,7 +79,7 @@ const MyProfile = () => {
   }
   return (
     <>
-      <section className=" max-w-7xl mx-auto grid grid-cols-4 gap-5 p-10 ">
+      <section className=" lg:max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5 p-10 ">
         <BannerPart
           userinfo={userinfo}
           posts={posts}
@@ -88,7 +88,7 @@ const MyProfile = () => {
         <div>
           <AboutMe userinfo={userinfo} />
         </div>
-        <div className="col-span-2 space-y-5">
+        <div className="lg:col-span-2 space-y-5">
           <AddPost userinfo={userinfo} postRefetch={postRefetch} />
           {posts ? (
             posts.map((post, i) => {
