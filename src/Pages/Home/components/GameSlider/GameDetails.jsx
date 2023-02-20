@@ -89,9 +89,7 @@ const GameDetails = () => {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
-                {/* download button */}
                 <div>
-                  {/* The button to open modal */}
                   <label
                     htmlFor="bookingModal"
                     className="py-3 hover:translate-y-1 text-white  relative px-5 rounded-none font-bold bg-yellow-500 uppercase cursor-pointer "

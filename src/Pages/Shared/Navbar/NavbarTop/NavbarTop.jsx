@@ -102,7 +102,7 @@ const NavbarTop = ({ defaultAvtar }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="h-[140px] lg:block mx-auto sm:max-w-xl md:max-w-full lg:w-full   ">
+    <div className=" lg:block mx-auto sm:max-w-xl md:max-w-full lg:w-full   ">
       <div
         className={` sm:py-2 ${
           theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
@@ -201,15 +201,15 @@ const NavbarTop = ({ defaultAvtar }) => {
               <>
                 <Link
                   to="/login"
-                  className="btn btn-primary btn-xs md:btn-sm mr-4 text-white font-bold rounded-none"
+                  className="btn btn-primary btn-xs md:btn-sm mr-4 text-secondary font-bold rounded-none"
                 >
                   {" "}
                   <MdOutlineLogout className="mr-2" />
                   Sign In
                 </Link>
                 <Link
-                  to="/login"
-                  className="btn btn-primary btn-xs md:btn-sm text-white font-bold rounded-none"
+                  to="/register"
+                  className="btn btn-primary btn-xs md:btn-sm text-secondary font-bold rounded-none"
                 >
                   <RxLockClosed className="mr-2" />
                   Sign Up
@@ -337,8 +337,8 @@ const NavbarTop = ({ defaultAvtar }) => {
         </div>
       </div>
       {/* nav bottom */}
-      <div className="navbarBottomBG flex items-center justify-center">
-        <ul className="items-center justify-center hidden space-x-8 lg:flex">
+      <div className="navbarBottomBG flex items-center justify-center w-full mx-auto text-white z-40 py-3 ">
+        <ul className="items-center justify-center hidden space-x-8 lg:flex ">
           <li>
             <Link
               to="/"
