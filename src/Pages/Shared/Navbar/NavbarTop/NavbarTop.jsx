@@ -102,7 +102,7 @@ const NavbarTop = ({ defaultAvtar }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className=" lg:block mx-auto sm:max-w-xl md:max-w-full lg:w-full   ">
+    <div className=" lg:block mx-auto  md:max-w-full lg:w-full   ">
       <div
         className={` sm:py-2 ${
           theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
@@ -133,22 +133,49 @@ const NavbarTop = ({ defaultAvtar }) => {
             </div>
             {/* social media icons */}
             <div className="hidden  lg:flex  items-center justify-center ">
-              <AiOutlineFacebook
-                className="text-primary hover:text-white mr-3"
-                title="Facebook"
-              />
-              <AiFillTwitterSquare
-                className="text-primary hover:text-white mr-3"
-                title="Twitter"
-              />
-              <FaPinterestSquare
-                className="text-primary hover:text-white mr-3"
-                title="Pinterest"
-              />
-              <AiFillGoogleSquare
-                className="text-primary hover:text-white"
-                title="Google"
-              />
+              <a
+                href="https://www.facebook.com/GameSpace7777/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {" "}
+                <AiOutlineFacebook
+                  className="text-primary hover:text-white mr-3"
+                  title="Facebook"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/GameSpace7777/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {" "}
+                <AiFillTwitterSquare
+                  className="text-primary hover:text-white mr-3"
+                  title="Twitter"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/GameSpace7777/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaPinterestSquare
+                  className="text-primary hover:text-white mr-3"
+                  title="Pinterest"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/GameSpace7777/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {" "}
+                <AiFillGoogleSquare
+                  className="text-primary hover:text-white"
+                  title="Google"
+                />
+              </a>
             </div>
             {/* <Link
             to="/"
@@ -337,7 +364,7 @@ const NavbarTop = ({ defaultAvtar }) => {
         </div>
       </div>
       {/* nav bottom */}
-      <div className="navbarBottomBG flex items-center justify-center w-full mx-auto text-white z-40 py-3 ">
+      <div className="navbarBottomBG items-center justify-center w-full mx-auto text-white z-40 py-3 hidden lg:flex">
         <ul className="items-center justify-center hidden space-x-8 lg:flex ">
           <li>
             <Link

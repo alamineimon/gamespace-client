@@ -71,11 +71,11 @@ const CommunityFeed = () => {
   }
   return (
     <section className="bg-[#0e1015]">
-      <div className="w-11/12 mx-auto py-10 grid lg:grid-cols-4 gap-5">
-        <div>
+      <div className="w-11/12 mx-auto py-10 grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="">
           <TrendingGames />
         </div>
-        <div className="col-span-2 space-y-5">
+        <div className="lg:col-span-2 space-y-5">
           <AddPost userinfo={userinfo} postRefetch={postRefetch} />
           {allposts ? (
             allposts?.map((post, i) => {

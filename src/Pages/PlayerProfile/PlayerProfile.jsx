@@ -59,13 +59,13 @@ const PlayerProfile = () => {
     return <Loader />;
   }
   return (
-    <>
-      <section className=" max-w-7xl mx-auto grid grid-cols-4 gap-5 p-10 ">
+    <section className="bg-[#0e1015] ">
+      <div className=" max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-5 p-10 ">
         <BannerPart userinfo={user} posts={posts} setEditProfile={""} />
         <div>
           <AboutMe userinfo={user} />
         </div>
-        <div className="col-span-2 space-y-5">
+        <div className="lg:col-span-2 space-y-5">
           {posts ? (
             posts.map((post, i) => {
               return (
@@ -85,7 +85,7 @@ const PlayerProfile = () => {
         <div className="space-y-5">
           <FriendList friends={friends} />
         </div>
-      </section>
+      </div>
       {currentPost && (
         <CommentModal
           currentPost={currentPost}
@@ -95,7 +95,7 @@ const PlayerProfile = () => {
           postRefetch={postRefetch}
         />
       )}
-    </>
+    </section>
   );
 };
 
