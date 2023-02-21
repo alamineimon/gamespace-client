@@ -1,0 +1,25 @@
+.GameStats {
+    position: absolute;
+    width: 10vw;
+    list-style-type: none;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .GameStats__left {
+    left: 8em;
+    top: 10vh;
+    text-align: left;
+  }
+  
+  .GameStats__right {
+    left: 3em;
+    bottom: 10vh;
+    text-align: left;
+  }
+  
+  .GameStats .val ue {
+    font-size: 12px;
+    margin-bottom: 0.5em;
+    color: rgba(255, 255, 255, 1);
+  }
+  
