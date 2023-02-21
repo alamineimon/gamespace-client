@@ -1,60 +1,67 @@
 import React from "react";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../Hooks/useTitle/useTitle";
 import "./TwoDGames.css";
+import TwoDGamesHeader from "./TwoDGamesHeader";
 
 const TwoDGmaes = () => {
-  const { theme } = useContext(AuthContext);
-
+  useTitle("2D-Games")
   return (
-    <div>
-      <div className={`lg:h-[500px] py-5 grid md:grid-cols-2 sm:grid-cols-1 grid-cols-3 justify-evenly lg:items-center  ${theme === "dark" ? "bg-bg1" : "bg-gray"}`}>
-        <div className="CandyCrash w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
-          <p className="text-3xl mb-6 text-white uppercase font-bold">
-            Candy Crush
-          </p>
-          <Link
-            to="/candycrash"
-            htmlFor="booking-modal"
-            className="px-6 py-3 hover:text-white text-black bg-primary rounded-none"> Play Now</Link>
+    <section>
+      <TwoDGamesHeader />
+      <div className="bg-black1 py-5 lg:py-10">
+        <div
+          className={`py-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 justify-evenly lg:items-center w-11/12 mx-auto gap-5 lg:gap-10 `}
+        >
+          <div className="CandyCrash w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group ">
+            <p className="text-3xl text-white uppercase font-bold group-hover:-translate-y-8 transition-transform z-10">
+              Candy Crush
+            </p>
+            <Link
+              to="/candycrash"
+              htmlFor="booking-modal"
+              className="btn btn-primary font-bold rounded-none absolute opacity-0 group-hover:opacity-100 translate-y-0 group-hover:translate-y-8 transition-transform"
+            >
+              {" "}
+              Play Now
+            </Link>
+          </div>
+          <div className="ticyactoe  w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group">
+            <p className="text-3xl text-white uppercase font-bold group-hover:-translate-y-8 transition-transform z-10">
+              Tic Tac Toe
+            </p>
+            <Link
+              to="/tikTakToe"
+              className=" btn btn-primary font-bold rounded-none absolute opacity-0 group-hover:opacity-100 translate-y-0 group-hover:translate-y-8 transition-transform"
+            >
+              Play Now
+            </Link>
+          </div>
+          <div className="CardsFlip w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group">
+            <p className="text-3xl text-white uppercase font-bold group-hover:-translate-y-8 transition-transform z-10">
+              Cards Flip
+            </p>
+            <Link
+              to="/memory"
+              className=" btn btn-primary font-bold rounded-none absolute opacity-0 group-hover:opacity-100 translate-y-0 group-hover:translate-y-8 transition-transform"
+            >
+              Play Now
+            </Link>
+          </div>
+          <div className="flappy w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group">
+            <p className="text-3xl text-white uppercase font-bold group-hover:-translate-y-8 transition-transform z-10">
+              flappy Bird
+            </p>
+            <Link
+              to="/flappy"
+              className=" btn btn-primary font-bold rounded-none absolute opacity-0 group-hover:opacity-100 translate-y-0 group-hover:translate-y-8 transition-transform"
+            >
+              Play Now
+            </Link>
+          </div>
         </div>
-        <div className="ticyactoe  w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
-          <p className="text-3xl mb-6 text-white uppercase font-bold">
-            Tic Tac Toe
-          </p>
-          <Link
-            to="/tikTakToe"
-            className=" px-6 py-3 hover:text-white text-black bg-primary rounded-none"
-          >
-            Play Now
-          </Link>
-        </div>
-        <div className="CardsFlip w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
-          <p className="text-3xl mb-6 text-white uppercase font-bold">
-            Cards Flip
-          </p>
-          <Link
-            to="/memory"
-            className=" px-6 py-3 hover:text-white text-black bg-primary rounded-none"
-          >
-            Play Now
-          </Link>
-        </div>
-        <div className="flappy w-96 m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full">
-          <p className="text-3xl mb-6 text-white uppercase font-bold">
-            flappy Bird
-          </p>
-          <Link
-            to="/flappy"
-            className=" px-6 py-3 hover:text-white text-black bg-primary rounded-none"
-          >
-            Play Now
-          </Link>
-        </div>
-
       </div>
-    </div>
+    </section>
   );
 };
 

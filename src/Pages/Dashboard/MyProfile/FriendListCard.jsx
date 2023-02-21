@@ -14,7 +14,7 @@ const FriendListCard = ({ friend }) => {
     navigate(`/playerProfile/${email}`);
   };
   return (
-    <div className="flex space-x-3 ">
+    <div className="flex space-x-3  ">
       <div className="w-14">
         <img
           src={photoURL ? photoURL : defaultAvtar}

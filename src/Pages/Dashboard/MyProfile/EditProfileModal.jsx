@@ -34,13 +34,16 @@ const EditProfileModal = ({ userRefetch, userinfo, setEditProfile }) => {
             photoURL: imgbb.data.url,
           };
 
-          fetch(`http://localhost:9000/profileUpdate/${userinfo?._id}`, {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(profile),
-          })
+          fetch(
+            `https://gamespace-server.vercel.app/profileUpdate/${userinfo?._id}`,
+            {
+              method: "PATCH",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(profile),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               console.log(result);

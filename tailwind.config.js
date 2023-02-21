@@ -26,8 +26,8 @@ module.exports = {
         white1: "#fff",
         sai: "#BBD0EC",
         gray: "#D0D3D8",
-        dashboardCards: "#172e44",
-        // dashboardCards: "#141320",
+
+        dashboardCards: "#212D4A60",
       },
       backgroundImage: {
         html5banner:

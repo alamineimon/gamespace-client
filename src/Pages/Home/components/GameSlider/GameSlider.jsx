@@ -6,15 +6,19 @@ import { CgGames } from "react-icons/cg";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { AuthContext } from "../../../../context/AuthProvider";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 import Loader from "../../../Shared/Loader/Loader";
 import GamesCards from "./GamesCards";
 
 const GameSlider = () => {
   const { theme } = useContext(AuthContext);
+  useTitle('Shop');
   const { data: games, isLoading } = useQuery({
     queryKey: ["downloadGames"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:9000/downloadGames`);
+      const res = await fetch(
+        `https://gamespace-server.vercel.app/downloadGames`
+      );
       const data = await res.json();
       return data;
     },
@@ -25,8 +29,9 @@ const GameSlider = () => {
 
   return (
     <div
-      className={`bg-base-100 z-0 ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
-        }`}
+      className={`bg-base-100 z-0 ${
+        theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
+      }`}
     >
       <div className=" w-[90%] mx-auto py-16">
         <div className="flex justify-center">

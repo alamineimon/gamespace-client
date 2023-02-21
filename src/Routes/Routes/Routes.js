@@ -70,10 +70,6 @@ const router = createBrowserRouter([
         element: <PlayGamesSingle />,
       },
       {
-        path: "/profile",
-        element: <ProfilePage />,
-      },
-      {
         path: "/users/:id",
         loader: async ({ params }) =>
           fetch(`http://localhost:9000/users/${params.id}`),

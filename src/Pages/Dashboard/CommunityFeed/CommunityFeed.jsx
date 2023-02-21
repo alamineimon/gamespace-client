@@ -52,12 +52,15 @@ const CommunityFeed = () => {
   });
 
   const handleLike = (id) => {
-    fetch(`http://localhost:9000/posts/like/${id}?email=${user?.email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://gamespace-server.vercel.app/posts/like/${id}?email=${user?.email}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         postRefetch();
@@ -67,12 +70,12 @@ const CommunityFeed = () => {
     return <Loader />;
   }
   return (
-    <section>
-      <div className="w-11/12 mx-auto py-10 grid lg:grid-cols-4 gap-5">
-        <div>
+    <section className="bg-[#0e1015]">
+      <div className="w-11/12 mx-auto py-10 grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="">
           <TrendingGames />
         </div>
-        <div className="col-span-2 space-y-5">
+        <div className="lg:col-span-2 space-y-5">
           <AddPost userinfo={userinfo} postRefetch={postRefetch} />
           {allposts ? (
             allposts?.map((post, i) => {

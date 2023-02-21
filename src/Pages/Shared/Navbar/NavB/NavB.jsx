@@ -10,13 +10,9 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 
-
-
 const NavB = ({ defaultAvtar }) => {
-
-  const { email } = useSelector((state) => state.auth)
-
-
+  const { email } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const { theme, setTheme, userinfo } = useContext(AuthContext);
   const location = useLocation();
   let currentPath = location.pathname.split("/")[1];
@@ -34,9 +30,6 @@ const NavB = ({ defaultAvtar }) => {
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
-
-  
-
 
   let activeClassName =
     "bg-primary lg:border-4 text-secondary lg:border-primary lg:bg-primary lg:text-neutral rounded-sm lg:px-5 py-2 lg:hover:text-neutral text-sm ";
@@ -69,8 +62,9 @@ const NavB = ({ defaultAvtar }) => {
   );
   return (
     <div
-      className={`py-1 sm:py-2 ${theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
-        }`}
+      className={`py-1 min-h-[8vh] sm:py-2 ${
+        theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
+      }`}
     >
       <div id="mainmenu" className={"navbar w-11/12 mx-auto px-0"}>
         <div className="navbar-start">
@@ -100,8 +94,9 @@ const NavB = ({ defaultAvtar }) => {
             className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
           >
             <GiBoltShield
-              className={`text-2xl md:text-5xl text-white ${theme === "light" && "text-black"
-                }`}
+              className={`text-2xl md:text-5xl text-white ${
+                theme === "light" && "text-black"
+              }`}
             />
             <div className="text-white">
               <span
@@ -154,9 +149,7 @@ const NavB = ({ defaultAvtar }) => {
                 <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
               </svg>
             </label>
-
           }
-
         </div>
       </div>
     </div>
