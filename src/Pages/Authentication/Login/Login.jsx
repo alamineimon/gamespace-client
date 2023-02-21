@@ -8,6 +8,8 @@ import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Login.css";
 import { useDispatch } from "react-redux";
+import { googleSingIn, loginUser } from "../../../slice/auth/authSlice";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import { loginUser } from "../../../slice/auth/authSlice";
 import { useSelector } from "react-redux";
 import useTitle from "../../../Hooks/useTitle/useTitle";
