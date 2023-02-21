@@ -38,8 +38,8 @@ const Register = () => {
     navigate(from, { replace: true });
   }
 
-  const handelSignUp = ({ email, password }) => {
-    dispatch(createUser({ email, password }));
+  const handelSignUp = ({ email, password, name }) => {
+    dispatch(createUser({ email, password, name }));
   };
 
   // const handlerGoogleSignin = () => {
@@ -50,7 +50,6 @@ const Register = () => {
     googleSignin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
         const userInfo = {
           name: user.displayName,
           email: user.email,
