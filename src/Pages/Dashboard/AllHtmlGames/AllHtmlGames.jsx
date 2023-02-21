@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import ConfirmationModal from "../../Modal/ConfirmationModal/ConfirmationModal";
 import UpdateHtmlGame from "../../Modal/UpdateHtmlGame/UpdateHtmlGame";
 import Title2 from "../../Shared/DashTitle/Title2";
@@ -8,6 +9,7 @@ import Loader from "../../Shared/Loader/Loader";
 import HtmlCards from "./HtmlCards";
 
 const AllHtmlGames = () => {
+  useTitle('All HTML Games')
   const [currentGame, setCurrentGame] = useState("");
   const {
     data: htmlgames,

@@ -3,10 +3,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaPlus } from "react-icons/fa";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import Title2 from "../../Shared/DashTitle/Title2";
 import Loader from "../../Shared/Loader/Loader";
 
 const AddHtmlGames = () => {
+  useTitle("Add HTML Games")
   const { data: categories, isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
