@@ -19,8 +19,6 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [userinfo, setUserinfo] = useState({});
-  const [theme, setTheme] = useState("dark");
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -76,11 +74,9 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
-    theme,
     userinfo,
     userLoading,
     userRefetch,
-    setTheme,
     createUser,
     googleSignin,
     loading,

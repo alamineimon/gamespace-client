@@ -6,7 +6,6 @@ import { AuthContext } from "../../../../context/AuthProvider";
 import Loader from "../../../Shared/Loader/Loader";
 import PopularGamesCards from "./PopularGamesCards";
 const PopularGames = () => {
-  const { theme } = useContext(AuthContext);
   const { data: games, isLoading } = useQuery({
     queryKey: ["popularGames"],
     queryFn: async () => {
@@ -27,9 +26,7 @@ const PopularGames = () => {
           <FiTrendingUp className="text-6xl text-primary" />
         </div>
         <h1 className="text-2xl lg:text-4xl text-mainHeading font-bold uppercase mb-5 text-center">
-          <span
-            className={`${theme === "dark" ? "text-white1" : "text-black1"}`}
-          >
+          <span>
             Popular
           </span>{" "}
           <span className="text-primary">Games</span>

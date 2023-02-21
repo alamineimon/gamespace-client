@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../Hooks/useTitle/useTitle";
 import "./TwoDGames.css";
 import TwoDGamesHeader from "./TwoDGamesHeader";
 
 const TwoDGmaes = () => {
+  useTitle("2D-Games")
   return (
     <section>
       <TwoDGamesHeader />

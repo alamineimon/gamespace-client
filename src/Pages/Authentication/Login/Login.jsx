@@ -9,10 +9,12 @@ import { FiMail } from "react-icons/fi";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { googleSingIn, loginUser } from "../../../slice/auth/authSlice";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import { useSelector } from "react-redux";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const Login = () => {
+  useTitle("Login");
   const {
     register,
     formState: { errors },
@@ -42,7 +44,7 @@ const Login = () => {
     if (!isLoading && email) {
       navigate("/");
     }
-  }, [isLoading, email]);
+  }, [isLoading, email, navigate]);
 
   useEffect(() => {
     if (isError) {

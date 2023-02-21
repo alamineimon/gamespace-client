@@ -8,7 +8,6 @@ import "./ExperianceSection.css";
 import PlayersCard from "./PlayersCard";
 
 const ExperianceSection = () => {
-  const { theme } = useContext(AuthContext);
   const { data: players, isLoading } = useQuery({
     queryKey: ["players"],
     queryFn: async () => {
@@ -27,9 +26,7 @@ const ExperianceSection = () => {
           <hr className="bg-red-500 h-2" />
           <p className="h-4 w-16 right-6 absolute bg-red-500"></p>
           <p
-            className={`md:text-4xl text-3xl mt-16 ${
-              theme === "dark" ? "text-white1" : "text-black1"
-            }`}
+            className={`md:text-4xl text-3xl mt-16`}
           >
             EXPERIENCE
           </p>
@@ -37,9 +34,7 @@ const ExperianceSection = () => {
             STRONG TEAM PLAY
           </p>
           <p
-            className={`text-md md:text-xl mb-12 ${
-              theme === "dark" ? "text-white1" : "text-black1"
-            }`}
+            className={`text-md md:text-xl mb-12`}
           >
             An example of successful teamwork is effective active listening
             skills. Maintaining eye contact when others are talking, having open

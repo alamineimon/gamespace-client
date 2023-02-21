@@ -20,8 +20,8 @@ function App() {
       } else{
         dispatch(toggleLoading())
       }
-    })
-  },[])
+    });
+  }, [dispatch]);
   return (
     <div>
       <RouterProvider router={router}></RouterProvider>

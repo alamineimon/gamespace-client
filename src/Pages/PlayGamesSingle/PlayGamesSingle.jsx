@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { MdFavorite } from "react-icons/md";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../Hooks/useTitle/useTitle";
 const PlayGamesSingle = () => {
   const htmlGame = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -24,6 +25,7 @@ const PlayGamesSingle = () => {
     description,
     favorites,
   } = htmlGame;
+  useTitle(`HTML-Games/${gameName}`);
   const [fav, setFav] = useState(favorites?.includes(user?.email));
   const handleFavorite = () => {
     if (!user) {
