@@ -10,7 +10,7 @@ const CheckoutForm = ({ gamesData }) => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const { name, email, productName, price, location, mobile, _id } = gamesData;
+  const { name, email, price, _id } = gamesData;
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -37,7 +37,7 @@ const CheckoutForm = ({ gamesData }) => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });

@@ -28,8 +28,6 @@ const Payment = () => {
           </h1>
           <Elements stripe={stripePromise}>
             <Checkoutt gamesData={gamesData} />
-            {/* <CheckoutForm/> */}
-            {/* <CheckoutForms/> */}
           </Elements>
         </div>
       </div>

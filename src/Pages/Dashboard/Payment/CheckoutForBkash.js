@@ -28,14 +28,6 @@ const CheckoutForBkash = ({ gamesData }) => {
       currency,
       date,
     };
-
-    // if(phone.length > 10){
-    //     alert('Phone number should be 10 characters or longer')
-    // }
-    // else{
-
-    // }
-
     fetch("https://gamespace-server.vercel.app/bkashpayment", {
       method: "POST",
       headers: {
