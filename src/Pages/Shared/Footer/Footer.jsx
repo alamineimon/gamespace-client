@@ -1,5 +1,4 @@
 import React from "react";
-import { useContext } from "react";
 import {
   FaDiscord,
   FaFacebook,
@@ -11,101 +10,59 @@ import {
 import { GiBoltShield } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthProvider";
 
 const Footer = () => {
-  const { theme } = useContext(AuthContext);
   return (
     <div>
       <div
-        className={`mx-auto overflow-hidden text-gray-400 ${
-          theme === "dark" ? "bg-black" : "bg-gray"
-        }`}
+        className={`mx-auto overflow-hidden text-gray-400 bg-black1`}
       >
         <footer className="w-11/12 m-auto py-8 flex flex-wrap justify-between md:justify-around gap-3">
           <div className="">
             <h1
-              className={`font-bold mb-2 ${
-                theme === "dark" ? "text-white1" : "text-black1"
-              }`}
+              className={`font-bold mb-2`}
             >
               Players community
             </h1>
             <p className="h-1 w-16 rounded-t-2xl bg-white"></p>
             <div className="my-8 text-left">
               <ul className="text-gray-400">
-                <li
-                  className={`${
-                    theme === "dark" ? "text-gray" : "text-black1"
-                  }`}
-                >
+                <li>
                   Regular Players
                 </li>
-                <li
-                  className={`${
-                    theme === "dark" ? "text-gray" : "text-black1"
-                  }`}
-                >
+                <li>
                   HTML Game player
                 </li>
-                <li
-                  className={`${
-                    theme === "dark" ? "text-gray" : "text-black1"
-                  }`}
-                >
+                <li>
                   Game Space player
                 </li>
-                <li
-                  className={`${
-                    theme === "dark" ? "text-gray" : "text-black1"
-                  }`}
-                >
+                <li>
                   Live Stream with community
                 </li>
               </ul>
             </div>
           </div>
           <div className="">
-            <h1
-              className={`text-gray-400 font-bold mb-2 ${
-                theme === "dark" ? "text-white1" : "text-black1"
-              }`}
-            >
+            <h1>
               Players community
             </h1>
             <p className="h-1 w-16 rounded-t-2xl bg-white"></p>
             <div className="my-8 text-left">
               <ul className="text-gray-400">
-                <li
-                  className={`${
-                    theme === "dark" ? "text-gray" : "text-black1"
-                  }`}
-                >
+                <li>
                   News
                 </li>
-                <li
-                  className={`${
-                    theme === "dark" ? "text-gray" : "text-black1"
-                  }`}
-                >
+                <li>
                   Team
                 </li>
-                <li
-                  className={`${
-                    theme === "dark" ? "text-gray" : "text-black1"
-                  }`}
-                >
+                <li>
                   Partners
                 </li>
               </ul>
             </div>
           </div>
           <div className=" left-4 ">
-            <h1
-              className={`text-gray-400 font-bold mb-2 ${
-                theme === "dark" ? "text-white1" : "text-black1"
-              }`}
-            >
+            <h1>
               Players community
             </h1>
             <p className="h-1 w-16  rounded-t-2xl bg-white"></p>
@@ -119,11 +76,7 @@ const Footer = () => {
                 >
                   <div className="flex items-center space-x-1">
                     <FaFacebook />{" "}
-                    <li
-                      className={`${
-                        theme === "dark" ? "text-gray" : "text-black1"
-                      }`}
-                    >
+                    <li>
                       {" "}
                       gamespace_community
                     </li>
@@ -137,11 +90,7 @@ const Footer = () => {
                 >
                   <div className="flex  items-center space-x-1">
                     <FaYoutube />{" "}
-                    <li
-                      className={`${
-                        theme === "dark" ? "text-gray" : "text-black1"
-                      }`}
-                    >
+                    <li>
                       {" "}
                       gamespace_tv
                     </li>
@@ -155,11 +104,7 @@ const Footer = () => {
                 >
                   <div className="flex  items-center space-x-1">
                     <FaDiscord />{" "}
-                    <li
-                      className={`${
-                        theme === "dark" ? "text-gray" : "text-black1"
-                      }`}
-                    >
+                    <li>
                       {" "}
                       gamespace_live
                     </li>
@@ -176,13 +121,11 @@ const Footer = () => {
               className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
             >
               <GiBoltShield
-                className={`text-2xl md:text-5xl text-white ${
-                  theme === "light" && "text-black"
-                }`}
+                className={`text-2xl md:text-5xl text-white`}
               />
               <div className="text-white">
                 <span
-                  className={`font-gaming ${theme === "light" && "text-black"}`}
+                  className={`font-gaming`}
                 >
                   Game Space
                 </span>
@@ -194,9 +137,7 @@ const Footer = () => {
           </div>
           <div className="w-11/12 md:w-7/12 m-auto flex justify-center items-center text-justify pb-10">
             <p
-              className={`text-gray-400 text-center ${
-                theme === "dark" ? "text-gray" : "text-black1"
-              }`}
+              className={`text-gray-400 text-center`}
             >
               Handcrafted by and for Gamers @ 2023 . Game Space by Themosaurus.
               All related conntent, characters, names and materials that could
@@ -206,9 +147,7 @@ const Footer = () => {
           </div>
         </footer>
         <footer
-          className={`text-gray-400 flex justify-center items-center pb-5 ${
-            theme === "dark" ? "text-gray" : "text-black1"
-          }`}
+          className={`text-gray-400 flex justify-center items-center pb-5`}
         >
           <p className="mr-3"> Privacy Policy </p>
           <p className="mr-3"> Terms of Service</p>
@@ -225,9 +164,7 @@ const Footer = () => {
               rel="noreferrer"
             >
               <FaFacebook
-                className={`hover:text-blue-600 ${
-                  theme === "dark" ? "text-gray" : "text-black1"
-                }`}
+                className={`hover:text-blue-600`}
                 title="Facebook"
               />
             </a>
@@ -238,9 +175,7 @@ const Footer = () => {
               rel="noreferrer"
             >
               <FaTwitter
-                className={`hover:text-blue-600 ${
-                  theme === "dark" ? "text-gray" : "text-black1"
-                }`}
+                className={`hover:text-blue-600`}
                 title="Twitter"
               ></FaTwitter>
             </a>
@@ -251,9 +186,7 @@ const Footer = () => {
               rel="noreferrer"
             >
               <FaPinterest
-                className={`hover:text-blue-600 ${
-                  theme === "dark" ? "text-gray" : "text-black1"
-                }`}
+                className={`hover:text-blue-600`}
                 title="Pinterest"
               ></FaPinterest>
             </a>
@@ -264,9 +197,7 @@ const Footer = () => {
               rel="noreferrer"
             >
               <FaGoogle
-                className={`hover:text-blue-600 ${
-                  theme === "dark" ? "text-gray" : "text-black1"
-                }`}
+                className={`hover:text-blue-600`}
                 title="Google"
               ></FaGoogle>
             </a>
