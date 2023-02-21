@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import Board from "./Board/Board";
 import Button from "./Button/Button";
 import Score from "./Score/Score";
@@ -11,7 +12,7 @@ const TikTakToe = () => {
   const [result, setResult] = useState("");
   const [scoreX, setScoreX] = useState(0);
   const [scoreO, setScoreO] = useState(0);
-
+  useTitle("2D-Games/TikTokToe")
   const clickHandler = (i) => {
     // check if there is already content inside button, if yes do nothing, if no change the textContent
     if (sign[i] === "x" || sign[i] === "o") return;

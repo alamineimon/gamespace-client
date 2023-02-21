@@ -11,9 +11,11 @@ import FriendList from "../Dashboard/MyProfile/FriendList";
 import Loader from "../Shared/Loader/Loader";
 import { useState } from "react";
 import CommentModal from "../Dashboard/MyProfile/CommentModal";
+import useTitle from "../../Hooks/useTitle/useTitle";
 
 const PlayerProfile = () => {
   const user = useLoaderData();
+  useTitle(`Profile/${user.name}`)
   const { userinfo: currentUser } = useContext(AuthContext);
   const [currentPost, setCurrentPost] = useState(null);
 
