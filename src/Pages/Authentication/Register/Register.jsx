@@ -2,23 +2,23 @@ import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {
-  BsEyeFill,
-  BsEyeSlashFill,
-  BsPersonFill,
-} from "react-icons/bs";
+import { BsEyeFill, BsEyeSlashFill, BsPersonFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Register.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { createUser , googleSingIn } from "../../../slice/auth/authSlice";
+import { createUser, googleSingIn } from "../../../slice/auth/authSlice";
 import useToken from "../../../Hooks/useToken/useToken";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const Register = () => {
   useTitle("Register")
+import { AuthContext } from "../../../context/AuthProvider";
+
+const Register = () => {
+  const { googleSignin, updateUser } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
@@ -33,86 +33,82 @@ const Register = () => {
   const navigate = useNavigate();
   const from = location.from?.state.pathname || "/";
 
-  const dispatch = useDispatch()
-  const {isError, error} = useSelector((state)=> state.auth)
+  const dispatch = useDispatch();
+  const { isError, error } = useSelector((state) => state.auth);
 
   if (token) {
     navigate(from, { replace: true });
   }
 
-  const handelSignUp = ({email, password}) => {
-    dispatch(createUser({email, password}))
+  const handelSignUp = ({ email, password }) => {
+    dispatch(createUser({ email, password }));
   };
 
-  
-const handlerGoogleSignin = ()=>{
-  dispatch(googleSingIn())
-}
-
   // const handlerGoogleSignin = () => {
-  //   googleSignin()
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log(user);
-  //       const userInfo = {
-  //         name: user.displayName,
-  //         email: user.email,
-  //         photoURL: user.photoURL,
-  //       };
-  //       updateUser(userInfo)
-  //         .then(() => {
-  //           if (userInfo.email) {
-  //             fetch(`http://localhost:9000/users`)
-  //               .then((data) => data.json())
-  //               .then((result) => {
-  //                 const userEmail = result.find(
-  //                   (userEmail) => userEmail.email === userInfo.email
-  //                 );
-  //                 if (!userEmail) {
-  //                   saveUser(userInfo.name, userInfo.email, userInfo.photoURL);
-  //                   toast.success("Login Successfully");
-  //                 } else {
-  //                   navigate(from, { replace: true });
-  //                   alert("alrady User Create");
-  //                 }
-  //               });
-  //           }
-  //         })
-  //         .catch((err) => console.log(err));
-  //     })
-  //     .catch((error) => {
-  //       console.error(error.message);
-  //     });
+  //   dispatch(googleSingIn());
   // };
 
-  // const saveUser = (name, email, photoURL) => {
-  //   const user = { name, email, photoURL };
-  //   fetch("http://localhost:9000/user", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setCeateUserEmail(email);
-  //     });
-  // };
+  const handlerGoogleSignin = () => {
+    googleSignin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        const userInfo = {
+          name: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+        };
+        updateUser(userInfo)
+          .then(() => {
+            if (userInfo.email) {
+              fetch(`https://gamespace-server.vercel.app/users`)
+                .then((data) => data.json())
+                .then((result) => {
+                  const userEmail = result.find(
+                    (userEmail) => userEmail.email === userInfo.email
+                  );
+                  if (!userEmail) {
+                    saveUser(userInfo.name, userInfo.email, userInfo.photoURL);
+                    toast.success("Login Successfully");
+                  } else {
+                    navigate(from, { replace: true });
+                    alert("alrady User Create");
+                  }
+                });
+            }
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
+
+  const saveUser = (name, email, photoURL) => {
+    const user = { name, email, photoURL };
+    fetch("https://gamespace-server.vercel.app/user", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCeateUserEmail(email);
+      });
+  };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
 
-
-// error show 
-  useEffect(()=>{
-    if(isError){
+  // error show
+  useEffect(() => {
+    if (isError) {
       toast.error(error);
     }
-  },[isError, error])
-
-
+  }, [isError, error]);
 
   return (
     <div className="hero registerBG">
@@ -201,12 +197,12 @@ const handlerGoogleSignin = ()=>{
           </form>
           <p className="divider text-sm">OR LOGIN WITH</p>
           <div
-              onClick={handlerGoogleSignin}
-              className="hover:bg-yellow-500 rounded border-2
+            onClick={handlerGoogleSignin}
+            className="hover:bg-yellow-500 rounded border-2
               flex justify-center items-center border-yellow-500 text-yellow-500 hover:text-white text-lg py-2 uppercase font-semibold w-full cursor-pointer"
-            >
-              <FcGoogle className="text-lg mr-2"></FcGoogle> <p>Google </p> 
-            </div>
+          >
+            <FcGoogle className="text-lg mr-2"></FcGoogle> <p>Google </p>
+          </div>
           <p className="mt-4 mb-8 text-center">
             {" "}
             Alrady Habe an Account ?{" "}

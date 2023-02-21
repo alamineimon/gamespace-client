@@ -11,7 +11,7 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:9000/orderedgames/by-transaction-id/${transactionId}`
+      `https://gamespace-server.vercel.app/orderedgames/by-transaction-id/${transactionId}`
     )
       .then((res) => res.json())
       .then((data) => setOrder(data));
@@ -20,13 +20,12 @@ const PaymentSuccess = () => {
   if (!order?._id) {
     return <div>No order found</div>;
   }
-  
+
   return (
     <div>
       <h4 className="text-4xl my-5 text-center">
         Your Order<span className="text-primary"> Summary</span>
       </h4>
-      {/* <h2>Your Order Summary</h2> */}
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
     queryKey: ["profileUpdate", user?.email],
     queryFn: async () => {
       const { data } = await axios.get(
-        `http://localhost:9000/profileUpdate/${user?.email}`
+        `https://gamespace-server.vercel.app/profileUpdate/${user?.email}`
       );
       return data;
     },
@@ -44,12 +44,6 @@ const AuthProvider = ({ children }) => {
   const googleSignin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
-  };
-
-  const facebookProvider = new FacebookAuthProvider();
-  const facebookSignin = () => {
-    setLoading(true);
-    return signInWithPopup(auth, facebookProvider);
   };
 
   const loginUser = (email, password) => {
@@ -89,7 +83,6 @@ const AuthProvider = ({ children }) => {
     setTheme,
     createUser,
     googleSignin,
-    facebookSignin,
     loading,
     loginUser,
     handlerForgete,

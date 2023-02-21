@@ -10,11 +10,11 @@ const CheckoutForm = ({ gamesData }) => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const { name, email, productName, price, location, mobile, _id } = gamesData;
+  const { name, email, price, _id } = gamesData;
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:9000/create-payment-intent", {
+    fetch("https://gamespace-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const CheckoutForm = ({ gamesData }) => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
@@ -75,7 +75,7 @@ const CheckoutForm = ({ gamesData }) => {
         transactionId: paymentIntent.id,
         bookingId: _id,
       };
-      fetch("http://localhost:9000/payments", {
+      fetch("https://gamespace-server.vercel.app/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",

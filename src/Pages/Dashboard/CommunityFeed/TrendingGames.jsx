@@ -16,7 +16,7 @@ const TrendingGames = () => {
     return <Loader />;
   }
   return (
-    <div className="bg-dashboardCards rounded-2xl font-rajdhani py-5 space-y-5 px-5 sticky top-5 max-w-sm">
+    <div className="bg-dashboardCards rounded-2xl font-rajdhani py-5 space-y-5 px-5 sticky top-5 lg:max-w-sm border-l border-t border-white/20 ">
       <h2 className="text-xl font-bold text-mainHeading">Trending Games</h2>
       {trendingGames ? (
         trendingGames?.map((games) => {

@@ -35,7 +35,7 @@ const CommentModal = ({ currentPost, postRefetch, user, setCurrentPost }) => {
   });
   const handleLike = () => {
     fetch(
-      `http://localhost:9000/posts/like/${post?._id}?email=${user?.email}`,
+      `https://gamespace-server.vercel.app/posts/like/${post?._id}?email=${user?.email}`,
       {
         method: "PUT",
         headers: {
@@ -63,7 +63,7 @@ const CommentModal = ({ currentPost, postRefetch, user, setCurrentPost }) => {
       commentTime: moment().format("Do MMM YYYY, h:mm a"),
     };
     fetch(
-      `http://localhost:9000/commentcommunitypost?postid=${currentPost?._id}`,
+      `https://gamespace-server.vercel.app/commentcommunitypost?postid=${currentPost?._id}`,
       {
         method: "POST",
         headers: {
