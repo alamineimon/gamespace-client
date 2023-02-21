@@ -14,25 +14,27 @@ import {
 import auth from "../Firebase/firebase.config";
 import { useQuery } from "@tanstack/react-query";
 import axios from "../axios";
+import { useSelector } from "react-redux";
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const { user: userFromRedux } = useSelector((state) => state.auth);
+  console.log("fromRedux", userFromRedux?.email);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-
   const {
     data: userinfo,
     isLoading: userLoading,
     refetch: userRefetch,
   } = useQuery({
-    queryKey: ["profileUpdate", user?.email],
+    queryKey: ["profileUpdate", userFromRedux?.email],
     queryFn: async () => {
       const { data } = await axios.get(
-        `https://gamespace-server.vercel.app/profileUpdate/${user?.email}`
+        `/profileUpdate/${userFromRedux?.email}`
       );
       return data;
     },
