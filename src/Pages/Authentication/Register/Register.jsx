@@ -7,18 +7,16 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Register.css";
-
+import { AuthContext } from "../../../context/AuthProvider";
 import { useDispatch, useSelector } from "react-redux";
-import { createUser, googleSingIn } from "../../../slice/auth/authSlice";
+import { createUser } from "../../../slice/auth/authSlice";
 import useToken from "../../../Hooks/useToken/useToken";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const Register = () => {
-  useTitle("Register")
-import { AuthContext } from "../../../context/AuthProvider";
-
-const Register = () => {
   const { googleSignin, updateUser } = useContext(AuthContext);
+  useTitle("Register");
+
   const {
     register,
     formState: { errors },
