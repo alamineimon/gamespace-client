@@ -19,7 +19,7 @@ export const createUser = createAsyncThunk(
   async ({ email, password, name }) => {
     const data = await createUserWithEmailAndPassword(auth, email, password);
     const user = { name, email };
-    fetch("http://localhost:9000/user", {
+    fetch("https://gamespace-server.vercel.app/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",
