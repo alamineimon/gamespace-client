@@ -194,7 +194,7 @@ const Footer = () => {
           </div>
           <div className="w-11/12 md:w-7/12 m-auto flex justify-center items-center text-justify pb-10">
             <p
-              className={`text-gray-400 ${
+              className={`text-gray-400 text-center ${
                 theme === "dark" ? "text-gray" : "text-black1"
               }`}
             >

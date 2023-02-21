@@ -1,10 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import PopularGamesCards from "../../../Home/components/PopularGames/PopularGamesCards";
-// import './HtmlGames.css'
 import Loader from "../../../Shared/Loader/Loader";
-import HtmlGamesCards from "./HtmlGamesCards";
-
 const HtmlGames = () => {
   const { data: htmlGames, isLoading } = useQuery({
     queryKey: ["htmlGames"],
