@@ -74,7 +74,7 @@ const AddPost = ({ userinfo, postRefetch }) => {
     }
   };
   const addToDb = (post) => {
-    fetch("http://localhost:9000/post", {
+    fetch("https://gamespace-server.vercel.app/post", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -97,7 +97,7 @@ const AddPost = ({ userinfo, postRefetch }) => {
     fileInputRef.current.click();
   };
   return (
-    <div className="bg-dashboardCards py-5 rounded-2xl font-rajdhani max-w-xl mx-auto ">
+    <div className="bg-dashboardCards py-5 rounded-2xl font-rajdhani lg:max-w-xl mx-auto border-l border-t border-white/20 ">
       <form onSubmit={handleSubmit(postSubmit)}>
         <div className="flex justify-between border-b pb-4 px-5 border-white/20">
           <div className="flex space-x-2 items-center">

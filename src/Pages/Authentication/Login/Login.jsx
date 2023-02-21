@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,7 +9,8 @@ import { FiMail } from "react-icons/fi";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { googleSingIn, loginUser } from "../../../slice/auth/authSlice";
-import {  useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Login = () => {
   const {
@@ -17,6 +18,7 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const { googleSignin } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [resetEmail, setresetEmail] = useState(" ");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -25,44 +27,45 @@ const Login = () => {
   const navigate = useNavigate();
 
   const from = location.from?.state.pathname || "/";
-  // redux 
-  const {isLoading, email, error, isError} = useSelector((state)=>state.auth)
-  const dispatch = useDispatch()
+  // redux
+  const { isLoading, email, error, isError } = useSelector(
+    (state) => state.auth
+  );
+  const dispatch = useDispatch();
 
-  const handelLogin = ({email, password}) => {
-      dispatch(loginUser({email, password}))
-    };
+  const handelLogin = ({ email, password }) => {
+    dispatch(loginUser({ email, password }));
+  };
 
   // user login state management
-  useEffect(()=>{
-    if(!isLoading && email){
-      navigate('/')
+  useEffect(() => {
+    if (!isLoading && email) {
+      navigate("/");
     }
-  },[isLoading, email])
+  }, [isLoading, email]);
 
-  useEffect(()=>{
-    if(isError){
+  useEffect(() => {
+    if (isError) {
       toast.error(error);
     }
-  },[isError, error])
+  }, [isError, error]);
 
-
-  const handlerGoogleSignin = ()=>{
-    dispatch(googleSingIn())
-  }
-  // const handlerGoogleSignin = () => {
-  //   googleSignin()
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log(user);
-  //       toast.success("Login Successfully");
-  //       navigate(from, { replace: true });
-  //     })
-  //     .catch((error) => {
-  //       console.error(error.message);
-  //       setLoginError(error.message);
-  //     });
-  // };
+  // const handlerGoogleSignin = ()=>{
+  //   dispatch(googleSingIn())
+  // }
+  const handlerGoogleSignin = () => {
+    googleSignin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Login Successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setLoginError(error.message);
+      });
+  };
 
   // const handlerForgetePassword = () => {
   //   handlerForgete(resetEmail)
@@ -77,9 +80,6 @@ const Login = () => {
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
-
-
-  
 
   return (
     <div className="hero loginBG">
@@ -104,7 +104,6 @@ const Login = () => {
                 )}
                 placeholder="Email or Phone"
               />
-             
             </div>
             <div className="form-control w-full relative mt-8">
               <label className=" absolute ml-2 mt-4 text-gray">
@@ -122,7 +121,7 @@ const Login = () => {
                 placeholder="Password"
                 className="input input-bordered bg-none input-primary w-full rounded-none text-gray-400 px-8"
               />
-             
+
               <label className=" right-2 mt-4 cursor-pointer absolute text-gray">
                 {passwordShown ? (
                   <BsEyeSlashFill
@@ -139,10 +138,7 @@ const Login = () => {
             </div>
             <div className="my-3">
               <b>
-                <Link
-                  
-                  className="text-blue-500 underline"
-                >
+                <Link className="text-blue-500 underline">
                   Forgete Password!{" "}
                 </Link>
               </b>
@@ -153,19 +149,17 @@ const Login = () => {
               value="Login"
               type="submit"
             />
-           
           </form>
           <p className="divider text-sm">OR LOGIN WITH</p>
-          
-            <div
-              onClick={handlerGoogleSignin}
-              className="hover:bg-yellow-500 rounded border-2
+
+          <div
+            onClick={handlerGoogleSignin}
+            className="hover:bg-yellow-500 rounded border-2
               flex justify-center items-center border-yellow-500 text-yellow-500 hover:text-white text-lg py-2 uppercase font-semibold w-full cursor-pointer"
-            >
-              <FcGoogle className="text-lg mr-2"></FcGoogle> <p>Google </p> 
-            </div>
-            
-          
+          >
+            <FcGoogle className="text-lg mr-2"></FcGoogle> <p>Google</p>
+          </div>
+
           <p className="mt-4 mb-8 text-center">
             {" "}
             New to Game Space ?{" "}

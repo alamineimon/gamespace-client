@@ -10,7 +10,7 @@ const AddHtmlGames = () => {
   const { data: categories, isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:9000/categories");
+      const res = await fetch("https://gamespace-server.vercel.app/categories");
       const data = await res.json();
       return data;
     },
@@ -21,13 +21,13 @@ const AddHtmlGames = () => {
     reset,
     formState: { errors },
   } = useForm();
- 
+
   const onSubmit = (data) => {
-    fetch("http://localhost:9000/addHtmlGame", {
+    fetch("https://gamespace-server.vercel.app/addHtmlGame", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `bearer ${localStorage.getItem('accessToken')}`
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(data),
     })

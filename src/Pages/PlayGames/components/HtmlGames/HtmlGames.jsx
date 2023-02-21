@@ -1,19 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import PopularGamesCards from "../../../Home/components/PopularGames/PopularGamesCards";
-// import './HtmlGames.css'
 import Loader from "../../../Shared/Loader/Loader";
-import HtmlGamesCards from "./HtmlGamesCards";
-
 const HtmlGames = () => {
   const { data: htmlGames, isLoading } = useQuery({
     queryKey: ["htmlGames"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:9000/play-games", {
-        headers: {
-          authorization: `bearer ${localStorage.getItem('accessToken')}`
+      const res = await fetch(
+        "https://gamespace-server.vercel.app/play-games",
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
         }
-      });
+      );
       const data = await res.json();
       return data;
     },

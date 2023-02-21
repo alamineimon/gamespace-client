@@ -16,11 +16,14 @@ const AllHtmlGames = () => {
   } = useQuery({
     queryKey: ["play-games"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:9000/play-games`, {
-        headers: {
-          authorization: `bearer ${localStorage.getItem('accessToken')}`
+      const res = await fetch(
+        `https://gamespace-server.vercel.app/play-games`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
         }
-      });
+      );
       const data = await res.json();
       return data;
     },
@@ -28,18 +31,17 @@ const AllHtmlGames = () => {
   const { data: categories, isLoading: categoryLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:9000/categories");
+      const res = await fetch("https://gamespace-server.vercel.app/categories");
       const data = await res.json();
       return data;
     },
   });
   const deleteGame = (game) => {
-    fetch(`http://localhost:9000/deleteHtmlGame/${game._id}`, {
+    fetch(`https://gamespace-server.vercel.app/deleteHtmlGame/${game._id}`, {
       method: "DELETE",
       headers: {
-        authorization: `bearer ${localStorage.getItem('accessToken')}`
-      }
-      
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {

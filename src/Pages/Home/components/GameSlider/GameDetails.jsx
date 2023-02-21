@@ -21,20 +21,18 @@ const GameDetails = () => {
     description,
     price,
     img,
-    videolink
+    videolink,
   } = gameDetails;
 
-  const {
-    data: showAllGame,
-    refetch,
-  } = useQuery({
+  const { data: showAllGame, refetch } = useQuery({
     queryKey: ["downloadGames"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:9000/downloadGames", {
+        "https://gamespace-server.vercel.app/downloadGames",
+        {
           headers: {
-            authorization: `bearer ${localStorage.getItem('accessToken')}`
-          }
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
         }
       );
       const data = await res.json();
@@ -42,8 +40,6 @@ const GameDetails = () => {
       return data;
     },
   });
-
-  
 
   return (
     <div className="text-white">
@@ -93,9 +89,7 @@ const GameDetails = () => {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
-                {/* download button */}
                 <div>
-                  {/* The button to open modal */}
                   <label
                     htmlFor="bookingModal"
                     className="py-3 hover:translate-y-1 text-white  relative px-5 rounded-none font-bold bg-yellow-500 uppercase cursor-pointer "
