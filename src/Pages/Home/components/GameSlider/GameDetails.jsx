@@ -5,6 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import { Link, useLoaderData } from "react-router-dom";
 import GameComment from "./GameComment";
 import BookingModal from "../../../Modal/BookingModal/BookingModal";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const GameDetails = () => {
   const gameDetails = useLoaderData();
@@ -23,7 +24,11 @@ const GameDetails = () => {
     img,
     videolink,
   } = gameDetails;
-
+  useTitle(`GameDetails/${title}`);
+  const {
+    data: showAllGame,
+    refetch,
+  } = useQuery({
   const { data: showAllGame, refetch } = useQuery({
     queryKey: ["downloadGames"],
     queryFn: async () => {

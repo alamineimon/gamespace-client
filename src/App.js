@@ -8,14 +8,17 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import auth from "./Firebase/firebase.config";
 import { useDispatch } from "react-redux";
-import { setUser } from "./slice/auth/authSlice";
+import { setUser, toggleLoading } from "./slice/auth/authSlice";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(setUser(user.email));
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user)=>{
+      if(user){
+        console.log(user)
+        dispatch(setUser(user?.email))
+      } else{
+        dispatch(toggleLoading())
       }
     });
   }, [dispatch]);

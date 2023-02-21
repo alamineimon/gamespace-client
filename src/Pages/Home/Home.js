@@ -7,9 +7,11 @@ import ExtraFeatures from "./components/ExtraFeatures/ExtraFeatures";
 import VideoBg from "./components/Subcribtion/VideoBg";
 import ExperianceSection from "./components/ExperianceSection/ExperianceSection";
 import PopularGames from "./components/PopularGames/PopularGames";
+import useTitle from "../../Hooks/useTitle/useTitle";
 
 
 const Home = () => {
+  useTitle("Home")
   return (
     <div>
       <Header />
