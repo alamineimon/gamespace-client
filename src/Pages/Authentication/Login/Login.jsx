@@ -10,8 +10,10 @@ import "./Login.css";
 import { useDispatch } from "react-redux";
 import { googleSingIn, loginUser } from "../../../slice/auth/authSlice";
 import {  useSelector} from "react-redux";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const Login = () => {
+  useTitle("Login");
   const {
     register,
     formState: { errors },

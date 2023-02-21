@@ -15,8 +15,10 @@ import "./Register.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser , googleSingIn } from "../../../slice/auth/authSlice";
 import useToken from "../../../Hooks/useToken/useToken";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const Register = () => {
+  useTitle("Register")
   const {
     register,
     formState: { errors },
