@@ -26,7 +26,6 @@ const PaymentSuccess = () => {
       <h4 className="text-4xl my-5 text-center">
         Your Order<span className="text-primary"> Summary</span>
       </h4>
-      {/* <h2>Your Order Summary</h2> */}
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
