@@ -46,12 +46,6 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const facebookProvider = new FacebookAuthProvider();
-  const facebookSignin = () => {
-    setLoading(true);
-    return signInWithPopup(auth, facebookProvider);
-  };
-
   const loginUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -89,7 +83,6 @@ const AuthProvider = ({ children }) => {
     setTheme,
     createUser,
     googleSignin,
-    facebookSignin,
     loading,
     loginUser,
     handlerForgete,
