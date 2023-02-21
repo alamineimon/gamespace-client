@@ -26,7 +26,7 @@ const Subcribtion = () => {
       To: 'delowerhossain20201@yopmail.com',
       From: "hdelower68@gmail.com",
       Subject: "New member on our GameSpace",
-      Body: `${user.displayName} conneted to our website over email.`
+      Body: `${user?.displayName} conneted to our website over email.`
 
     }
     if (window.Email) {
