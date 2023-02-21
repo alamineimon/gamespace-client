@@ -24,7 +24,7 @@ const GameDetails = () => {
     img,
     videolink,
   } = gameDetails;
-
+  useTitle(`GameDetails/${title}`);
   const { data: showAllGame, refetch } = useQuery({
     queryKey: ["downloadGames"],
     queryFn: async () => {
@@ -129,6 +129,7 @@ const GameDetails = () => {
                   target="_blank"
                   className="hover:underline text-blue-600 text-sm md:text-lg"
                   alt=""
+                  rel="noreferrer"
                 >
                   {videolink ? videolink.slice(0, 29) : "videolink"}
                 </a>

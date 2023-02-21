@@ -7,16 +7,17 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Register.css";
-
+import { AuthContext } from "../../../context/AuthProvider";
 import { useDispatch, useSelector } from "react-redux";
-import { createUser, googleSingIn } from "../../../slice/auth/authSlice";
+import { createUser } from "../../../slice/auth/authSlice";
 import useToken from "../../../Hooks/useToken/useToken";
 import useTitle from "../../../Hooks/useTitle/useTitle";
-import { AuthContext } from "../../../context/AuthProvider";
 
 const Register = () => {
   useTitle("Register")
   const { googleSignin, updateUser } = useContext(AuthContext);
+  useTitle("Register");
+
   const {
     register,
     formState: { errors },
@@ -38,8 +39,8 @@ const Register = () => {
     navigate(from, { replace: true });
   }
 
-  const handelSignUp = ({ email, password }) => {
-    dispatch(createUser({ email, password }));
+  const handelSignUp = ({ email, password, name }) => {
+    dispatch(createUser({ email, password, name }));
   };
 
   // const handlerGoogleSignin = () => {
@@ -50,7 +51,6 @@ const Register = () => {
     googleSignin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
         const userInfo = {
           name: user.displayName,
           email: user.email,

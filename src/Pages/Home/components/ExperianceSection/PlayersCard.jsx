@@ -7,7 +7,6 @@ const PlayersCard = ({ player }) => {
   const { photoURL, name, email } = player;
   return (
     <Link
-      // to={`/playerProfile/${email}`} title={`${name}`}
       to={
         email === user?.email ? `/dashboard/profile` : `/playerProfile/${email}`
       }

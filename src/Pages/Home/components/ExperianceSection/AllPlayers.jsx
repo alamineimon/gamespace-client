@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../context/AuthProvider";
 import Loader from "../../../Shared/Loader/Loader";
 
 const AllPlayers = () => {
+  const { user } = useContext(AuthContext);
   const { data: players, isLoading } = useQuery({
     queryKey: ["players"],
     queryFn: async () => {
@@ -13,6 +15,7 @@ const AllPlayers = () => {
         },
       });
       const data = await res.json();
+      console.log(data);
       return data;
     },
   });
@@ -26,7 +29,14 @@ const AllPlayers = () => {
       </p>
       <div className="grid lg:grid-cols-8 grid-cols-4 px-6 gap-6 justify-items-center">
         {players?.map((player, i) => (
-          <Link to={`/users/${player?._id}`} title={`${player?.name}`}>
+          <Link
+            to={
+              player?.email === user?.email
+                ? `/dashboard/profile`
+                : `/playerProfile/${player?.email}`
+            }
+            title={`${player?.name}`}
+          >
             <img
               src={player.photoURL}
               className="h-16 w-16 cursor-pointer hover:bg-yellow-300 rounded-full border-2 border-red-500 hover:border-yellow-500"

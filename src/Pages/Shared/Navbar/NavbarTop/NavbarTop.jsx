@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { GiBoltShield } from "react-icons/gi";
 import "./NavbarTop.css";
 import { RxLockClosed } from "react-icons/rx";
@@ -42,59 +42,72 @@ const NavbarTop = ({ defaultAvtar }) => {
       dispatch(logout());
     });
   };
-
+  let activeClassName =
+    "font-bold uppercase tracking-wide transition-colors duration-200 text-primary";
+  let notActiveClassName =
+    "font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400";
   const navlinks = (
     <>
-      <ul>
-        <li>
-          <Link
-            to="/"
-            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/shop"
-            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
-          >
-            Shop
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/livestream"
-            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
-          >
-            Live stream
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/2dgames"
-            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
-          >
-            2D games
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/playGames"
-            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
-          >
-            html gmaes
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/communityfeed"
-            className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
-          >
-            Community
-          </Link>
-        </li>
-      </ul>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? activeClassName : notActiveClassName
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/shop"
+          className={({ isActive }) =>
+            isActive ? activeClassName : notActiveClassName
+          }
+        >
+          Shop
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/livestream"
+          className={({ isActive }) =>
+            isActive ? activeClassName : notActiveClassName
+          }
+        >
+          Live stream
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/2dgames"
+          className={({ isActive }) =>
+            isActive ? activeClassName : notActiveClassName
+          }
+        >
+          2D games
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/playGames"
+          className={({ isActive }) =>
+            isActive ? activeClassName : notActiveClassName
+          }
+        >
+          html gmaes
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/communityfeed"
+          className={({ isActive }) =>
+            isActive ? activeClassName : notActiveClassName
+          }
+        >
+          Community
+        </NavLink>
+      </li>
     </>
   );
 
@@ -366,54 +379,7 @@ const NavbarTop = ({ defaultAvtar }) => {
       {/* nav bottom */}
       <div className="navbarBottomBG items-center justify-center w-full mx-auto text-white z-40 py-3 hidden lg:flex">
         <ul className="items-center justify-center hidden space-x-8 lg:flex ">
-          <li>
-            <Link
-              to="/"
-              className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/shop"
-              className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
-            >
-              Shop
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/livestream"
-              className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
-            >
-              Live stream
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/2dgames"
-              className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
-            >
-              2D games
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/playGames"
-              className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
-            >
-              html gmaes
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/communityfeed"
-              className="font-bold uppercase tracking-wide transition-colors duration-200 hover:text-primary"
-            >
-              Community
-            </Link>
-          </li>
+          {navlinks}
         </ul>
       </div>
     </div>
