@@ -5,7 +5,7 @@
 @tailwind utilities;
 body {
   margin: 0;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Rajdhani", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -63,17 +63,15 @@ input:focus-visible {
 }
 
 input[type="radio"]:checked + label span {
-background-color: rgb(244, 214, 20); 
-box-shadow: 0px 0px 0px 2px black inset;
-}
-
-
-input[type="radio"]:checked + label{
- color: rgb(246, 240, 240); 
-  background-color: #fff;
+  background-color: rgb(244, 214, 20);
   box-shadow: 0px 0px 0px 2px black inset;
 }
 
+input[type="radio"]:checked + label {
+  color: rgb(246, 240, 240);
+  background-color: #fff;
+  box-shadow: 0px 0px 0px 2px black inset;
+}
 
 .flying-emojis {
   position: fixed;
@@ -189,4 +187,8 @@ input[type="radio"]:checked + label{
 #carousel-2:checked ~ .control-2,
 #carousel-3:checked ~ .control-3 {
   display: block;
+}
+
+.gameCardBtnClip {
+  clip-path: polygon(8% 0, 100% 0, 100% 80%, 92% 100%, 0 100%, 0% 20%);
 }
