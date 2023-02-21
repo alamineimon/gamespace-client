@@ -21,9 +21,10 @@ import defaultAvtar from "../../assets/images/gamingAvatar.webp";
 import useAdmin from "../../Hooks/userAdmin/useAdmin";
 import Loader from "../../Pages/Shared/Loader/Loader";
 import { CgFeed } from "react-icons/cg";
+import useTitle from "../../Hooks/useTitle/useTitle";
 const Dashboard = () => {
   const { user, logOut, loading, userinfo } = useContext(AuthContext);
-
+  useTitle('Dashboard')
   const [isAdmin, isAdminLoading] = useAdmin(user?.email);
   let activeClassName =
     "border-l-4 border-primary bg-gradient-to-r from-primary/10 to-primary/0 text-primary font-semibold capitalize lg:text-lg font-rajdhani";

@@ -4,12 +4,14 @@ import { toast } from "react-hot-toast";
 import { FiDownload } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import ConfirmationModal from "../../Modal/ConfirmationModal/ConfirmationModal";
 import Title2 from "../../Shared/DashTitle/Title2";
 import Loader from "../../Shared/Loader/Loader";
 
 const MyOrder = (props) => {
   const { user } = useContext(AuthContext);
+  useTitle("Dashboard/MyOrders")
   const [deleteProduct, setDeleteProduct] = useState(null);
   const url = `https://gamespace-server.vercel.app/orderedGames?email=${user?.email}`;
   const {

@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import Title2 from "../../Shared/DashTitle/Title2";
 import Loader from "../../Shared/Loader/Loader";
 import FavCards from "./FavCards";
 
 const MyFavoriteGames = () => {
+  useTitle("Favorite Game")
   const { user } = useContext(AuthContext);
   const { data: favGames, isLoading } = useQuery({
     queryKey: ["favoriteGames", "user"],

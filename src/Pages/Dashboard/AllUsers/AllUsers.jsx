@@ -10,8 +10,10 @@ import {
 } from "react-icons/ai";
 
 import { Link } from "react-router-dom";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const AllUsers = () => {
+  useTitle('Users')
   const [deleteUser, setDeleteUser] = useState(null);
   const [arrow, setArrow] = useState(true);
 
