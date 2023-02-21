@@ -11,15 +11,14 @@ import { useDispatch } from "react-redux";
 import { setUser } from "./slice/auth/authSlice";
 
 function App() {
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    onAuthStateChanged(auth, (user)=>{
-      if(user){
-        console.log(user)
-        dispatch(setUser(user.email))
+  const dispatch = useDispatch();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setUser(user.email));
       }
-    })
-  },[])
+    });
+  }, [dispatch]);
   return (
     <div>
       <RouterProvider router={router}></RouterProvider>
