@@ -11,7 +11,6 @@ import Loader from "../../../Shared/Loader/Loader";
 import GamesCards from "./GamesCards";
 
 const GameSlider = () => {
-  const { theme } = useContext(AuthContext);
   useTitle('Shop');
   const { data: games, isLoading } = useQuery({
     queryKey: ["downloadGames"],
