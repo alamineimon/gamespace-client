@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Images from "./Images";
 import { shuffle } from "lodash";
 import "./MemoryCard.css";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const Memory = () => {
   const [cards, setCards] = useState(shuffle([...Images, ...Images]));
@@ -9,7 +10,7 @@ const Memory = () => {
   const [won, setWon] = useState(false);
   const [activeCards, setActiveCards] = useState([]);
   const [foundPairs, setFoundPairs] = useState([]);
-
+  useTitle("2D-Games/FlipCard")
   function flipCard(index) {
     if (won) {
       setCards(shuffle([...Images, ...Images]));

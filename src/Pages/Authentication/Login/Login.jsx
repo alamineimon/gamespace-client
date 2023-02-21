@@ -10,9 +10,7 @@ import "./Login.css";
 import { useDispatch } from "react-redux";
 import { googleSingIn, loginUser } from "../../../slice/auth/authSlice";
 import useTitle from "../../../Hooks/useTitle/useTitle";
-import { loginUser } from "../../../slice/auth/authSlice";
 import { useSelector } from "react-redux";
-import useTitle from "../../../Hooks/useTitle/useTitle";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const Login = () => {

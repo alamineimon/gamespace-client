@@ -7,8 +7,10 @@ import { meetingTypes } from "./utils/common";
 import { MeetingContainer } from "./meeting/MeetingContainer";
 import { ILSContainer } from "./interactive-live-streaming/ILSContainer";
 import { useMediaQuery, useTheme } from "@mui/material";
+import useTitle from "../../Hooks/useTitle/useTitle";
 
 const LiveStream = () => {
+  useTitle("LiveStream")
   const [token, setToken] = useState("");
   const [meetingId, setMeetingId] = useState("");
   const [participantName, setParticipantName] = useState("");

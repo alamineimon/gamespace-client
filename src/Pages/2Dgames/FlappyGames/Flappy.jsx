@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 const BIRD_HEIGHT = 28;
 const BIRD_WIDTH = 33;
 const WALL_HEIGHT = 600;
@@ -14,6 +15,7 @@ const Flappy = () => {
     const [objHeight, setObjHeight] = useState(0);
     const [objPos, setObjPos] = useState(WALL_WIDTH);
     const [score, setScore] = useState(0);
+    useTitle("2D-Games/Flappy")
     useEffect(() => {
       let intVal;
       if (isStart && birdpos < WALL_HEIGHT - BIRD_HEIGHT) {

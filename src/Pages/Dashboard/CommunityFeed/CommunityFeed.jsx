@@ -9,6 +9,7 @@ import FriendRequest from "../MyProfile/FriendRequest";
 import FriendList from "../MyProfile/FriendList";
 import TrendingGames from "./TrendingGames";
 import AddPost from "../MyProfile/AddPost";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 const CommunityFeed = () => {
   const [currentPost, setCurrentPost] = useState(null);
   const { userinfo, user } = useContext(AuthContext);
@@ -23,7 +24,7 @@ const CommunityFeed = () => {
       return data;
     },
   });
-
+  useTitle("Community")
   // get friendReq
   const {
     data: friendReq,
