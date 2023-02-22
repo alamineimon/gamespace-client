@@ -22,6 +22,12 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url(https://i.ibb.co/sHjsqB2/images-6.jpg);
 }
+.snakeGame{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url(https://i.ibb.co/HFRNJZj/snekcrop-0.jpg);
+}
 .profile-icon{
   font-size: 90px;
   margin: auto;
