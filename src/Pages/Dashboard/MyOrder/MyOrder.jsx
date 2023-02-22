@@ -11,7 +11,7 @@ import Loader from "../../Shared/Loader/Loader";
 
 const MyOrder = (props) => {
   const { user } = useContext(AuthContext);
-  useTitle("Dashboard/MyOrders")
+  useTitle("Dashboard/MyOrders");
   const [deleteProduct, setDeleteProduct] = useState(null);
   const url = `https://gamespace-server.vercel.app/orderedGames?email=${user?.email}`;
   const {

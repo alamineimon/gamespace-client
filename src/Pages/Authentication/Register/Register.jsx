@@ -14,7 +14,7 @@ import useToken from "../../../Hooks/useToken/useToken";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const Register = () => {
-  useTitle("Register")
+  useTitle("Register");
   const { googleSignin, updateUser } = useContext(AuthContext);
   useTitle("Register");
 

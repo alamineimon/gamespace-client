@@ -15,7 +15,7 @@ import useTitle from "../../Hooks/useTitle/useTitle";
 
 const PlayerProfile = () => {
   const user = useLoaderData();
-  useTitle(`Profile/${user.name}`)
+  useTitle(`Profile/${user.name}`);
   const { userinfo: currentUser } = useContext(AuthContext);
   const [currentPost, setCurrentPost] = useState(null);
 

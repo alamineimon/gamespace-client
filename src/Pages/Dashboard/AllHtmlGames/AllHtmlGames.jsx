@@ -9,7 +9,7 @@ import Loader from "../../Shared/Loader/Loader";
 import HtmlCards from "./HtmlCards";
 
 const AllHtmlGames = () => {
-  useTitle('All HTML Games')
+  useTitle("All HTML Games");
   const [currentGame, setCurrentGame] = useState("");
   const {
     data: htmlgames,
@@ -18,14 +18,11 @@ const AllHtmlGames = () => {
   } = useQuery({
     queryKey: ["play-games"],
     queryFn: async () => {
-      const res = await fetch(
-        `https://gamespace-server.vercel.app/play-games`,
-        {
-          headers: {
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          },
-        }
-      );
+      const res = await fetch(`https://gamespace-server.vercel.app/play-games`, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },

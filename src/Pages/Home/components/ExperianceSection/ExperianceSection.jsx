@@ -25,17 +25,11 @@ const ExperianceSection = () => {
         <div className="lg:w-1/2 relative px-6 pt-2 md:ml-16">
           <hr className="bg-red-500 h-2" />
           <p className="h-4 w-16 right-6 absolute bg-red-500"></p>
-          <p
-            className={`md:text-4xl text-3xl mt-16`}
-          >
-            EXPERIENCE
-          </p>
+          <p className={`md:text-4xl text-3xl mt-16`}>EXPERIENCE</p>
           <p className="md:text-4xl text-3xl my-2 md:my-6 font-extrabold text-yellow-600">
             STRONG TEAM PLAY
           </p>
-          <p
-            className={`text-md md:text-xl mb-12`}
-          >
+          <p className={`text-md md:text-xl mb-12`}>
             An example of successful teamwork is effective active listening
             skills. Maintaining eye contact when others are talking, having open
             and friendly body language, and responding appropriately to the
