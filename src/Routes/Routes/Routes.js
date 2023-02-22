@@ -29,6 +29,7 @@ import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
 import CommunityFeed from "../../Pages/Dashboard/CommunityFeed/CommunityFeed";
 import Flappy from "../../Pages/2Dgames/FlappyGames/Flappy.jsx"
 import PlayerProfile from "../../Pages/PlayerProfile/PlayerProfile";
+import TetrisGame from "../../Pages/2Dgames/TetrisGame/TetrisGame";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "/flappy",
         element: <Flappy />,
+      },
+      {
+path:'/tetrisGame',
+element:<TetrisGame/>
       },
       {
         path: "/livestream",
