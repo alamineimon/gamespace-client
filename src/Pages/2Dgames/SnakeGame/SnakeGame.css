@@ -1,0 +1,19 @@
+/* .main-game-container{
+    position:absolute;
+    left:0;
+    right:0;
+    top:100;
+    bottom:0;
+    background-color:black;
+    color:white;
+} */
+
+.innergamecontainer{
+    max-width:500px;
+    margin:auto;
+    text-align:center;
+}
+
+.game-tile{
+    width:26px;
+}

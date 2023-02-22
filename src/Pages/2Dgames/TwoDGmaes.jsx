@@ -59,12 +59,14 @@ const TwoDGmaes = () => {
               Play Now
             </Link>
           </div>
-          <div className="flappy w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group">
+
+          <div className="snakeGame w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group">
             <p className="text-3xl text-white uppercase font-bold group-hover:-translate-y-8 transition-transform z-10">
-              Tetris game
+              Snake Game
             </p>
             <Link
-              to="/tetrisGame"
+              to="/snakeGame"
+          
               className=" btn btn-primary font-bold rounded-none absolute opacity-0 group-hover:opacity-100 translate-y-0 group-hover:translate-y-8 transition-transform"
             >
               Play Now
