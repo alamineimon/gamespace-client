@@ -11,7 +11,7 @@ const TwoDGmaes = () => {
       <TwoDGamesHeader />
       <div className="bg-black1 py-5 lg:py-10">
         <div
-          className={`py-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 justify-evenly lg:items-center w-11/12 mx-auto gap-5 lg:gap-10 `}
+          className={`py-5 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 justify-evenly lg:items-center w-11/12 mx-auto gap-5 lg:gap-10 `}
         >
           <div className="CandyCrash w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group ">
             <p className="text-3xl text-white uppercase font-bold group-hover:-translate-y-8 transition-transform z-10">
@@ -54,6 +54,31 @@ const TwoDGmaes = () => {
             </p>
             <Link
               to="/flappy"
+              className=" btn btn-primary font-bold rounded-none absolute opacity-0 group-hover:opacity-100 translate-y-0 group-hover:translate-y-8 transition-transform"
+            >
+              Play Now
+            </Link>
+          </div>
+
+          <div className="snakeGame w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group">
+            <p className="text-3xl text-white uppercase font-bold group-hover:-translate-y-8 transition-transform z-10">
+              Snake Game
+            </p>
+            <Link
+              to="/snakeGame"
+          
+              className=" btn btn-primary font-bold rounded-none absolute opacity-0 group-hover:opacity-100 translate-y-0 group-hover:translate-y-8 transition-transform"
+            >
+              Play Now
+            </Link>
+          </div>
+          <div className="tetrisGame w-full m-auto h-60 mb-4  flex flex-col justify-center items-center rounded-none shadow-xl image-full group">
+            <p className="text-3xl text-white uppercase font-bold group-hover:-translate-y-8 transition-transform z-10">
+              Tetris Game
+            </p>
+            <Link
+              to="/tetrisGame"
+          
               className=" btn btn-primary font-bold rounded-none absolute opacity-0 group-hover:opacity-100 translate-y-0 group-hover:translate-y-8 transition-transform"
             >
               Play Now
