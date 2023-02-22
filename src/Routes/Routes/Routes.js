@@ -107,7 +107,7 @@ const router = createBrowserRouter([
       },
       {
       path:'/tetrisGame',
-element:<TetrisGame/>
+      element:<TetrisGame/>
       },
       {
         path: "/livestream",

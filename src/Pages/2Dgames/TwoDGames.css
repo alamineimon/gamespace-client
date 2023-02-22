@@ -28,6 +28,12 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url(https://i.ibb.co/HFRNJZj/snekcrop-0.jpg);
 }
+.tetrisGame{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url(https://i.ibb.co/Fz8N1dN/unnamed.png);
+}
 .profile-icon{
   font-size: 90px;
   margin: auto;
