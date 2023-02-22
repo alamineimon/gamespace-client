@@ -74,7 +74,7 @@ class SnakeGame extends React.Component {
         window.fnInterval = setInterval(() => {
             console.log(this.state.food, this.state.gameMatrix)
             this.gameTick();
-        }, 400);
+        }, 200);
     }
 
     ////////////////////////////////////////
@@ -127,7 +127,7 @@ class SnakeGame extends React.Component {
                             !this.state.gameOver?this.renderGameMatrix():"Game Over"
                         }
                         <h1>{this.state.snakeList.length-2}</h1>
-                        <button onClick={this.restartGame}>Restart Game</button>
+                        <button onClick={this.restartGame} className="btn btn-primary my-3 font-bold rounded-none">Restart Game</button>
                     </div>
                 </div>
             </>
