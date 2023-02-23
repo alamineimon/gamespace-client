@@ -5,6 +5,7 @@ import {
   ScrollRestoration,
   useLoaderData,
   useNavigate,
+  useRevalidator,
 } from "react-router-dom";
 import BannerPart from "../Dashboard/MyProfile/BannerPart";
 import AboutMe from "../Dashboard/MyProfile/AboutMe";
@@ -20,6 +21,8 @@ import { toast } from "react-hot-toast";
 
 const PlayerProfile = () => {
   const user = useLoaderData();
+  let revalidator = useRevalidator();
+
   useTitle(`Profile/${user.name}`);
   const { userinfo: currentUser } = useContext(AuthContext);
   const [currentPost, setCurrentPost] = useState(null);
@@ -91,6 +94,7 @@ const PlayerProfile = () => {
       }
     );
     const data = await res.json();
+    revalidator.revalidate();
     if (data.acknowledged) {
       toast.custom((t) => (
         <div
@@ -130,6 +134,7 @@ const PlayerProfile = () => {
   if (friendsLoading || postsLoading) {
     return <Loader />;
   }
+
   return (
     <section className="bg-[#0e1015] ">
       <div className=" max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-5 p-10 ">

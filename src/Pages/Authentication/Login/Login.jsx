@@ -19,7 +19,8 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const { googleSignin, loginUser,handlerForgete } = useContext(AuthContext);
+
+  const { googleSignin, loginUser, handlerForgete } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [resetEmail, setresetEmail] = useState(" ");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -64,7 +65,7 @@ const Login = () => {
       });
   };
 
-  const handlerForgetePassword = () => {
+  const handlerForgetPassword = () => {
     handlerForgete(resetEmail)
       .then(() => {
         alert(" Password reset request send to your email. Please check your email");
@@ -139,22 +140,23 @@ const Login = () => {
                 )}
               </label>
             </div>
-            <div  className="my-3">
+            <div className="my-3">
               <b>
-                <Link  
-                onClick={handlerForgetePassword}
-                className="text-blue-500 underline">
-                  Forgete Password!{" "}
+
+                <Link
+                  onClick={handlerForgetPassword}
+                  className="text-blue-500 underline">
+                  Forget Password!{" "}
                 </Link>
               </b>
-            </div>
+            </div >
 
             <input
               className="hover:bg-yellow-500 rounded border-2 mt-8 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2 cursor-pointer"
               value="Login"
               type="submit"
             />
-          </form>
+          </form >
           <p className="divider text-sm">OR LOGIN WITH</p>
 
           <div
@@ -172,9 +174,9 @@ const Login = () => {
               Create new Account
             </Link>
           </p>
-        </div>
-      </div>
-    </div>
+        </div >
+      </div >
+    </div >
   );
 };
 

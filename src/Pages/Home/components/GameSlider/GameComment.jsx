@@ -10,7 +10,7 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
   const { user } = useContext(AuthContext);
-
+  console.log(user);
   const {
     register,
     formState: { errors },
@@ -24,7 +24,7 @@ const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
       comment: data.comment,
       gameDetailsId: detailsId,
       photoURL: user.photoURL,
-      email:user.email,
+      email: user.email,
       displayName: user.displayName,
     };
 
@@ -59,7 +59,7 @@ const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
       const data = result.filter(
         (gameId) => gameId.gameDetailsId === detailsId || rightSideGame
       );
-     
+
       setRefetch();
       return data;
     },
@@ -87,56 +87,61 @@ const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
   };
 
   if (isLoading) {
-    <Loader />;
+    return <Loader />;
   }
 
   return (
     <div>
-{
-        user?.uid ? (
-          <div>
-            <form onSubmit={handleSubmit(handelComment)}>
-              <div className=" flex justify-center gap-3">
-                <div className="w-16 ">
-                  {!user?.photoURL ? (
+
+      {user?.uid ? (
+        <div>
+          <form onSubmit={handleSubmit(handelComment)}>
+            <div className=" flex justify-center gap-3">
+              <div className="w-16 ">
+                {!user?.photoURL ? (
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDQxb76rTenFVywjyhY04fyf1Z8nk4rpS-cQ&usqp=CAU"
                     className="w-full rounded-full border-4 border-orange-500"
                     alt=""
                   />
-                  ) : (
+                ) : (
                   <img
                     src={user?.photoURL}
                     className="w-full rounded-full border-4 border-orange-500"
                     alt=""
                   />
-                  )}
-                </div>
-                <textarea
-                  type="textarea"
-                  className="input  w-full text-slate-200 bg-slate-600 px-3 pt-3 rounded-lg "
-                  name="comment"
-                  {...register("comment", {
-                    required: "comment Address is required",
-                  })}
-                  placeholder="Comment add"
-                />
-                {errors.comment && (
-                  <p className="text-orange-400">{errors.comment?.message}</p>
                 )}
+
                 <input
-                  className="bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
+                  className="bg-yellow-500 btn-md rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
                   value="Submit"
                   type="submit"
                 />
-              </div>
-            </form>
 
-          </div>
-        ) : (
-          ""
-        )
-      }
+              </div>
+              <textarea
+                type="textarea"
+                className="input  w-full text-slate-200 bg-slate-600 px-3 pt-3 rounded-lg "
+                name="comment"
+                {...register("comment", {
+                  required: "comment Address is required",
+                })}
+                placeholder="Comment add"
+              />
+              {errors.comment && (
+                <p className="text-orange-400">{errors.comment?.message}</p>
+              )}
+              <input
+                className="bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
+                value="Submit"
+                type="submit"
+              />
+            </div>
+          </form>
+        </div>
+      ) : (
+        ""
+      )}
       <div className="mt-5 space-y-4">
         {comments?.map((comment, i) => (
           <div className=" space-y-2">
@@ -164,27 +169,28 @@ const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
                   {comment?.comment}
                 </p>
               </div>
-              { comment?.email === user?.email ?
-              <div className="flex gap-3">
-                <div>
-                  <label
-                    onClick={() => setEditComments(comment)}
-                    htmlFor="my-modal-4"
-                    className=" text-xl cursor-pointer"
-                  >
-                    {" "}
-                    <CiEdit></CiEdit>
-                  </label>
+              {comment?.email === user?.email && user?.email ? (
+                <div className="flex gap-3">
+                  <div>
+                    <label
+                      onClick={() => setEditComments(comment)}
+                      htmlFor="my-modal-4"
+                      className=" text-xl cursor-pointer"
+                    >
+                      {" "}
+                      <CiEdit></CiEdit>
+                    </label>
+                  </div>
+                  <div>
+                    <TiDeleteOutline
+                      className=" text-xl cursor-pointer"
+                      onClick={() => handlerDeleteComment(comment._id)}
+                    ></TiDeleteOutline>
+                  </div>
                 </div>
-                <div>
-                  <TiDeleteOutline
-                    className=" text-xl cursor-pointer"
-                    onClick={() => handlerDeleteComment(comment._id)}
-                  ></TiDeleteOutline>
-                </div>
-              </div>
-              : ""
-              }
+              ) : (
+                ""
+              )}
             </div>
             <hr className="border-slate-500" />
           </div>
