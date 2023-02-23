@@ -8,6 +8,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
+import { IoIosCheckmarkCircle } from "react-icons/io";
 import defaultAvtar from "../../../assets/images/gamingAvatar.webp";
 import { AuthContext } from "../../../context/AuthProvider";
 const BannerPart = ({
@@ -40,8 +41,8 @@ const BannerPart = ({
           </div>
         </div>
       </div>
-      <div className="pb-8 grid grid-cols-1 lg:grid-cols-3 mt-8 px-5 ">
-        <div className="friend flex justify-start  items-end space-x-5 order-2 lg:order-1 ">
+      <div className="pb-8 grid grid-cols-4 lg:grid-cols-3 mt-8 px-5 ">
+        <div className="friend flex justify-start col-span-2 lg:col-span-1  items-end space-x-5 order-2 lg:order-1 ">
           {userinfo?.friends && (
             <div className="text-center">
               <h6 className="text-xl lg:text-2xl text-white font-bold">
@@ -59,32 +60,32 @@ const BannerPart = ({
             </div>
           )}
         </div>
-        <div className="text-center order-1 lg:order-2">
+        <div className="text-center order-1 lg:order-2 col-span-4 lg:col-span-1">
           <h2 className="text-xl lg:text-2xl font-bold capitalize text-white ">
             {name}
           </h2>
           <h3>{email}</h3>
         </div>
-        <div className="social flex space-x-5 justify-end  items-end place-self-end order-3 ">
+        <div className="social flex space-x-2 md:space-x-5 justify-end col-span-2 lg:col-span-1 items-center place-self-top order-3 ">
           {userinfo?.facebook && (
             <a href={userinfo?.facebook} target="_blank" rel="noreferrer">
-              <FaFacebookF className="text-xl lg:text-4xl cursor-pointer hover:translate-y-1 transition-transform p-2 text-white  rounded bg-[#275077]" />
+              <FaFacebookF className="text-3xl lg:text-4xl cursor-pointer hover:translate-y-1 transition-transform p-2 text-white  rounded bg-[#275077]" />
             </a>
           )}
           {userinfo?.instagram && (
             <a href={userinfo?.instagram} target="_blank" rel="noreferrer">
-              <FaInstagram className="text-xl lg:text-4xl cursor-pointer hover:translate-y-1 transition-transform p-2 text-white rounded bg-[#275077]" />
+              <FaInstagram className="text-3xl lg:text-4xl cursor-pointer hover:translate-y-1 transition-transform p-2 text-white rounded bg-[#275077]" />
             </a>
           )}
           {userinfo?.twitter && (
             <a href={userinfo?.twitter} target="_blank" rel="noreferrer">
-              <FaTwitter className="text-xl lg:text-4xl cursor-pointer hover:translate-y-1 transition-transform p-2 text-white   rounded bg-[#275077]" />
+              <FaTwitter className="text-3xl lg:text-4xl cursor-pointer hover:translate-y-1 transition-transform p-2 text-white   rounded bg-[#275077]" />
             </a>
           )}
           {userinfo?.youTube && (
             <a href={userinfo?.youTube} target="_blank" rel="noreferrer">
               {" "}
-              <FaYoutube className="text-xl lg:text-4xl cursor-pointer hover:translate-y-1 transition-transform p-2 text-white  rounded bg-[#275077]" />
+              <FaYoutube className="text-3xl lg:text-4xl cursor-pointer hover:translate-y-1 transition-transform p-2 text-white  rounded bg-[#275077]" />
             </a>
           )}
         </div>
@@ -101,13 +102,22 @@ const BannerPart = ({
           {isFriend ? (
             ""
           ) : (
-            <button
-              onClick={sendFriendRequest}
-              className="flex justify-center items-center bg-white hover:bg-primary p-2 right-5 absolute top-6 cursor-pointer rounded-md text-black"
-            >
-              <BsPersonPlusFill className="text-black mr-2 text-xl"></BsPersonPlusFill>{" "}
-              <p>Connect</p>
-            </button>
+            <>
+              {userinfo?.friendRequest?.includes(user?.email) ? (
+                <button className="flex justify-center items-center btn btn-secondary btn-sm right-5 absolute top-6 cursor-pointer rounded-md ">
+                  <IoIosCheckmarkCircle className="text-primary mr-2 text-xl"></IoIosCheckmarkCircle>{" "}
+                  Friend req sent
+                </button>
+              ) : (
+                <button
+                  onClick={sendFriendRequest}
+                  className="flex justify-center items-center bg-white hover:bg-primary p-2 right-5 absolute top-6 cursor-pointer rounded-md text-black"
+                >
+                  <BsPersonPlusFill className="text-black mr-2 text-xl"></BsPersonPlusFill>{" "}
+                  <p>Connect</p>
+                </button>
+              )}
+            </>
           )}
         </>
       )}
