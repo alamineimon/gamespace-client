@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const AllUsers = () => {
-  useTitle('Users')
+  useTitle("Users");
   const [deleteUser, setDeleteUser] = useState(null);
   const [arrow, setArrow] = useState(true);
 

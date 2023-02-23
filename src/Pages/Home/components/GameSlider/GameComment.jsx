@@ -10,7 +10,6 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const GameComment = ({ rightSideGame, detailsId }) => {
   const { user } = useContext(AuthContext);
-  // console.log(user.photoURL);
   const {
     register,
     formState: { errors },
@@ -89,7 +88,8 @@ const GameComment = ({ rightSideGame, detailsId }) => {
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit(handelComment)}>
+{        user?.email &&
+<form onSubmit={handleSubmit(handelComment)}>
           <div className=" flex justify-center gap-3">
             <div className="w-16 ">
               {!user?.photoURL ? (
@@ -124,7 +124,7 @@ const GameComment = ({ rightSideGame, detailsId }) => {
               type="submit"
             />
           </div>
-        </form>
+        </form>}
       </div>
       <div className="mt-5 space-y-4">
         {comments?.map((comment, i) => (

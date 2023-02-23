@@ -23,7 +23,7 @@ const FriendRequest = ({ user, friendReq, reqRefetch, friendRefetch }) => {
       });
   };
   return (
-    <div className="bg-dashboardCards p-5 rounded-2xl font-rajdhani">
+    <div className="bg-dashboardCards p-5 rounded-2xl font-rajdhani w-full lg:max-w-sm lg:ml-auto border-l border-t border-white/20">
       <h2 className="text-lg font-semibold text-mainHeading mb-5">
         Friends request
       </h2>

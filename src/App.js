@@ -11,17 +11,17 @@ import { useDispatch } from "react-redux";
 import { setUser, toggleLoading } from "./slice/auth/authSlice";
 
 function App() {
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    onAuthStateChanged(auth, (user)=>{
-      if(user){
-        console.log(user)
-        dispatch(setUser(user?.email))
-      } else{
-        dispatch(toggleLoading())
-      }
-    });
-  }, [dispatch]);
+  // const dispatch = useDispatch()
+  // useEffect(()=>{
+  //   onAuthStateChanged(auth, (user)=>{
+  //     if(user){
+  //       console.log(user)
+  //       dispatch(setUser(user?.email))
+  //     } else{
+  //       dispatch(toggleLoading())
+  //     }
+  //   });
+  // }, [dispatch]);
   return (
     <div>
       <RouterProvider router={router}></RouterProvider>

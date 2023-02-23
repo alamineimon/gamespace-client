@@ -8,7 +8,7 @@ import Title2 from "../../Shared/DashTitle/Title2";
 import Loader from "../../Shared/Loader/Loader";
 
 const AddHtmlGames = () => {
-  useTitle("Add HTML Games")
+  useTitle("Add HTML Games");
   const { data: categories, isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
