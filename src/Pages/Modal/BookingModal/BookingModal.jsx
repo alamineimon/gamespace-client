@@ -40,7 +40,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
       .then((res) => res.json())
       .then((data) => {
         toast("Game Added successfully");
-        navigate("/shop");
+        navigate("/dashboard");
         form.reset();
         refetch();
       });
@@ -51,6 +51,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
       <input type="checkbox" id="bookingModal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
+          <h1 className="text-center font-bold text-lg">Place your order</h1>
           <label
             htmlFor="bookingModal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
@@ -72,7 +73,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
             />
             <input
               disabled
-              defaultValue={userinfo?.email}
+              defaultValue={user?.email}
               name="email"
               type="email"
               placeholder="Email Address"

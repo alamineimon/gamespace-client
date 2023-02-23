@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useContext } from "react";
+import { HiLightningBolt } from "react-icons/hi";
 import { AuthContext } from "../../../../context/AuthProvider";
 import Loader from "../../../Shared/Loader/Loader";
 import FeaturedGamesCard from "./FeaturedGamesCard";
@@ -22,18 +23,14 @@ const FeaturedGames = () => {
     return <Loader />;
   }
   return (
-    <section
-      className={`py-10 ${
-        theme === "dark" ? "bg-black1 text-white1" : "bg-white1 text-black1"
-      }`}
-    >
+    <section className={"py-10 bg-black text-white "}>
+      <div className="flex justify-center">
+      
+          <HiLightningBolt className="text-6xl text-primary" />
+        </div>
       <div className="w-11/12 mx-auto">
-        <h1
-          className={`text-3xl text-center mb-6 lg:text-5xl capitalize font-semibold ${
-            theme === "dark" ? "text-white1" : "text-black1"
-          }`}
-        >
-          Trending Games
+      <h1 className="text-2xl lg:text-4xl text-mainHeading font-bold uppercase mb-5 text-center">
+          <span>Treading</span> <span className="text-primary">Games</span>
         </h1>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
           {games?.slice(2, 5)?.map((game, i) => (

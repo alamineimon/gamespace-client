@@ -7,7 +7,6 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Login.css";
-import { useDispatch } from "react-redux";
 import { googleSingIn, loginUser } from "../../../slice/auth/authSlice";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 import { useSelector } from "react-redux";
@@ -20,6 +19,7 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
   const { googleSignin, loginUser, handlerForgete } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [resetEmail, setresetEmail] = useState(" ");
@@ -33,7 +33,6 @@ const Login = () => {
   const { isLoading, email, error, isError } = useSelector(
     (state) => state.auth
   );
-  const dispatch = useDispatch();
 
   const handelLogin = ({ email, password }) => {
     loginUser(email, password).then((res) => navigate(from, { replace: true }));
@@ -52,9 +51,6 @@ const Login = () => {
     }
   }, [isError, error]);
 
-  // const handlerGoogleSignin = ()=>{
-  //   dispatch(googleSingIn())
-  // }
   const handlerGoogleSignin = () => {
     googleSignin()
       .then((result) => {
@@ -69,10 +65,10 @@ const Login = () => {
       });
   };
 
-  const handlerForgetePassword = () => {
+  const handlerForgetPassword = () => {
     handlerForgete(resetEmail)
       .then(() => {
-        alert(" Password reaste email send. Please chck your email");
+        alert(" Password reset request send to your email. Please check your email");
       })
       .catch((error) => {
         console.log(error);
@@ -106,6 +102,9 @@ const Login = () => {
                 )}
                 placeholder="Email or Phone"
               />
+              {errors.email && (
+                <p className="text-orange-400 mt-2">{errors.email?.message}</p>
+              )}
             </div>
             <div className="form-control w-full relative mt-8">
               <label className=" absolute ml-2 mt-4 text-gray">
@@ -123,6 +122,9 @@ const Login = () => {
                 placeholder="Password"
                 className="input input-bordered bg-none input-primary w-full rounded-none text-gray-400 px-8"
               />
+              {errors.password && (
+                <p className="text-orange-400 mt-2">{errors.password?.message}</p>
+              )}
 
               <label className=" right-2 mt-4 cursor-pointer absolute text-gray">
                 {passwordShown ? (
@@ -140,18 +142,21 @@ const Login = () => {
             </div>
             <div className="my-3">
               <b>
-                <Link onClick={handlerForgetePassword} className="text-blue-500 underline">
-                  Forgete Password!{" "}
+
+                <Link
+                  onClick={handlerForgetPassword}
+                  className="text-blue-500 underline">
+                  Forget Password!{" "}
                 </Link>
               </b>
-            </div>
+            </div >
 
             <input
               className="hover:bg-yellow-500 rounded border-2 mt-8 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2 cursor-pointer"
               value="Login"
               type="submit"
             />
-          </form>
+          </form >
           <p className="divider text-sm">OR LOGIN WITH</p>
 
           <div
@@ -169,9 +174,9 @@ const Login = () => {
               Create new Account
             </Link>
           </p>
-        </div>
-      </div>
-    </div>
+        </div >
+      </div >
+    </div >
   );
 };
 

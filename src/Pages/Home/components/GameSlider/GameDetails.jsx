@@ -44,43 +44,22 @@ const GameDetails = () => {
 
   return (
     <div className="text-white">
-      <div className=" w-full  flex flex-col items-center justify-center relative transition-all">
+      <div className="">
         <img
           src={imgBG}
-          className=" w-full h-[400] md:h-[450] lg:h-[500px]"
+          className=" w-full h-[400px] md:h-[450] lg:h-[500px] object-contain bg-secondary"
           alt=""
         />
       </div>
-      <div className="bg-gray-900 px-5 md:px-10">
-        <div className="flex justify-center items-center space-x-2 lg:space-x-20 space-y-4 pt-5 pb-16">
-          <div className="flex items-end gap-5">
-            <div className="hidden md:block -mt-32 z-10 ">
-              <img
-                src={img}
-                className="w-44 md:w-60 p-4 bg-yellow-500"
-                alt=""
-              />
-            </div>
-            <div className=" ">
-              <h1 className="text-xl md:text-3xl lg:text-4xl font-bold hover:underline cursor-pointer ">
-                {title}{" "}
-              </h1>
-            </div>
-          </div>
-          <div className="max-w-80 p-3 flex justify-between items-center bg-amber-700 gap-1">
-            <div>
-              <h3 className="text-md md:text-2xl font-bold">Game Rating</h3>
-              <h4 className="text-sm md:text-md lg:text-xl">
-                User Ratings: {ratings}
-              </h4>
-              <h4 className="text-sm md:text-md lg:text-xl">
-                Our Review: 9/10
-              </h4>
-            </div>
-            <div>
-              <FaStar className="text-yellow-500 text-5xl md:text-7xl"></FaStar>
-            </div>
-          </div>
+
+      <div className=" px-5 md:px-10 z-10 -mt-32 relative mx-auto mb-5 lg:mb-10 space-y-5">
+        <div className="w-44 md:w-60 border mx-auto z-10 ">
+          <img src={img} className="w-full border" alt="" />
+        </div>
+        <div>
+          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold hover:underline cursor-pointer text-center ">
+            {title}{" "}
+          </h1>
         </div>
       </div>
       <div className="bg-gray-800 pt-6 pb-4">
@@ -159,7 +138,7 @@ const GameDetails = () => {
               </Carousel>
             </div>
             <GameComment
-            setRefetch={refetch}
+              setRefetch={refetch}
               detailsId={_id}
               rightSideGame={rightSideGame}
             ></GameComment>
