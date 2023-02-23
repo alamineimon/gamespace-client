@@ -5,7 +5,7 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <div className=" w-full min-h-[87vh] flex flex-col items-center justify-center relative transition-all">
+    <div className=" w-full min-h-[95vh] flex flex-col items-center justify-center relative transition-all">
       <video
         src={bgVideos}
         autoPlay
@@ -14,11 +14,11 @@ const Header = () => {
         className=" w-full h-full absolute top-0 z-[1] object-cover"
       ></video>
       <div className=" h-full w-full bg-black/50 z-10"></div>
-      <div className="absolute z-20 text-center -translate-y-1/4">
-        <h1 className="text-4xl lg:text-8xl sm:text-6xl lg:mt-12 lg:mb-6 font-bold text-center font-gaming text-mainHeading">
+      <div className="absolute z-20 text-center  -translate-y-1/4">
+        <h1 className="text-4xl opacity-80 lg:text-8xl sm:text-6xl lg:mt-12 lg:mb-6 font-bold text-center font-gaming text-mainHeading">
           All Your Games
           <br />
-          <span className="text-4xl lg:text-8xl sm:text-6xl text-primary">
+          <span className="text-4xl opacity-80 lg:text-8xl sm:text-6xl text-primary">
             is Here...
           </span>
         </h1>
