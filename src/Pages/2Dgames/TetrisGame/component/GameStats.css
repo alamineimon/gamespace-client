@@ -1,6 +1,6 @@
 .GameStats {
     position: absolute;
-    width: 10vw;
+    width: 21vw;
     list-style-type: none;
     color: rgba(255, 255, 255, 0.5);
   }
@@ -12,9 +12,10 @@
   }
   
   .GameStats__right {
-    left: 3em;
-    bottom: 10vh;
-    text-align: left;
+    left: 2em;
+    bottom: 0;
+    top: 0;
+
   }
   
   .GameStats .val ue {
