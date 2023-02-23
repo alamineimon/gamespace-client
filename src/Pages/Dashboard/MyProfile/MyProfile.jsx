@@ -15,11 +15,13 @@ import CommentModal from "./CommentModal";
 import { useState } from "react";
 import EditProfileModal from "./EditProfileModal";
 import useTitle from "../../../Hooks/useTitle/useTitle";
+
 const MyProfile = () => {
   useTitle("My Profile");
   const { userinfo, user, userRefetch } = useContext(AuthContext);
   const [currentPost, setCurrentPost] = useState(null);
   const [editProfile, setEditProfile] = useState(false);
+
   // get friendReq
   const {
     data: friendReq,
@@ -34,6 +36,7 @@ const MyProfile = () => {
       return data;
     },
   });
+  
   //get friendList
   const {
     data: friends,

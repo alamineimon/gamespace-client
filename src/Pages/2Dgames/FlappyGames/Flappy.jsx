@@ -66,7 +66,7 @@ const Flappy = () => {
       else setBirspos((birdpos) => birdpos - 50);
     };
     return (
-      <Home onClick={handler}>
+      <Home onClick={handler} className="lg:flex  justify-center items-center  ">
         <span>Score: {score}</span>
         <Background height={WALL_HEIGHT} width={WALL_WIDTH}>
           {!isStart ? <Startboard>Click To Start</Startboard> : null}

@@ -5,7 +5,7 @@ import NavbarTop from "./NavbarTop/NavbarTop";
 
 const Navbar = () => {
   return (
-    <nav className="navbarBottomBG">
+    <nav className="navbarBottomBG ">
       <NavbarTop defaultAvtar={defaultAvtar} />
     </nav>
   );

@@ -7,7 +7,6 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Login.css";
-import { useDispatch } from "react-redux";
 import { googleSingIn, loginUser } from "../../../slice/auth/authSlice";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 import { useSelector } from "react-redux";
@@ -20,7 +19,7 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const { googleSignin, loginUser } = useContext(AuthContext);
+  const { googleSignin, loginUser,handlerForgete } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [resetEmail, setresetEmail] = useState(" ");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -33,7 +32,6 @@ const Login = () => {
   const { isLoading, email, error, isError } = useSelector(
     (state) => state.auth
   );
-  const dispatch = useDispatch();
 
   const handelLogin = ({ email, password }) => {
     loginUser(email, password).then((res) => navigate(from, { replace: true }));
@@ -52,9 +50,6 @@ const Login = () => {
     }
   }, [isError, error]);
 
-  // const handlerGoogleSignin = ()=>{
-  //   dispatch(googleSingIn())
-  // }
   const handlerGoogleSignin = () => {
     googleSignin()
       .then((result) => {
@@ -69,15 +64,15 @@ const Login = () => {
       });
   };
 
-  // const handlerForgetePassword = () => {
-  //   handlerForgete(resetEmail)
-  //     .then(() => {
-  //       alert(" Password reaste email send. Please chck your email");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  const handlerForgetePassword = () => {
+    handlerForgete(resetEmail)
+      .then(() => {
+        alert(" Password reset request send to your email. Please check your email");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -106,6 +101,9 @@ const Login = () => {
                 )}
                 placeholder="Email or Phone"
               />
+              {errors.email && (
+                <p className="text-orange-400 mt-2">{errors.email?.message}</p>
+              )}
             </div>
             <div className="form-control w-full relative mt-8">
               <label className=" absolute ml-2 mt-4 text-gray">
@@ -123,6 +121,9 @@ const Login = () => {
                 placeholder="Password"
                 className="input input-bordered bg-none input-primary w-full rounded-none text-gray-400 px-8"
               />
+              {errors.password && (
+                <p className="text-orange-400 mt-2">{errors.password?.message}</p>
+              )}
 
               <label className=" right-2 mt-4 cursor-pointer absolute text-gray">
                 {passwordShown ? (
@@ -138,9 +139,11 @@ const Login = () => {
                 )}
               </label>
             </div>
-            <div className="my-3">
+            <div  className="my-3">
               <b>
-                <Link className="text-blue-500 underline">
+                <Link  
+                onClick={handlerForgetePassword}
+                className="text-blue-500 underline">
                   Forgete Password!{" "}
                 </Link>
               </b>
