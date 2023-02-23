@@ -124,17 +124,17 @@ const AllUsers = () => {
                   <div className="flex items-center">
                     <div className="avatar mr-2">
                       <div className="w-12 rounded-full">
-                        <img src={userInformation.photoURL} alt="" />
+                        <img src={userInformation?.photoURL} alt="" />
                       </div>
                     </div>
-                    <div className="text-white">{userInformation.name}</div>
+                    <div className="text-white">{userInformation?.name}</div>
                   </div>
                 ) : (
                   <div className="flex items-center">
                     <div className="avatar placeholder mr-2">
                       <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
                         <span className="text-3xl">
-                          {userInformation.name.slice(0, 1)}
+                          {userInformation?.name?.slice(0, 1)}
                         </span>
                       </div>
                     </div>
