@@ -16,7 +16,7 @@ import { useState } from "react";
 import EditProfileModal from "./EditProfileModal";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 const MyProfile = () => {
-  useTitle('My Profile')
+  useTitle("My Profile");
   const { userinfo, user, userRefetch } = useContext(AuthContext);
   const [currentPost, setCurrentPost] = useState(null);
   const [editProfile, setEditProfile] = useState(false);
@@ -108,17 +108,19 @@ const MyProfile = () => {
             <p>No post found</p>
           )}
         </div>
-        <div className="space-y-5">
-          {friendReq.length > 0 && (
-            <FriendRequest
-              user={user}
-              friendReq={friendReq}
-              reqRefetch={reqRefetch}
-              friendRefetch={friendRefetch}
-            />
-          )}
+        <div>
+          <div className="space-y-5 sticky top-5">
+            {friendReq.length > 0 && (
+              <FriendRequest
+                user={user}
+                friendReq={friendReq}
+                reqRefetch={reqRefetch}
+                friendRefetch={friendRefetch}
+              />
+            )}
 
-          <FriendList friends={friends} />
+            <FriendList friends={friends} />
+          </div>
         </div>
       </section>
       {currentPost && (

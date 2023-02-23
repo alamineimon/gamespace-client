@@ -17,18 +17,13 @@ import {
   AiFillTwitterSquare,
   AiFillGoogleSquare,
 } from "react-icons/ai";
+import Loader from "../../Loader/Loader";
 
 const NavbarTop = ({ defaultAvtar }) => {
-  const { userinfo } = useContext(AuthContext);
+  const { userinfo, logOut, user, userLoading } = useContext(AuthContext);
   const location = useLocation();
   let currentPath = location.pathname.split("/")[1];
 
-
-  const handelLogOut = () => {
-    signOut(auth).then(() => {
-      dispatch(logout());
-    });
-  };
   let activeClassName =
     "font-bold uppercase tracking-wide transition-colors duration-200 text-primary";
   let notActiveClassName =
@@ -97,15 +92,12 @@ const NavbarTop = ({ defaultAvtar }) => {
       </li>
     </>
   );
-
-  const { email } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-
+  if (userLoading) {
+    return <Loader />;
+  }
   return (
     <div className=" lg:block mx-auto  md:max-w-full lg:w-full   ">
-      <div
-        className={` sm:py-2 bg-black1 text-white1`}
-      >
+      <div className={` sm:py-2 bg-black1 text-white1`}>
         <div id="mainmenu" className={"navbar w-11/12 mx-auto px-0"}>
           <div className="navbar-start">
             {currentPath === "dashboard" ? (
@@ -182,15 +174,9 @@ const NavbarTop = ({ defaultAvtar }) => {
                 to="/"
                 className={`text-xs md:text-xl lg:text-2xl flex space-x-3 items-center pl-2 `}
               >
-                <GiBoltShield
-                  className={`text-2xl md:text-5xl text-white`}
-                />
+                <GiBoltShield className={`text-2xl md:text-5xl text-white`} />
                 <div className="text-white">
-                  <span
-                    className={`font-gaming`}
-                  >
-                    Game Space
-                  </span>
+                  <span className={`font-gaming`}>Game Space</span>
                   <span className="text-xs text-primary lg:block font-bold capitalize hidden ">
                     Any Game, Any time, Any place
                   </span>
@@ -199,7 +185,7 @@ const NavbarTop = ({ defaultAvtar }) => {
             </ul>
           </div>
           <div className="navbar-end">
-            {!email ? (
+            {!user ? (
               <>
                 <Link
                   to="/login"
@@ -228,7 +214,7 @@ const NavbarTop = ({ defaultAvtar }) => {
                     tabIndex={0}
                     className="btn btn-ghost btn-circle avatar mr-2"
                   >
-                    {email.uid ? (
+                    {user.uid ? (
                       <div className="w-10 rounded-full">
                         <img
                           alt=""
@@ -239,15 +225,16 @@ const NavbarTop = ({ defaultAvtar }) => {
                           }
                           onError={(e) => (e.target.src = defaultAvtar)}
                         />
-                      </div>
-                    ) : (
-                      <div className="avatar border-4 border-primary rounded-full placeholder">
-                        <div className="bg-neutral-focus text-neutral-content rounded-full lg:w-10 w-8 h-8 lg:h-10">
-                          <span className="text-xl mt-1">
-                            {userinfo?.name?.slice(0, 1)}
-                          </span>
+                        <div className="avatar border-4 border-primary rounded-full placeholder">
+                          <div className="bg-neutral-focus text-neutral-content rounded-full lg:w-10 w-8 h-8 lg:h-10">
+                            <span className="text-xl mt-1">
+                              {userinfo?.name?.slice(0, 1)}
+                            </span>
+                          </div>
                         </div>
                       </div>
+                    ) : (
+                      <></>
                     )}
                   </label>
                   <ul
@@ -263,7 +250,7 @@ const NavbarTop = ({ defaultAvtar }) => {
                       <Link to="/dashboard">Dashboard</Link>
                     </li>
                     <li className="hover:bg-primary/10 hover:text-primary">
-                      <p onClick={handelLogOut}>Logout</p>
+                      <button onClick={logOut}>Logout</button>
                     </li>
                   </ul>
                 </div>
@@ -273,7 +260,7 @@ const NavbarTop = ({ defaultAvtar }) => {
                       currentPath === "dashboard" && "hidden"
                     }`}
                   >
-                    {userinfo?.name?.split(" ")[0]}
+                    {user?.displayName?.split(" ")[0]}
                   </span>
                 </p>
               </div>

@@ -1,8 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
-  FacebookAuthProvider,
-  getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
@@ -14,31 +12,36 @@ import {
 import auth from "../Firebase/firebase.config";
 import { useQuery } from "@tanstack/react-query";
 import axios from "../axios";
-import { useSelector } from "react-redux";
 export const AuthContext = createContext();
-
 const AuthProvider = ({ children }) => {
-  const { user: userFromRedux } = useSelector((state) => state.auth);
-  console.log("fromRedux", userFromRedux?.email);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const createUser = (email, password) => {
-    setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
+
+  //fetch data from mongodb
   const {
     data: userinfo,
     isLoading: userLoading,
     refetch: userRefetch,
   } = useQuery({
-    queryKey: ["profileUpdate", userFromRedux?.email],
+    queryKey: ["profileUpdate", user],
     queryFn: async () => {
-      const { data } = await axios.get(
-        `/profileUpdate/${userFromRedux?.email}`
-      );
+      const { data } = await axios.get(`/profileUpdate/${user?.email}`);
       return data;
     },
   });
+  //create user with email and pass
+  const createUser = async (email, password, profile) => {
+    await setLoading(true);
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then(async (res) => {
+        // await sendEmailVerification(auth.currentUser);
+      })
+      .catch((err) => console.log(err));
+    await updateProfile(auth.currentUser, profile);
+    const username = auth.currentUser;
+    await setUser({ ...username });
+    return username;
+  };
 
   const googleProvider = new GoogleAuthProvider();
   const googleSignin = () => {

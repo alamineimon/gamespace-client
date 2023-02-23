@@ -20,7 +20,7 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const { googleSignin } = useContext(AuthContext);
+  const { googleSignin, loginUser } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [resetEmail, setresetEmail] = useState(" ");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -36,7 +36,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const handelLogin = ({ email, password }) => {
-    dispatch(loginUser({ email, password }));
+    loginUser(email, password).then((res) => navigate(from, { replace: true }));
   };
 
   // user login state management

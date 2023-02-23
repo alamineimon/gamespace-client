@@ -5,10 +5,9 @@ import { AuthContext } from "../../context/AuthProvider";
 import Loader from "../../Pages/Shared/Loader/Loader";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading } = useContext(AuthContext);
-  const { isLoading, email } = useSelector((state) => state.auth);
+  const { user, loading, userLoading } = useContext(AuthContext);
   const location = useLocation();
-  if (loading || isLoading) {
+  if (loading || userLoading) {
     return <Loader></Loader>;
   }
   if (user && user?.uid) {

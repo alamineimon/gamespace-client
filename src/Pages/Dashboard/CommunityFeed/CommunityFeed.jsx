@@ -24,7 +24,7 @@ const CommunityFeed = () => {
       return data;
     },
   });
-  useTitle("Community")
+  useTitle("Community");
   // get friendReq
   const {
     data: friendReq,
@@ -73,7 +73,7 @@ const CommunityFeed = () => {
   return (
     <section className="bg-[#0e1015]">
       <div className="w-11/12 mx-auto py-10 grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        <div className="">
+        <div>
           <TrendingGames />
         </div>
         <div className="lg:col-span-2 space-y-5">
@@ -95,7 +95,7 @@ const CommunityFeed = () => {
           )}
         </div>
         <div>
-          <div className="space-y-5">
+          <div className="space-y-5 sticky top-5">
             {friendReq?.length > 0 && (
               <FriendRequest
                 user={user}

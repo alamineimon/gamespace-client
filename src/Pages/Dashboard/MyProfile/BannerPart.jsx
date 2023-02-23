@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { BsPersonPlusFill } from "react-icons/bs";
 import {
   FaEdit,
   FaFacebookF,
@@ -9,7 +10,13 @@ import {
 } from "react-icons/fa";
 import defaultAvtar from "../../../assets/images/gamingAvatar.webp";
 import { AuthContext } from "../../../context/AuthProvider";
-const BannerPart = ({ userinfo, posts, setEditProfile }) => {
+const BannerPart = ({
+  userinfo,
+  posts,
+  setEditProfile,
+  sendFriendRequest,
+  isFriend,
+}) => {
   const { name, email } = userinfo;
   const { user } = useContext(AuthContext);
   return (
@@ -82,13 +89,27 @@ const BannerPart = ({ userinfo, posts, setEditProfile }) => {
           )}
         </div>
       </div>
-      {email === user?.email && (
+      {email === user?.email ? (
         <label htmlFor="editProfileModal" onClick={() => setEditProfile(true)}>
           <FaEdit
             className="absolute top-2 right-2  text-xl cursor-pointer hover:text-primary"
             title="edit profile"
           />
         </label>
+      ) : (
+        <>
+          {isFriend ? (
+            ""
+          ) : (
+            <button
+              onClick={sendFriendRequest}
+              className="flex justify-center items-center bg-white hover:bg-primary p-2 right-5 absolute top-6 cursor-pointer rounded-md text-black"
+            >
+              <BsPersonPlusFill className="text-black mr-2 text-xl"></BsPersonPlusFill>{" "}
+              <p>Connect</p>
+            </button>
+          )}
+        </>
       )}
     </div>
   );
