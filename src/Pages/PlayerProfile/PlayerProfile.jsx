@@ -1,7 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "../../axios";
-import React from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  ScrollRestoration,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import BannerPart from "../Dashboard/MyProfile/BannerPart";
 import AboutMe from "../Dashboard/MyProfile/AboutMe";
 import PostCards from "../Dashboard/MyProfile/PostCards";
@@ -58,16 +62,20 @@ const PlayerProfile = () => {
     queryFn: async () => {
       const { data } = await axios.get(`/friends?email=${user?.email}`);
       console.log(data);
-      for (let i = 0; i < friends.length; i++) {
-        if (friends[i].email === searchEmail) {
-          console.log(`Found user with email ${searchEmail}:`, friends[i]);
-          // Do something with the user object here
-          setIsFriend(true);
-        }
-      }
       return data;
     },
   });
+  useEffect(() => {
+    if (friends?.length > 0) {
+      for (let i = 0; i < friends?.length; i++) {
+        if (friends[i].email === searchEmail) {
+          console.log(`Found user with email ${searchEmail}:`);
+          // Do something with the user object here
+          return setIsFriend(true);
+        }
+      }
+    }
+  }, [friends, searchEmail]);
 
   const sendFriendRequest = async () => {
     if (!user) {
@@ -165,6 +173,7 @@ const PlayerProfile = () => {
           postRefetch={postRefetch}
         />
       )}
+      <ScrollRestoration />
     </section>
   );
 };

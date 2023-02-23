@@ -108,17 +108,19 @@ const MyProfile = () => {
             <p>No post found</p>
           )}
         </div>
-        <div className="space-y-5">
-          {friendReq.length > 0 && (
-            <FriendRequest
-              user={user}
-              friendReq={friendReq}
-              reqRefetch={reqRefetch}
-              friendRefetch={friendRefetch}
-            />
-          )}
+        <div>
+          <div className="space-y-5 sticky top-5">
+            {friendReq.length > 0 && (
+              <FriendRequest
+                user={user}
+                friendReq={friendReq}
+                reqRefetch={reqRefetch}
+                friendRefetch={friendRefetch}
+              />
+            )}
 
-          <FriendList friends={friends} />
+            <FriendList friends={friends} />
+          </div>
         </div>
       </section>
       {currentPost && (

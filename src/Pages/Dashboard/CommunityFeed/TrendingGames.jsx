@@ -18,13 +18,15 @@ const TrendingGames = () => {
   return (
     <div className="bg-dashboardCards rounded-2xl font-rajdhani py-5 space-y-5 px-5 sticky top-5 lg:max-w-sm border-l border-t border-white/20 ">
       <h2 className="text-xl font-bold text-mainHeading">Trending Games</h2>
-      {trendingGames ? (
-        trendingGames?.map((games) => {
-          return <TrendingGamesCard key={games?._id} games={games} />;
-        })
-      ) : (
-        <h1>No games found</h1>
-      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+        {trendingGames ? (
+          trendingGames?.map((games) => {
+            return <TrendingGamesCard key={games?._id} games={games} />;
+          })
+        ) : (
+          <h1>No games found</h1>
+        )}
+      </div>
     </div>
   );
 };
