@@ -11,7 +11,7 @@ const ExtraFeatures = () => {
     <div >
       <div>
         <div className="flex mt-10 justify-center">
-          <FcMultipleInputs className="text-6xl text-primary" />
+          <FcMultipleInputs className="text-6xl text-primary"/>
         </div>
         <h1 className="text-2xl lg:text-4xl text-mainHeading font-bold uppercase mb-5 text-center">
           <span>Games</span> <span className="text-primary">Menu</span>
