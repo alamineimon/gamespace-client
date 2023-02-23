@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import NavB from "../../Pages/Shared/Navbar/NavB/NavB";
 import { AuthContext } from "../../context/AuthProvider";
@@ -22,9 +22,12 @@ import useAdmin from "../../Hooks/userAdmin/useAdmin";
 import Loader from "../../Pages/Shared/Loader/Loader";
 import { CgFeed } from "react-icons/cg";
 import useTitle from "../../Hooks/useTitle/useTitle";
+
+
 const Dashboard = () => {
   const { user, logOut, loading, userinfo } = useContext(AuthContext);
   useTitle('Dashboard')
+  const navigate = useNavigate()
   const [isAdmin, isAdminLoading] = useAdmin(user?.email);
   let activeClassName =
     "border-l-4 border-primary bg-gradient-to-r from-primary/10 to-primary/0 text-primary font-semibold capitalize lg:text-lg font-rajdhani";
@@ -33,6 +36,10 @@ const Dashboard = () => {
   const [open, setOpen] = useState(false);
   if (loading || isAdminLoading) {
     return <Loader />;
+  }
+  const hnadleLogOut =()=>{
+    logOut()
+    navigate('/')
   }
   return (
     <div>
@@ -167,7 +174,7 @@ const Dashboard = () => {
               </li>
             )}
             <li className="pl-1 font-semibold capitalize lg:text-lg hover:text-primary hover:bg-gradient-to-r from-bg-primary/10 to-bg-primary/5">
-              <Link onClick={logOut}>
+              <Link onClick={hnadleLogOut()}>
                 <MdLogout /> Logout
               </Link>
             </li>

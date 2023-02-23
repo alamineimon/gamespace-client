@@ -1,8 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
-  FacebookAuthProvider,
-  getAuth,
+
   GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
@@ -15,13 +14,16 @@ import auth from "../Firebase/firebase.config";
 import { useQuery } from "@tanstack/react-query";
 import axios from "../axios";
 import { useSelector } from "react-redux";
+
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const { user: userFromRedux } = useSelector((state) => state.auth);
-  console.log("fromRedux", userFromRedux?.email);
+  // const { user: userFromRedux } = useSelector((state) => state.auth);
+  // console.log("fromRedux", userFromRedux?.email);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -56,7 +58,8 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    return signOut(auth);
+    return signOut(auth)
+
   };
 
   const handlerForgete = (email) => {
