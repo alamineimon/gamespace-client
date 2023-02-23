@@ -67,7 +67,6 @@ const GameDetails = () => {
               </h1>
             </div>
           </div>
-
           <div className="max-w-80 p-3 flex justify-between items-center bg-amber-700 gap-1">
             <div>
               <h3 className="text-md md:text-2xl font-bold">Game Rating</h3>

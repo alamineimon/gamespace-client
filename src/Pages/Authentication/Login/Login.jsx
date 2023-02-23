@@ -20,7 +20,7 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const { googleSignin, loginUser } = useContext(AuthContext);
+  const { googleSignin, loginUser, handlerForgete } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [resetEmail, setresetEmail] = useState(" ");
   const [passwordShown, setPasswordShown] = useState(false);
@@ -69,15 +69,15 @@ const Login = () => {
       });
   };
 
-  // const handlerForgetePassword = () => {
-  //   handlerForgete(resetEmail)
-  //     .then(() => {
-  //       alert(" Password reaste email send. Please chck your email");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  const handlerForgetePassword = () => {
+    handlerForgete(resetEmail)
+      .then(() => {
+        alert(" Password reaste email send. Please chck your email");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -140,7 +140,7 @@ const Login = () => {
             </div>
             <div className="my-3">
               <b>
-                <Link className="text-blue-500 underline">
+                <Link onClick={handlerForgetePassword} className="text-blue-500 underline">
                   Forgete Password!{" "}
                 </Link>
               </b>
