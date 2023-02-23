@@ -52,7 +52,7 @@ const GameDetails = () => {
         />
       </div>
       <div className="bg-gray-900 px-5 md:px-10">
-        <div className="flex justify-center items-center space-x-2 lg:space-x-20 space-y-4 pt-5 pb-16">
+        <div className="flex justify-between items-center space-x-2 lg:space-x-20 space-y-4 pt-5 pb-16">
           <div className="flex items-end gap-5">
             <div className="hidden md:block -mt-32 z-10 ">
               <img

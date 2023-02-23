@@ -7,3 +7,11 @@
 ul li a:hover {
   color: yellow;
 }
+
+
+.bg-img-header{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(246, 243, 243, 0.4), rgba(235, 230, 230, 0.4)),
+    url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/72900/7de30e6ba2a822d6144c7c20e2f8791792c7f42e.jpg");
+}

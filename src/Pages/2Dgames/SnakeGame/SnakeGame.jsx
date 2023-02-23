@@ -122,9 +122,9 @@ class SnakeGame extends React.Component {
         return(
             <>
                 <div class="main-game-container">
-                    <div class="innergamecontainer">
+                    <div class="innergamecontainer bg-secondary">
                         {
-                            !this.state.gameOver?this.renderGameMatrix():"Game Over"
+                            !this.state.gameOver?this.renderGameMatrix():<h1 onClick={this.restartGame} className="bg-secondary p-10 my-3 font-bold rounded-none">Game Over</h1>
                         }
                         <h1>{this.state.snakeList.length-2}</h1>
                         <button onClick={this.restartGame} className="btn btn-primary my-3 font-bold rounded-none">Restart Game</button>

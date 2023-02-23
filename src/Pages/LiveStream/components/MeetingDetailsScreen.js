@@ -30,8 +30,7 @@ export function MeetingDetailsScreen({
     xs: 1.5,
   });
   const selectType = [
-    { label: "Meeting", value: meetingTypes.MEETING },
-    { label: "Interactive Live Streaming", value: meetingTypes.ILS },
+    { label: "Meeting", value: meetingTypes.MEETING }
   ];
 
   return (
