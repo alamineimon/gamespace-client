@@ -1,15 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
+import React, { useContext, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import GameComment from "./GameComment";
 import BookingModal from "../../../Modal/BookingModal/BookingModal";
 import useTitle from "../../../../Hooks/useTitle/useTitle";
+import { AuthContext } from "../../../../context/AuthProvider";
 
 const GameDetails = () => {
   const gameDetails = useLoaderData();
   const [rightSideGame, setRightSideGame] = useState();
+  const { user } = useContext(AuthContext);
+  const location = useLocation();
+
+
+  const from = location.from?.state.pathname || "/";
+
+  
+
 
   const {
     _id,
@@ -68,6 +76,8 @@ const GameDetails = () => {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
+
+                {user ? 
                 <div>
                   <label
                     htmlFor="bookingModal"
@@ -80,6 +90,14 @@ const GameDetails = () => {
                     refetch={refetch}
                   ></BookingModal>
                 </div>
+                  :
+                  <Link
+                  to='/login'
+                    className="py-3 hover:translate-y-1 text-white  relative px-5 rounded-none font-bold bg-yellow-500 uppercase cursor-pointer "
+                  >
+                    Add to Cart
+                  </Link>
+                }
               </div>
 
               <hr className="text-gray-400" />

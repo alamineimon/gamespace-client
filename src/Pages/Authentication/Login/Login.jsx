@@ -24,11 +24,9 @@ const Login = () => {
   const [loginError, setLoginError] = useState("");
   const [resetEmail, setresetEmail] = useState(" ");
   const [passwordShown, setPasswordShown] = useState(false);
-
-  const location = useLocation();
   const navigate = useNavigate();
-
-  const from = location.from?.state.pathname || "/";
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // redux
   const { isLoading, email, error, isError } = useSelector(
     (state) => state.auth
