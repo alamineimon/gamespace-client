@@ -8,8 +8,9 @@ import { CiEdit } from "react-icons/ci";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../../Shared/Loader/Loader";
 
-const GameComment = ({ rightSideGame, detailsId }) => {
+const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
   const { user } = useContext(AuthContext);
+
   const {
     register,
     formState: { errors },
@@ -23,6 +24,7 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       comment: data.comment,
       gameDetailsId: detailsId,
       photoURL: user.photoURL,
+      email:user.email,
       displayName: user.displayName,
     };
 
@@ -57,6 +59,8 @@ const GameComment = ({ rightSideGame, detailsId }) => {
       const data = result.filter(
         (gameId) => gameId.gameDetailsId === detailsId || rightSideGame
       );
+     
+      setRefetch();
       return data;
     },
   });
@@ -81,51 +85,58 @@ const GameComment = ({ rightSideGame, detailsId }) => {
         });
     }
   };
+
   if (isLoading) {
     <Loader />;
   }
 
   return (
     <div>
-      <div>
-{        user?.email &&
-<form onSubmit={handleSubmit(handelComment)}>
-          <div className=" flex justify-center gap-3">
-            <div className="w-16 ">
-              {!user?.photoURL ? (
-                <img
-                  src="http://localhost:3000/static/media/gamingAvatar.62414f06fcf0dc8773f0.webp"
-                  className="w-full rounded-full border-4 border-orange-500"
-                  alt=""
+{
+        user?.uid ? (
+          <div>
+            <form onSubmit={handleSubmit(handelComment)}>
+              <div className=" flex justify-center gap-3">
+                <div className="w-16 ">
+                  {!user?.photoURL ? (
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDQxb76rTenFVywjyhY04fyf1Z8nk4rpS-cQ&usqp=CAU"
+                    className="w-full rounded-full border-4 border-orange-500"
+                    alt=""
+                  />
+                  ) : (
+                  <img
+                    src={user?.photoURL}
+                    className="w-full rounded-full border-4 border-orange-500"
+                    alt=""
+                  />
+                  )}
+                </div>
+                <textarea
+                  type="textarea"
+                  className="input  w-full text-slate-200 bg-slate-600 px-3 pt-3 rounded-lg "
+                  name="comment"
+                  {...register("comment", {
+                    required: "comment Address is required",
+                  })}
+                  placeholder="Comment add"
                 />
-              ) : (
-                <img
-                  src={user?.photoURL}
-                  className="w-full rounded-full border-4 border-orange-500"
-                  alt=""
+                {errors.comment && (
+                  <p className="text-orange-400">{errors.comment?.message}</p>
+                )}
+                <input
+                  className="bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
+                  value="Submit"
+                  type="submit"
                 />
-              )}
-            </div>
-            <textarea
-              type="textarea"
-              className="input  w-full text-slate-200 bg-slate-600 px-3 pt-3 rounded-lg "
-              name="comment"
-              {...register("comment", {
-                required: "comment Address is required",
-              })}
-              placeholder="Comment add"
-            />
-            {errors.comment && (
-              <p className="text-orange-400">{errors.comment?.message}</p>
-            )}
-            <input
-              className="bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
-              value="Submit"
-              type="submit"
-            />
+              </div>
+            </form>
+
           </div>
-        </form>}
-      </div>
+        ) : (
+          ""
+        )
+      }
       <div className="mt-5 space-y-4">
         {comments?.map((comment, i) => (
           <div className=" space-y-2">
@@ -139,7 +150,7 @@ const GameComment = ({ rightSideGame, detailsId }) => {
                   />
                 ) : (
                   <img
-                    src="http://localhost:3000/static/media/gamingAvatar.62414f06fcf0dc8773f0.webp"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDQxb76rTenFVywjyhY04fyf1Z8nk4rpS-cQ&usqp=CAU"
                     className="w-full rounded-full  border-1 border-orange-500"
                     alt=""
                   />
@@ -153,6 +164,7 @@ const GameComment = ({ rightSideGame, detailsId }) => {
                   {comment?.comment}
                 </p>
               </div>
+              { comment?.email === user?.email ?
               <div className="flex gap-3">
                 <div>
                   <label
@@ -171,6 +183,8 @@ const GameComment = ({ rightSideGame, detailsId }) => {
                   ></TiDeleteOutline>
                 </div>
               </div>
+              : ""
+              }
             </div>
             <hr className="border-slate-500" />
           </div>
