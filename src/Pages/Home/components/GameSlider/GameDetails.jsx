@@ -51,6 +51,7 @@ const GameDetails = () => {
           alt=""
         />
       </div>
+
       <div className=" px-5 md:px-10 z-10 -mt-32 relative mx-auto mb-5 lg:mb-10 space-y-5">
         <div className="w-44 md:w-60 border mx-auto z-10 ">
           <img src={img} className="w-full border" alt="" />

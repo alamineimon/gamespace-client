@@ -2,11 +2,14 @@ import React from "react";
 import {
   FaDiscord,
   FaFacebook,
-  FaGoogle,
-  FaPinterest,
-  FaTwitter,
+  FaPinterestSquare,
   FaYoutube,
 } from "react-icons/fa";
+import {
+  AiFillTwitterSquare,
+  AiFillGoogleSquare,
+  AiFillFacebook,
+} from "react-icons/ai";
 import { GiBoltShield } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -22,22 +25,30 @@ const Footer = () => {
             <h1
               className={`font-bold mb-2`}
             >
-              Players community
+              Quick Links
             </h1>
             <p className="h-1 w-16 rounded-t-2xl bg-white"></p>
             <div className="my-8 text-left">
               <ul className="text-gray-400">
                 <li>
-                  Regular Players
+                  <Link to='/allplayers'>
+                    Active Players
+                  </Link>
                 </li>
                 <li>
-                  HTML Game player
+                  <Link to="/playGames">
+                    HTML Games
+                  </Link>
                 </li>
                 <li>
-                  Game Space player
+                  <Link to="/2dgames">
+                    2D Games
+                  </Link>
                 </li>
                 <li>
-                  Live Stream with community
+                  <Link to="/livestream">
+                    Live Stream 
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -63,7 +74,7 @@ const Footer = () => {
           </div>
           <div className=" left-4 ">
             <h1>
-              Players community
+              Social Media
             </h1>
             <p className="h-1 w-16  rounded-t-2xl bg-white"></p>
             <div className="my-8  ">
@@ -156,50 +167,50 @@ const Footer = () => {
           </Link>
         </footer>
         <footer className="text-gray-400 flex md:justify-center pl-7 items-center ">
-          <div className="flex items-center  gap-6 text-[#dedee2]">
+          {/* social media icons */}
+          <div className="hidden lg:flex items-center justify-center ">
             <a
-              href="https://www.facebook.com/GameSpace7777"
-              target={"_blank"}
-              alt="/"
+              href="https://www.facebook.com/GameSpace7777/"
+              target="_blank"
               rel="noreferrer"
             >
-              <FaFacebook
-                className={`hover:text-blue-600`}
+              {" "}
+              <AiFillFacebook
+                className="text-primary text-xl hover:text-white mr-3"
                 title="Facebook"
               />
             </a>
             <a
-              href="https://www.facebook.com/GameSpace7777"
-              target={"_blank"}
-              alt="/"
+              href="https://www.facebook.com/GameSpace7777/"
+              target="_blank"
               rel="noreferrer"
             >
-              <FaTwitter
-                className={`hover:text-blue-600`}
+              {" "}
+              <AiFillTwitterSquare
+                className="text-primary text-xl hover:text-white mr-3"
                 title="Twitter"
-              ></FaTwitter>
+              />
             </a>
             <a
-              href="https://www.facebook.com/GameSpace7777"
-              target={"_blank"}
-              alt="/"
+              href="https://www.facebook.com/GameSpace7777/"
+              target="_blank"
               rel="noreferrer"
             >
-              <FaPinterest
-                className={`hover:text-blue-600`}
+              <FaPinterestSquare
+                className="text-primary text-xl hover:text-white mr-3"
                 title="Pinterest"
-              ></FaPinterest>
+              />
             </a>
             <a
-              href="https://www.facebook.com/GameSpace7777"
-              target={"_blank"}
-              alt="/"
+              href="https://www.facebook.com/GameSpace7777/"
+              target="_blank"
               rel="noreferrer"
             >
-              <FaGoogle
-                className={`hover:text-blue-600`}
+              {" "}
+              <AiFillGoogleSquare
+                className="text-primary text-xl hover:text-white"
                 title="Google"
-              ></FaGoogle>
+              />
             </a>
           </div>
         </footer>
