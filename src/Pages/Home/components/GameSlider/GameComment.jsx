@@ -112,12 +112,6 @@ const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
                   />
                 )}
 
-                <input
-                  className="bg-yellow-500 btn-md rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
-                  value="Submit"
-                  type="submit"
-                />
-
               </div>
               <textarea
                 type="textarea"
@@ -132,7 +126,7 @@ const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
                 <p className="text-orange-400">{errors.comment?.message}</p>
               )}
               <input
-                className="bg-yellow-500 rounded border-2 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
+                className="bg-yellow-500 rounded border-2 h-12 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
                 value="Submit"
                 type="submit"
               />

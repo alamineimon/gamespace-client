@@ -9,14 +9,6 @@ import { Link } from "react-router-dom";
 const ExtraFeatures = () => {
   return (
     <div >
-      <div>
-        <div className="flex mt-10 justify-center">
-          <FcMultipleInputs className="text-6xl text-primary"/>
-        </div>
-        <h1 className="text-2xl lg:text-4xl text-mainHeading font-bold uppercase mb-5 text-center">
-          <span>Games</span> <span className="text-primary">Menu</span>
-        </h1>
-      </div>
       <div className="lg:flex sm:block text-white">
         <div className="downloadGames flex justify-center items-center lg:w-1/2 sm:w-full">
           <div className="w-full text-center">
