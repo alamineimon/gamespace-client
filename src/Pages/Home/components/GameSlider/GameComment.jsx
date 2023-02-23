@@ -10,7 +10,7 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
   const {
     register,
     formState: { errors },
@@ -92,7 +92,7 @@ const GameComment = ({ rightSideGame, detailsId, setRefetch }) => {
 
   return (
     <div>
-      {
+{
         user?.uid ? (
           <div>
             <form onSubmit={handleSubmit(handelComment)}>
