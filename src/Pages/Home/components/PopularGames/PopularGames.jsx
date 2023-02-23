@@ -26,10 +26,7 @@ const PopularGames = () => {
           <FiTrendingUp className="text-6xl text-primary" />
         </div>
         <h1 className="text-2xl lg:text-4xl text-mainHeading font-bold uppercase mb-5 text-center">
-          <span>
-            Popular
-          </span>{" "}
-          <span className="text-primary">Games</span>
+          <span>Popular</span> <span className="text-primary">Games</span>
         </h1>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {games?.map((games, i) => {

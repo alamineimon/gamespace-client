@@ -27,11 +27,10 @@ import AllPlayers from "../../Pages/Home/components/ExperianceSection/AllPlayers
 // import ProfileDetail from "../../Pages/ProfilePage/ProfileDetail";
 import MyProfile from "../../Pages/Dashboard/MyProfile/MyProfile";
 import CommunityFeed from "../../Pages/Dashboard/CommunityFeed/CommunityFeed";
-import Flappy from "../../Pages/2Dgames/FlappyGames/Flappy.jsx"
+import Flappy from "../../Pages/2Dgames/FlappyGames/Flappy.jsx";
 import PlayerProfile from "../../Pages/PlayerProfile/PlayerProfile";
 import SnakeGame from "../../Pages/2Dgames/SnakeGame/SnakeGame";
 import TetrisGame from "../../Pages/2Dgames/TetrisGame/TetrisGame";
-
 
 const router = createBrowserRouter([
   {
@@ -59,7 +58,9 @@ const router = createBrowserRouter([
         element: <GameDetails></GameDetails>,
 
         loader: ({ params }) =>
-          fetch(`http://localhost:9000/downloadGames/${params.id}`),
+          fetch(
+            `https://gamespace-server.vercel.app/downloadGames/${params.id}`
+          ),
       },
       {
         path: "/playGames",
@@ -68,13 +69,13 @@ const router = createBrowserRouter([
       {
         path: "/gameshtml/:id",
         loader: async ({ params }) =>
-          fetch(`http://localhost:9000/playGames/${params.id}`),
+          fetch(`https://gamespace-server.vercel.app/playGames/${params.id}`),
         element: <PlayGamesSingle />,
       },
       // {
       //   path: "/users/:id",
       //   loader: async ({ params }) =>
-      //     fetch(`http://localhost:9000/users/${params.id}`),
+      //     fetch(`https://gamespace-server.vercel.app/users/${params.id}`),
       //   element: <ProfileDetail />,
       // },
       {
@@ -106,8 +107,8 @@ const router = createBrowserRouter([
         element: <SnakeGame />,
       },
       {
-      path:'/tetrisGame',
-      element:<TetrisGame/>
+        path: "/tetrisGame",
+        element: <TetrisGame />,
       },
       {
         path: "/livestream",
@@ -128,7 +129,9 @@ const router = createBrowserRouter([
       {
         path: "/playerProfile/:playerEmail",
         loader: async ({ params }) =>
-          fetch(`http://localhost:9000/playerprofile/${params.playerEmail}`),
+          fetch(
+            `https://gamespace-server.vercel.app/playerprofile/${params.playerEmail}`
+          ),
         element: <PlayerProfile />,
       },
     ],
@@ -136,9 +139,9 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-     
+      <PrivateRoute>
         <Dashboard />
-     
+      </PrivateRoute>
     ),
     children: [
       {
@@ -182,7 +185,9 @@ const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment />,
         loader: ({ params }) =>
-          fetch(`http://localhost:9000/orderedGames/${params.id}`),
+          fetch(
+            `https://gamespace-server.vercel.app/orderedGames/${params.id}`
+          ),
       },
     ],
   },

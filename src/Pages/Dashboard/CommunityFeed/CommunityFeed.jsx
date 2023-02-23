@@ -24,7 +24,7 @@ const CommunityFeed = () => {
       return data;
     },
   });
-  useTitle("Community")
+  useTitle("Community");
   // get friendReq
   const {
     data: friendReq,

@@ -7,7 +7,7 @@ import Loader from "../../Shared/Loader/Loader";
 import FavCards from "./FavCards";
 
 const MyFavoriteGames = () => {
-  useTitle("Favorite Game")
+  useTitle("Favorite Game");
   const { user } = useContext(AuthContext);
   const { data: favGames, isLoading } = useQuery({
     queryKey: ["favoriteGames", "user"],

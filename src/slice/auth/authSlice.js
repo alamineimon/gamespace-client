@@ -42,6 +42,7 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+export const getuserdb = createAsyncThunk("auth/getuserdb");
 export const googleSingIn = createAsyncThunk("auth/googleSingIn", async () => {
   const googleProvider = new GoogleAuthProvider();
   const data = await signInWithPopup(auth, googleProvider);
@@ -89,7 +90,7 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         state.isLoading = true;
-        state.email = payload;
+        state.email = payload.email;
         state.isError = false;
         state.error = "";
       })
