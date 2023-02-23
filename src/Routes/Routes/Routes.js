@@ -32,7 +32,6 @@ import PlayerProfile from "../../Pages/PlayerProfile/PlayerProfile";
 import SnakeGame from "../../Pages/2Dgames/SnakeGame/SnakeGame";
 import TetrisGame from "../../Pages/2Dgames/TetrisGame/TetrisGame";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -108,8 +107,8 @@ const router = createBrowserRouter([
         element: <SnakeGame />,
       },
       {
-      path:'/tetrisGame',
-      element:<TetrisGame/>
+        path: "/tetrisGame",
+        element: <TetrisGame />,
       },
       {
         path: "/livestream",
@@ -139,7 +138,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",

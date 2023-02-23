@@ -15,8 +15,8 @@ import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const Register = () => {
   useTitle("Register");
-  const { googleSignin, updateUser } = useContext(AuthContext);
-  useTitle("Register");
+  const { googleSignin, updateUser, createUser, userLoading } =
+    useContext(AuthContext);
 
   const {
     register,
@@ -39,8 +39,29 @@ const Register = () => {
     navigate(from, { replace: true });
   }
 
-  const handelSignUp = ({ email, password, name }) => {
-    dispatch(createUser({ email, password, name }));
+  const handelSignUp = async ({ email, password, name }) => {
+    const profile = {
+      displayName: name,
+    };
+    const user = {
+      name: name,
+      email: email,
+    };
+    await createUser(email, password, profile);
+    fetch("https://gamespace-server.vercel.app/user", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          navigate(from, { replace: true });
+        }
+      });
   };
 
   // const handlerGoogleSignin = () => {
