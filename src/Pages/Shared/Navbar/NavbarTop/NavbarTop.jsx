@@ -16,6 +16,7 @@ import {
   AiOutlineFacebook,
   AiFillTwitterSquare,
   AiFillGoogleSquare,
+  AiFillFacebook,
 } from "react-icons/ai";
 import Loader from "../../Loader/Loader";
 
@@ -122,15 +123,15 @@ const NavbarTop = ({ defaultAvtar }) => {
               </ul>
             </div>
             {/* social media icons */}
-            <div className="hidden  lg:flex  items-center justify-center ">
+            <div className="hidden lg:flex items-center justify-center ">
               <a
                 href="https://www.facebook.com/GameSpace7777/"
                 target="_blank"
                 rel="noreferrer"
               >
                 {" "}
-                <AiOutlineFacebook
-                  className="text-primary hover:text-white mr-3"
+                <AiFillFacebook
+                  className="text-primary text-xl hover:text-white mr-3"
                   title="Facebook"
                 />
               </a>
@@ -141,7 +142,7 @@ const NavbarTop = ({ defaultAvtar }) => {
               >
                 {" "}
                 <AiFillTwitterSquare
-                  className="text-primary hover:text-white mr-3"
+                  className="text-primary text-xl hover:text-white mr-3"
                   title="Twitter"
                 />
               </a>
@@ -151,7 +152,7 @@ const NavbarTop = ({ defaultAvtar }) => {
                 rel="noreferrer"
               >
                 <FaPinterestSquare
-                  className="text-primary hover:text-white mr-3"
+                  className="text-primary text-xl hover:text-white mr-3"
                   title="Pinterest"
                 />
               </a>
@@ -162,7 +163,7 @@ const NavbarTop = ({ defaultAvtar }) => {
               >
                 {" "}
                 <AiFillGoogleSquare
-                  className="text-primary hover:text-white"
+                  className="text-primary text-xl hover:text-white"
                   title="Google"
                 />
               </a>
@@ -192,8 +193,8 @@ const NavbarTop = ({ defaultAvtar }) => {
                   className="btn btn-primary btn-xs md:btn-sm mr-4 text-secondary font-bold rounded-none"
                 >
                   {" "}
-                  <MdOutlineLogout className="mr-2" />
-                  Sign In
+                  <MdOutlineLogout className="mr-2 " />
+                    Sign In
                 </Link>
                 <Link
                   to="/register"
@@ -269,7 +270,7 @@ const NavbarTop = ({ defaultAvtar }) => {
         </div>
       </div>
       {/* nav bottom */}
-      <div className="navbarBottomBG items-center justify-center w-full mx-auto text-white z-40 py-3 hidden lg:flex">
+      <div className="items-center justify-center w-full mx-auto text-white z-40 py-3 hidden lg:flex">
         <ul className="items-center justify-center hidden space-x-8 lg:flex ">
           {navlinks}
         </ul>

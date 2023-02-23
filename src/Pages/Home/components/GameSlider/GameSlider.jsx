@@ -1,11 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { useContext } from "react";
 import { CgGames } from "react-icons/cg";
-
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import { AuthContext } from "../../../../context/AuthProvider";
 import useTitle from "../../../../Hooks/useTitle/useTitle";
 import Loader from "../../../Shared/Loader/Loader";
 import GamesCards from "./GamesCards";
