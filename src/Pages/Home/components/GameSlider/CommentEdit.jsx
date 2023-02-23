@@ -56,7 +56,7 @@ const CommentEdit = ({ editComments, setEditComments, refetch }) => {
               />
             </div>
             <input
-              className="bg-yellow-500 rounded border-2 mt-4 border-yellow-500 text-white text-lg font-semibold px-2"
+              className="bg-yellow-500 rounded border-2 mt-4 border-yellow-500 text-white text-lg font-semibold px-2 cursor-pointer"
               value="Submit"
               type="submit"
             />

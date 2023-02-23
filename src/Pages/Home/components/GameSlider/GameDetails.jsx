@@ -160,6 +160,7 @@ const GameDetails = () => {
               </Carousel>
             </div>
             <GameComment
+            setRefetch={refetch}
               detailsId={_id}
               rightSideGame={rightSideGame}
             ></GameComment>
