@@ -40,7 +40,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
       .then((res) => res.json())
       .then((data) => {
         toast("Game Added successfully");
-        navigate("/shop");
+        navigate("/dashboard");
         form.reset();
         refetch();
       });
@@ -65,7 +65,7 @@ const BookingModal = ({ gameDetails, refetch }) => {
           >
             <input
               disabled
-              defaultValue={user?.name}
+              defaultValue={userinfo?.name}
               name="username"
               type="text"
               placeholder="Your Name"
