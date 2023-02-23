@@ -179,7 +179,7 @@ const Register = () => {
                     value: 6,
                     message: "Password must be 6 characters or length",
                   },
-                  // pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "Password must be Strong" }
+                  pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "Password must be Strong" }
                 })}
                 placeholder="Password"
                 className="input input-bordered w-full rounded-none input-primary text-gray-400 focus:text-white px-8"
