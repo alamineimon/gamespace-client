@@ -15,10 +15,9 @@ import axios from "../axios";
 
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
-
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const googleProvider = new GoogleAuthProvider();
   //fetch data from mongodb
   const {
     data: userinfo,
@@ -45,7 +44,6 @@ const AuthProvider = ({ children }) => {
     return username;
   };
 
-  const googleProvider = new GoogleAuthProvider();
   const googleSignin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
@@ -62,10 +60,9 @@ const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     return signOut(auth);
-
   };
 
-  const handlerForgete = (email) => {
+  const handleForget = (email) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
   };
@@ -89,7 +86,7 @@ const AuthProvider = ({ children }) => {
     googleSignin,
     loading,
     loginUser,
-    handlerForgete,
+    handleForget,
     logOut,
     updateUser,
   };

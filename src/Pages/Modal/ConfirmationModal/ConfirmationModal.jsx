@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const ConfirmationModal = ({
   title,
@@ -8,10 +8,10 @@ const ConfirmationModal = ({
   modalData,
 }) => {
   return (
-    <div className='bg-white'>
+    <div className="bg-white">
       <input type="checkbox" id="confirmation-modal" className="modal-toggle" />
       <div className="modal">
-        <div className="modal-box w-1/4 max-w-5xl">
+        <div className="modal-box w-11/12 max-w-md">
           <h3 className="font-bold text-lg">{title}</h3>
           <p className="py-4">{message}</p>
           <div className="modal-action">

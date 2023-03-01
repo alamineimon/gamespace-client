@@ -72,12 +72,7 @@ const router = createBrowserRouter([
           fetch(`https://gamespace-server.vercel.app/playGames/${params.id}`),
         element: <PlayGamesSingle />,
       },
-      // {
-      //   path: "/users/:id",
-      //   loader: async ({ params }) =>
-      //     fetch(`https://gamespace-server.vercel.app/users/${params.id}`),
-      //   element: <ProfileDetail />,
-      // },
+
       {
         path: "/shop",
         element: <GameSlider></GameSlider>,
@@ -112,7 +107,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/livestream",
-        element: <LiveStream />,
+        element: (
+          <PrivateRoute>
+            <LiveStream />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/payment/success",
@@ -132,7 +131,11 @@ const router = createBrowserRouter([
           fetch(
             `https://gamespace-server.vercel.app/playerprofile/${params.playerEmail}`
           ),
-        element: <PlayerProfile />,
+        element: (
+          <PrivateRoute>
+            <PlayerProfile />
+          </PrivateRoute>
+        ),
       },
     ],
   },

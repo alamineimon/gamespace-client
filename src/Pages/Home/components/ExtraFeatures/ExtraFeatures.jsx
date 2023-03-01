@@ -1,14 +1,13 @@
 import React from "react";
 import "./ExtraFeatures.css";
 import { BiRun } from "react-icons/bi";
-import { FcMultipleInputs } from "react-icons/fc";
 import { ImDownload } from "react-icons/im";
 import { SlGameController } from "react-icons/sl";
 import { Link } from "react-router-dom";
 
 const ExtraFeatures = () => {
   return (
-    <div >
+    <div>
       <div className="lg:flex sm:block text-white">
         <div className="downloadGames flex justify-center items-center lg:w-1/2 sm:w-full">
           <div className="w-full text-center">
