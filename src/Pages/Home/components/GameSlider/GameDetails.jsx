@@ -13,11 +13,7 @@ const GameDetails = () => {
   const { user } = useContext(AuthContext);
   const location = useLocation();
 
-
   const from = location.from?.state.pathname || "/";
-
-  
-
 
   const {
     _id,
@@ -77,27 +73,27 @@ const GameDetails = () => {
               <div className="flex justify-between">
                 <h1 className="text-2xl md:text-3xl font-bold">Overview</h1>
 
-                {user ? 
-                <div>
-                  <label
-                    htmlFor="bookingModal"
-                    className="py-3 hover:translate-y-1 text-white  relative px-5 rounded-none font-bold bg-yellow-500 uppercase cursor-pointer "
-                  >
-                    Add to Cart
-                  </label>
-                  <BookingModal
-                    gameDetails={gameDetails}
-                    refetch={refetch}
-                  ></BookingModal>
-                </div>
-                  :
+                {user ? (
+                  <div>
+                    <label
+                      htmlFor="bookingModal"
+                      className="py-3 hover:translate-y-1 text-white  relative px-5 rounded-none font-bold bg-yellow-500 uppercase cursor-pointer "
+                    >
+                      Add to Cart
+                    </label>
+                    <BookingModal
+                      gameDetails={gameDetails}
+                      refetch={refetch}
+                    ></BookingModal>
+                  </div>
+                ) : (
                   <Link
-                  to='/login'
+                    to="/login"
                     className="py-3 hover:translate-y-1 text-white  relative px-5 rounded-none font-bold bg-yellow-500 uppercase cursor-pointer "
                   >
                     Add to Cart
                   </Link>
-                }
+                )}
               </div>
 
               <hr className="text-gray-400" />

@@ -7,7 +7,6 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLock } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import "./Login.css";
-import { googleSingIn, loginUser } from "../../../slice/auth/authSlice";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 import { useSelector } from "react-redux";
 import { AuthContext } from "../../../context/AuthProvider";
@@ -20,13 +19,13 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const { googleSignin, loginUser, handlerForgete } = useContext(AuthContext);
+  const { googleSignin, loginUser } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
-  const [resetEmail, setresetEmail] = useState(" ");
+  // const [resetEmail, setresetEmail] = useState(" ");
   const [passwordShown, setPasswordShown] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location?.state?.from?.pathname || "/";
   // redux
   const { isLoading, email, error, isError } = useSelector(
     (state) => state.auth
@@ -63,15 +62,17 @@ const Login = () => {
       });
   };
 
-  const handlerForgetPassword = () => {
-    handlerForgete(resetEmail)
-      .then(() => {
-        alert(" Password reset request send to your email. Please check your email");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handlerForgetPassword = () => {
+  //   handleForget(resetEmail)
+  //     .then(() => {
+  //       alert(
+  //         " Password reset request send to your email. Please check your email"
+  //       );
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -93,10 +94,10 @@ const Login = () => {
                 name="email"
                 {...register(
                   "email",
-                  { required: "Email or Phone is required" },
-                  {
-                    onBlur: (event) => setresetEmail(event.target.value),
-                  }
+                  { required: "Email or Phone is required" }
+                  // {
+                  //   onBlur: (event) => setresetEmail(event.target.value),
+                  // }
                 )}
                 placeholder="Email or Phone"
               />
@@ -121,7 +122,9 @@ const Login = () => {
                 className="input input-bordered bg-none input-primary w-full rounded-none text-gray-400 px-8"
               />
               {errors.password && (
-                <p className="text-orange-400 mt-2">{errors.password?.message}</p>
+                <p className="text-orange-400 mt-2">
+                  {errors.password?.message}
+                </p>
               )}
 
               <label className=" right-2 mt-4 cursor-pointer absolute text-gray">
@@ -138,23 +141,23 @@ const Login = () => {
                 )}
               </label>
             </div>
-            <div className="my-3">
+            {/* <div className="my-3">
               <b>
-
                 <Link
                   onClick={handlerForgetPassword}
-                  className="text-blue-500 underline">
+                  className="text-blue-500 underline"
+                >
                   Forget Password!{" "}
                 </Link>
               </b>
-            </div >
+            </div> */}
 
             <input
               className="hover:bg-yellow-500 rounded border-2 mt-8 border-yellow-500 text-yellow-500 hover:text-white text-lg uppercase font-semibold w-full py-2 cursor-pointer"
               value="Login"
               type="submit"
             />
-          </form >
+          </form>
           <p className="divider text-sm">OR LOGIN WITH</p>
 
           <div
@@ -172,9 +175,9 @@ const Login = () => {
               Create new Account
             </Link>
           </p>
-        </div >
-      </div >
-    </div >
+        </div>
+      </div>
+    </div>
   );
 };
 

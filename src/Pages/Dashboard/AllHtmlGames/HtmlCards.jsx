@@ -14,14 +14,14 @@ const HtmlCards = ({ game, setCurrentGame }) => {
         />
         <div className="absolute flex bg-black/50 space-x-3 justify-center h-full items-center bottom-0 w-full opacity-0 group-hover:opacity-100 backdrop-blur ">
           <label onClick={() => setCurrentGame(game)} htmlFor="updateGameModal">
-            <FaEdit className=" translate-y-5 group-hover:translate-y-0 transition-transform bg-primary hover:bg-white hover:text-primary cursor-pointer  text-white p-2 w-8 h-8 " />
+            <FaEdit className=" translate-y-5 group-hover:translate-y-0 transition-transform bg-primary hover:bg-secondary hover:text-primary cursor-pointer  text-secondary p-2 w-8 h-8 " />
           </label>
 
           <label
             onClick={() => setCurrentGame(game)}
             htmlFor="confirmation-modal"
           >
-            <AiFillDelete className=" translate-y-5 group-hover:translate-y-0 transition-transform bg-primary hover:bg-white hover:text-primary cursor-pointer  text-white p-2 w-8 h-8 " />
+            <AiFillDelete className=" translate-y-5 group-hover:translate-y-0 transition-transform bg-primary hover:bg-secondary hover:text-primary cursor-pointer  text-secondary p-2 w-8 h-8 " />
           </label>
         </div>
       </div>
