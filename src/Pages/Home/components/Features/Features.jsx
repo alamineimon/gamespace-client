@@ -9,24 +9,24 @@ import { TbDeviceGamepad2 } from "react-icons/tb";
 const Features = () => {
   return (
     <div className="features lg:h-[600px] max-h-[1050px] pb-10 px-5">
-        <h1 className="text-center text-2xl md:text-3xl text-yellow-300 md:font-bold uppercase">
-          Fantastic Features
-        </h1>
-        <hr  className="bg-yellow-300 h-1 mx-auto mt-2 w-48 mb-12 "/>
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-5 lg:px-32">
-          <div className="flex p-2  mr-2">
-            <AiOutlineDownload className="mr-2 text-4xl md:text-5xl text-yellow-400"></AiOutlineDownload>
-            <div>
-              <h4 className="text-white text-md md:text-xl font-semibold">
-                Download Games
-              </h4>
-              <p className="text-gray-400 md:font-bold">
+      <h1 className="text-center text-2xl md:text-3xl text-yellow-300 md:font-bold uppercase">
+        Fantastic Features
+      </h1>
+      <hr className="bg-yellow-300 h-1 mx-auto mt-2 w-48 mb-12 " />
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-5 lg:px-32 w-80 mx-auto md:w-full">
+        <div className="flex p-2  mr-2 justify-self-left md:justify-self-end space-x-5">
+          <AiOutlineDownload className="mr-2 text-4xl md:text-5xl text-yellow-400 md:order-2  "></AiOutlineDownload>
+          <div className="md:text-right md:pr-5 lg:order-1 ">
+            <h4 className="text-white text-md md:text-xl font-semibold">
+              Download Games
+            </h4>
+            <p className="text-gray-400 md:font-bold">
               You can browse and download your games.
             </p>
           </div>
         </div>
-        <div className="flex p-2  mr-2 ">
-          <TbDeviceGamepad2 className="mr-2 text-4xl md:text-5xl text-yellow-400"></TbDeviceGamepad2>
+        <div className="flex p-2  mr-2  justify-self-left md:justify-self-start space-x-5">
+          <TbDeviceGamepad2 className="mr-2 text-4xl md:text-5xl text-yellow-400 "></TbDeviceGamepad2>
           <div>
             <h4 className="text-white text-md md:text-xl font-semibold">
               Play HTML5 Games
@@ -36,16 +36,18 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="flex p-2  mr-2 ">
-          <BsFillChatQuoteFill className="mr-2 text-4xl md:text-5xl text-yellow-400"></BsFillChatQuoteFill>
-          <div>
-            <h4 className="text-white text-md md:text-xl font-semibold">Real-Time Chat</h4>
+        <div className="flex p-2  mr-2 justify-self-left md:justify-self-end space-x-5">
+          <BsFillChatQuoteFill className="mr-2 text-4xl md:text-5xl text-yellow-400 md:order-2"></BsFillChatQuoteFill>
+          <div className="md:text-right md:pr-5">
+            <h4 className="text-white text-md md:text-xl font-semibold">
+              Real-Time Chat
+            </h4>
             <p className="text-gray-400 md:font-bold">
               You can communicate your teammates here.
             </p>
           </div>
         </div>
-        <div className="flex p-2  mr-2 ">
+        <div className="flex p-2  mr-2 justify-self-left md:justify-self-start  space-x-5 ">
           <BsHandIndexThumb className="mr-2 text-4xl md:text-5xl text-yellow-400"></BsHandIndexThumb>
           <div>
             <h4 className="text-white text-md md:text-xl font-semibold">
@@ -56,9 +58,9 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="flex p-2  mr-2 ">
-          <FaHeadphones className="mr-2 text-4xl md:text-5xl text-yellow-400"></FaHeadphones>
-          <div>
+        <div className="flex p-2  mr-2 justify-self-left md:justify-self-end space-x-5">
+          <FaHeadphones className="mr-2 text-4xl md:text-5xl text-yellow-400 md:order-2"></FaHeadphones>
+          <div className="md:text-right md:pr-5">
             <h4 className="text-white text-md md:text-xl font-semibold">
               Custom team pages
             </h4>
@@ -67,7 +69,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="flex p-2  mr-2 ">
+        <div className="flex p-2  mr-2 justify-self-left md:justify-self-start  space-x-5">
           <AiOutlineTeam className="mr-2 text-4xl md:text-5xl text-yellow-400"></AiOutlineTeam>
           <div>
             <h4 className="text-white text-md md:text-xl font-semibold">
@@ -78,9 +80,9 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="flex p-2  mr-2 ">
-          <AiFillTrophy className="mr-2 text-4xl md:text-5xl text-yellow-400"></AiFillTrophy>
-          <div>
+        <div className="flex p-2  mr-2 justify-self-left md:justify-self-end space-x-5">
+          <AiFillTrophy className="mr-2 text-4xl md:text-5xl text-yellow-400 md:order-2"></AiFillTrophy>
+          <div className="md:text-right md:pr-5">
             <h4 className="text-white text-md md:text-xl font-semibold">
               Create Tournaments
             </h4>
@@ -89,7 +91,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="flex p-2  mr-2 ">
+        <div className="flex p-2  mr-2 justify-self-left md:justify-self-start  space-x-5">
           <BiSupport className="mr-2 text-4xl md:text-5xl text-yellow-400"></BiSupport>
           <div>
             <h4 className="text-white text-md md:text-xl font-semibold">

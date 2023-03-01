@@ -73,10 +73,10 @@ const CommunityFeed = () => {
   return (
     <section className="bg-[#0e1015]">
       <div className="w-11/12 mx-auto py-10 grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        <div>
+        <div className="order-3 lg:order-1">
           <TrendingGames />
         </div>
-        <div className="lg:col-span-2 space-y-5">
+        <div className="order-1 lg:col-span-2 space-y-5 lg:order-2">
           <AddPost userinfo={userinfo} postRefetch={postRefetch} />
           {allposts ? (
             allposts?.map((post, i) => {
@@ -94,8 +94,8 @@ const CommunityFeed = () => {
             <p>No post found</p>
           )}
         </div>
-        <div>
-          <div className="space-y-5 sticky top-5">
+        <div className="order-2 lg:order-3">
+          <div className="space-y-5 sticky top-5 ">
             {friendReq?.length > 0 && (
               <FriendRequest
                 user={user}

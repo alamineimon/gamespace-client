@@ -9,7 +9,6 @@ import { FiMail } from "react-icons/fi";
 import "./Register.css";
 import { AuthContext } from "../../../context/AuthProvider";
 import { useDispatch, useSelector } from "react-redux";
-import { createUser } from "../../../slice/auth/authSlice";
 import useToken from "../../../Hooks/useToken/useToken";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 
@@ -30,7 +29,7 @@ const Register = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.from?.state.pathname || "/";
+  const from = location?.from?.state.pathname || "/";
 
   const dispatch = useDispatch();
   const { isError, error } = useSelector((state) => state.auth);
@@ -91,7 +90,7 @@ const Register = () => {
                     toast.success("Login Successfully");
                   } else {
                     navigate(from, { replace: true });
-                    alert("alrady User Create");
+                    toast.success(`Welcome back ${userInfo?.name}`);
                   }
                 });
             }
@@ -115,6 +114,7 @@ const Register = () => {
       .then((res) => res.json())
       .then((data) => {
         setCeateUserEmail(email);
+        navigate(from, { replace: true });
       });
   };
 
@@ -179,7 +179,10 @@ const Register = () => {
                     value: 6,
                     message: "Password must be 6 characters or length",
                   },
-                  pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "Password must be Strong" }
+                  pattern: {
+                    value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                    message: "Password must be Strong",
+                  },
                 })}
                 placeholder="Password"
                 className="input input-bordered w-full rounded-none input-primary text-gray-400 focus:text-white px-8"

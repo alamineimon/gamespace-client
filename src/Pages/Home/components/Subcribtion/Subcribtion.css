@@ -1,24 +1,23 @@
-.doangel{
-    transform: skew(-20deg);
+.doangel {
+  transform: skew(-20deg);
 }
-.videoo{
-    width: 100%;
-    position: relative;
-    transition: 0.5s;
+.videoo {
+  width: 100%;
+  position: relative;
+  transition: 0.5s;
 }
-.bgOverlay{
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+.bgOverlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
-.videoBg{
-    width: 100%;
-    height: 345px;
-    position: absolute;
-    margin-bottom: 10px;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    object-fit: cover;
+.videoBg {
+  width: 100%;
+  height: 345px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
 }
